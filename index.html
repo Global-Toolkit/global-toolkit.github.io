@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Global Toolkit — Fintech Learning</title>
 <meta name="description" content="Global Toolkit — educational fintech resources: SaaS, hosting, online tools and digital payments. Learn practical, neutral guides in English & French." />
 
@@ -110,7 +110,7 @@
   .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 15px;
+    padding: 18px;
     position: relative;
     z-index: 1;
     box-sizing: border-box;
@@ -156,7 +156,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
   }
   
@@ -176,7 +176,7 @@
   
   .brand {
     font-weight: 800;
-    font-size: 24px;
+    font-size: 22px;
     background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -187,22 +187,39 @@
   
   .topline {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .topline {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
   }
   
   .lang-switch {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     align-items: center;
     background: rgba(0, 212, 255, 0.1);
     padding: 6px;
     border-radius: 12px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 212, 255, 0.2);
-    flex-shrink: 0;
+    justify-content: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media (min-width: 768px) {
+    .lang-switch {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
   
   .lang-option {
@@ -232,11 +249,11 @@
   }
   
   .flag {
-    width: 24px;
-    height: 18px;
+    width: 28px;
+    height: 20px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -267,6 +284,18 @@
     align-items: center;
   }
   
+  @media(min-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr 380px;
+    }
+  }
+  
+  @media(min-width: 992px) {
+    .hero {
+      grid-template-columns: 1fr 420px;
+    }
+  }
+  
   .hero-card {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
     padding: 25px;
@@ -276,6 +305,18 @@
     overflow: hidden;
     border: 1px solid rgba(0, 212, 255, 0.15);
     backdrop-filter: blur(10px);
+  }
+  
+  @media(min-width: 768px) {
+    .hero-card {
+      padding: 30px;
+    }
+  }
+  
+  @media(min-width: 992px) {
+    .hero-card {
+      padding: 40px;
+    }
   }
   
   .hero-card::before {
@@ -295,25 +336,8 @@
     100% { background-position: -200% 0; }
   }
   
-  .hero-card::after {
-    content: '';
-    position: absolute;
-    top: 10%;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-    z-index: -1;
-    animation: rotate 20s infinite linear;
-  }
-  
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
   h1 {
-    margin: 0;
+    margin: 0 0 15px 0;
     font-size: 28px;
     color: white;
     font-weight: 800;
@@ -325,11 +349,41 @@
     text-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
   }
   
+  @media(min-width: 480px) {
+    h1 {
+      font-size: 32px;
+    }
+  }
+  
+  @media(min-width: 768px) {
+    h1 {
+      font-size: 36px;
+    }
+  }
+  
+  @media(min-width: 992px) {
+    h1 {
+      font-size: 42px;
+    }
+  }
+  
   .subtitle {
     margin-top: 12px;
     color: var(--muted);
     font-size: 16px;
     line-height: 1.5;
+  }
+  
+  @media(min-width: 768px) {
+    .subtitle {
+      font-size: 17px;
+    }
+  }
+  
+  @media(min-width: 992px) {
+    .subtitle {
+      font-size: 18px;
+    }
   }
   
   /* Modern benefits cards */
@@ -339,17 +393,31 @@
     margin-top: 20px;
   }
   
+  @media(min-width: 480px) {
+    .benefits {
+      gap: 16px;
+    }
+  }
+  
   .benefit {
     display: flex;
+    flex-direction: column;
     gap: 12px;
     align-items: flex-start;
     background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
+    padding: 18px;
     border-radius: 14px;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 212, 255, 0.1);
     backdrop-filter: blur(10px);
+  }
+  
+  @media(min-width: 480px) {
+    .benefit {
+      flex-direction: row;
+      align-items: center;
+    }
   }
   
   .benefit:hover {
@@ -360,8 +428,8 @@
   }
   
   .icon {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     flex-shrink: 0;
     border-radius: 10px;
     background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
@@ -370,14 +438,22 @@
     justify-content: center;
     color: white;
     font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    font-size: 18px;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
     transition: transform 0.3s ease;
+  }
+  
+  @media(min-width: 480px) {
+    .icon {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+    }
   }
   
   .benefit:hover .icon {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+    box-shadow: 0 6px 25px rgba(0, 212, 255, 0.5);
   }
   
   /* Modern CTA button */
@@ -385,7 +461,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     margin: 20px auto 0;
     padding: 14px 24px;
     background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
@@ -393,7 +469,7 @@
     border-radius: 12px;
     font-weight: 600;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     cursor: pointer;
@@ -404,9 +480,16 @@
     box-sizing: border-box;
   }
   
+  @media(min-width: 480px) {
+    .cta {
+      width: auto;
+      padding: 16px 28px;
+    }
+  }
+  
   .cta:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(0, 212, 255, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.5);
   }
   
   .cta:active {
@@ -435,13 +518,26 @@
   .grid-3 {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 16px;
     margin-top: 25px;
+  }
+  
+  @media(min-width: 768px) {
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  @media(min-width: 992px) {
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   
   .tile {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
-    padding: 20px;
+    padding: 22px;
     border-radius: 16px;
     box-shadow: var(--shadow-sm);
     height: 100%;
@@ -451,6 +547,19 @@
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
+  }
+  
+  @media(min-width: 768px) {
+    .tile {
+      padding: 25px;
+    }
+  }
+  
+  @media(min-width: 992px) {
+    .tile {
+      padding: 30px;
+      border-radius: 20px;
+    }
   }
   
   .tile:hover {
@@ -476,7 +585,7 @@
   }
   
   .tile h3 {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     font-size: 18px;
     font-weight: 700;
     color: white;
@@ -486,15 +595,28 @@
     background-clip: text;
   }
   
+  @media(min-width: 768px) {
+    .tile h3 {
+      font-size: 20px;
+    }
+  }
+  
   /* Modern FAQ section */
   .faq-section {
-    margin-top: 35px;
+    margin-top: 40px;
     padding: 30px 0;
     border-top: 1px solid rgba(0, 212, 255, 0.1);
   }
   
+  @media(min-width: 768px) {
+    .faq-section {
+      margin-top: 48px;
+      padding: 40px 0;
+    }
+  }
+  
   .faq-title {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 800;
     color: white;
     margin-bottom: 25px;
@@ -506,14 +628,21 @@
     background-clip: text;
   }
   
+  @media(min-width: 768px) {
+    .faq-title {
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
+  }
+  
   .faq-title::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
+    width: 60px;
+    height: 4px;
     background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
     border-radius: 2px;
   }
@@ -523,6 +652,12 @@
     gap: 12px;
     max-width: 800px;
     margin: 0 auto;
+  }
+  
+  @media(min-width: 480px) {
+    .faq-container {
+      gap: 16px;
+    }
   }
   
   .faq-item {
@@ -536,6 +671,13 @@
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
+  }
+  
+  @media(min-width: 768px) {
+    .faq-item {
+      padding: 24px;
+      border-radius: 20px;
+    }
   }
   
   .faq-item:hover {
@@ -564,14 +706,26 @@
     font-weight: 600;
     color: white;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     line-height: 1.4;
+  }
+  
+  @media(min-width: 768px) {
+    .faq-question {
+      font-size: 18px;
+    }
   }
   
   .faq-answer {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
+  }
+  
+  @media(min-width: 768px) {
+    .faq-answer {
+      font-size: 16px;
+    }
   }
   
   .faq-item .faq-answer {
@@ -590,9 +744,9 @@
   
   /* Modern footer */
   .footer {
-    margin-top: 35px;
-    padding: 25px 20px;
-    font-size: 14px;
+    margin-top: 40px;
+    padding: 25px;
+    font-size: 15px;
     color: var(--muted);
     text-align: center;
     background: rgba(17, 24, 39, 0.8);
@@ -602,6 +756,14 @@
     box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
+  }
+  
+  @media(min-width: 768px) {
+    .footer {
+      margin-top: 50px;
+      padding: 30px;
+      border-radius: 20px;
+    }
   }
   
   .footer::before {
@@ -620,41 +782,66 @@
   
   .muted {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
+  }
+  
+  @media(min-width: 768px) {
+    .muted {
+      font-size: 16px;
+      line-height: 1.6;
+    }
   }
   
   .contact-links {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    margin-top: 10px;
+    margin-top: 12px;
     flex-wrap: wrap;
+  }
+  
+  @media(min-width: 480px) {
+    .contact-links {
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+  
+  @media(min-width: 768px) {
+    .contact-links {
+      gap: 30px;
+    }
   }
   
   .social-link {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 15px;
+    gap: 10px;
+    padding: 12px 18px;
     background: rgba(0, 212, 255, 0.08);
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(0, 212, 255, 0.2);
     color: var(--text-light);
     font-weight: 500;
-    font-size: 14px;
-    flex: 1;
-    min-width: 120px;
+    width: 100%;
     justify-content: center;
     box-sizing: border-box;
+  }
+  
+  @media(min-width: 480px) {
+    .social-link {
+      width: auto;
+    }
   }
   
   .social-link:hover {
     background: rgba(0, 212, 255, 0.15);
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
     border-color: var(--electric-blue);
     text-decoration: none;
   }
@@ -666,12 +853,19 @@
     transition: transform 0.3s ease;
   }
   
+  @media(min-width: 768px) {
+    .icon-small {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
   .social-link:hover .icon-small {
     transform: scale(1.2);
   }
   
   .privacy-link {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   
   .privacy-link a {
@@ -686,134 +880,117 @@
   /* Modern illustration */
   .illustration {
     width: 100%;
-    max-width: 420px;
+    max-width: 100%;
     border-radius: 16px;
     display: block;
     box-shadow: var(--shadow-lg);
     transition: transform 0.5s ease;
     border: 1px solid rgba(0, 212, 255, 0.2);
-    margin: 0 auto;
+  }
+  
+  @media(min-width: 768px) {
+    .illustration {
+      border-radius: 20px;
+    }
   }
   
   .illustration:hover {
     transform: perspective(1000px) rotateY(5deg);
   }
   
-  /* ========== MOBILE RESPONSIVE STYLES ========== */
-  
-  /* Tablets and small desktops */
-  @media (min-width: 768px) {
-    .wrap { padding: 20px; }
-    header { padding: 25px; }
-    h1 { font-size: 32px; }
-    .subtitle { font-size: 17px; }
-    .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .benefit { padding: 18px; }
-    .icon { width: 45px; height: 45px; font-size: 18px; }
-    .cta { width: auto; padding: 16px 32px; }
-    .tile { padding: 25px; }
-    .tile h3 { font-size: 20px; }
-    .faq-title { font-size: 28px; }
-    .faq-question { font-size: 17px; }
-    .faq-answer { font-size: 15px; }
-    .social-link { flex: 0 1 auto; }
-    .contact-links { gap: 20px; }
-    .hero { grid-template-columns: 1fr 1fr; }
-  }
-  
-  /* Desktop and large screens */
-  @media (min-width: 1024px) {
-    .wrap { padding: 25px; }
-    header { padding: 30px; }
-    .brand { font-size: 26px; }
-    .brand-logo { height: 48px; }
-    h1 { font-size: 42px; }
-    .subtitle { font-size: 18px; }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 25px; }
-    .benefit { padding: 20px; }
-    .icon { width: 50px; height: 50px; font-size: 20px; }
-    .tile { padding: 30px; }
-    .tile h3 { font-size: 22px; }
-    .faq-title { font-size: 32px; }
-    .faq-question { font-size: 18px; }
-    .faq-answer { font-size: 16px; }
-    .contact-links { gap: 30px; }
-    .social-link { padding: 12px 20px; }
-  }
-  
-  /* Small mobile devices */
-  @media (max-width: 480px) {
-    .wrap { padding: 12px; }
-    header { padding: 18px; margin-bottom: 15px; }
-    .brand { font-size: 22px; }
-    .brand-logo { height: 36px; }
-    .lang-switch { padding: 5px; }
-    .lang-option { padding: 6px 10px; }
-    .lang-text { font-size: 13px; }
-    .flag { width: 22px; height: 16px; }
-    h1 { font-size: 26px; }
-    .subtitle { font-size: 15px; }
-    .hero-card { padding: 20px; }
-    .benefit { padding: 12px; gap: 10px; }
-    .icon { width: 36px; height: 36px; font-size: 14px; }
-    .grid-3 { gap: 12px; }
-    .tile { padding: 18px; }
-    .tile h3 { font-size: 17px; }
-    .faq-title { font-size: 22px; }
-    .faq-item { padding: 18px; }
-    .faq-question { font-size: 15px; }
-    .faq-answer { font-size: 14px; }
-    .footer { padding: 20px 15px; }
-    .contact-links { flex-direction: column; gap: 10px; }
-    .social-link { width: 100%; }
-    .muted { font-size: 13px; }
-  }
-  
-  /* Very small mobile devices */
-  @media (max-width: 360px) {
-    .topline { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .lang-switch { align-self: flex-start; }
-    .brand { font-size: 20px; }
-    h1 { font-size: 24px; }
-    .subtitle { font-size: 14px; }
-    .hero-card { padding: 18px; }
-    .benefit { flex-direction: column; align-items: flex-start; }
-    .icon { width: 40px; height: 40px; }
-    .tile { padding: 16px; }
-    .faq-item { padding: 16px; }
-    .faq-title { font-size: 20px; }
-  }
-  
-  /* Touch device optimizations */
-  @media (hover: none) {
-    .benefit:hover { transform: none; }
-    .tile:hover { transform: none; }
-    .faq-item:hover { transform: none; }
-    .cta:hover { transform: none; }
-    .social-link:hover { transform: none; }
-    .brand-logo:hover { transform: none; }
-    .flag:hover { transform: none; }
-    .lang-option:hover { transform: none; }
+  /* Touch-friendly improvements */
+  @media (hover: none) and (pointer: coarse) {
+    a::after, .benefit:hover .icon, .cta::after, .cta:hover, .faq-item:hover, .social-link:hover, .tile:hover, .brand-logo:hover, .flag:hover, .lang-option:hover {
+      transform: none !important;
+    }
     
-    /* Add touch feedback */
-    .cta:active { transform: scale(0.98); }
-    .tile:active { transform: translateY(-4px); }
-    .social-link:active { transform: translateY(-2px); }
+    .faq-item:active, .social-link:active, .tile:active {
+      transform: scale(0.98) !important;
+      transition: transform 0.1s ease;
+    }
+    
+    .cta:active {
+      transform: scale(0.98) !important;
+    }
+    
+    /* Increase tap targets */
+    .flag, .lang-option, .faq-item, .social-link, .tile {
+      min-height: 44px;
+    }
+    
+    .icon {
+      min-width: 45px;
+      min-height: 45px;
+    }
+    
+    .cta {
+      min-height: 50px;
+    }
+  }
+  
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Responsive adjustments for very small screens */
+  @media(max-width: 360px) {
+    .wrap {
+      padding: 12px;
+    }
+    
+    header {
+      padding: 15px;
+    }
+    
+    .brand-logo {
+      height: 35px;
+    }
+    
+    .brand {
+      font-size: 20px;
+    }
+    
+    .flag {
+      width: 24px;
+      height: 18px;
+    }
+    
+    .lang-text {
+      font-size: 13px;
+    }
+    
+    .hero-card, .tile, .faq-item {
+      padding: 18px;
+    }
+    
+    h1 {
+      font-size: 24px;
+    }
+    
+    .faq-title {
+      font-size: 22px;
+    }
   }
 </style>
 </head>
 <body>
-<!-- BODY CONTENT REMAINS EXACTLY THE SAME AS BEFORE -->
 <div class="wrap">
 
   <header>
     <div class="topline">
-      <div class="brand-container">
-        <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/592710128_122097271593151059_1191454036310843366_n.jpg" alt="Global Toolkit Logo" class="brand-logo">
-        <div>
-          <div class="brand">Global Toolkit</div>
-          <div class="muted lang-en">Educational fintech resources & guides</div>
-          <div class="muted lang-fr">Ressources éducatives fintech & guides</div>
+      <div>
+        <div class="brand-container">
+          <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/592710128_122097271593151059_1191454036310843366_n.jpg" alt="Global Toolkit Logo" class="brand-logo">
+          <div>
+            <div class="brand">Global Toolkit</div>
+            <div class="muted lang-en">Educational fintech resources & guides</div>
+            <div class="muted lang-fr">Ressources éducatives fintech & guides</div>
+          </div>
         </div>
       </div>
 
@@ -1197,9 +1374,6 @@ document.addEventListener('click', function(e) {
     });
   }
 });
-
-// Mobile touch enhancements
-document.addEventListener('touchstart', function() {}, {passive: true});
 </script>
 </body>
 </html>
