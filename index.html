@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<title>Global Toolkit — Fintech Learning</title>
-<meta name="description" content="Global Toolkit — educational fintech resources: SaaS, hosting, online tools and digital payments. Learn practical, neutral guides in English & French." />
+<title>Global Toolkit — Best Fintech Tools & Exclusive Deals</title>
+<meta name="description" content="Unbiased reviews & comparison guides for SaaS, hosting, online tools and digital payments. Get exclusive deals, discounts, and step-by-step tutorials." />
 
-<!-- OpenGraph (default English preview) -->
-<meta property="og:title" content="Global Toolkit — Fintech Learning" />
-<meta property="og:description" content="Educational fintech guides and comparisons: SaaS, online tools, and digital payment services. Learn practical, neutral guides." />
+<!-- OpenGraph -->
+<meta property="og:title" content="Global Toolkit — Best Fintech Tools & Exclusive Deals" />
+<meta property="og:description" content="Compare top fintech tools, get exclusive discounts, and make informed decisions. Unbiased reviews for SaaS, hosting, payments, and online tools." />
 <meta property="og:image" content="https://global-toolkit.github.io/assets/og-image.png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://global-toolkit.github.io/" />
 
-<!-- Import modern font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
   :root{
@@ -25,6 +26,8 @@
     --gradient-end:#4a90e2;
     --electric-blue:#00d4ff;
     --neon-purple:#9d4edd;
+    --success:#00d98b;
+    --warning:#ffb74d;
     --bg:#0a0f1c;
     --card:#111827;
     --muted:#94a3b8;
@@ -38,10 +41,8 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
-  /* Modern scroll behavior */
-  html {
-    scroll-behavior: smooth;
-  }
+  /* Global Styles */
+  html { scroll-behavior: smooth; }
   
   body {
     margin: 0;
@@ -56,67 +57,413 @@
     overflow-x: hidden;
   }
   
-  /* Animated background particles */
-  body::before {
-    content: '';
-    position: fixed;
+  /* AFFILIATE DISCLOSURE BANNER - ADDED */
+  .disclosure-banner {
+    background: linear-gradient(90deg, rgba(14, 102, 210, 0.15), rgba(157, 78, 221, 0.15));
+    padding: 10px 0;
+    text-align: center;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(1px 1px at 20% 30%, rgba(0, 212, 255, 0.4) 1px, transparent 0),
-      radial-gradient(1px 1px at 40% 70%, rgba(157, 78, 221, 0.4) 1px, transparent 0),
-      radial-gradient(1px 1px at 60% 20%, rgba(14, 102, 210, 0.4) 1px, transparent 0),
-      radial-gradient(1px 1px at 80% 40%, rgba(0, 212, 255, 0.4) 1px, transparent 0);
-    background-size: 200px 200px;
-    z-index: -1;
-    animation: float 20s infinite linear;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
   }
   
-  @keyframes float {
-    0% { transform: translateY(0) translateX(0); }
-    100% { transform: translateY(-100px) translateX(100px); }
+  .disclosure-banner .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 15px;
   }
   
-  a {
+  .disclosure-banner .muted {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+  }
+  
+  .disclosure-banner a {
     color: var(--electric-blue);
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  /* Trust Badges - ADDED */
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+  }
+  
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-light);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .badge i {
+    color: var(--electric-blue);
+  }
+  
+  /* Updated Hero Section */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .hero-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
     position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    backdrop-filter: blur(10px);
   }
   
-  a:hover {
-    text-decoration: none;
+  h1 {
+    margin: 0;
+    font-size: 32px;
     color: white;
-    text-shadow: 0 0 10px var(--electric-blue);
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
-  a::after {
+  .hero-subtitle {
+    margin-top: 12px;
+    font-size: 18px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  
+  .hero-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--electric-blue);
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  
+  /* Email Capture - ADDED */
+  .email-capture {
+    background: rgba(0, 212, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 25px 0;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .email-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .email-input {
+    flex: 1;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .email-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Updated Tiles for Affiliate Products */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 25px;
+  }
+  
+  .tile {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .tile-affiliate {
+    border-left: 4px solid var(--electric-blue);
+  }
+  
+  .tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  
+  .tile-badge {
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .tile-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--electric-blue);
+    margin: 10px 0;
+  }
+  
+  .price-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 15px;
+  }
+  
+  .tile-features {
+    margin: 15px 0;
+    padding-left: 20px;
+  }
+  
+  .tile-features li {
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .tile-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+    color: white;
+    border-radius: 12px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    text-decoration: none;
+  }
+  
+  .tile-cta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 212, 255, 0.5);
+  }
+  
+  /* Top Picks Section - ADDED */
+  .top-picks {
+    margin: 40px 0 25px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .section-title::after {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
     background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
-    transition: width 0.3s ease;
+    border-radius: 2px;
   }
   
-  a:hover::after {
+  /* Testimonials - ADDED */
+  .testimonials {
+    margin: 40px 0;
+  }
+  
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .testimonial {
+    background: rgba(17, 24, 39, 0.7);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+  }
+  
+  .testimonial-text {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .author-name {
+    font-weight: 600;
+    color: white;
+  }
+  
+  .author-title {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  
+  /* Feedback Form - ADDED */
+  .feedback-section {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+  }
+  
+  .feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .feedback-input, .feedback-textarea {
     width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
   }
   
+  .feedback-textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  /* Updated FAQ */
+  .faq-item {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    cursor: pointer;
+  }
+  
+  /* Updated Footer */
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+  }
+  
+  .footer-column h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .footer-column a {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    .hero { 
+      grid-template-columns: 3fr 2fr; /* Changed from 1fr 1fr to give more space to text */
+      gap: 30px;
+    }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-links { grid-template-columns: repeat(4, 1fr); }
+    .email-form { flex-direction: row; }
+    h1 { font-size: 40px; }
+    .illustration {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
+    h1 { font-size: 48px; }
+  }
+  
+  @media (max-width: 480px) {
+    .email-form { flex-direction: column; }
+    .hero-stats { justify-content: center; }
+    .footer-links { grid-template-columns: 1fr; }
+    .trust-badges { justify-content: center; }
+  }
+  
+  /* Keep existing styles for unchanged elements */
   .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 15px;
-    position: relative;
-    z-index: 1;
     box-sizing: border-box;
   }
   
-  /* Modern header with glass morphism and neon glow */
   header {
     padding: 20px;
     border-radius: 16px;
@@ -128,28 +475,6 @@
     box-shadow: var(--shadow-lg), var(--glow);
     margin-bottom: 20px;
     border: 1px solid rgba(0, 212, 255, 0.1);
-    animation: pulseGlow 4s infinite alternate;
-  }
-  
-  @keyframes pulseGlow {
-    0% { box-shadow: var(--shadow-lg), 0 0 20px rgba(0, 212, 255, 0.2); }
-    100% { box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 212, 255, 0.4); }
-  }
-  
-  header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--electric-blue), transparent);
-    animation: scanLine 3s infinite linear;
-  }
-  
-  @keyframes scanLine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
   }
   
   .brand-container {
@@ -165,13 +490,6 @@
     width: auto;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-  }
-  
-  .brand-logo:hover {
-    transform: translateY(-4px) rotate(5deg);
-    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
   }
   
   .brand {
@@ -181,16 +499,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -0.5px;
-    text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-  }
-  
-  .topline {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
   }
   
   .lang-switch {
@@ -202,7 +510,6 @@
     border-radius: 12px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 212, 255, 0.2);
-    flex-shrink: 0;
   }
   
   .lang-option {
@@ -212,12 +519,7 @@
     cursor: pointer;
     padding: 8px 12px;
     border-radius: 10px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .lang-option:hover {
-    background: rgba(0, 212, 255, 0.2);
-    transform: translateY(-3px);
+    transition: all 0.3s;
   }
   
   .lang-option.active {
@@ -225,268 +527,12 @@
     box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
   }
   
-  .lang-text {
-    font-size: 14px;
-    color: white;
-    font-weight: 600;
-  }
-  
   .flag {
     width: 24px;
     height: 18px;
     border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .flag:hover {
-    transform: scale(1.15) translateY(-3px);
-  }
-  
-  .flag.active {
-    opacity: 1;
-    box-shadow: 0 0 0 2px var(--electric-blue), 0 4px 15px rgba(0, 212, 255, 0.4);
-  }
-  
-  .flag.inactive {
-    opacity: 0.6;
-    filter: grayscale(0.3);
-  }
-  
-  main {
-    margin-top: 20px;
-  }
-  
-  /* Modern hero section */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    align-items: center;
-  }
-  
-  .hero-card {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(0, 212, 255, 0.15);
-    backdrop-filter: blur(10px);
-  }
-  
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple), var(--electric-blue));
-    background-size: 200% 100%;
-    animation: gradientFlow 3s infinite linear;
-  }
-  
-  @keyframes gradientFlow {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-  
-  .hero-card::after {
-    content: '';
-    position: absolute;
-    top: 10%;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-    z-index: -1;
-    animation: rotate 20s infinite linear;
-  }
-  
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  h1 {
-    margin: 0;
-    font-size: 28px;
-    color: white;
-    font-weight: 800;
-    line-height: 1.2;
-    background: linear-gradient(135deg, white, var(--electric-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
-  }
-  
-  .subtitle {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  /* Modern benefits cards */
-  .benefits {
-    display: grid;
-    gap: 12px;
-    margin-top: 20px;
-  }
-  
-  .benefit {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
-    border-radius: 14px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 212, 255, 0.1);
-    backdrop-filter: blur(10px);
-  }
-  
-  .benefit:hover {
-    transform: translateX(4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--electric-blue);
-    background: rgba(255, 255, 255, 0.08);
-  }
-  
-  .icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-    transition: transform 0.3s ease;
-  }
-  
-  .benefit:hover .icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
-  }
-  
-  /* Modern CTA button */
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin: 20px auto 0;
-    padding: 14px 24px;
-    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
-    color: white;
-    border-radius: 12px;
-    font-weight: 600;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .cta:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(0, 212, 255, 0.5);
-  }
-  
-  .cta:active {
-    transform: translateY(-2px);
-  }
-  
-  .cta::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-  
-  .cta:hover::after {
-    width: 300px;
-    height: 300px;
-  }
-  
-  /* Modern grid tiles */
-  .grid-3 {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-top: 25px;
-  }
-  
-  .tile {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: var(--shadow-sm);
-    height: 100%;
-    display: block;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 212, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-  }
-  
-  .tile:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--electric-blue);
-  }
-  
-  .tile::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--electric-blue), var(--neon-purple));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .tile:hover::before {
-    opacity: 1;
-  }
-  
-  .tile h3 {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    background: linear-gradient(135deg, var(--electric-blue), white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  /* Modern FAQ section */
   .faq-section {
     margin-top: 35px;
     padding: 30px 0;
@@ -506,18 +552,6 @@
     background-clip: text;
   }
   
-  .faq-title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
-    border-radius: 2px;
-  }
-  
   .faq-container {
     display: grid;
     gap: 12px;
@@ -525,70 +559,6 @@
     margin: 0 auto;
   }
   
-  .faq-item {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 212, 255, 0.1);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-  }
-  
-  .faq-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--electric-blue);
-  }
-  
-  .faq-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(157, 78, 221, 0.05));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .faq-item:hover::before {
-    opacity: 1;
-  }
-  
-  .faq-question {
-    font-weight: 600;
-    color: white;
-    font-size: 16px;
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  
-  .faq-answer {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  .faq-item .faq-answer {
-    display: none;
-  }
-  
-  .faq-item.expanded .faq-answer {
-    display: block;
-    animation: fadeIn 0.3s ease;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Modern footer */
   .footer {
     margin-top: 35px;
     padding: 25px 20px;
@@ -600,28 +570,6 @@
     border-radius: 16px;
     border: 1px solid rgba(0, 212, 255, 0.15);
     box-shadow: var(--shadow-md);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
-  }
-  
-  /* language classes */
-  .lang-en { display: block; }
-  .lang-fr { display: none; }
-  
-  .muted {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.5;
   }
   
   .contact-links {
@@ -640,50 +588,20 @@
     padding: 10px 15px;
     background: rgba(0, 212, 255, 0.08);
     border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s;
     border: 1px solid rgba(0, 212, 255, 0.2);
     color: var(--text-light);
     font-weight: 500;
     font-size: 14px;
-    flex: 1;
-    min-width: 120px;
-    justify-content: center;
-    box-sizing: border-box;
   }
   
-  .social-link:hover {
-    background: rgba(0, 212, 255, 0.15);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
-    border-color: var(--electric-blue);
-    text-decoration: none;
-  }
-  
-  .icon-small {
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
-    transition: transform 0.3s ease;
-  }
-  
-  .social-link:hover .icon-small {
-    transform: scale(1.2);
-  }
-  
-  .privacy-link {
-    margin-top: 15px;
-  }
-  
-  .privacy-link a {
+  .muted {
     color: var(--muted);
-    transition: color 0.3s ease;
+    font-size: 14px;
+    line-height: 1.5;
   }
   
-  .privacy-link a:hover {
-    color: var(--electric-blue);
-  }
-  
-  /* Modern illustration */
+  /* Illustration adjustments */
   .illustration {
     width: 100%;
     max-width: 420px;
@@ -693,127 +611,43 @@
     transition: transform 0.5s ease;
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin: 0 auto;
+    opacity: 0.9; /* Added to make text more readable */
   }
   
   .illustration:hover {
     transform: perspective(1000px) rotateY(5deg);
+    opacity: 1;
   }
   
-  /* ========== MOBILE RESPONSIVE STYLES ========== */
-  
-  /* Tablets and small desktops */
-  @media (min-width: 768px) {
-    .wrap { padding: 20px; }
-    header { padding: 25px; }
-    h1 { font-size: 32px; }
-    .subtitle { font-size: 17px; }
-    .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .benefit { padding: 18px; }
-    .icon { width: 45px; height: 45px; font-size: 18px; }
-    .cta { width: auto; padding: 16px 32px; }
-    .tile { padding: 25px; }
-    .tile h3 { font-size: 20px; }
-    .faq-title { font-size: 28px; }
-    .faq-question { font-size: 17px; }
-    .faq-answer { font-size: 15px; }
-    .social-link { flex: 0 1 auto; }
-    .contact-links { gap: 20px; }
-    .hero { grid-template-columns: 1fr 1fr; }
-  }
-  
-  /* Desktop and large screens */
-  @media (min-width: 1024px) {
-    .wrap { padding: 25px; }
-    header { padding: 30px; }
-    .brand { font-size: 26px; }
-    .brand-logo { height: 48px; }
-    h1 { font-size: 42px; }
-    .subtitle { font-size: 18px; }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 25px; }
-    .benefit { padding: 20px; }
-    .icon { width: 50px; height: 50px; font-size: 20px; }
-    .tile { padding: 30px; }
-    .tile h3 { font-size: 22px; }
-    .faq-title { font-size: 32px; }
-    .faq-question { font-size: 18px; }
-    .faq-answer { font-size: 16px; }
-    .contact-links { gap: 30px; }
-    .social-link { padding: 12px 20px; }
-  }
-  
-  /* Small mobile devices */
-  @media (max-width: 480px) {
-    .wrap { padding: 12px; }
-    header { padding: 18px; margin-bottom: 15px; }
-    .brand { font-size: 22px; }
-    .brand-logo { height: 36px; }
-    .lang-switch { padding: 5px; }
-    .lang-option { padding: 6px 10px; }
-    .lang-text { font-size: 13px; }
-    .flag { width: 22px; height: 16px; }
-    h1 { font-size: 26px; }
-    .subtitle { font-size: 15px; }
-    .hero-card { padding: 20px; }
-    .benefit { padding: 12px; gap: 10px; }
-    .icon { width: 36px; height: 36px; font-size: 14px; }
-    .grid-3 { gap: 12px; }
-    .tile { padding: 18px; }
-    .tile h3 { font-size: 17px; }
-    .faq-title { font-size: 22px; }
-    .faq-item { padding: 18px; }
-    .faq-question { font-size: 15px; }
-    .faq-answer { font-size: 14px; }
-    .footer { padding: 20px 15px; }
-    .contact-links { flex-direction: column; gap: 10px; }
-    .social-link { width: 100%; }
-    .muted { font-size: 13px; }
-  }
-  
-  /* Very small mobile devices */
-  @media (max-width: 360px) {
-    .topline { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .lang-switch { align-self: flex-start; }
-    .brand { font-size: 20px; }
-    h1 { font-size: 24px; }
-    .subtitle { font-size: 14px; }
-    .hero-card { padding: 18px; }
-    .benefit { flex-direction: column; align-items: flex-start; }
-    .icon { width: 40px; height: 40px; }
-    .tile { padding: 16px; }
-    .faq-item { padding: 16px; }
-    .faq-title { font-size: 20px; }
-  }
-  
-  /* Touch device optimizations */
-  @media (hover: none) {
-    .benefit:hover { transform: none; }
-    .tile:hover { transform: none; }
-    .faq-item:hover { transform: none; }
-    .cta:hover { transform: none; }
-    .social-link:hover { transform: none; }
-    .brand-logo:hover { transform: none; }
-    .flag:hover { transform: none; }
-    .lang-option:hover { transform: none; }
-    
-    /* Add touch feedback */
-    .cta:active { transform: scale(0.98); }
-    .tile:active { transform: translateY(-4px); }
-    .social-link:active { transform: translateY(-2px); }
-  }
+  /* Language classes */
+  .lang-en { display: block; }
+  .lang-fr { display: none; }
 </style>
 </head>
 <body>
-<!-- BODY CONTENT REMAINS EXACTLY THE SAME AS BEFORE -->
-<div class="wrap">
+<!-- AFFILIATE DISCLOSURE BANNER - ADDED -->
+<div class="disclosure-banner">
+  <div class="wrap">
+    <div class="muted lang-en">
+      <strong>Disclosure:</strong> We may earn affiliate commissions when you purchase through our links. 
+      <a href="#affiliate-disclosure">Learn how we make money →</a>
+    </div>
+    <div class="muted lang-fr">
+      <strong>Divulgation :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens. 
+      <a href="#affiliate-disclosure">Apprenez comment nous gagnons de l'argent →</a>
+    </div>
+  </div>
+</div>
 
+<div class="wrap">
   <header>
     <div class="topline">
       <div class="brand-container">
         <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/592710128_122097271593151059_1191454036310843366_n.jpg" alt="Global Toolkit Logo" class="brand-logo">
         <div>
           <div class="brand">Global Toolkit</div>
-          <div class="muted lang-en">Educational fintech resources & guides</div>
-          <div class="muted lang-fr">Ressources éducatives fintech & guides</div>
+          <div class="muted lang-en">Unbiased fintech reviews & exclusive deals</div>
+          <div class="muted lang-fr">Avis fintech impartiaux & offres exclusives</div>
         </div>
       </div>
 
@@ -829,217 +663,450 @@
         </div>
       </div>
     </div>
+    
+    <!-- TRUST BADGES - UPDATED -->
+    <div class="trust-badges">
+      <div class="badge">
+        <i class="fas fa-shield-alt"></i>
+        <span class="lang-en">Unbiased Reviews</span>
+        <span class="lang-fr">Avis Impartiaux</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-star"></i>
+        <span class="lang-en">Trusted Guidance</span>
+        <span class="lang-fr">Conseils Fiables</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-tag"></i>
+        <span class="lang-en">Exclusive Deals</span>
+        <span class="lang-fr">Offres Exclusives</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-lock"></i>
+        <span class="lang-en">Secure Comparison</span>
+        <span class="lang-fr">Comparaison Sécurisée</span>
+      </div>
+    </div>
   </header>
 
   <main>
+    <!-- UPDATED HERO SECTION -->
     <div class="hero">
       <section class="hero-card">
-        <h1 class="lang-en">Learn fintech tools, payments, and hosting</h1>
-        <h1 class="lang-fr">Apprenez les outils fintech, paiements et hébergement</h1>
+        <h1 class="lang-en">Find the Best Fintech Tools<br><span style="font-size: 32px; color: var(--electric-blue);">+ Exclusive Deals</span></h1>
+        <h1 class="lang-fr">Trouvez les Meilleurs Outils Fintech<br><span style="font-size: 32px; color: var(--electric-blue);">+ Offres Exclusives</span></h1>
 
-        <p class="subtitle lang-en">Neutral, practical guides and comparisons for SaaS, online tools, and digital payments — English & French.</p>
-        <p class="subtitle lang-fr">Guides pratiques et comparatifs pour SaaS, outils en ligne et paiements numériques — Anglais & Français.</p>
-
-        <div class="benefits" id="benefits">
-          <div class="benefit">
-            <div class="icon">1</div>
-            <div>
-              <strong class="lang-en">Practical lessons</strong>
-              <strong class="lang-fr">Leçons pratiques</strong>
-              <div class="muted lang-en">Step-by-step tutorials, no hype — just practical workflows. Our guides are designed for real-world applications with actionable insights.</div>
-              <div class="muted lang-fr">Tutoriels pas à pas, sans battage — seulement des procédures pratiques. Nos guides sont conçus pour des applications réelles avec des conseils exploitables.</div>
-            </div>
+        <p class="hero-subtitle lang-en">Unbiased reviews & comparison guides to help you choose the right SaaS, hosting, online Tools, builders and payment solutions. Save time and money with our verified recommendations.</p>
+        <p class="hero-subtitle lang-fr">Avis impartiaux & guides comparatifs pour choisir les bonnes solutions SaaS, hébergement, outils en ligne, constructeurs et paiement. Gagnez du temps et de l'argent avec nos recommandations vérifiées.</p>
+        
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">100+</span>
+            <span class="stat-label lang-en">tools in 1 place</span>
+            <span class="stat-label lang-fr">outils en 1 lieu</span>
           </div>
-
-          <div class="benefit">
-            <div class="icon">2</div>
-            <div>
-              <strong class="lang-en">Tool comparisons</strong>
-              <strong class="lang-fr">Comparatifs d'outils</strong>
-              <div class="muted lang-en">SaaS, hosting and online builders explained for small teams and individuals. We analyze pros, cons, pricing, and ideal use cases for each solution.</div>
-              <div class="muted lang-fr">SaaS, hébergement et constructeurs expliqués pour petites équipes et indépendants. Nous analysons les avantages, inconvénients, tarifs et cas d'usage idéaux.</div>
-            </div>
+          <div class="stat">
+            <span class="stat-number">15-40%</span>
+            <span class="stat-label lang-en">Exclusive Savings</span>
+            <span class="stat-label lang-fr">Économies Exclusives</span>
           </div>
-
-          <div class="benefit">
-            <div class="icon">3</div>
-            <div>
-              <strong class="lang-en">Payments explained</strong>
-              <strong class="lang-fr">Paiements expliqués</strong>
-              <div class="muted lang-en">Neutral guides to digital payment services and wallet basics (educational). Understand payment flows, security considerations, and integration options.</div>
-              <div class="muted lang-fr">Guides neutres sur les services de paiement numériques et notions de wallet (éducatif). Comprenez les flux de paiement, sécurité et options d'intégration.</div>
-            </div>
+          <div class="stat">
+            <span class="stat-number">1K+</span>
+            <span class="stat-label lang-en">monthly readers</span>
+            <span class="stat-label lang-fr">lecteurs mensuels</span>
           </div>
         </div>
 
-        <!-- CTA now directs to the 3 main sections -->
-        <a class="cta lang-en" href="#paths" role="button">Explore All Sections</a>
-        <a class="cta lang-fr" href="#paths" role="button">Explorer Toutes les Sections</a>
+        <!-- EMAIL CAPTURE - UPDATED -->
+        <div class="email-capture">
+          <div class="lang-en">
+            <strong>Get Our Free Comparison Guide:</strong> "Top 10 Fintech Tools 2026" + exclusive deals newsletter
+          </div>
+          <div class="lang-fr">
+            <strong>Obtenez Notre Guide Comparatif Gratuit :</strong> "Top 10 des Outils Fintech 2026" + newsletter d'offres exclusives
+          </div>
+          <form class="email-form" id="email-form">
+            <input type="email" class="email-input" placeholder="your@email.com" required>
+            <button type="submit" class="tile-cta" style="width: auto; padding: 14px 20px;">
+              <span class="lang-en">Get Free Guide</span>
+              <span class="lang-fr">Obtenir Guide Gratuit</span>
+            </button>
+          </form>
+          <div class="muted" style="font-size: 12px; margin-top: 10px;">
+            <span class="lang-en">No spam. Unsubscribe anytime.</span>
+            <span class="lang-fr">Pas de spam. Désabonnez-vous à tout moment.</span>
+          </div>
+        </div>
       </section>
 
-      <!-- Illustration / visual block -->
+      <!-- Illustration with adjusted opacity -->
       <aside>
         <img class="illustration" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9f3be2b6d6b1f8069a2b8b9a1c6f3f86"
              alt="Fintech illustration" />
         <div style="height:12px"></div>
-        <div class="muted lang-en">Three focused learning paths: SaaS / Online Tools / Digital Payments</div>
-        <div class="muted lang-fr">Trois parcours : SaaS / Outils en ligne / Paiements numériques</div>
+        <div class="muted lang-en">Three focused categories with verified reviews and exclusive discounts</div>
+        <div class="muted lang-fr">Trois catégories ciblées avec des avis vérifiés et des réductions exclusives</div>
       </aside>
     </div>
 
-    <!-- 3 tiles for future landing pages -->
-    <section class="grid-3" id="paths" aria-label="Paths">
-      <a class="tile" href="https://global-toolkit.github.io/saas-&-web-hosting" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">
-        <h3 class="lang-en">SaaS & Web Hosting</h3>
-        <h3 class="lang-fr">SaaS & Hébergement web</h3>
-        <p class="muted lang-en">Comprehensive guides and detailed comparisons for hosting providers, server infrastructure choices, and SaaS operational strategies. Learn about cloud solutions, deployment options, and maintenance best practices.</p>
-        <p class="muted lang-fr">Guides complets et comparatifs détaillés pour fournisseurs d'hébergement, choix d'infrastructure serveur et stratégies opérationnelles SaaS. Découvrez les solutions cloud, options de déploiement et bonnes pratiques.</p>
-      </a>
-
-      <a class="tile" href="https://global-toolkit.github.io/onlinetools" data-base-url="https://global-toolkit.github.io/onlinetools">
-        <h3 class="lang-en">Online Tools & Builders</h3>
-        <h3 class="lang-fr">Outils en ligne & Constructeurs</h3>
-        <p class="muted lang-en">Website builders, VPN services, productivity applications — practical recommendations and step-by-step tutorials. We cover automation tools, collaboration platforms, and digital workspace optimization techniques.</p>
-        <p class="muted lang-fr">Constructeurs de sites, services VPN, applications de productivité — recommandations pratiques et tutoriels étape par étape. Nous couvrons les outils d'automatisation, plateformes collaboratives et techniques d'optimisation.</p>
-      </a>
-
-      <a class="tile" href="https://global-toolkit.github.io/payments" data-base-url="https://global-toolkit.github.io/payments">
-        <h3 class="lang-en">Digital Payment Services</h3>
-        <h3 class="lang-fr">Services de paiement numérique</h3>
-        <p class="muted lang-en">Educational content about payment processing flows, card networks, digital wallets and integration fundamentals (neutral, educational). Understand transaction security, compliance requirements, and global payment systems.</p>
-        <p class="muted lang-fr">Contenu éducatif sur les flux de traitement des paiements, réseaux de cartes, portefeuilles numériques et bases de l'intégration (neutre, éducatif). Comprenez la sécurité des transactions, exigences de conformité et systèmes mondiaux.</p>
-      </a>
+    <!-- TOP PICKS SECTION - ADDED -->
+    <section class="top-picks">
+      <h2 class="section-title lang-en">Our Top Picks This Month</h2>
+      <h2 class="section-title lang-fr">Nos Choix du Mois</h2>
+      <p class="muted" style="text-align: center; margin-bottom: 30px;">
+        <span class="lang-en">Based on performance, value, and user feedback. Updated regularly.</span>
+        <span class="lang-fr">Basé sur les performances, la valeur et les retours utilisateurs. Mis à jour régulièrement.</span>
+      </p>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- UPDATED PRODUCT TILES -->
+    <section class="grid-3" id="paths" aria-label="Paths">
+      <div class="tile tile-affiliate">
+        <div class="tile-header">
+          <div>
+            <h3 class="lang-en">SaaS & Web Hosting</h3>
+            <h3 class="lang-fr">SaaS & Hébergement web</h3>
+          </div>
+          <span class="tile-badge lang-en">Best for startups</span>
+          <span class="tile-badge lang-fr">Meilleur pour startups</span>
+        </div>
+        
+        <p class="tile-price lang-en">High-value hosting deals</p>
+        <p class="tile-price lang-fr">Offres d'hébergement à haute valeur</p>
+        
+        <p class="price-note lang-en">Speed & reliability recommendations</p>
+        <p class="price-note lang-fr">Recommandations vitesse & fiabilité</p>
+        
+        <ul class="tile-features">
+          <li class="lang-en">Comprehensive hosting comparisons</li>
+          <li class="lang-fr">Comparatifs d'hébergement complets</li>
+          <li class="lang-en">Exclusive discounts up to 60%</li>
+          <li class="lang-fr">Réductions exclusives jusqu'à 60%</li>
+          <li class="lang-en">Step-by-step setup tutorials</li>
+          <li class="lang-fr">Tutoriels d'installation étape par étape</li>
+        </ul>
+        
+        <a class="tile-cta" href="https://global-toolkit.github.io/saas-&-web-hosting" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">
+          <span class="lang-en">View Top Providers & Deals</span>
+          <span class="lang-fr">Voir les Meilleurs & Offres</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="tile tile-affiliate">
+        <div class="tile-header">
+          <div>
+            <h3 class="lang-en">Online Tools & Builders</h3>
+            <h3 class="lang-fr">Outils en ligne & Constructeurs</h3>
+          </div>
+          <span class="tile-badge lang-en">Best for creators</span>
+          <span class="tile-badge lang-fr">Meilleur pour créateurs</span>
+        </div>
+        
+        <p class="tile-price lang-en">Hand-picked free and paid tools</p>
+        <p class="tile-price lang-fr">Outils gratuits et payants sélectionnés</p>
+        
+        <p class="price-note lang-en">+ Premium features compared</p>
+        <p class="price-note lang-fr">+ Fonctions premium comparées</p>
+        
+        <ul class="tile-features">
+          <li class="lang-en">Website builder comparisons</li>
+          <li class="lang-fr">Comparatifs de constructeurs de sites</li>
+          <li class="lang-en">VPN service recommendations</li>
+          <li class="lang-fr">Recommandations de services VPN</li>
+          <li class="lang-en">Productivity tool roundups</li>
+          <li class="lang-fr">Sélections d'outils de productivité</li>
+        </ul>
+        
+        <a class="tile-cta" href="https://global-toolkit.github.io/onlinetools" data-base-url="https://global-toolkit.github.io/onlinetools">
+          <span class="lang-en">Compare Tools & Save</span>
+          <span class="lang-fr">Comparer Outils & Économiser</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="tile tile-affiliate">
+        <div class="tile-header">
+          <div>
+            <h3 class="lang-en">Digital Payment Services</h3>
+            <h3 class="lang-fr">Services de paiement numérique</h3>
+          </div>
+          <span class="tile-badge lang-en">Best for e-commerce</span>
+          <span class="tile-badge lang-fr">Meilleur pour e-commerce</span>
+        </div>
+        
+        <p class="tile-price lang-en">Lowest fee comparisons</p>
+        <p class="tile-price lang-fr">Comparatifs des frais les plus bas</p>
+        
+        <p class="price-note lang-en">+ Setup fee waivers available</p>
+        <p class="price-note lang-fr">+ Frais d'installation annulés</p>
+        
+        <ul class="tile-features">
+          <li class="lang-en">Payment processor comparisons</li>
+          <li class="lang-fr">Comparatifs de processeurs de paiement</li>
+          <li class="lang-en">Security & compliance guides</li>
+          <li class="lang-fr">Guides sécurité & conformité</li>
+          <li class="lang-en">Integration tutorials</li>
+          <li class="lang-fr">Tutoriels d'intégration</li>
+        </ul>
+        
+        <a class="tile-cta" href="https://global-toolkit.github.io/payments" data-base-url="https://global-toolkit.github.io/payments">
+          <span class="lang-en">View Payment Solutions</span>
+          <span class="lang-fr">Voir Solutions Paiement</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS - UPDATED -->
+    <section class="testimonials">
+      <h2 class="section-title lang-en">What Our Readers Say</h2>
+      <h2 class="section-title lang-fr">Ce que Disent Nos Lecteurs</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-text lang-en">
+            "Clear, simple, and helpful reviews."
+          </div>
+          <div class="testimonial-text lang-fr">
+            "Avis clairs, simples et utiles."
+          </div>
+          <div class="testimonial-author">
+            <div>
+              <div class="author-name">Name A. Job Title</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-text lang-en">
+            "Clear, simple, and helpful reviews."
+          </div>
+          <div class="testimonial-text lang-fr">
+            "Avis clairs, simples et utiles."
+          </div>
+          <div class="testimonial-author">
+            <div>
+              <div class="author-name">Name B. Job Title</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-text lang-en">
+            "Clear, simple, and helpful reviews."
+          </div>
+          <div class="testimonial-text lang-fr">
+            "Avis clairs, simples et utiles."
+          </div>
+          <div class="testimonial-author">
+            <div>
+              <div class="author-name">Name C. Job Title</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK SECTION - ADDED -->
+    <section id="feedback" class="feedback-section">
+      <h2 class="section-title lang-en">Share Your Feedback</h2>
+      <h2 class="section-title lang-fr">Partagez Vos Retours</h2>
+      <p class="muted" style="text-align: center; margin-bottom: 30px;">
+        <span class="lang-en">We value your experience. Tell us what you think about our guides and recommendations.</span>
+        <span class="lang-fr">Nous valorisons votre expérience. Dites-nous ce que vous pensez de nos guides et recommandations.</span>
+      </p>
+      
+      <div class="feedback-form">
+        <form id="visitor-feedback">
+          <input type="text" class="feedback-input" placeholder="Your name (optional)" id="feedback-name">
+          <input type="email" class="feedback-input" placeholder="Your email (optional)" id="feedback-email">
+          <textarea class="feedback-textarea" placeholder="Your feedback..." id="feedback-message" required></textarea>
+          <button type="submit" class="tile-cta" style="width: 100%;">
+            <span class="lang-en">Submit Feedback</span>
+            <span class="lang-fr">Envoyer Retour</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- AFFILIATE DISCLOSURE DETAILED - ADDED -->
+    <section id="affiliate-disclosure" class="faq-section">
+      <h2 class="section-title lang-en">Affiliate Disclosure & How We Make Money</h2>
+      <h2 class="section-title lang-fr">Divulgation d'Affiliation & Comment Nous Gagnons de l'Argent</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item" onclick="this.classList.toggle('expanded')">
+          <div class="faq-question lang-en">How does Global Toolkit make money?</div>
+          <div class="faq-question lang-fr">Comment Global Toolkit gagne-t-il de l'argent?</div>
+          <div class="faq-answer lang-en">
+            We earn affiliate commissions when readers purchase products/services through our links. These commissions don't cost you extra—they're paid by the companies as referral fees. This allows us to maintain the site, conduct thorough testing, and provide free educational content.
+          </div>
+          <div class="faq-answer lang-fr">
+            Nous gagnons des commissions d'affiliation lorsque les lecteurs achètent des produits/services via nos liens. Ces commissions ne vous coûtent rien de plus—elles sont payées par les entreprises comme frais de référence. Cela nous permet de maintenir le site, de réaliser des tests approfondis et de fournir du contenu éducatif gratuit.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('expanded')">
+          <div class="faq-question lang-en">Does this affect your recommendations?</div>
+          <div class="faq-question lang-fr">Cela affecte-t-il vos recommandations?</div>
+          <div class="faq-answer lang-en">
+            We maintain editorial independence. Our testing methodology is consistent across all products, and we only recommend tools we genuinely believe provide value. Higher commission rates don't influence our rankings—we prioritize performance, features, and user experience.
+          </div>
+          <div class="faq-answer lang-fr">
+            Nous maintenons notre indépendance éditoriale. Notre méthodologie de test est cohérente pour tous les produits, et nous ne recommandons que les outils que nous croyons vraiment offrir de la valeur. Les taux de commission plus élevés n'influencent pas nos classements—nous priorisons les performances, fonctionnalités et expérience utilisateur.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPDATED FAQ -->
     <section class="faq-section">
       <h2 class="faq-title lang-en">Frequently Asked Questions</h2>
       <h2 class="faq-title lang-fr">Questions Fréquemment Posées</h2>
       
       <div class="faq-container">
-        <!-- FAQ 1 -->
         <div class="faq-item" onclick="this.classList.toggle('expanded')">
-          <div class="faq-question lang-en">What is a VPN and why is it important for online privacy and security?</div>
-          <div class="faq-question lang-fr">Qu'est-ce qu'un VPN et pourquoi est-il important pour la confidentialité et la sécurité en ligne?</div>
+          <div class="faq-question lang-en">How often do you update your recommendations and deals?</div>
+          <div class="faq-question lang-fr">À quelle fréquence mettez-vous à jour vos recommandations et offres?</div>
           <div class="faq-answer lang-en">
-            A VPN (Virtual Private Network) creates an encrypted tunnel between your device and the internet, hiding your IP address and protecting your data from hackers, ISPs, and surveillance. It's essential for secure public Wi-Fi use, bypassing geo-restrictions, and maintaining online anonymity.
+            We review all top recommendations monthly and update deals weekly. Our comparison data is refreshed quarterly to reflect pricing changes, feature updates, and performance improvements from providers.
           </div>
           <div class="faq-answer lang-fr">
-            Un VPN (Réseau Privé Virtuel) crée un tunnel chiffré entre votre appareil et Internet, masquant votre adresse IP et protégeant vos données des pirates, FAI et surveillance. Il est essentiel pour une utilisation sécurisée du Wi-Fi public, contourner les restrictions géographiques et maintenir l'anonymat en ligne.
+            Nous révisons toutes les principales recommandations mensuellement et mettons à jour les offres hebdomadairement. Nos données comparatives sont rafraîchies trimestriellement pour refléter les changements de prix, mises à jour de fonctionnalités et améliorations de performance des fournisseurs.
           </div>
         </div>
 
-        <!-- FAQ 2 -->
         <div class="faq-item" onclick="this.classList.toggle('expanded')">
-          <div class="faq-question lang-en">What are the main differences between traditional banking and digital payment services?</div>
-          <div class="faq-question lang-fr">Quelles sont les principales différences entre les services bancaires traditionnels et les services de paiement numérique?</div>
+          <div class="faq-question lang-en">Which hosting provider is best for beginners with a limited budget?</div>
+          <div class="faq-question lang-fr">Quel hébergeur est le meilleur pour les débutants avec un budget limité?</div>
           <div class="faq-answer lang-en">
-            Traditional banks offer physical branches, established regulatory protections, and comprehensive financial services. Digital payment services provide faster transactions, lower fees, global accessibility, and seamless integration with e-commerce platforms, but may have different regulatory frameworks and security measures.
+            Several hosting providers offer affordable beginner-friendly plans. The best choice depends on what you need—simplicity, speed, or long-term scalability.
+            On our site, we highlight hosting options that are easy to set up, include one-click WordPress installation, provide support for new users, and offer money-back guarantees. You can compare different beginner plans in our hosting section to see which fits your budget and requirements.
           </div>
           <div class="faq-answer lang-fr">
-            Les banques traditionnelles offrent des agences physiques, des protections réglementaires établies et des services financiers complets. Les services de paiement numérique offrent des transactions plus rapides, des frais réduits, une accessibilité mondiale et une intégration transparente avec les plateformes de commerce électronique, mais peuvent avoir des cadres réglementaires et des mesures de sécurité différents.
+            Plusieurs hébergeurs proposent des plans abordables et adaptés aux débutants. Le meilleur choix dépend de ce dont vous avez besoin—simplicité, vitesse ou évolutivité à long terme.
+            Sur notre site, nous mettons en avant les options d'hébergement faciles à configurer, incluent l'installation WordPress en un clic, offrent un support pour les nouveaux utilisateurs et proposent des garanties de remboursement. Vous pouvez comparer différents plans pour débutants dans notre section hébergement pour voir lequel correspond à votre budget et à vos besoins.
           </div>
         </div>
 
-        <!-- FAQ 3 -->
         <div class="faq-item" onclick="this.classList.toggle('expanded')">
-          <div class="faq-question lang-en">What are the key factors to consider when choosing a web hosting provider?</div>
-          <div class="faq-question lang-fr">Quels sont les facteurs clés à considérer lors du choix d'un fournisseur d'hébergement web?</div>
+          <div class="faq-question lang-en">Do you test all the tools you recommend?</div>
+          <div class="faq-question lang-fr">Testez-vous tous les outils que vous recommandez?</div>
           <div class="faq-answer lang-en">
-            Consider uptime guarantees (99.9%+), loading speed, customer support quality, scalability options, security features (SSL, backups), pricing transparency, server locations, and specific needs like e-commerce support, CMS compatibility, and email hosting capabilities.
+            We combine hands-on testing (when possible) with research from verified sources, real user experiences, and official performance data. This approach helps us give balanced, practical recommendations without bias.
           </div>
           <div class="faq-answer lang-fr">
-            Considérez les garanties de disponibilité (99.9%+), la vitesse de chargement, la qualité du support client, les options d'évolutivité, les fonctionnalités de sécurité (SSL, sauvegardes), la transparence des prix, les emplacements des serveurs, et les besoins spécifiques comme le support e-commerce, la compatibilité CMS et les capacités d'hébergement email.
+            Nous combinons des tests pratiques (quand c'est possible) avec des recherches provenant de sources vérifiées, d'expériences réelles d'utilisateurs et de données de performances officielles. Cette approche nous aide à donner des recommandations équilibrées, pratiques et sans parti pris.
           </div>
         </div>
 
-        <!-- FAQ 4 -->
         <div class="faq-item" onclick="this.classList.toggle('expanded')">
-          <div class="faq-question lang-en">What should I look for when selecting website builders for different business needs?</div>
-          <div class="faq-question lang-fr">Que dois-je rechercher lors de la sélection de constructeurs de sites web pour différents besoins commerciaux?</div>
+          <div class="faq-question lang-en">Can I really save money using your exclusive deals?</div>
+          <div class="faq-question lang-fr">Puis-je vraiment économiser de l'argent avec vos offres exclusives?</div>
           <div class="faq-answer lang-en">
-            Evaluate ease of use (drag-and-drop interface), template quality and customization options, mobile responsiveness, e-commerce capabilities, SEO tools, integration options with third-party services, pricing structure, scalability, and customer support availability for your specific business requirements.
+            Yes. Many tools and services provide discounted pricing through their affiliate programs, and we highlight these offers whenever they are active. The exact savings depend on each provider, but using our links can often give you access to lower introductory prices or limited-time promotions.
           </div>
           <div class="faq-answer lang-fr">
-            Évaluez la facilité d'utilisation (interface glisser-déposer), la qualité des modèles et options de personnalisation, la réactivité mobile, les capacités e-commerce, les outils SEO, les options d'intégration avec des services tiers, la structure des prix, l'évolutivité et la disponibilité du support client pour vos besoins commerciaux spécifiques.
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="faq-item" onclick="this.classList.toggle('expanded')">
-          <div class="faq-question lang-en">How can automation tools improve productivity for small teams and individuals?</div>
-          <div class="faq-question lang-fr">Comment les outils d'automatisation peuvent-ils améliorer la productivité des petites équipes et des individus?</div>
-          <div class="faq-answer lang-en">
-            Automation tools streamline repetitive tasks like data entry, email management, social media posting, and report generation. They reduce manual errors, save time (up to 20+ hours monthly), ensure consistency, allow focus on strategic work, and can integrate multiple workflows into single platforms for small teams and solo entrepreneurs.
-          </div>
-          <div class="faq-answer lang-fr">
-            Les outils d'automatisation rationalisent les tâches répétitives comme la saisie de données, la gestion des emails, la publication sur les réseaux sociaux et la génération de rapports. Ils réduisent les erreurs manuelles, économisent du temps (jusqu'à 20+ heures mensuelles), assurent la cohérence, permettent de se concentrer sur le travail stratégique et peuvent intégrer plusieurs flux de travail dans des plateformes uniques pour les petites équipes et entrepreneurs individuels.
+            Oui. De nombreux outils et services proposent des tarifs réduits via leurs programmes d'affiliation, et nous mettons en avant ces offres dès qu'elles sont actives. Les économies exactes dépendent de chaque fournisseur, mais utiliser nos liens peut souvent vous donner accès à des prix d'introduction plus bas ou à des promotions limitées dans le temps.
           </div>
         </div>
       </div>
     </section>
 
+    <!-- UPDATED FOOTER WITH MORE LINKS -->
     <div class="footer">
-      <div class="contact-links">
-        <div class="social-link">
-          <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-          <a href="https://www.facebook.com/GlobalToolkit" aria-label="Facebook" id="facebook-link">Facebook</a>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4 class="lang-en">Categories</h4>
+          <h4 class="lang-fr">Catégories</h4>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en">Web Hosting</a>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr">Hébergement Web</a>
+          <a href="https://global-toolkit.github.io/onlinetools" class="lang-en">Website Builders</a>
+          <a href="https://global-toolkit.github.io/onlinetools" class="lang-fr">Constructeurs Sites</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-en">Payment Processors</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-fr">Processeurs Paiement</a>
         </div>
-        <div class="social-link">
-          <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/>
-            <path fill="#34A853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"/>
-            <path fill="#4A90E2" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"/>
-            <path fill="#FBBC05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.96 11.96 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"/>
-          </svg>
-          <a href="mailto:globaltoolkit.contact@gmail.com" id="email-link">globaltoolkit.contact@gmail.com</a>
+        <div class="footer-column">
+          <h4 class="lang-en">Resources</h4>
+          <h4 class="lang-fr">Ressources</h4>
+          <a href="#affiliate-disclosure" class="lang-en">Affiliate Disclosure</a>
+          <a href="#affiliate-disclosure" class="lang-fr">Divulgation Affiliation</a>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-en">Privacy Policy</a>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-fr">Politique Confidentialité</a>
+          <a href="#" class="lang-en">How We Test</a>
+          <a href="#" class="lang-fr">Comment Nous Testons</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Tools</h4>
+          <h4 class="lang-fr">Outils</h4>
+          <a href="#" class="lang-en">Comparison Calculator</a>
+          <a href="#" class="lang-fr">Calculateur Comparatif</a>
+          <a href="#" class="lang-en">Deals Tracker</a>
+          <a href="#" class="lang-fr">Suivi Offres</a>
+          <a href="#" class="lang-en">Beginner Guides</a>
+          <a href="#" class="lang-fr">Guides Débutants</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Connect</h4>
+          <h4 class="lang-fr">Contact</h4>
+          <div class="contact-links" style="justify-content: flex-start; flex-direction: column; align-items: flex-start; gap: 10px;">
+            <a href="https://www.facebook.com/GlobalToolkit" class="social-link" style="display: inline-flex; width: auto;">
+              <i class="fab fa-facebook" style="color: #1877F2;"></i>
+              <span>Facebook</span>
+            </a>
+            <a href="mailto:globaltoolkit.contact@gmail.com" class="social-link" style="display: inline-flex; width: auto;">
+              <i class="fas fa-envelope" style="color: #EA4335;"></i>
+              <span>Email</span>
+            </a>
+            <a href="#feedback" class="social-link" style="display: inline-flex; width: auto;">
+              <i class="fas fa-comment-alt" style="color: var(--electric-blue);"></i>
+              <span class="lang-en">Share Feedback</span>
+              <span class="lang-fr">Partager Feedback</span>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="privacy-link">
+      
+      <div class="privacy-link" style="margin-top: 25px;">
         <div class="muted lang-en">
-          <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy">Privacy & Disclaimer</a>
+          <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy">Privacy & Disclaimer</a> | 
+          <a href="#affiliate-disclosure">Affiliate Disclosure</a> | 
+          <a href="#">Terms of Use</a>
         </div>
         <div class="muted lang-fr">
-          <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité & Avertissement</a>
+          <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité & Avertissement</a> | 
+          <a href="#affiliate-disclosure">Divulgation Affiliation</a> | 
+          <a href="#">Conditions d'Utilisation</a>
         </div>
       </div>
+      
       <div style="height:6px"></div>
-      <div class="muted lang-en">This site provides educational content — not financial advice.</div>
-      <div class="muted lang-fr">Ce site fournit un contenu éducatif — pas un conseil financier.</div>
+      <div class="muted lang-en"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
+      <div class="muted lang-fr"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
       <div style="height:6px"></div>
-      <div class="muted lang-en">Global Toolkit © 2026 — Software & Fintech Education</div>
-      <div class="muted lang-fr">Global Toolkit © 2026 — Éducation Logicielle & Fintech</div>
+      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Fintech Tool Reviews & Exclusive Deals</div>
+      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils Fintech & Offres Exclusives</div>
     </div>
   </main>
-
 </div>
 
 <script>
-// Language switching functionality
+// Language switching functionality (keep existing but update for new elements)
 const langEnOption = document.getElementById('lang-en-option');
 const langFrOption = document.getElementById('lang-fr-option');
 let currentLang = 'en';
 
-// Function to switch language
 function switchLanguage(lang) {
   currentLang = lang;
   
-  // Show/hide language-specific elements
   const enElements = document.querySelectorAll('.lang-en');
   const frElements = document.querySelectorAll('.lang-fr');
   
   if (lang === 'fr') {
-    // Switch to French
     enElements.forEach(el => el.style.display = 'none');
     frElements.forEach(el => el.style.display = 'block');
     
-    // Update language options appearance
     langEnOption.classList.remove('active');
     langFrOption.classList.add('active');
     
-    // Update flags
     const flagEn = langEnOption.querySelector('.flag');
     const flagFr = langFrOption.querySelector('.flag');
     flagEn.classList.remove('active');
@@ -1047,25 +1114,17 @@ function switchLanguage(lang) {
     flagFr.classList.remove('inactive');
     flagFr.classList.add('active');
     
-    // Update HTML lang attribute for accessibility
     document.documentElement.setAttribute('lang', 'fr');
-    
-    // Store preference in localStorage
     localStorage.setItem('preferredLanguage', 'fr');
-    
-    // Update all external links with language parameter
     updateAllLinks('fr');
     
   } else {
-    // Switch to English (default)
     enElements.forEach(el => el.style.display = 'block');
     frElements.forEach(el => el.style.display = 'none');
     
-    // Update language options appearance
     langEnOption.classList.add('active');
     langFrOption.classList.remove('active');
     
-    // Update flags
     const flagEn = langEnOption.querySelector('.flag');
     const flagFr = langFrOption.querySelector('.flag');
     flagEn.classList.remove('inactive');
@@ -1073,37 +1132,27 @@ function switchLanguage(lang) {
     flagFr.classList.remove('active');
     flagFr.classList.add('inactive');
     
-    // Update HTML lang attribute for accessibility
     document.documentElement.setAttribute('lang', 'en');
-    
-    // Store preference in localStorage
     localStorage.setItem('preferredLanguage', 'en');
-    
-    // Update all external links with language parameter
     updateAllLinks('en');
   }
 }
 
-// Function to update all external links with language parameter
 function updateAllLinks(lang) {
-  // Get all links that have data-base-url attribute
   const links = document.querySelectorAll('a[data-base-url]');
   
   links.forEach(link => {
     const baseUrl = link.getAttribute('data-base-url');
-    // Remove any existing language parameter
     let cleanUrl = baseUrl.split('?')[0];
-    // Add language parameter
     link.setAttribute('href', `${cleanUrl}?lang=${lang}`);
   });
   
   // Update Facebook link with language reference
-  const fbLink = document.getElementById('facebook-link');
-  if (fbLink) {
-    fbLink.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}`);
-  }
+  const facebookLinks = document.querySelectorAll('a[href*="facebook.com/GlobalToolkit"]');
+  facebookLinks.forEach(link => {
+    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}`);
+  });
   
-  // Update email link
   const emailLink = document.getElementById('email-link');
   if (emailLink && lang === 'fr') {
     emailLink.setAttribute('href', 'mailto:globaltoolkit.contact@gmail.com?subject=Question%20-%20Français&body=Bonjour%20Global%20Toolkit%20');
@@ -1112,96 +1161,125 @@ function updateAllLinks(lang) {
   }
 }
 
-// Function to get language from URL parameter
 function getLangFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('lang');
 }
 
-// Event listeners for language options
-langEnOption.addEventListener('click', () => switchLanguage('en'));
-langFrOption.addEventListener('click', () => switchLanguage('fr'));
-
-// Initialize language based on user preference
 function initializeLanguage() {
-  // First check URL parameter (highest priority)
   const urlLang = getLangFromUrl();
-  
-  // Check for saved preference
   const savedLang = localStorage.getItem('preferredLanguage');
-  
-  // Check browser language
   const browserLang = navigator.language || navigator.userLanguage;
   const browserLangShort = browserLang.split('-')[0];
   
-  // Determine which language to use
   if (urlLang && (urlLang === 'en' || urlLang === 'fr')) {
-    // Use language from URL parameter
     switchLanguage(urlLang);
   } else if (savedLang) {
-    // Use saved preference
     switchLanguage(savedLang);
   } else if (browserLangShort === 'fr') {
-    // Use French if browser is set to French
     switchLanguage('fr');
   } else {
-    // Default to English
     switchLanguage('en');
   }
 }
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', initializeLanguage);
+// Event listeners
+langEnOption.addEventListener('click', () => switchLanguage('en'));
+langFrOption.addEventListener('click', () => switchLanguage('fr'));
 
-// Optional: Add keyboard navigation for accessibility
-document.addEventListener('keydown', (e) => {
-  if (e.altKey && e.key === 'e') {
-    e.preventDefault();
-    switchLanguage('en');
-  }
-  if (e.altKey && e.key === 'f') {
-    e.preventDefault();
-    switchLanguage('fr');
+// Email form submission
+document.getElementById('email-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = this.querySelector('.email-input').value;
+  
+  // Simple validation
+  if (email && email.includes('@')) {
+    // In a real implementation, you would send this to your email service
+    alert(currentLang === 'en' 
+      ? 'Thank you! Check your email for the free guide.' 
+      : 'Merci ! Vérifiez vos emails pour le guide gratuit.');
+    this.querySelector('.email-input').value = '';
+    
+    // You would typically add analytics or backend call here
+    // Example: fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
   }
 });
 
-// Smooth scroll for the "Explore All Sections" button
+// Feedback form submission
+document.getElementById('visitor-feedback')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('feedback-name').value;
+  const email = document.getElementById('feedback-email').value;
+  const message = document.getElementById('feedback-message').value;
+  
+  if (message.trim() === '') {
+    alert(currentLang === 'en' ? 'Please enter your feedback.' : 'Veuillez saisir vos commentaires.');
+    return;
+  }
+  
+  // Create a mailto link with the feedback
+  const subject = currentLang === 'en' ? 'Feedback from Global Toolkit' : 'Retour de Global Toolkit';
+  const body = `Name: ${name || 'Not provided'}\nEmail: ${email || 'Not provided'}\n\nFeedback:\n${message}`;
+  
+  window.location.href = `mailto:globaltoolkit.contact@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+  // Show confirmation
+  alert(currentLang === 'en' 
+    ? 'Thank you for your feedback! Your email client will open to send your message.' 
+    : 'Merci pour vos commentaires ! Votre client email va s\'ouvrir pour envoyer votre message.');
+  
+  // Clear the form
+  this.reset();
+});
+
+// FAQ functionality
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', function() {
+    // Close other FAQ items
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+      if (otherItem !== this && otherItem.classList.contains('expanded')) {
+        otherItem.classList.remove('expanded');
+      }
+    });
+  });
+});
+
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    if (this.getAttribute('href') === '#paths') {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
       e.preventDefault();
-      document.querySelector('#paths').scrollIntoView({
-        behavior: 'smooth'
-      });
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
     }
   });
 });
 
-// Initialize links with current language on page load
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-  // Wait a bit for language to be initialized
+  initializeLanguage();
+  
   setTimeout(() => {
     updateAllLinks(currentLang);
   }, 100);
+  
+  // Add keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (e.altKey && e.key === 'e') {
+      e.preventDefault();
+      switchLanguage('en');
+    }
+    if (e.altKey && e.key === 'f') {
+      e.preventDefault();
+      switchLanguage('fr');
+    }
+  });
 });
-
-// FAQ expansion functionality
-document.addEventListener('click', function(e) {
-  const faqItem = e.target.closest('.faq-item');
-  if (faqItem) {
-    // Close other FAQ items
-    document.querySelectorAll('.faq-item').forEach(item => {
-      if (item !== faqItem && item.classList.contains('expanded')) {
-        item.classList.remove('expanded');
-      }
-    });
-  }
-});
-
-// Mobile touch enhancements
-document.addEventListener('touchstart', function() {}, {passive: true});
 </script>
 </body>
 </html>
-
-
