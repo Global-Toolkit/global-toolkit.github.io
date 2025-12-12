@@ -242,6 +242,9 @@
     border-radius: 20px;
     font-size: 12px;
     font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    min-width: 120px; /* Ensures consistent width */
   }
   
   .tile-price {
@@ -404,6 +407,30 @@
     cursor: pointer;
   }
   
+  .faq-question {
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .faq-answer {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+  
+  .faq-item .faq-answer {
+    display: none;
+  }
+  
+  .faq-item.expanded .faq-answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+  
   /* Updated Footer */
   .footer-links {
     display: grid;
@@ -423,12 +450,40 @@
     color: var(--muted);
     margin-bottom: 8px;
     font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column a:hover {
+    color: var(--electric-blue);
+  }
+  
+  /* Connect Section - Updated */
+  .connect-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .connect-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+  }
+  
+  .connect-link:hover {
+    color: var(--electric-blue);
   }
   
   /* Responsive Styles */
   @media (min-width: 768px) {
     .hero { 
-      grid-template-columns: 3fr 2fr; /* Changed from 1fr 1fr to give more space to text */
+      grid-template-columns: 3fr 2fr;
       gap: 30px;
     }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -440,6 +495,16 @@
       max-width: 100%;
       height: auto;
       object-fit: contain;
+    }
+    .tile-badge {
+      min-width: 140px; /* Slightly larger on desktop */
+    }
+    /* CHANGED: Align connect links with other sections on desktop */
+    .footer-column:last-child {
+      align-items: center;
+    }
+    .connect-links {
+      align-items: center;
     }
   }
   
@@ -454,6 +519,11 @@
     .hero-stats { justify-content: center; }
     .footer-links { grid-template-columns: 1fr; }
     .trust-badges { justify-content: center; }
+    .tile-badge {
+      min-width: 110px; /* Smaller on mobile */
+      font-size: 11px;
+      padding: 3px 8px;
+    }
   }
   
   /* Keep existing styles for unchanged elements */
@@ -501,36 +571,123 @@
     background-clip: text;
   }
   
-  .lang-switch {
+  /* Language and Currency Selector - UPDATED */
+  .top-right-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     display: flex;
-    gap: 6px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+    z-index: 100;
+  }
+  
+  .lang-selector {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .lang-dropdown-btn {
+    display: flex;
     align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
     background: rgba(0, 212, 255, 0.1);
-    padding: 6px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .lang-dropdown-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--electric-blue);
+  }
+  
+  .lang-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    min-width: 160px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .lang-dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
   }
   
   .lang-option {
     display: flex;
     align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 10px;
-    transition: all 0.3s;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  }
+  
+  .lang-option:last-child {
+    border-bottom: none;
+  }
+  
+  .lang-option:hover {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--electric-blue);
   }
   
   .lang-option.active {
-    background: rgba(0, 212, 255, 0.25);
-    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--electric-blue);
   }
   
-  .flag {
-    width: 24px;
-    height: 18px;
-    border-radius: 5px;
+  .lang-option .coming-soon {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  
+  /* Currency Selector - ADDED */
+  .currency-selector {
+    display: flex;
+    gap: 6px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    padding: 6px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .currency-option {
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .currency-option:hover {
+    background: rgba(0, 212, 255, 0.2);
+  }
+  
+  .currency-option.active {
+    background: rgba(0, 212, 255, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
   }
   
   .faq-section {
@@ -611,7 +768,7 @@
     transition: transform 0.5s ease;
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin: 0 auto;
-    opacity: 0.9; /* Added to make text more readable */
+    opacity: 0.9;
   }
   
   .illustration:hover {
@@ -622,6 +779,44 @@
   /* Language classes */
   .lang-en { display: block; }
   .lang-fr { display: none; }
+  
+  /* Coming soon message style */
+  .coming-soon-msg {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--electric-blue);
+    font-style: italic;
+    animation: fadeInOut 2s ease;
+  }
+  
+  /* NEW: Footer links in single line */
+  .footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .footer-bottom-links a {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .footer-bottom-links a:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
 </style>
 </head>
 <body>
@@ -641,26 +836,40 @@
 
 <div class="wrap">
   <header>
-    <div class="topline">
-      <div class="brand-container">
-        <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/592710128_122097271593151059_1191454036310843366_n.jpg" alt="Global Toolkit Logo" class="brand-logo">
-        <div>
-          <div class="brand">Global Toolkit</div>
-          <div class="muted lang-en">Unbiased fintech reviews & exclusive deals</div>
-          <div class="muted lang-fr">Avis fintech impartiaux & offres exclusives</div>
+    <div class="brand-container">
+      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT%20logo.png" alt="Global Toolkit Logo" class="brand-logo">
+      <div>
+        <div class="brand">Global Toolkit</div>
+        <!-- CHANGED: Removed the subtitle line -->
+      </div>
+    </div>
+    
+    <!-- Language and Currency Selector - UPDATED -->
+    <div class="top-right-controls">
+      <div class="lang-selector">
+        <button class="lang-dropdown-btn" id="langDropdownBtn">
+          <i class="fas fa-globe"></i>
+          <span id="currentLangText">English</span>
+          <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+        </button>
+        <div class="lang-dropdown-content" id="langDropdown">
+          <a href="#" class="lang-option active" data-lang="en">
+            <span>English</span>
+          </a>
+          <a href="#" class="lang-option" data-lang="fr">
+            <span>Français</span>
+          </a>
+          <!-- CHANGED: Added Español option back -->
+          <a href="#" class="lang-option" data-lang="es">
+            <span>Español</span>
+            <span class="coming-soon">(soon)</span>
+          </a>
         </div>
       </div>
-
-      <!-- Language switcher -->
-      <div class="lang-switch" aria-label="Language selector">
-        <div class="lang-option active" id="lang-en-option" data-lang="en">
-          <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag active" title="English (EN)">
-          <span class="lang-text">English</span>
-        </div>
-        <div class="lang-option" id="lang-fr-option" data-lang="fr">
-          <img src="https://flagcdn.com/w20/fr.png" alt="Français" class="flag inactive" title="Français (FR)">
-          <span class="lang-text">Français</span>
-        </div>
+      
+      <div class="currency-selector" id="currencySelector">
+        <div class="currency-option active" data-currency="USD">USD</div>
+        <div class="currency-option" data-currency="EUR">EUR</div>
       </div>
     </div>
     
@@ -693,37 +902,38 @@
     <!-- UPDATED HERO SECTION -->
     <div class="hero">
       <section class="hero-card">
-        <h1 class="lang-en">Find the Best Fintech Tools<br><span style="font-size: 32px; color: var(--electric-blue);">+ Exclusive Deals</span></h1>
-        <h1 class="lang-fr">Trouvez les Meilleurs Outils Fintech<br><span style="font-size: 32px; color: var(--electric-blue);">+ Offres Exclusives</span></h1>
+        <h1 class="lang-en">Discover reliable tools for building and growing online<br><span style="font-size: 32px; color: var(--electric-blue);">+ Exclusive Deals</span></h1>
+        <h1 class="lang-fr">Découvrez des outils fiables pour construire et développer en ligne<br><span style="font-size: 32px; color: var(--electric-blue);">+ Offres Exclusives</span></h1>
 
         <p class="hero-subtitle lang-en">Unbiased reviews & comparison guides to help you choose the right SaaS, hosting, online Tools, builders and payment solutions. Save time and money with our verified recommendations.</p>
         <p class="hero-subtitle lang-fr">Avis impartiaux & guides comparatifs pour choisir les bonnes solutions SaaS, hébergement, outils en ligne, constructeurs et paiement. Gagnez du temps et de l'argent avec nos recommandations vérifiées.</p>
         
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-number">100+</span>
-            <span class="stat-label lang-en">tools in 1 place</span>
-            <span class="stat-label lang-fr">outils en 1 lieu</span>
+            <span class="stat-number">___+</span>
+            <span class="stat-label lang-en">Tools Reviewed</span>
+            <span class="stat-label lang-fr">Outils Analysés</span>
           </div>
           <div class="stat">
-            <span class="stat-number">15-40%</span>
+            <span class="stat-number">15-__%</span>
             <span class="stat-label lang-en">Exclusive Savings</span>
             <span class="stat-label lang-fr">Économies Exclusives</span>
           </div>
           <div class="stat">
             <span class="stat-number">1K+</span>
-            <span class="stat-label lang-en">monthly readers</span>
-            <span class="stat-label lang-fr">lecteurs mensuels</span>
+            <span class="stat-label lang-en">Monthly Visitors</span>
+            <span class="stat-label lang-fr">Visiteurs Mensuels</span>
           </div>
         </div>
 
         <!-- EMAIL CAPTURE - UPDATED -->
+        <!-- REPLACE THIS ENTIRE SECTION WITH YOUR BEEHIIV EMBED CODE -->
         <div class="email-capture">
           <div class="lang-en">
-            <strong>Get Our Free Comparison Guide:</strong> "Top 10 Fintech Tools 2026" + exclusive deals newsletter
+            <strong>Get Our Free Guide:</strong> "Top 10 Tools & Services 2026" + exclusive deals newsletter
           </div>
           <div class="lang-fr">
-            <strong>Obtenez Notre Guide Comparatif Gratuit :</strong> "Top 10 des Outils Fintech 2026" + newsletter d'offres exclusives
+            <strong>Obtenez Notre Guide Gratuit :</strong> "Top 10 des Outils & Services 2026" + newsletter d'offres exclusives
           </div>
           <form class="email-form" id="email-form">
             <input type="email" class="email-input" placeholder="your@email.com" required>
@@ -780,8 +990,8 @@
         <ul class="tile-features">
           <li class="lang-en">Comprehensive hosting comparisons</li>
           <li class="lang-fr">Comparatifs d'hébergement complets</li>
-          <li class="lang-en">Exclusive discounts up to 60%</li>
-          <li class="lang-fr">Réductions exclusives jusqu'à 60%</li>
+          <li class="lang-en">Exclusive discounts up to __%</li>
+          <li class="lang-fr">Réductions exclusives jusqu'à __%</li>
           <li class="lang-en">Step-by-step setup tutorials</li>
           <li class="lang-fr">Tutoriels d'installation étape par étape</li>
         </ul>
@@ -803,11 +1013,11 @@
           <span class="tile-badge lang-fr">Meilleur pour créateurs</span>
         </div>
         
-        <p class="tile-price lang-en">Hand-picked free and paid tools</p>
-        <p class="tile-price lang-fr">Outils gratuits et payants sélectionnés</p>
+        <p class="tile-price lang-en" data-price-usd="2.99">From $2.99/month</p>
+        <p class="tile-price lang-fr" data-price-usd="2.99">À partir de 2,99 $/mois</p>
         
-        <p class="price-note lang-en">+ Premium features compared</p>
-        <p class="price-note lang-fr">+ Fonctions premium comparées</p>
+        <p class="price-note lang-en">+ 30-day money-back guarantee</p>
+        <p class="price-note lang-fr">+ Garantie de remboursement 30 jours</p>
         
         <ul class="tile-features">
           <li class="lang-en">Website builder comparisons</li>
@@ -1017,47 +1227,50 @@
         <div class="footer-column">
           <h4 class="lang-en">Categories</h4>
           <h4 class="lang-fr">Catégories</h4>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en">Web Hosting</a>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr">Hébergement Web</a>
-          <a href="https://global-toolkit.github.io/onlinetools" class="lang-en">Website Builders</a>
-          <a href="https://global-toolkit.github.io/onlinetools" class="lang-fr">Constructeurs Sites</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-en">Payment Processors</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-fr">Processeurs Paiement</a>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
+          <a href="https://global-toolkit.github.io/onlinetools" class="lang-en" data-base-url="https://global-toolkit.github.io/onlinetools">Website Builders</a>
+          <a href="https://global-toolkit.github.io/onlinetools" class="lang-fr" data-base-url="https://global-toolkit.github.io/onlinetools">Constructeurs Sites</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Processors</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Processeurs Paiement</a>
         </div>
         <div class="footer-column">
           <h4 class="lang-en">Resources</h4>
           <h4 class="lang-fr">Ressources</h4>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy">Privacy</a>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
+          <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
+          <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
+          <!-- CHANGED: Affiliate Disclosure now links to in-page section -->
           <a href="#affiliate-disclosure" class="lang-en">Affiliate Disclosure</a>
           <a href="#affiliate-disclosure" class="lang-fr">Divulgation Affiliation</a>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-en">Privacy Policy</a>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-fr">Politique Confidentialité</a>
-          <a href="#" class="lang-en">How We Test</a>
-          <a href="#" class="lang-fr">Comment Nous Testons</a>
         </div>
         <div class="footer-column">
           <h4 class="lang-en">Tools</h4>
           <h4 class="lang-fr">Outils</h4>
-          <a href="#" class="lang-en">Comparison Calculator</a>
-          <a href="#" class="lang-fr">Calculateur Comparatif</a>
-          <a href="#" class="lang-en">Deals Tracker</a>
-          <a href="#" class="lang-fr">Suivi Offres</a>
-          <a href="#" class="lang-en">Beginner Guides</a>
-          <a href="#" class="lang-fr">Guides Débutants</a>
+          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Comparison Calculator</a>
+          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Calculateur Comparatif</a>
+          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Deals Tracker</a>
+          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Suivi Offres</a>
+          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Beginner Guides</a>
+          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Guides Débutants</a>
         </div>
         <div class="footer-column">
           <h4 class="lang-en">Connect</h4>
           <h4 class="lang-fr">Contact</h4>
-          <div class="contact-links" style="justify-content: flex-start; flex-direction: column; align-items: flex-start; gap: 10px;">
-            <a href="https://www.facebook.com/GlobalToolkit" class="social-link" style="display: inline-flex; width: auto;">
-              <i class="fab fa-facebook" style="color: #1877F2;"></i>
-              <span>Facebook</span>
-            </a>
-            <a href="mailto:globaltoolkit.contact@gmail.com" class="social-link" style="display: inline-flex; width: auto;">
-              <i class="fas fa-envelope" style="color: #EA4335;"></i>
+          <!-- CHANGED: Connect links layout -->
+          <div class="connect-links">
+            <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
+              <i class="fas fa-envelope"></i>
               <span>Email</span>
             </a>
-            <a href="#feedback" class="social-link" style="display: inline-flex; width: auto;">
-              <i class="fas fa-comment-alt" style="color: var(--electric-blue);"></i>
+            <a href="https://www.facebook.com/GlobalToolkit" class="connect-link">
+              <i class="fab fa-facebook"></i>
+              <span>Facebook</span>
+            </a>
+            <!-- FIXED: Share Feedback link with icon and text on same line -->
+            <a href="#feedback" class="connect-link">
+              <i class="fas fa-comment-alt"></i>
               <span class="lang-en">Share Feedback</span>
               <span class="lang-fr">Partager Feedback</span>
             </a>
@@ -1065,35 +1278,35 @@
         </div>
       </div>
       
-      <div class="privacy-link" style="margin-top: 25px;">
-        <div class="muted lang-en">
-          <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy">Privacy & Disclaimer</a> | 
-          <a href="#affiliate-disclosure">Affiliate Disclosure</a> | 
-          <a href="#">Terms of Use</a>
-        </div>
-        <div class="muted lang-fr">
-          <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité & Avertissement</a> | 
-          <a href="#affiliate-disclosure">Divulgation Affiliation</a> | 
-          <a href="#">Conditions d'Utilisation</a>
-        </div>
+      <!-- NEW: Footer bottom links in single line -->
+      <div class="footer-bottom-links">
+        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
+        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
+        <span class="separator">|</span>
+        <a href="#affiliate-disclosure" class="lang-en">Affiliate Disclosure</a>
+        <a href="#affiliate-disclosure" class="lang-fr">Divulgation Affiliation</a>
+        <span class="separator">|</span>
+        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
+        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
       </div>
       
       <div style="height:6px"></div>
       <div class="muted lang-en"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
       <div class="muted lang-fr"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
       <div style="height:6px"></div>
-      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Fintech Tool Reviews & Exclusive Deals</div>
-      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils Fintech & Offres Exclusives</div>
+      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
+      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils & Offres Exclusives</div>
     </div>
   </main>
 </div>
 
 <script>
-// Language switching functionality (keep existing but update for new elements)
-const langEnOption = document.getElementById('lang-en-option');
-const langFrOption = document.getElementById('lang-fr-option');
+// Language switching functionality
 let currentLang = 'en';
+let currentCurrency = 'USD';
+let exchangeRate = 1.0; // Default 1 USD = 1 USD
 
+// Function to switch language
 function switchLanguage(lang) {
   currentLang = lang;
   
@@ -1104,16 +1317,6 @@ function switchLanguage(lang) {
     enElements.forEach(el => el.style.display = 'none');
     frElements.forEach(el => el.style.display = 'block');
     
-    langEnOption.classList.remove('active');
-    langFrOption.classList.add('active');
-    
-    const flagEn = langEnOption.querySelector('.flag');
-    const flagFr = langFrOption.querySelector('.flag');
-    flagEn.classList.remove('active');
-    flagEn.classList.add('inactive');
-    flagFr.classList.remove('inactive');
-    flagFr.classList.add('active');
-    
     document.documentElement.setAttribute('lang', 'fr');
     localStorage.setItem('preferredLanguage', 'fr');
     updateAllLinks('fr');
@@ -1122,22 +1325,24 @@ function switchLanguage(lang) {
     enElements.forEach(el => el.style.display = 'block');
     frElements.forEach(el => el.style.display = 'none');
     
-    langEnOption.classList.add('active');
-    langFrOption.classList.remove('active');
-    
-    const flagEn = langEnOption.querySelector('.flag');
-    const flagFr = langFrOption.querySelector('.flag');
-    flagEn.classList.remove('inactive');
-    flagEn.classList.add('active');
-    flagFr.classList.remove('active');
-    flagFr.classList.add('inactive');
-    
     document.documentElement.setAttribute('lang', 'en');
     localStorage.setItem('preferredLanguage', 'en');
     updateAllLinks('en');
   }
+  
+  // Update dropdown button text
+  document.getElementById('currentLangText').textContent = lang === 'fr' ? 'Français' : 'English';
+  
+  // Update active state in dropdown
+  document.querySelectorAll('.lang-option').forEach(option => {
+    option.classList.remove('active');
+    if (option.getAttribute('data-lang') === lang) {
+      option.classList.add('active');
+    }
+  });
 }
 
+// CHANGED: Updated function to handle all links with language parameters
 function updateAllLinks(lang) {
   const links = document.querySelectorAll('a[data-base-url]');
   
@@ -1152,20 +1357,15 @@ function updateAllLinks(lang) {
   facebookLinks.forEach(link => {
     link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}`);
   });
-  
-  const emailLink = document.getElementById('email-link');
-  if (emailLink && lang === 'fr') {
-    emailLink.setAttribute('href', 'mailto:globaltoolkit.contact@gmail.com?subject=Question%20-%20Français&body=Bonjour%20Global%20Toolkit%20');
-  } else if (emailLink) {
-    emailLink.setAttribute('href', 'mailto:globaltoolkit.contact@gmail.com?subject=Question%20-%20English&body=Hello%20Global%20Toolkit%20');
-  }
 }
 
+// Function to get language from URL parameter
 function getLangFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('lang');
 }
 
+// Function to initialize language
 function initializeLanguage() {
   const urlLang = getLangFromUrl();
   const savedLang = localStorage.getItem('preferredLanguage');
@@ -1183,24 +1383,115 @@ function initializeLanguage() {
   }
 }
 
-// Event listeners
-langEnOption.addEventListener('click', () => switchLanguage('en'));
-langFrOption.addEventListener('click', () => switchLanguage('fr'));
+// Currency conversion functions
+async function fetchExchangeRate() {
+  try {
+    const response = await fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=EUR');
+    const data = await response.json();
+    return data.rates.EUR;
+  } catch (error) {
+    console.error('Failed to fetch exchange rate:', error);
+    return 0.92; // Fallback rate if API fails
+  }
+}
 
-// Email form submission
+function convertPrices() {
+  const priceElements = document.querySelectorAll('[data-price-usd]');
+  const symbol = currentCurrency === 'USD' ? '$' : '€';
+  
+  priceElements.forEach(el => {
+    const usdPrice = parseFloat(el.getAttribute('data-price-usd'));
+    let convertedPrice = usdPrice;
+    
+    if (currentCurrency === 'EUR') {
+      convertedPrice = usdPrice * exchangeRate;
+    }
+    
+    // Format price with 2 decimal places
+    const formattedPrice = convertedPrice.toFixed(2);
+    
+    if (currentLang === 'fr') {
+      el.textContent = `À partir de ${formattedPrice} ${symbol}/mois`;
+    } else {
+      el.textContent = `From ${symbol}${formattedPrice}/month`;
+    }
+  });
+}
+
+function switchCurrency(currency) {
+  currentCurrency = currency;
+  localStorage.setItem('preferredCurrency', currency);
+  
+  // Update active state in currency selector
+  document.querySelectorAll('.currency-option').forEach(option => {
+    option.classList.remove('active');
+    if (option.getAttribute('data-currency') === currency) {
+      option.classList.add('active');
+    }
+  });
+  
+  // Convert prices
+  convertPrices();
+}
+
+async function initializeCurrency() {
+  const savedCurrency = localStorage.getItem('preferredCurrency') || 'USD';
+  exchangeRate = await fetchExchangeRate();
+  switchCurrency(savedCurrency);
+}
+
+// Event listeners for language dropdown
+document.getElementById('langDropdownBtn').addEventListener('click', function() {
+  document.getElementById('langDropdown').classList.toggle('show');
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+  const dropdown = document.getElementById('langDropdown');
+  const button = document.getElementById('langDropdownBtn');
+  
+  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+
+// Language option clicks
+document.querySelectorAll('.lang-option').forEach(option => {
+  option.addEventListener('click', function(e) {
+    e.preventDefault();
+    const lang = this.getAttribute('data-lang');
+    
+    // Only switch if language is en or fr
+    if (lang === 'en' || lang === 'fr') {
+      switchLanguage(lang);
+    }
+    // For español, just close dropdown
+    document.getElementById('langDropdown').classList.remove('show');
+  });
+});
+
+// Currency option clicks
+document.querySelectorAll('.currency-option').forEach(option => {
+  option.addEventListener('click', function() {
+    const currency = this.getAttribute('data-currency');
+    switchCurrency(currency);
+  });
+});
+
+// Email form submission - CHANGED: Updated message
 document.getElementById('email-form')?.addEventListener('submit', function(e) {
   e.preventDefault();
   const email = this.querySelector('.email-input').value;
   
   // Simple validation
   if (email && email.includes('@')) {
-    // In a real implementation, you would send this to your email service
+    // Show updated message
     alert(currentLang === 'en' 
-      ? 'Thank you! Check your email for the free guide.' 
-      : 'Merci ! Vérifiez vos emails pour le guide gratuit.');
+      ? 'Thank you! We\'ll send you the free guide soon.' 
+      : 'Merci ! Nous vous enverrons le guide gratuit bientôt.');
     this.querySelector('.email-input').value = '';
     
-    // You would typically add analytics or backend call here
+    // In a real implementation, you would send this to your email service
     // Example: fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
   }
 });
@@ -1232,6 +1523,30 @@ document.getElementById('visitor-feedback')?.addEventListener('submit', function
   this.reset();
 });
 
+// Coming soon links
+document.querySelectorAll('.coming-soon-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Remove any existing message
+    const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
+    if (existingMsg) {
+      existingMsg.remove();
+    }
+    
+    // Create and append message
+    const msg = document.createElement('span');
+    msg.className = 'coming-soon-msg';
+    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+    this.parentNode.appendChild(msg);
+    
+    // Remove message after animation
+    setTimeout(() => {
+      msg.remove();
+    }, 2000);
+  });
+});
+
 // FAQ functionality
 document.querySelectorAll('.faq-item').forEach(item => {
   item.addEventListener('click', function() {
@@ -1241,6 +1556,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
         otherItem.classList.remove('expanded');
       }
     });
+    this.classList.toggle('expanded');
   });
 });
 
@@ -1248,7 +1564,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
-    if (href !== '#') {
+    if (href !== '#' && !this.classList.contains('coming-soon-link')) {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
@@ -1260,9 +1576,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Initialize
+// Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
   initializeLanguage();
+  initializeCurrency();
   
   setTimeout(() => {
     updateAllLinks(currentLang);
