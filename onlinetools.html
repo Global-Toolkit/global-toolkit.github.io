@@ -158,14 +158,14 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 22px; /* Slightly larger padding */
+    padding: 12px 22px;
     background: rgba(0, 212, 255, 0.1);
     border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 12px;
     color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
-    font-size: 16px; /* Increased font size */
+    font-size: 16px;
     transition: all 0.3s ease;
     cursor: pointer;
   }
@@ -178,22 +178,22 @@
   }
 
   .nav-btn i {
-    font-size: 18px; /* Slightly larger icon */
+    font-size: 18px;
   }
 
   /* Category Grid - Optimized for Desktop */
   .category-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px; /* Increased gap for better separation */
+    gap: 30px;
     margin: 30px 0;
   }
 
   /* On desktop, make it a single column for better vertical reading */
   @media (min-width: 768px) {
     .category-grid {
-      grid-template-columns: 1fr; /* Changed from 2fr to 1fr */
-      max-width: 900px; /* Optional: Constrain width for readability */
+      grid-template-columns: 1fr;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -201,7 +201,7 @@
 
   .category-card {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
-    padding: 30px; /* Slightly more padding */
+    padding: 30px;
     border-radius: 16px;
     border: 1px solid rgba(0, 212, 255, 0.1);
     transition: all 0.3s ease;
@@ -229,7 +229,7 @@
     background: rgba(17, 24, 39, 0.7);
     border-radius: 12px;
     padding: 20px;
-    margin: 20px 0; /* Increased margin */
+    margin: 20px 0;
     border: 1px solid rgba(0, 212, 255, 0.1);
   }
 
@@ -257,9 +257,9 @@
 
   .product-description {
     color: var(--muted);
-    font-size: 15px; /* Slightly larger font */
+    font-size: 15px;
     margin-bottom: 20px;
-    line-height: 1.6; /* Better line height for readability */
+    line-height: 1.6;
   }
 
   .review-btn {
@@ -293,7 +293,7 @@
   .comparison-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 800px; /* Increased min-width for more columns */
+    min-width: 900px;
   }
 
   .comparison-table th {
@@ -303,22 +303,49 @@
     font-weight: 700;
     color: white;
     border-bottom: 2px solid rgba(0, 212, 255, 0.2);
-    white-space: nowrap; /* Prevent headers from wrapping */
+    white-space: nowrap;
+  }
+
+  .comparison-table th .lang-en,
+  .comparison-table th .lang-fr {
+    display: none;
+  }
+
+  .comparison-table th .lang-en:first-child,
+  .comparison-table th .lang-fr:first-child {
+    display: inline;
   }
 
   .comparison-table td {
     padding: 15px;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
     color: var(--text-light);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
   }
 
-  .comparison-table tr:hover {
+  .comparison-table tr:hover td {
     background: rgba(0, 212, 255, 0.05);
   }
 
   .price-cell {
     font-weight: 700;
     color: var(--electric-blue);
+  }
+
+  /* Table row click message */
+  .row-click-message {
+    display: none;
+    position: absolute;
+    background: rgba(0, 212, 255, 0.9);
+    color: var(--bg);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 100;
+    pointer-events: none;
+    animation: fadeInOut 2s ease;
   }
 
   /* Table sections */
@@ -479,7 +506,6 @@
     h1 {
       font-size: 40px;
     }
-    /* Keep the single-column category grid for desktop as defined above */
   }
 
   @media (min-width: 1024px) {
@@ -487,7 +513,7 @@
       font-size: 48px;
     }
     .category-grid {
-      max-width: 950px; /* Slightly wider on larger screens */
+      max-width: 950px;
     }
   }
 
@@ -505,7 +531,7 @@
       gap: 10px;
     }
     .nav-btn {
-      font-size: 15px; /* Slightly smaller on mobile */
+      font-size: 15px;
       padding: 10px 18px;
     }
   }
@@ -548,7 +574,7 @@
 
   .brand {
     font-weight: 800;
-    font-size: 25px;
+    font-size: 23px;
     background: linear-gradient(135deg, #ffffff, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -712,12 +738,8 @@
   }
 
   /* Language classes */
-  .lang-en {
-    display: block;
-  }
-  .lang-fr {
-    display: none;
-  }
+  .lang-en { display: block; }
+  .lang-fr { display: none; }
 
   /* Coming soon message style */
   .coming-soon-msg {
@@ -960,8 +982,8 @@
         </div>
         <h3 class="lang-en">VPN Services</h3>
         <h3 class="lang-fr">Services VPN</h3>
-        <p class="muted lang-en">Protect your online privacy, access geo-restricted content, and secure your internet connection on any device[citation:3].</p>
-        <p class="muted lang-fr">Protégez votre vie privée en ligne, accédez au contenu géo-restreint et sécurisez votre connexion internet sur n'importe quel appareil[citation:3].</p>
+        <p class="muted lang-en">Protect your online privacy, access geo-restricted content, and secure your internet connection on any device.</p>
+        <p class="muted lang-fr">Protégez votre vie privée en ligne, accédez au contenu géo-restreint et sécurisez votre connexion internet sur n'importe quel appareil.</p>
 
         <!-- Products -->
         <div class="product-card">
@@ -970,8 +992,8 @@
             <div class="recommended-badge lang-en">RECOMMENDED</div>
             <div class="recommended-badge lang-fr">RECOMMANDÉ</div>
           </div>
-          <p class="product-description lang-en">An industry-leading VPN renowned for its advanced security features, exceptional connection speeds, and a vast global network of servers[citation:3]. It consistently ranks highly for reliability and user privacy, making it a top choice for both beginners and security-conscious users.</p>
-          <p class="product-description lang-fr">Un VPN leader du secteur réputé pour ses fonctionnalités de sécurité avancées, ses vitesses de connexion exceptionnelles et son vaste réseau mondial de serveurs[citation:3]. Il se classe régulièrement parmi les meilleurs pour sa fiabilité et le respect de la vie privée, ce qui en fait un choix de premier ordre pour les débutants comme pour les utilisateurs soucieux de sécurité.</p>
+          <p class="product-description lang-en">An industry-leading VPN renowned for its advanced security features, exceptional connection speeds, and a vast global network of servers. It consistently ranks highly for reliability and user privacy, making it a top choice for both beginners and security-conscious users.</p>
+          <p class="product-description lang-fr">Un VPN leader du secteur réputé pour ses fonctionnalités de sécurité avancées, ses vitesses de connexion exceptionnelles et son vaste réseau mondial de serveurs. Il se classe régulièrement parmi les meilleurs pour sa fiabilité et le respect de la vie privée, ce qui en fait un choix de premier ordre pour les débutants comme pour les utilisateurs soucieux de sécurité.</p>
           <a class="review-btn review-cta" href="https://global-toolkit.github.io/nordvpn-review?lang=en" data-landing-page="https://global-toolkit.github.io/nordvpn-review" data-product="NordVPN">
             <span class="lang-en">View Review</span>
             <span class="lang-fr">Voir Avis</span>
@@ -982,8 +1004,8 @@
           <div class="product-header">
             <div class="product-name">Surfshark</div>
           </div>
-          <p class="product-description lang-en">A highly affordable VPN that stands out by allowing unlimited simultaneous device connections under a single account[citation:7]. It offers strong privacy features, reliable performance, and is perfect for securing an entire household's worth of gadgets without breaking the bank.</p>
-          <p class="product-description lang-fr">Un VPN très abordable qui se distingue en permettant des connexions simultanées illimitées d'appareils avec un seul compte[citation:7]. Il offre de solides fonctionnalités de confidentialité, des performances fiables et est parfait pour sécuriser tous les appareils d'un foyer sans se ruiner.</p>
+          <p class="product-description lang-en">A highly affordable VPN that stands out by allowing unlimited simultaneous device connections under a single account. It offers strong privacy features, reliable performance, and is perfect for securing an entire household's worth of gadgets without breaking the bank.</p>
+          <p class="product-description lang-fr">Un VPN très abordable qui se distingue en permettant des connexions simultanées illimitées d'appareils avec un seul compte. Il offre de solides fonctionnalités de confidentialité, des performances fiables et est parfait pour sécuriser tous les appareils d'un foyer sans se ruiner.</p>
           <a class="review-btn review-cta" href="https://global-toolkit.github.io/surfshark-review?lang=en" data-landing-page="https://global-toolkit.github.io/surfshark-review" data-product="Surfshark">
             <span class="lang-en">View Review</span>
             <span class="lang-fr">Voir Avis</span>
@@ -1006,8 +1028,8 @@
           <div class="product-header">
             <div class="product-name">ExpressVPN</div>
           </div>
-          <p class="product-description lang-en">A premium VPN service known for its exceptional speeds, unwavering reliability, and robust security protocols across a wide range of devices[citation:3]. It's a favorite among users who prioritize consistent, high-performance connections for streaming, gaming, or secure browsing.</p>
-          <p class="product-description lang-fr">Un service VPN premium connu pour ses vitesses exceptionnelles, sa fiabilité inébranlable et ses protocoles de sécurité robustes sur une large gamme d'appareils[citation:3]. C'est un favori parmi les utilisateurs qui priorisent des connexions performantes et constantes pour le streaming, le jeu ou la navigation sécurisée.</p>
+          <p class="product-description lang-en">A premium VPN service known for its exceptional speeds, unwavering reliability, and robust security protocols across a wide range of devices. It's a favorite among users who prioritize consistent, high-performance connections for streaming, gaming, or secure browsing.</p>
+          <p class="product-description lang-fr">Un service VPN premium connu pour ses vitesses exceptionnelles, sa fiabilité inébranlable et ses protocoles de sécurité robustes sur une large gamme d'appareils. C'est un favori parmi les utilisateurs qui priorisent des connexions performantes et constantes pour le streaming, le jeu ou la navigation sécurisée.</p>
           <a class="review-btn review-cta" href="https://global-toolkit.github.io/expressvpn-review?lang=en" data-landing-page="https://global-toolkit.github.io/expressvpn-review" data-product="ExpressVPN">
             <span class="lang-en">View Review</span>
             <span class="lang-fr">Voir Avis</span>
@@ -1034,8 +1056,8 @@
         </div>
         <h3 class="lang-en">Productivity Tools</h3>
         <h3 class="lang-fr">Outils de Productivité</h3>
-        <p class="muted lang-en">Applications that help you organize tasks, manage projects, collaborate with teams, and get more done[citation:9].</p>
-        <p class="muted lang-fr">Applications qui vous aident à organiser les tâches, gérer les projets, collaborer avec les équipes et accomplir plus[citation:9].</p>
+        <p class="muted lang-en">Applications that help you organize tasks, manage projects, collaborate with teams, and get more done.</p>
+        <p class="muted lang-fr">Applications qui vous aident à organiser les tâches, gérer les projets, collaborer avec les équipes et accomplir plus.</p>
 
         <!-- Products -->
         <div class="product-card">
@@ -1106,8 +1128,8 @@
         </div>
         <h3 class="lang-en">Automation Platforms</h3>
         <h3 class="lang-fr">Plateformes d'Automatisation</h3>
-        <p class="muted lang-en">Connect apps and automate workflows to save time, reduce errors, and streamline business processes[citation:4].</p>
-        <p class="muted lang-fr">Connectez des applications et automatisez les flux de travail pour gagner du temps, réduire les erreurs et rationaliser les processus métier[citation:4].</p>
+        <p class="muted lang-en">Connect apps and automate workflows to save time, reduce errors, and streamline business processes.</p>
+        <p class="muted lang-fr">Connectez des applications et automatisez les flux de travail pour gagner du temps, réduire les erreurs et rationaliser les processus métier.</p>
 
         <!-- Products -->
         <div class="product-card">
@@ -1172,7 +1194,7 @@
       </div>
     </section>
 
-    <!-- COMPARISON TABLE (Singular) -->
+    <!-- COMPARISON TABLE -->
     <section id="comparison-tables">
       <h2 class="section-title lang-en">Comparison Table</h2>
       <h2 class="section-title lang-fr">Tableau Comparatif</h2>
@@ -1188,60 +1210,88 @@
             <thead>
               <tr>
                 <th>Product</th>
-                <th class="lang-en">Best For</th>
-                <th class="lang-fr">Idéal Pour</th>
-                <th class="lang-en">Ease of Use</th>
-                <th class="lang-fr">Facilité d'Utilisation</th>
-                <th class="lang-en">Free Trial</th>
-                <th class="lang-fr">Essai Gratuit</th>
-                <th class="lang-en">Starting Price</th>
-                <th class="lang-fr">Prix Départ</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">Ease of Use</span>
+                  <span class="lang-fr">Facilité d'Utilisation</span>
+                </th>
+                <th>
+                  <span class="lang-en">Free Trial</span>
+                  <span class="lang-fr">Essai Gratuit</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-product="Wix" data-landing-page="https://global-toolkit.github.io/wix-review">
                 <td>Wix</td>
-                <td class="lang-en">Beginners, Small Businesses</td>
-                <td class="lang-fr">Débutants, Petites Entreprises</td>
+                <td>
+                  <span class="lang-en">Beginners, Small Businesses</span>
+                  <span class="lang-fr">Débutants, Petites Entreprises</span>
+                </td>
                 <td>★★★★★</td>
-                <td class="lang-en">14 days</td>
-                <td class="lang-fr">14 jours</td>
+                <td>
+                  <span class="lang-en">14 days</span>
+                  <span class="lang-fr">14 jours</span>
+                </td>
                 <td class="price-cell" data-price-usd="16">$16.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="Shopify" data-landing-page="https://global-toolkit.github.io/shopify-review">
                 <td>Shopify</td>
-                <td class="lang-en">E-commerce Stores</td>
-                <td class="lang-fr">Boutiques E-commerce</td>
+                <td>
+                  <span class="lang-en">E-commerce Stores</span>
+                  <span class="lang-fr">Boutiques E-commerce</span>
+                </td>
                 <td>★★★★☆</td>
-                <td class="lang-en">14 days</td>
-                <td class="lang-fr">14 jours</td>
+                <td>
+                  <span class="lang-en">14 days</span>
+                  <span class="lang-fr">14 jours</span>
+                </td>
                 <td class="price-cell" data-price-usd="29">$29.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="Bluehost" data-landing-page="https://global-toolkit.github.io/bluehost-review">
                 <td>Bluehost</td>
-                <td class="lang-en">WordPress Users</td>
-                <td class="lang-fr">Utilisateurs WordPress</td>
+                <td>
+                  <span class="lang-en">WordPress Users</span>
+                  <span class="lang-fr">Utilisateurs WordPress</span>
+                </td>
                 <td>★★★★☆</td>
-                <td class="lang-en">30 days</td>
-                <td class="lang-fr">30 jours</td>
+                <td>
+                  <span class="lang-en">30 days</span>
+                  <span class="lang-fr">30 jours</span>
+                </td>
                 <td class="price-cell" data-price-usd="2.95">$2.95/month</td>
               </tr>
-              <tr>
+              <tr data-product="Webflow" data-landing-page="https://global-toolkit.github.io/webflow-review">
                 <td>Webflow</td>
-                <td class="lang-en">Designers, Developers</td>
-                <td class="lang-fr">Designers, Développeurs</td>
+                <td>
+                  <span class="lang-en">Designers, Developers</span>
+                  <span class="lang-fr">Designers, Développeurs</span>
+                </td>
                 <td>★★★☆☆</td>
-                <td class="lang-en">Free plan</td>
-                <td class="lang-fr">Plan gratuit</td>
+                <td>
+                  <span class="lang-en">Free plan</span>
+                  <span class="lang-fr">Plan gratuit</span>
+                </td>
                 <td class="price-cell" data-price-usd="14">$14.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="GoDaddy" data-landing-page="https://global-toolkit.github.io/godaddy-review">
                 <td>GoDaddy</td>
-                <td class="lang-en">Quick Setup, All-in-One</td>
-                <td class="lang-fr">Installation Rapide, Tout-en-Un</td>
+                <td>
+                  <span class="lang-en">Quick Setup, All-in-One</span>
+                  <span class="lang-fr">Installation Rapide, Tout-en-Un</span>
+                </td>
                 <td>★★★★★</td>
-                <td class="lang-en">30 days</td>
-                <td class="lang-fr">30 jours</td>
+                <td>
+                  <span class="lang-en">30 days</span>
+                  <span class="lang-fr">30 jours</span>
+                </td>
                 <td class="price-cell" data-price-usd="9.99">$9.99/month</td>
               </tr>
             </tbody>
@@ -1258,49 +1308,85 @@
             <thead>
               <tr>
                 <th>Product</th>
-                <th class="lang-en">Servers</th>
-                <th class="lang-fr">Serveurs</th>
-                <th class="lang-en">Speed</th>
-                <th class="lang-fr">Vitesse</th>
-                <th class="lang-en">Simultaneous Connections</th>
-                <th class="lang-fr">Connexions Simultanées</th>
-                <th class="lang-en">Starting Price</th>
-                <th class="lang-fr">Prix Départ</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">Servers</span>
+                  <span class="lang-fr">Serveurs</span>
+                </th>
+                <th>
+                  <span class="lang-en">Speed</span>
+                  <span class="lang-fr">Vitesse</span>
+                </th>
+                <th>
+                  <span class="lang-en">Simultaneous Connections</span>
+                  <span class="lang-fr">Connexions Simultanées</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-product="NordVPN" data-landing-page="https://global-toolkit.github.io/nordvpn-review">
                 <td>NordVPN</td>
+                <td>
+                  <span class="lang-en">Security & Streaming</span>
+                  <span class="lang-fr">Sécurité & Streaming</span>
+                </td>
                 <td>5,900+</td>
                 <td>★★★★★</td>
                 <td>6</td>
                 <td class="price-cell" data-price-usd="3.99">$3.99/month</td>
               </tr>
-              <tr>
+              <tr data-product="Surfshark" data-landing-page="https://global-toolkit.github.io/surfshark-review">
                 <td>Surfshark</td>
+                <td>
+                  <span class="lang-en">Large Families</span>
+                  <span class="lang-fr">Grandes Familles</span>
+                </td>
                 <td>3,200+</td>
                 <td>★★★★☆</td>
-                <td class="lang-en">Unlimited</td>
-                <td class="lang-fr">Illimitées</td>
+                <td>
+                  <span class="lang-en">Unlimited</span>
+                  <span class="lang-fr">Illimitées</span>
+                </td>
                 <td class="price-cell" data-price-usd="2.49">$2.49/month</td>
               </tr>
-              <tr>
+              <tr data-product="AtlasVPN" data-landing-page="https://global-toolkit.github.io/atlasvpn-review">
                 <td>AtlasVPN</td>
+                <td>
+                  <span class="lang-en">Budget Users</span>
+                  <span class="lang-fr">Utilisateurs Budget</span>
+                </td>
                 <td>1,000+</td>
                 <td>★★★★☆</td>
-                <td class="lang-en">Unlimited</td>
-                <td class="lang-fr">Illimitées</td>
+                <td>
+                  <span class="lang-en">Unlimited</span>
+                  <span class="lang-fr">Illimitées</span>
+                </td>
                 <td class="price-cell" data-price-usd="1.99">$1.99/month</td>
               </tr>
-              <tr>
+              <tr data-product="ExpressVPN" data-landing-page="https://global-toolkit.github.io/expressvpn-review">
                 <td>ExpressVPN</td>
+                <td>
+                  <span class="lang-en">Speed & Reliability</span>
+                  <span class="lang-fr">Vitesse & Fiabilité</span>
+                </td>
                 <td>3,000+</td>
                 <td>★★★★★</td>
                 <td>5</td>
                 <td class="price-cell" data-price-usd="6.67">$6.67/month</td>
               </tr>
-              <tr>
+              <tr data-product="ProtonVPN" data-landing-page="https://global-toolkit.github.io/protonvpn-review">
                 <td>ProtonVPN</td>
+                <td>
+                  <span class="lang-en">Privacy Focus</span>
+                  <span class="lang-fr">Vie Privée</span>
+                </td>
                 <td>2,900+</td>
                 <td>★★★★☆</td>
                 <td>10</td>
@@ -1311,7 +1397,7 @@
         </div>
       </div>
 
-      <!-- Productivity Tools Table (Updated Metrics) -->
+      <!-- Productivity Tools Table -->
       <div class="table-section hidden" id="productivity-tools-table">
         <h3 style="margin-top: 40px;" class="lang-en">Productivity Tools Comparison</h3>
         <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Outils de Productivité</h3>
@@ -1320,53 +1406,95 @@
             <thead>
               <tr>
                 <th>Product</th>
-                <th class="lang-en">Project Views</th>
-                <th class="lang-fr">Vues de Projet</th>
-                <th class="lang-en">API Access</th>
-                <th class="lang-fr">Accès API</th>
-                <th class="lang-en">Team Collaboration</th>
-                <th class="lang-fr">Collaboration Équipe</th>
-                <th class="lang-en">Starting Price</th>
-                <th class="lang-fr">Prix Départ</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">Project Views</span>
+                  <span class="lang-fr">Vues de Projet</span>
+                </th>
+                <th>
+                  <span class="lang-en">Time Tracking</span>
+                  <span class="lang-fr">Suivi du Temps</span>
+                </th>
+                <th>
+                  <span class="lang-en">Team Collaboration</span>
+                  <span class="lang-fr">Collaboration Équipe</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-product="Notion" data-landing-page="https://global-toolkit.github.io/notion-review">
                 <td>Notion</td>
-                <td class="lang-en">List, Board, Calendar, Gallery</td>
-                <td class="lang-fr">Liste, Tableau, Calendrier, Galerie</td>
+                <td>
+                  <span class="lang-en">All-in-One Workspace</span>
+                  <span class="lang-fr">Espace de Travail Tout-en-Un</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board, Calendar, Gallery</span>
+                  <span class="lang-fr">Liste, Tableau, Calendrier, Galerie</span>
+                </td>
                 <td>✓</td>
                 <td>★★★★☆</td>
                 <td class="price-cell" data-price-usd="8">$8.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="Todoist" data-landing-page="https://global-toolkit.github.io/todoist-review">
                 <td>Todoist</td>
-                <td class="lang-en">List, Board</td>
-                <td class="lang-fr">Liste, Tableau</td>
+                <td>
+                  <span class="lang-en">Personal Task Management</span>
+                  <span class="lang-fr">Gestion de Tâches Personnelles</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board</span>
+                  <span class="lang-fr">Liste, Tableau</span>
+                </td>
                 <td>✓</td>
                 <td>★★★☆☆</td>
                 <td class="price-cell" data-price-usd="4">$4.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="ClickUp" data-landing-page="https://global-toolkit.github.io/clickup-review">
                 <td>ClickUp</td>
-                <td class="lang-en">List, Board, Calendar, Gantt, Box</td>
-                <td class="lang-fr">Liste, Tableau, Calendrier, Gantt, Box</td>
+                <td>
+                  <span class="lang-en">Customizable Project Management</span>
+                  <span class="lang-fr">Gestion de Projet Personnalisable</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board, Calendar, Gantt, Box</span>
+                  <span class="lang-fr">Liste, Tableau, Calendrier, Gantt, Box</span>
+                </td>
                 <td>✓</td>
                 <td>★★★★★</td>
                 <td class="price-cell" data-price-usd="5">$5.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="Ora" data-landing-page="https://global-toolkit.github.io/ora-review">
                 <td>Ora</td>
-                <td class="lang-en">List, Board, Timeline</td>
-                <td class="lang-fr">Liste, Tableau, Chronologie</td>
+                <td>
+                  <span class="lang-en">Agile Teams</span>
+                  <span class="lang-fr">Équipes Agiles</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board, Timeline</span>
+                  <span class="lang-fr">Liste, Tableau, Chronologie</span>
+                </td>
                 <td>✓</td>
                 <td>★★★★☆</td>
                 <td class="price-cell" data-price-usd="6">$6.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="Monitask" data-landing-page="https://global-toolkit.github.io/monitask-review">
                 <td>Monitask</td>
-                <td class="lang-en">Dashboard, Timeline</td>
-                <td class="lang-fr">Tableau de bord, Chronologie</td>
+                <td>
+                  <span class="lang-en">Employee Monitoring</span>
+                  <span class="lang-fr">Surveillance des Employés</span>
+                </td>
+                <td>
+                  <span class="lang-en">Dashboard, Timeline</span>
+                  <span class="lang-fr">Tableau de bord, Chronologie</span>
+                </td>
                 <td>✓</td>
                 <td>★★★★☆</td>
                 <td class="price-cell" data-price-usd="5.99">$5.99/month</td>
@@ -1385,55 +1513,97 @@
             <thead>
               <tr>
                 <th>Product</th>
-                <th class="lang-en">App Integrations</th>
-                <th class="lang-fr">Intégrations</th>
-                <th class="lang-en">Complexity</th>
-                <th class="lang-fr">Complexité</th>
-                <th class="lang-en">Free Tasks/Month</th>
-                <th class="lang-fr">Tâches Gratuites/Mois</th>
-                <th class="lang-en">Starting Price</th>
-                <th class="lang-fr">Prix Départ</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">App Integrations</span>
+                  <span class="lang-fr">Intégrations</span>
+                </th>
+                <th>
+                  <span class="lang-en">Complexity</span>
+                  <span class="lang-fr">Complexité</span>
+                </th>
+                <th>
+                  <span class="lang-en">Free Tasks/Month</span>
+                  <span class="lang-fr">Tâches Gratuites/Mois</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-product="Zapier" data-landing-page="https://global-toolkit.github.io/zapier-review">
                 <td>Zapier</td>
+                <td>
+                  <span class="lang-en">Beginner Automation</span>
+                  <span class="lang-fr">Automatisation Débutant</span>
+                </td>
                 <td>5,000+</td>
                 <td>★★★★☆</td>
-                <td class="lang-en">100</td>
-                <td class="lang-fr">100</td>
+                <td>
+                  <span class="lang-en">100</span>
+                  <span class="lang-fr">100</span>
+                </td>
                 <td class="price-cell" data-price-usd="19.99">$19.99/month</td>
               </tr>
-              <tr>
+              <tr data-product="Apify" data-landing-page="https://global-toolkit.github.io/apify-review">
                 <td>Apify</td>
+                <td>
+                  <span class="lang-en">Web Scraping</span>
+                  <span class="lang-fr">Scraping Web</span>
+                </td>
                 <td>1,000+</td>
                 <td>★★★☆☆</td>
-                <td class="lang-en">10</td>
-                <td class="lang-fr">10</td>
+                <td>
+                  <span class="lang-en">10</span>
+                  <span class="lang-fr">10</span>
+                </td>
                 <td class="price-cell" data-price-usd="49">$49.00/month</td>
               </tr>
-              <tr>
-                <td>Make</td>
+              <tr data-product="Make" data-landing-page="https://global-toolkit.github.io/make-review">
+                <td>Make (Integromat)</td>
+                <td>
+                  <span class="lang-en">Complex Scenarios</span>
+                  <span class="lang-fr">Scénarios Complexes</span>
+                </td>
                 <td>2,000+</td>
                 <td>★★★☆☆</td>
-                <td class="lang-en">1,000</td>
-                <td class="lang-fr">1 000</td>
+                <td>
+                  <span class="lang-en">1,000</span>
+                  <span class="lang-fr">1 000</span>
+                </td>
                 <td class="price-cell" data-price-usd="9">$9.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="Pabbly" data-landing-page="https://global-toolkit.github.io/pabbly-review">
                 <td>Pabbly</td>
+                <td>
+                  <span class="lang-en">All-in-One Suite</span>
+                  <span class="lang-fr">Suite Tout-en-Un</span>
+                </td>
                 <td>1,500+</td>
                 <td>★★★★☆</td>
-                <td class="lang-en">100</td>
-                <td class="lang-fr">100</td>
+                <td>
+                  <span class="lang-en">100</span>
+                  <span class="lang-fr">100</span>
+                </td>
                 <td class="price-cell" data-price-usd="15">$15.00/month</td>
               </tr>
-              <tr>
+              <tr data-product="Tally" data-landing-page="https://global-toolkit.github.io/tally-review">
                 <td>Tally</td>
+                <td>
+                  <span class="lang-en">Form Building</span>
+                  <span class="lang-fr">Construction de Formulaires</span>
+                </td>
                 <td>500+</td>
                 <td>★★★★★</td>
-                <td class="lang-en">Unlimited</td>
-                <td class="lang-fr">Illimitées</td>
+                <td>
+                  <span class="lang-en">Unlimited</span>
+                  <span class="lang-fr">Illimitées</span>
+                </td>
                 <td class="price-cell" data-price-usd="29">$29.00/month</td>
               </tr>
             </tbody>
@@ -1641,7 +1811,7 @@
 let currentLang = 'en';
 let currentCurrency = 'USD';
 let exchangeRate = 1.0;
-let activeCategory = 'website-builders'; // Default active category
+let activeCategory = 'website-builders';
 
 // Function to switch language
 function switchLanguage(lang) {
@@ -1657,7 +1827,6 @@ function switchLanguage(lang) {
     document.documentElement.setAttribute('lang', 'fr');
     localStorage.setItem('preferredLanguage', 'fr');
 
-    // Update footer links with French language parameter
     updateFooterLinks('fr');
 
   } else {
@@ -1667,7 +1836,6 @@ function switchLanguage(lang) {
     document.documentElement.setAttribute('lang', 'en');
     localStorage.setItem('preferredLanguage', 'en');
 
-    // Update footer links with English language parameter
     updateFooterLinks('en');
   }
 
@@ -1680,7 +1848,6 @@ function switchLanguage(lang) {
     }
   });
 
-  // Update CTA button links for the new language
   updateCtaLinks(lang);
 }
 
@@ -1689,7 +1856,6 @@ function updateCtaLinks(lang) {
   const ctaButtons = document.querySelectorAll('.review-cta[data-landing-page]');
   ctaButtons.forEach(button => {
     const baseUrl = button.getAttribute('data-landing-page');
-    // Extract base URL without existing query parameters
     const urlWithoutParams = baseUrl.split('?')[0];
     button.setAttribute('href', `${urlWithoutParams}?lang=${lang}`);
   });
@@ -1701,12 +1867,10 @@ function updateFooterLinks(lang) {
 
   links.forEach(link => {
     const baseUrl = link.getAttribute('data-base-url');
-    // Extract base URL without existing query parameters
     const urlWithoutParams = baseUrl.split('?')[0];
     link.setAttribute('href', `${urlWithoutParams}?lang=${lang}`);
   });
 
-  // Update feedback link
   const feedbackLink = document.getElementById('feedback-link');
   if (feedbackLink) {
     feedbackLink.setAttribute('href', `https://global-toolkit.github.io/?lang=${lang}#feedback`);
@@ -1741,7 +1905,6 @@ function initializeLanguage() {
 function showCategory(category) {
   activeCategory = category;
 
-  // Update active state in quick navigation
   document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.classList.remove('active');
     if (btn.getAttribute('data-category') === category) {
@@ -1749,7 +1912,6 @@ function showCategory(category) {
     }
   });
 
-  // Hide all category cards and tables
   document.querySelectorAll('.category-card').forEach(card => {
     card.classList.add('hidden');
   });
@@ -1758,7 +1920,6 @@ function showCategory(category) {
     table.classList.add('hidden');
   });
 
-  // Show selected category card and table
   const categoryCard = document.getElementById(`${category}-card`);
   const categoryTable = document.getElementById(`${category}-table`);
 
@@ -1769,8 +1930,49 @@ function showCategory(category) {
   if (categoryTable) {
     categoryTable.classList.remove('hidden');
   }
+}
 
-  // REMOVED: The auto-scroll to the comparison table section
+// Table row click functionality
+function setupTableRowClicks() {
+  const tableRows = document.querySelectorAll('.comparison-table tbody tr');
+  
+  tableRows.forEach(row => {
+    row.addEventListener('click', function(e) {
+      const product = this.getAttribute('data-product');
+      const landingPage = this.getAttribute('data-landing-page');
+      
+      // Remove any existing message
+      const existingMsg = this.querySelector('.row-click-message');
+      if (existingMsg) {
+        existingMsg.remove();
+      }
+      
+      // Create and append message
+      const msg = document.createElement('div');
+      msg.className = 'row-click-message';
+      msg.textContent = currentLang === 'en' ? 'Review coming soon' : 'Avis bientôt disponible';
+      this.appendChild(msg);
+      
+      // Position the message near the cursor
+      const rect = this.getBoundingClientRect();
+      msg.style.position = 'absolute';
+      msg.style.top = `${e.clientY - rect.top - 30}px`;
+      msg.style.left = `${e.clientX - rect.left}px`;
+      msg.style.display = 'block';
+      
+      // Remove message after animation
+      setTimeout(() => {
+        msg.remove();
+      }, 2000);
+      
+      // Update browser history without leaving page
+      const urlWithoutParams = landingPage.split('?')[0];
+      const reviewUrl = `${urlWithoutParams}?lang=${currentLang}`;
+      window.history.pushState({}, '', `#${product.toLowerCase()}`);
+      
+      console.log(`Row clicked for: ${product}, would navigate to: ${reviewUrl}`);
+    });
+  });
 }
 
 // Currency conversion functions
@@ -1868,34 +2070,29 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
   btn.addEventListener('click', function() {
     const category = this.getAttribute('data-category');
     showCategory(category);
-    // REMOVED: The smooth scroll to tables section
   });
 });
 
-// CTA Button Click Handler - Prevents navigation and shows message
+// CTA Button Click Handler
 document.querySelectorAll('.review-cta').forEach(button => {
   button.addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent the default link navigation
+    e.preventDefault();
     const product = this.getAttribute('data-product');
 
-    // Remove any existing message
     const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
     if (existingMsg) {
       existingMsg.remove();
     }
 
-    // Create and append message
     const msg = document.createElement('span');
     msg.className = 'coming-soon-msg';
     msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
     this.parentNode.appendChild(msg);
 
-    // Remove message after animation
     setTimeout(() => {
       msg.remove();
     }, 2000);
 
-    // Log the click for analytics
     console.log(`View Review clicked for: ${product}`);
   });
 });
@@ -1912,7 +2109,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// Smooth scrolling for anchor links (excluding quick nav buttons)
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
@@ -1954,15 +2151,16 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeLanguage();
   initializeCurrency();
 
-  // Initialize category view
   showCategory(activeCategory);
 
-  // Update CTA and feedback links based on current language
   updateCtaLinks(currentLang);
   const feedbackLink = document.getElementById('feedback-link');
   if (feedbackLink) {
     feedbackLink.setAttribute('href', `https://global-toolkit.github.io/?lang=${currentLang}#feedback`);
   }
+
+  // Setup table row clicks
+  setupTableRowClicks();
 
   // Add keyboard shortcuts
   document.addEventListener('keydown', (e) => {
