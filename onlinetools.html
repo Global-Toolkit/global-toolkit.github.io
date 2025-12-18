@@ -145,13 +145,12 @@
     color: var(--muted);
   }
 
-  /* Quick Navigation */
+  /* Quick Navigation - Updated for Grid Layout */
   .quick-nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
-    flex-wrap: wrap;
     margin: 25px 0;
-    justify-content: center;
   }
 
   .nav-btn {
@@ -168,6 +167,8 @@
     font-size: 16px;
     transition: all 0.3s ease;
     cursor: pointer;
+    justify-content: center;
+    text-align: center;
   }
 
   .nav-btn:hover,
@@ -179,6 +180,63 @@
 
   .nav-btn i {
     font-size: 18px;
+  }
+
+  /* Choice Modal */
+  .choice-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 15, 28, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .choice-modal.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .choice-content {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .choice-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .choice-btn {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+  }
+
+  .choice-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
   }
 
   /* Category Grid - Optimized for Desktop */
@@ -281,13 +339,14 @@
     box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
   }
 
-  /* Comparison Tables */
+  /* Comparison Tables - Updated for pinned column on mobile */
   .table-container {
     overflow-x: auto;
     margin: 30px 0;
     border-radius: 12px;
     background: rgba(17, 24, 39, 0.7);
     border: 1px solid rgba(0, 212, 255, 0.1);
+    position: relative;
   }
 
   .comparison-table {
@@ -304,6 +363,7 @@
     color: white;
     border-bottom: 2px solid rgba(0, 212, 255, 0.2);
     white-space: nowrap;
+    position: relative;
   }
 
   .comparison-table th .lang-en,
@@ -322,10 +382,27 @@
     color: var(--text-light);
     cursor: pointer;
     transition: background-color 0.2s ease;
+    position: relative;
   }
 
   .comparison-table tr:hover td {
     background: rgba(0, 212, 255, 0.05);
+  }
+
+  /* Pin first column on mobile */
+  @media (max-width: 768px) {
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      position: sticky;
+      left: 0;
+      background: var(--card);
+      z-index: 10;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .comparison-table th:first-child {
+      background: rgba(0, 212, 255, 0.15);
+    }
   }
 
   .price-cell {
@@ -506,6 +583,9 @@
     h1 {
       font-size: 40px;
     }
+    .quick-nav {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   @media (min-width: 1024px) {
@@ -517,22 +597,50 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 767px) {
+    /* Mobile adjustments for quick-nav */
+    .quick-nav {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    
+    .nav-btn {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+    
+    .nav-btn i {
+      font-size: 16px;
+    }
+    
+    /* Make "Smart Comparisons + Exclusive Deals" smaller on mobile */
+    .hero h1 span {
+      font-size: 24px !important;
+    }
+    
     .footer-links {
       grid-template-columns: 1fr;
     }
     .trust-badges {
       justify-content: center;
     }
-    .quick-nav {
-      justify-content: flex-start;
-    }
     .footer-bottom-links {
       gap: 10px;
     }
+  }
+
+  @media (max-width: 480px) {
+    .quick-nav {
+      grid-template-columns: 1fr 1fr;
+    }
+    
     .nav-btn {
-      font-size: 15px;
-      padding: 10px 18px;
+      font-size: 13px;
+      padding: 8px 12px;
+    }
+    
+    .hero h1 span {
+      font-size: 22px !important;
     }
   }
 
@@ -560,7 +668,7 @@
   .brand-container {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     margin-bottom: 40px;
     flex-wrap: wrap;
   }
@@ -794,11 +902,7 @@
     <div class="brand-container">
       <a href="https://global-toolkit.github.io/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
         <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
-        <div>
-          <div class="brand">Global Toolkit</div>
-          <div style="font-size: 12px; color: var(--muted); margin-top: 2px;" class="lang-en">← Back to Main</div>
-          <div style="font-size: 12px; color: var(--muted); margin-top: 2px;" class="lang-fr">← Retour à l'accueil</div>
-        </div>
+        <div class="brand">Global Toolkit</div>
       </a>
     </div>
 
@@ -857,6 +961,32 @@
   </header>
 
   <main>
+    <!-- Choice Modal -->
+    <div class="choice-modal" id="choiceModal">
+      <div class="choice-content">
+        <h3 id="choiceCategoryTitle" class="lang-en">Choose Your View</h3>
+        <h3 id="choiceCategoryTitleFr" class="lang-fr">Choisissez Votre Vue</h3>
+        <p class="muted lang-en" id="choiceCategoryDesc">How would you like to explore the products?</p>
+        <p class="muted lang-fr" id="choiceCategoryDescFr">Comment souhaitez-vous explorer les produits ?</p>
+        
+        <div class="choice-buttons">
+          <button class="choice-btn" id="viewReviewsBtn">
+            <span class="lang-en">Top 5 Products Reviews</span>
+            <span class="lang-fr">Avis des 5 Meilleurs Produits</span>
+          </button>
+          <button class="choice-btn" id="viewComparisonBtn">
+            <span class="lang-en">Top 5 Products Comparison</span>
+            <span class="lang-fr">Comparaison des 5 Meilleurs Produits</span>
+          </button>
+        </div>
+        
+        <button class="nav-btn" id="closeChoiceBtn" style="margin-top: 20px; background: rgba(255,255,255,0.1);">
+          <span class="lang-en">Cancel</span>
+          <span class="lang-fr">Annuler</span>
+        </button>
+      </div>
+    </div>
+
     <!-- HERO SECTION -->
     <div class="hero">
       <section class="hero-card">
@@ -1397,7 +1527,7 @@
         </div>
       </div>
 
-      <!-- Productivity Tools Table -->
+      <!-- Productivity Tools Table - UPDATED with new metric -->
       <div class="table-section hidden" id="productivity-tools-table">
         <h3 style="margin-top: 40px;" class="lang-en">Productivity Tools Comparison</h3>
         <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Outils de Productivité</h3>
@@ -1415,8 +1545,8 @@
                   <span class="lang-fr">Vues de Projet</span>
                 </th>
                 <th>
-                  <span class="lang-en">Time Tracking</span>
-                  <span class="lang-fr">Suivi du Temps</span>
+                  <span class="lang-en">API Access</span>
+                  <span class="lang-fr">Accès API</span>
                 </th>
                 <th>
                   <span class="lang-en">Team Collaboration</span>
@@ -1481,7 +1611,7 @@
                   <span class="lang-en">List, Board, Timeline</span>
                   <span class="lang-fr">Liste, Tableau, Chronologie</span>
                 </td>
-                <td>✓</td>
+                <td>✗</td>
                 <td>★★★★☆</td>
                 <td class="price-cell" data-price-usd="6">$6.00/month</td>
               </tr>
@@ -1812,6 +1942,7 @@ let currentLang = 'en';
 let currentCurrency = 'USD';
 let exchangeRate = 1.0;
 let activeCategory = 'website-builders';
+let selectedCategoryForChoice = '';
 
 // Function to switch language
 function switchLanguage(lang) {
@@ -1901,8 +2032,31 @@ function initializeLanguage() {
   }
 }
 
-// Category switching functionality
-function showCategory(category) {
+// Category switching functionality with choice modal
+function showChoiceModal(category) {
+  selectedCategoryForChoice = category;
+  
+  // Update modal text based on category
+  const categoryNames = {
+    'website-builders': { en: 'Website Builders', fr: 'Constructeurs de Sites' },
+    'vpn-services': { en: 'VPN Services', fr: 'Services VPN' },
+    'productivity-tools': { en: 'Productivity Tools', fr: 'Outils de Productivité' },
+    'automation-tools': { en: 'Automation Tools', fr: 'Outils d\'Automatisation' }
+  };
+  
+  document.getElementById('choiceCategoryTitle').textContent = `Explore ${categoryNames[category].en}`;
+  document.getElementById('choiceCategoryTitleFr').textContent = `Explorez ${categoryNames[category].fr}`;
+  document.getElementById('choiceCategoryDesc').textContent = `How would you like to explore the top 5 ${categoryNames[category].en.toLowerCase()}?`;
+  document.getElementById('choiceCategoryDescFr').textContent = `Comment souhaitez-vous explorer les 5 meilleurs ${categoryNames[category].fr.toLowerCase()} ?`;
+  
+  document.getElementById('choiceModal').classList.add('show');
+}
+
+function hideChoiceModal() {
+  document.getElementById('choiceModal').classList.remove('show');
+}
+
+function showCategory(category, scrollTo = '') {
   activeCategory = category;
 
   document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -1930,9 +2084,20 @@ function showCategory(category) {
   if (categoryTable) {
     categoryTable.classList.remove('hidden');
   }
+  
+  // Scroll to appropriate section
+  if (scrollTo === 'reviews') {
+    setTimeout(() => {
+      categoryCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  } else if (scrollTo === 'comparison') {
+    setTimeout(() => {
+      categoryTable.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
 }
 
-// Table row click functionality
+// Table row click functionality - Updated to navigate to review page
 function setupTableRowClicks() {
   const tableRows = document.querySelectorAll('.comparison-table tbody tr');
   
@@ -1940,6 +2105,13 @@ function setupTableRowClicks() {
     row.addEventListener('click', function(e) {
       const product = this.getAttribute('data-product');
       const landingPage = this.getAttribute('data-landing-page');
+      
+      // Construct the review URL with language parameter
+      const urlWithoutParams = landingPage.split('?')[0];
+      const reviewUrl = `${urlWithoutParams}?lang=${currentLang}`;
+      
+      // Open in new tab
+      window.open(reviewUrl, '_blank');
       
       // Remove any existing message
       const existingMsg = this.querySelector('.row-click-message');
@@ -1950,7 +2122,7 @@ function setupTableRowClicks() {
       // Create and append message
       const msg = document.createElement('div');
       msg.className = 'row-click-message';
-      msg.textContent = currentLang === 'en' ? 'Review coming soon' : 'Avis bientôt disponible';
+      msg.textContent = currentLang === 'en' ? 'Opening review...' : 'Ouverture de l\'avis...';
       this.appendChild(msg);
       
       // Position the message near the cursor
@@ -1964,13 +2136,6 @@ function setupTableRowClicks() {
       setTimeout(() => {
         msg.remove();
       }, 2000);
-      
-      // Update browser history without leaving page
-      const urlWithoutParams = landingPage.split('?')[0];
-      const reviewUrl = `${urlWithoutParams}?lang=${currentLang}`;
-      window.history.pushState({}, '', `#${product.toLowerCase()}`);
-      
-      console.log(`Row clicked for: ${product}, would navigate to: ${reviewUrl}`);
     });
   });
 }
@@ -2065,12 +2230,34 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// Quick navigation category switching
+// Quick navigation category switching with choice modal
 document.querySelectorAll('.nav-btn').forEach(btn => {
   btn.addEventListener('click', function() {
     const category = this.getAttribute('data-category');
-    showCategory(category);
+    showChoiceModal(category);
   });
+});
+
+// Choice modal buttons
+document.getElementById('viewReviewsBtn').addEventListener('click', function() {
+  hideChoiceModal();
+  showCategory(selectedCategoryForChoice, 'reviews');
+});
+
+document.getElementById('viewComparisonBtn').addEventListener('click', function() {
+  hideChoiceModal();
+  showCategory(selectedCategoryForChoice, 'comparison');
+});
+
+document.getElementById('closeChoiceBtn').addEventListener('click', function() {
+  hideChoiceModal();
+});
+
+// Close modal when clicking outside
+document.getElementById('choiceModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    hideChoiceModal();
+  }
 });
 
 // CTA Button Click Handler
@@ -2172,9 +2359,12 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       switchLanguage('fr');
     }
+    // Escape key closes modal
+    if (e.key === 'Escape') {
+      hideChoiceModal();
+    }
   });
 });
 </script>
 </body>
 </html>
-
