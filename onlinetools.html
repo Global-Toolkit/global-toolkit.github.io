@@ -255,6 +255,11 @@
       margin-left: auto;
       margin-right: auto;
     }
+    /* On desktop: 2x2 grid layout */
+    .quick-nav {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+    }
   }
 
   .category-card {
@@ -389,19 +394,42 @@
     background: rgba(0, 212, 255, 0.05);
   }
 
-  /* Pin first column on mobile */
+  /* Pin first column on mobile - FIXED for overlap issue */
   @media (max-width: 768px) {
     .comparison-table th:first-child,
     .comparison-table td:first-child {
       position: sticky;
       left: 0;
-      background: var(--card);
-      z-index: 10;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
     }
     
     .comparison-table th:first-child {
+      background: rgba(0, 212, 255, 0.2);
+      z-index: 30;
+    }
+    
+    .comparison-table td:first-child {
+      background: var(--card);
+    }
+    
+    .comparison-table th {
       background: rgba(0, 212, 255, 0.15);
+      z-index: 25;
+      position: sticky;
+      top: 0;
+    }
+    
+    /* Fix for header row overlap */
+    .comparison-table thead {
+      position: sticky;
+      top: 0;
+      z-index: 25;
+    }
+    
+    /* Ensure proper stacking */
+    .comparison-table th:first-child {
+      z-index: 30;
     }
   }
 
@@ -582,9 +610,6 @@
     }
     h1 {
       font-size: 40px;
-    }
-    .quick-nav {
-      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -1331,7 +1356,7 @@
       <p class="muted lang-en">Compare features, pricing, and key specifications across all top products in each category.</p>
       <p class="muted lang-fr">Comparez les fonctionnalités, prix et spécifications clés de tous les meilleurs produits dans chaque catégorie.</p>
 
-      <!-- Website Builders Table -->
+      <!-- Website Builders Table - UPDATED with new column -->
       <div class="table-section" id="website-builders-table">
         <h3 style="margin-top: 40px;" class="lang-en">Website Builders Comparison</h3>
         <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Constructeurs de Sites</h3>
@@ -1343,6 +1368,10 @@
                 <th>
                   <span class="lang-en">Best For</span>
                   <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">Template Count</span>
+                  <span class="lang-fr">Nombre de Modèles</span>
                 </th>
                 <th>
                   <span class="lang-en">Ease of Use</span>
@@ -1365,6 +1394,7 @@
                   <span class="lang-en">Beginners, Small Businesses</span>
                   <span class="lang-fr">Débutants, Petites Entreprises</span>
                 </td>
+                <td>800+</td>
                 <td>★★★★★</td>
                 <td>
                   <span class="lang-en">14 days</span>
@@ -1378,6 +1408,7 @@
                   <span class="lang-en">E-commerce Stores</span>
                   <span class="lang-fr">Boutiques E-commerce</span>
                 </td>
+                <td>100+</td>
                 <td>★★★★☆</td>
                 <td>
                   <span class="lang-en">14 days</span>
@@ -1391,6 +1422,7 @@
                   <span class="lang-en">WordPress Users</span>
                   <span class="lang-fr">Utilisateurs WordPress</span>
                 </td>
+                <td>300+</td>
                 <td>★★★★☆</td>
                 <td>
                   <span class="lang-en">30 days</span>
@@ -1404,6 +1436,7 @@
                   <span class="lang-en">Designers, Developers</span>
                   <span class="lang-fr">Designers, Développeurs</span>
                 </td>
+                <td>2,000+</td>
                 <td>★★★☆☆</td>
                 <td>
                   <span class="lang-en">Free plan</span>
@@ -1417,6 +1450,7 @@
                   <span class="lang-en">Quick Setup, All-in-One</span>
                   <span class="lang-fr">Installation Rapide, Tout-en-Un</span>
                 </td>
+                <td>150+</td>
                 <td>★★★★★</td>
                 <td>
                   <span class="lang-en">30 days</span>
@@ -2097,7 +2131,7 @@ function showCategory(category, scrollTo = '') {
   }
 }
 
-// Table row click functionality - Updated to navigate to review page
+// Table row click functionality - UPDATED to show message only (not navigate away)
 function setupTableRowClicks() {
   const tableRows = document.querySelectorAll('.comparison-table tbody tr');
   
@@ -2105,13 +2139,6 @@ function setupTableRowClicks() {
     row.addEventListener('click', function(e) {
       const product = this.getAttribute('data-product');
       const landingPage = this.getAttribute('data-landing-page');
-      
-      // Construct the review URL with language parameter
-      const urlWithoutParams = landingPage.split('?')[0];
-      const reviewUrl = `${urlWithoutParams}?lang=${currentLang}`;
-      
-      // Open in new tab
-      window.open(reviewUrl, '_blank');
       
       // Remove any existing message
       const existingMsg = this.querySelector('.row-click-message');
@@ -2122,7 +2149,7 @@ function setupTableRowClicks() {
       // Create and append message
       const msg = document.createElement('div');
       msg.className = 'row-click-message';
-      msg.textContent = currentLang === 'en' ? 'Opening review...' : 'Ouverture de l\'avis...';
+      msg.textContent = currentLang === 'en' ? 'Review coming soon' : 'Avis bientôt disponible';
       this.appendChild(msg);
       
       // Position the message near the cursor
@@ -2136,6 +2163,13 @@ function setupTableRowClicks() {
       setTimeout(() => {
         msg.remove();
       }, 2000);
+      
+      // Update browser history without leaving page
+      const urlWithoutParams = landingPage.split('?')[0];
+      const reviewUrl = `${urlWithoutParams}?lang=${currentLang}`;
+      window.history.pushState({}, '', `#${product.toLowerCase()}`);
+      
+      console.log(`Row clicked for: ${product}, would navigate to: ${reviewUrl} (but review pages not ready yet)`);
     });
   });
 }
