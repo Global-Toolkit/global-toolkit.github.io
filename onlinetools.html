@@ -145,12 +145,22 @@
     color: var(--muted);
   }
 
-  /* Quick Navigation - Updated for Grid Layout */
+  /* Quick Navigation - Updated for Desktop (2x2 grid) */
   .quick-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin: 25px 0;
+  }
+
+  @media (min-width: 768px) {
+    .quick-nav {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .nav-btn {
@@ -255,11 +265,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-    /* On desktop: 2x2 grid layout */
-    .quick-nav {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, auto);
-    }
   }
 
   .category-card {
@@ -344,7 +349,7 @@
     box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
   }
 
-  /* Comparison Tables - Updated for pinned column on mobile */
+  /* Comparison Tables - Updated for pinned column on mobile without overlap */
   .table-container {
     overflow-x: auto;
     margin: 30px 0;
@@ -352,11 +357,13 @@
     background: rgba(17, 24, 39, 0.7);
     border: 1px solid rgba(0, 212, 255, 0.1);
     position: relative;
+    -webkit-overflow-scrolling: touch;
   }
 
   .comparison-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     min-width: 900px;
   }
 
@@ -394,42 +401,43 @@
     background: rgba(0, 212, 255, 0.05);
   }
 
-  /* Pin first column on mobile - FIXED for overlap issue */
-  @media (max-width: 768px) {
-    .comparison-table th:first-child,
-    .comparison-table td:first-child {
+  /* Pin first column on mobile - Fixed overlap issue */
+  @media (max-width: 767px) {
+    .comparison-table {
+      position: relative;
+    }
+    
+    .comparison-table thead th:first-child,
+    .comparison-table tbody td:first-child {
       position: sticky;
       left: 0;
-      z-index: 20;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-    }
-    
-    .comparison-table th:first-child {
-      background: rgba(0, 212, 255, 0.2);
-      z-index: 30;
-    }
-    
-    .comparison-table td:first-child {
       background: var(--card);
+      z-index: 20;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+      min-width: 120px;
+      max-width: 150px;
     }
     
-    .comparison-table th {
+    .comparison-table thead th:first-child {
       background: rgba(0, 212, 255, 0.15);
-      z-index: 25;
-      position: sticky;
-      top: 0;
-    }
-    
-    /* Fix for header row overlap */
-    .comparison-table thead {
-      position: sticky;
-      top: 0;
-      z-index: 25;
-    }
-    
-    /* Ensure proper stacking */
-    .comparison-table th:first-child {
       z-index: 30;
+      top: 0;
+    }
+    
+    .comparison-table tbody td:first-child {
+      z-index: 10;
+    }
+    
+    /* Ensure no overlap with other cells */
+    .comparison-table th,
+    .comparison-table td {
+      background-clip: padding-box;
+    }
+    
+    .comparison-table td:not(:first-child),
+    .comparison-table th:not(:first-child) {
+      position: relative;
+      z-index: 1;
     }
   }
 
@@ -441,16 +449,21 @@
   /* Table row click message */
   .row-click-message {
     display: none;
-    position: absolute;
-    background: rgba(0, 212, 255, 0.9);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 212, 255, 0.95);
     color: var(--bg);
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 12px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 14px;
     font-weight: 600;
-    z-index: 100;
+    z-index: 1000;
     pointer-events: none;
     animation: fadeInOut 2s ease;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
 
   /* Table sections */
@@ -1356,7 +1369,7 @@
       <p class="muted lang-en">Compare features, pricing, and key specifications across all top products in each category.</p>
       <p class="muted lang-fr">Comparez les fonctionnalités, prix et spécifications clés de tous les meilleurs produits dans chaque catégorie.</p>
 
-      <!-- Website Builders Table - UPDATED with new column -->
+      <!-- Website Builders Table - UPDATED with new metric column -->
       <div class="table-section" id="website-builders-table">
         <h3 style="margin-top: 40px;" class="lang-en">Website Builders Comparison</h3>
         <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Constructeurs de Sites</h3>
@@ -1408,7 +1421,7 @@
                   <span class="lang-en">E-commerce Stores</span>
                   <span class="lang-fr">Boutiques E-commerce</span>
                 </td>
-                <td>100+</td>
+                <td>70+</td>
                 <td>★★★★☆</td>
                 <td>
                   <span class="lang-en">14 days</span>
@@ -1561,7 +1574,7 @@
         </div>
       </div>
 
-      <!-- Productivity Tools Table - UPDATED with new metric -->
+      <!-- Productivity Tools Table -->
       <div class="table-section hidden" id="productivity-tools-table">
         <h3 style="margin-top: 40px;" class="lang-en">Productivity Tools Comparison</h3>
         <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Outils de Productivité</h3>
@@ -2131,17 +2144,16 @@ function showCategory(category, scrollTo = '') {
   }
 }
 
-// Table row click functionality - UPDATED to show message only (not navigate away)
+// Table row click functionality - Updated to show message WITHOUT leaving page
 function setupTableRowClicks() {
   const tableRows = document.querySelectorAll('.comparison-table tbody tr');
   
   tableRows.forEach(row => {
     row.addEventListener('click', function(e) {
       const product = this.getAttribute('data-product');
-      const landingPage = this.getAttribute('data-landing-page');
       
       // Remove any existing message
-      const existingMsg = this.querySelector('.row-click-message');
+      const existingMsg = document.querySelector('.row-click-message');
       if (existingMsg) {
         existingMsg.remove();
       }
@@ -2149,27 +2161,16 @@ function setupTableRowClicks() {
       // Create and append message
       const msg = document.createElement('div');
       msg.className = 'row-click-message';
-      msg.textContent = currentLang === 'en' ? 'Review coming soon' : 'Avis bientôt disponible';
-      this.appendChild(msg);
+      msg.textContent = currentLang === 'en' ? 'Review coming soon!' : 'Avis bientôt disponible !';
+      document.body.appendChild(msg);
       
-      // Position the message near the cursor
-      const rect = this.getBoundingClientRect();
-      msg.style.position = 'absolute';
-      msg.style.top = `${e.clientY - rect.top - 30}px`;
-      msg.style.left = `${e.clientX - rect.left}px`;
+      // Display message
       msg.style.display = 'block';
       
       // Remove message after animation
       setTimeout(() => {
         msg.remove();
       }, 2000);
-      
-      // Update browser history without leaving page
-      const urlWithoutParams = landingPage.split('?')[0];
-      const reviewUrl = `${urlWithoutParams}?lang=${currentLang}`;
-      window.history.pushState({}, '', `#${product.toLowerCase()}`);
-      
-      console.log(`Row clicked for: ${product}, would navigate to: ${reviewUrl} (but review pages not ready yet)`);
     });
   });
 }
