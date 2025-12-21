@@ -420,9 +420,6 @@
     font-size: 14px;
     line-height: 1.5;
     margin-top: 10px;
-  }
-  
-  .faq-item .faq-answer {
     display: none;
   }
   
@@ -572,10 +569,10 @@
     background-clip: text;
   }
   
-  /* NEW: Top Controls (outside header) */
+  /* NEW: Top Controls (outside header) - UPDATED */
   .top-controls-container {
     position: fixed;
-    top: 20px;
+    top: 60px; /* Changed from 20px to 60px */
     right: 20px;
     display: flex;
     align-items: center;
@@ -584,7 +581,7 @@
     backdrop-filter: blur(10px);
     background: rgba(17, 24, 39, 0.7);
     border-radius: 12px;
-    padding: 8px;
+    padding: 0px; /* Changed from 8px to 0px */
     border: 1px solid rgba(0, 212, 255, 0.2);
   }
   
@@ -771,6 +768,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-decoration: none;
+    cursor: pointer;
   }
   
   .mobile-menu-content {
@@ -799,6 +798,44 @@
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .mobile-menu-section {
+    margin-bottom: 20px;
+  }
+  
+  .mobile-menu-section h3 {
+    color: var(--electric-blue);
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .mobile-menu-link {
+    display: block;
+    padding: 8px 0;
+    color: var(--text-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    font-size: 14px;
+  }
+  
+  .mobile-menu-link:hover {
+    color: var(--electric-blue);
+  }
+  
+  .mobile-menu-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .mobile-menu-contact-item:hover {
+    color: var(--electric-blue);
   }
   
   /* FAQ Categories */
@@ -989,12 +1026,14 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
-    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="mobile-menu-logo">
-    <div class="mobile-menu-brand">Global Toolkit</div>
+    <a href="https://global-toolkit.github.io/" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="mobile-menu-logo">
+      <div class="mobile-menu-brand">Global Toolkit</div>
+    </a>
   </div>
   
   <div class="mobile-menu-content">
-    <!-- Menu content will be populated with footer information -->
+    <!-- Menu content will be populated with JavaScript -->
   </div>
   
   <div class="mobile-menu-footer">
@@ -1218,7 +1257,7 @@
           <li class="lang-fr">Sélections d'outils de productivité</li>
         </ul>
         
-        <a class="tile-cta" href="https://global-toolkit.github.io/onlinetools" data-base-url="https://global-toolkit.github.io/onlinetools">
+        <a class="tile-cta" href="https://global-toolkit.github.io/online-tools" data-base-url="https://global-toolkit.github.io/online-tools">
           <span class="lang-en">Compare Tools & Save</span>
           <span class="lang-fr">Comparer Outils & Économiser</span>
           <i class="fas fa-arrow-right"></i>
@@ -1474,7 +1513,7 @@
         </div>
       </div>
       
-      <!-- Online Tools FAQ -->
+      <!-- Online Tools FAQ - UPDATED -->
       <div class="faq-category-content" id="faq-tools">
         <div class="faq-container">
           <div class="faq-item">
@@ -1511,24 +1550,24 @@
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">How do I choose between different email marketing platforms?</div>
-            <div class="faq-question lang-fr">Comment choisir entre différentes plateformes d'email marketing?</div>
+            <div class="faq-question lang-en">How do automation tools help streamline business processes?</div>
+            <div class="faq-question lang-fr">Comment les outils d'automatisation aident-ils à rationaliser les processus commerciaux?</div>
             <div class="faq-answer lang-en">
-              Consider your list size, budget, automation needs, template requirements, and integration capabilities. Some platforms are better for beginners with simple needs, while others offer advanced features for growing businesses. Our email marketing tool comparisons break down pricing, features, deliverability rates, and ease of use to help you make an informed decision.
+              Automation tools help businesses save time and reduce errors by automating repetitive tasks like data entry, email marketing, social media posting, and customer follow-ups. These tools can integrate different applications, create workflows, and trigger actions based on specific conditions. We compare automation platforms based on ease of setup, integration capabilities, and workflow complexity they can handle.
             </div>
             <div class="faq-answer lang-fr">
-              Considérez la taille de votre liste, votre budget, vos besoins en automatisation, vos exigences en modèles et vos capacités d'intégration. Certaines plateformes sont meilleures pour les débutants avec des besoins simples, tandis que d'autres offrent des fonctionnalités avancées pour les entreprises en croissance. Nos comparatifs d'outils d'email marketing détaillent les prix, fonctionnalités, taux de délivrabilité et facilité d'utilisation pour vous aider à prendre une décision éclairée.
+              Les outils d'automatisation aident les entreprises à gagner du temps et réduire les erreurs en automatisant les tâches répétitives comme la saisie de données, le marketing par email, la publication sur les réseaux sociaux et les relances clients. Ces outils peuvent intégrer différentes applications, créer des flux de travail et déclencher des actions basées sur des conditions spécifiques. Nous comparons les plateformes d'automatisation sur la base de la facilité de configuration, des capacités d'intégration et de la complexité des flux de travail qu'elles peuvent gérer.
             </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">What graphic design tools are best for non-designers?</div>
-            <div class="faq-question lang-fr">Quels outils de conception graphique sont les meilleurs pour les non-designers?</div>
+            <div class="faq-question lang-en">What should I consider when choosing between different website builders?</div>
+            <div class="faq-question lang-fr">Que devrais-je considérer lorsque je choisis entre différents constructeurs de sites?</div>
             <div class="faq-answer lang-en">
-              For non-designers, we recommend tools with drag-and-drop interfaces, pre-made templates, and intuitive editing features. These platforms allow you to create professional-looking graphics, social media posts, and marketing materials without design expertise. We compare these tools based on template variety, ease of use, output quality, and learning resources available.
+              Key considerations include ease of use, template selection, customization options, mobile responsiveness, e-commerce capabilities, SEO features, pricing, and scalability. Different builders cater to different needs - some are better for simple portfolios while others excel at e-commerce or complex business websites. Our detailed comparisons help you match the right builder to your specific requirements.
             </div>
             <div class="faq-answer lang-fr">
-              Pour les non-designers, nous recommandons des outils avec des interfaces par glisser-déposer, des modèles pré-faits et des fonctionnalités d'édition intuitives. Ces plateformes vous permettent de créer des graphiques, publications sur les réseaux sociaux et matériels marketing d'apparence professionnelle sans expertise en design. Nous comparons ces outils sur la base de la variété des modèles, la facilité d'utilisation, la qualité de sortie et les ressources d'apprentissage disponibles.
+              Les considérations clés incluent la facilité d'utilisation, la sélection de modèles, les options de personnalisation, la réactivité mobile, les capacités de commerce électronique, les fonctionnalités SEO, le prix et l'évolutivité. Différents constructeurs répondent à différents besoins - certains sont meilleurs pour des portfolios simples tandis que d'autres excellent dans le commerce électronique ou les sites d'entreprise complexes. Nos comparatifs détaillés vous aident à associer le bon constructeur à vos besoins spécifiques.
             </div>
           </div>
         </div>
@@ -1666,8 +1705,8 @@
           <h4 class="lang-fr">Catégories</h4>
           <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
           <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
-          <a href="https://global-toolkit.github.io/onlinetools" class="lang-en" data-base-url="https://global-toolkit.github.io/onlinetools">Online Tools</a>
-          <a href="https://global-toolkit.github.io/onlinetools" class="lang-fr" data-base-url="https://global-toolkit.github.io/onlinetools">Outils en Ligne</a>
+          <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
+          <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
           <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Processors</a>
           <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Processeurs Paiement</a>
         </div>
@@ -1695,7 +1734,7 @@
         <div class="footer-column">
           <h4 class="lang-en">Connect</h4>
           <h4 class="lang-fr">Contact</h4>
-          <!-- CHANGED: Connect links layout -->
+          <!-- UPDATED: Connect links layout with icon for Share Feedback -->
           <div class="connect-links">
             <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
               <i class="fas fa-envelope"></i>
@@ -1705,10 +1744,10 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <!-- FIXED: "Feedback link" icon removed -->
+            <!-- UPDATED: Share Feedback with icon only, no French translation -->
             <a href="#feedback" class="connect-link">
-              <span class="lang-en">Share Feedback</span>
-              <span class="lang-fr">Partager Feedback</span>
+              <i class="fas fa-comment-alt"></i>
+              <span>Share Feedback</span>
             </a>
           </div>
         </div>
@@ -1805,6 +1844,12 @@ function updateAllLinks(lang) {
   facebookLinks.forEach(link => {
     link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}_${currentCurrency}`);
   });
+  
+  // Update mobile menu home link
+  const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
+  if (mobileMenuHomeLink) {
+    mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
+  }
 }
 
 // Function to get language from URL parameter
@@ -1920,27 +1965,42 @@ function setupFAQ() {
       document.getElementById(`faq-${category}`).classList.add('active');
       
       // Close all FAQ items when switching categories
-      document.querySelectorAll('.faq-item').forEach(item => {
-        item.classList.remove('expanded');
-      });
+      closeAllFAQItems();
     });
   });
   
   // FAQ item toggle with single answer at a time
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', function() {
-      // Close other FAQ items in the same category
-      const categoryContent = this.closest('.faq-category-content') || this.closest('.faq-container');
-      categoryContent.querySelectorAll('.faq-item').forEach(otherItem => {
-        if (otherItem !== this) {
-          otherItem.classList.remove('expanded');
-        }
-      });
+  function setupFAQItemListeners() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      // Remove any existing listeners
+      const newItem = item.cloneNode(true);
+      item.parentNode.replaceChild(newItem, item);
       
-      // Toggle current item
-      this.classList.toggle('expanded');
+      newItem.addEventListener('click', function() {
+        // Close other FAQ items in the same category
+        const categoryContent = this.closest('.faq-category-content') || this.closest('.faq-container');
+        if (categoryContent) {
+          categoryContent.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== this) {
+              otherItem.classList.remove('expanded');
+            }
+          });
+        }
+        
+        // Toggle current item
+        this.classList.toggle('expanded');
+      });
     });
-  });
+  }
+  
+  // Close all FAQ items
+  function closeAllFAQItems() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('expanded');
+    });
+  }
+  
+  setupFAQItemListeners();
 }
 
 // Mobile menu functionality
@@ -1975,21 +2035,41 @@ function updateMobileMenuContent() {
   mobileMenuContent.innerHTML = '';
   mobileMenuFooter.innerHTML = '';
   
-  // Add categories section
+  // Add Home section
+  const homeSection = document.createElement('div');
+  homeSection.className = 'mobile-menu-section';
+  
+  const homeLink = document.createElement('a');
+  homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}&currency=${currentCurrency}`;
+  homeLink.className = 'mobile-menu-link';
+  homeLink.innerHTML = '<i class="fas fa-home" style="margin-right: 8px;"></i>';
+  
+  const homeTextEn = document.createElement('span');
+  homeTextEn.className = 'lang-en';
+  homeTextEn.textContent = 'Home';
+  
+  const homeTextFr = document.createElement('span');
+  homeTextFr.className = 'lang-fr';
+  homeTextFr.textContent = 'Accueil';
+  homeTextFr.style.display = currentLang === 'fr' ? 'inline' : 'none';
+  
+  homeLink.appendChild(homeTextEn);
+  homeLink.appendChild(homeTextFr);
+  homeSection.appendChild(homeLink);
+  
+  mobileMenuContent.appendChild(homeSection);
+  
+  // Add Categories section
   const categoriesSection = document.createElement('div');
   categoriesSection.className = 'mobile-menu-section';
   
   const categoriesTitle = document.createElement('h3');
   categoriesTitle.className = 'lang-en';
   categoriesTitle.textContent = 'Categories';
-  categoriesTitle.style.color = 'var(--electric-blue)';
-  categoriesTitle.style.marginBottom = '10px';
   
   const categoriesTitleFr = document.createElement('h3');
   categoriesTitleFr.className = 'lang-fr';
   categoriesTitleFr.textContent = 'Catégories';
-  categoriesTitleFr.style.color = 'var(--electric-blue)';
-  categoriesTitleFr.style.marginBottom = '10px';
   categoriesTitleFr.style.display = currentLang === 'fr' ? 'block' : 'none';
   
   categoriesSection.appendChild(categoriesTitle);
@@ -1998,7 +2078,7 @@ function updateMobileMenuContent() {
   // Add category links
   const categories = [
     { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web', url: 'https://global-toolkit.github.io/saas-&-web-hosting' },
-    { en: 'Online Tools', fr: 'Outils en Ligne', url: 'https://global-toolkit.github.io/onlinetools' },
+    { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs', url: 'https://global-toolkit.github.io/online-tools' },
     { en: 'Payment Services', fr: 'Services de Paiement', url: 'https://global-toolkit.github.io/payments' }
   ];
   
@@ -2007,21 +2087,12 @@ function updateMobileMenuContent() {
     link.href = `${cat.url}?lang=${currentLang}&currency=${currentCurrency}`;
     link.className = 'mobile-menu-link lang-en';
     link.textContent = cat.en;
-    link.style.display = 'block';
-    link.style.padding = '8px 0';
-    link.style.color = 'var(--text-light)';
-    link.style.textDecoration = 'none';
-    link.style.borderBottom = '1px solid rgba(0, 212, 255, 0.1)';
     
     const linkFr = document.createElement('a');
     linkFr.href = `${cat.url}?lang=${currentLang}&currency=${currentCurrency}`;
     linkFr.className = 'mobile-menu-link lang-fr';
     linkFr.textContent = cat.fr;
     linkFr.style.display = currentLang === 'fr' ? 'block' : 'none';
-    linkFr.style.padding = '8px 0';
-    linkFr.style.color = 'var(--text-light)';
-    linkFr.style.textDecoration = 'none';
-    linkFr.style.borderBottom = '1px solid rgba(0, 212, 255, 0.1)';
     
     categoriesSection.appendChild(link);
     categoriesSection.appendChild(linkFr);
@@ -2029,34 +2100,123 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(categoriesSection);
   
-  // Add footer content (simplified version)
+  // Add Tools section
+  const toolsSection = document.createElement('div');
+  toolsSection.className = 'mobile-menu-section';
+  
+  const toolsTitle = document.createElement('h3');
+  toolsTitle.className = 'lang-en';
+  toolsTitle.textContent = 'Tools';
+  
+  const toolsTitleFr = document.createElement('h3');
+  toolsTitleFr.className = 'lang-fr';
+  toolsTitleFr.textContent = 'Outils';
+  toolsTitleFr.style.display = currentLang === 'fr' ? 'block' : 'none';
+  
+  toolsSection.appendChild(toolsTitle);
+  toolsSection.appendChild(toolsTitleFr);
+  
+  // Add tool links
+  const tools = [
+    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
+    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
+    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides' }
+  ];
+  
+  tools.forEach(tool => {
+    const link = document.createElement('a');
+    link.href = `${tool.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    link.className = 'mobile-menu-link lang-en coming-soon-link';
+    link.textContent = tool.en;
+    
+    const linkFr = document.createElement('a');
+    linkFr.href = `${tool.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    linkFr.className = 'mobile-menu-link lang-fr coming-soon-link';
+    linkFr.textContent = tool.fr;
+    linkFr.style.display = currentLang === 'fr' ? 'block' : 'none';
+    
+    toolsSection.appendChild(link);
+    toolsSection.appendChild(linkFr);
+  });
+  
+  mobileMenuContent.appendChild(toolsSection);
+  
+  // Add footer content
   const footerContent = document.createElement('div');
   footerContent.innerHTML = `
-    <div class="muted" style="font-size: 12px; line-height: 1.5; margin-bottom: 15px;">
-      <span class="lang-en"><strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.</span>
-      <span class="lang-fr"><strong>Important :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</span>
+    <div class="mobile-menu-section">
+      <a href="https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
+        <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+        <span class="lang-en">About Us</span>
+        <span class="lang-fr">À Propos</span>
+      </a>
+      <div style="margin: 15px 0; border-top: 1px solid rgba(0, 212, 255, 0.1);"></div>
+      <div class="mobile-menu-contact-item" style="cursor: pointer;" id="mobileMenuContactToggle">
+        <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+        <span class="lang-en">Contact</span>
+        <span class="lang-fr">Contact</span>
+        <i class="fas fa-chevron-down" style="margin-left: auto; font-size: 12px;"></i>
+      </div>
+      <div id="mobileMenuContactContent" style="display: none; padding-left: 20px; margin-top: 10px;">
+        <a href="mailto:globaltoolkit.contact@gmail.com" class="mobile-menu-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+        </a>
+        <a href="https://www.facebook.com/GlobalToolkit" class="mobile-menu-contact-item">
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </a>
+        <a href="#feedback" class="mobile-menu-contact-item" onclick="document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';">
+          <i class="fas fa-comment-alt"></i>
+          <span>Share Feedback</span>
+        </a>
+      </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      <a href="https://global-toolkit.github.io/privacy?lang=${currentLang}&currency=${currentCurrency}" style="color: var(--electric-blue); text-decoration: none; font-size: 14px;">
+    <div style="margin: 20px 0;"></div>
+    <div class="mobile-menu-section">
+      <a href="https://global-toolkit.github.io/privacy?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
+        <i class="fas fa-shield-alt" style="margin-right: 8px;"></i>
         <span class="lang-en">Privacy Policy</span>
         <span class="lang-fr">Politique de Confidentialité</span>
       </a>
-      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=${currentLang}&currency=${currentCurrency}" style="color: var(--electric-blue); text-decoration: none; font-size: 14px;">
+      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
+        <i class="fas fa-handshake" style="margin-right: 8px;"></i>
         <span class="lang-en">Affiliate Disclosure</span>
         <span class="lang-fr">Divulgation d'Affiliation</span>
       </a>
-      <a href="https://global-toolkit.github.io/terms?lang=${currentLang}&currency=${currentCurrency}" style="color: var(--electric-blue); text-decoration: none; font-size: 14px;">
+      <a href="https://global-toolkit.github.io/terms?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
+        <i class="fas fa-file-contract" style="margin-right: 8px;"></i>
         <span class="lang-en">Terms of Service</span>
         <span class="lang-fr">Conditions d'Utilisation</span>
       </a>
     </div>
-    <div class="muted" style="font-size: 12px; margin-top: 15px; text-align: center;">
+    <div class="muted" style="font-size: 12px; margin-top: 20px; text-align: center; line-height: 1.5;">
+      <span class="lang-en"><strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.</span>
+      <span class="lang-fr"><strong>Important :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</span>
+      <br><br>
       <span class="lang-en">Global Toolkit © 2026</span>
       <span class="lang-fr">Global Toolkit © 2026</span>
     </div>
   `;
   
   mobileMenuFooter.appendChild(footerContent);
+  
+  // Add contact toggle functionality
+  setTimeout(() => {
+    const contactToggle = document.getElementById('mobileMenuContactToggle');
+    const contactContent = document.getElementById('mobileMenuContactContent');
+    
+    if (contactToggle && contactContent) {
+      contactToggle.addEventListener('click', function() {
+        const isExpanded = contactContent.style.display === 'block';
+        contactContent.style.display = isExpanded ? 'none' : 'block';
+        const icon = this.querySelector('.fa-chevron-down');
+        if (icon) {
+          icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      });
+    }
+  }, 100);
 }
 
 // Event listeners for language dropdown
