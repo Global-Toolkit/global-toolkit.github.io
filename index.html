@@ -85,12 +85,7 @@
     color: var(--electric-blue);
     font-weight: 600;
     text-decoration: underline;
-  }
-  
-  @media (max-width: 767px) {
-    .disclosure-banner .muted {
-      font-size: 11px; /* Decreased from 13px for mobile */
-    }
+    cursor: pointer;
   }
   
   /* Trust Badges - ADDED */
@@ -99,7 +94,7 @@
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    margin: 0px 0;
+    margin: 0;
   }
   
   .badge {
@@ -510,6 +505,48 @@
     .connect-links {
       align-items: center;
     }
+    
+    /* NEW: Desktop brand container positioning */
+    .desktop-brand-container {
+      position: fixed;
+      top: 60px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 2000;
+      backdrop-filter: blur(10px);
+      background: rgba(17, 24, 39, 0.7);
+      border-radius: 12px;
+      padding: 8px 12px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+    
+    .desktop-brand-container .brand-logo {
+      height: 30px;
+      border-radius: 8px;
+    }
+    
+    .desktop-brand-container .brand {
+      font-size: 18px;
+    }
+    
+    /* Adjust header for desktop */
+    header {
+      padding: 12px 18px; /* Reduced padding */
+      min-height: 80px; /* Reduced height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .brand-container {
+      display: none; /* Hide original brand container in header */
+    }
+    
+    .trust-badges {
+      margin: 0;
+    }
   }
   
   @media (min-width: 1024px) {
@@ -518,7 +555,7 @@
     h1 { font-size: 48px; }
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 767px) {
     .email-form { flex-direction: column; }
     .hero-stats { justify-content: center; }
     .footer-links { grid-template-columns: 1fr; }
@@ -527,6 +564,19 @@
       min-width: 110px; /* Smaller on mobile */
       font-size: 11px;
       padding: 3px 8px;
+    }
+    
+    /* Mobile disclosure banner adjustments */
+    .disclosure-banner {
+      font-size: 11px; /* Decreased from 13px */
+    }
+    
+    .disclosure-banner .muted {
+      font-size: 11px;
+    }
+    
+    .desktop-brand-container {
+      display: none; /* Hide desktop brand container on mobile */
     }
   }
   
@@ -538,73 +588,25 @@
     box-sizing: border-box;
   }
   
-  /* Desktop-specific header adjustments */
-  @media (min-width: 768px) {
-    header {
-      padding: 12px 18px; /* Reduced vertical padding */
-      border-radius: 16px;
-      background: rgba(17, 24, 39, 0.85);
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(20px);
-      box-shadow: var(--shadow-lg), var(--glow);
-      margin-bottom: 20px;
-      border: 1px solid rgba(0, 212, 255, 0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 80px; /* Reduced height */
-    }
-    
-    .brand-container {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-bottom: 0; /* Reset for desktop */
-      flex-wrap: wrap;
-      position: fixed;
-      top: 60px;
-      left: 20px;
-      z-index: 2000;
-      backdrop-filter: blur(10px);
-      background: rgba(17, 24, 39, 0.7);
-      border-radius: 12px;
-      padding: 8px 12px;
-      border: 1px solid rgba(0, 212, 255, 0.2);
-    }
-    
-    header .brand-container {
-      display: none; /* Hide the brand-container inside header on desktop */
-    }
-    
-    .trust-badges {
-      margin: 0; /* Remove margin to reduce header height */
-      justify-content: center;
-    }
+  header {
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(17, 24, 39, 0.85);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg), var(--glow);
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
   }
   
-  @media (max-width: 767px) {
-    header {
-      padding: 18px;
-      border-radius: 16px;
-      background: rgba(17, 24, 39, 0.85);
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(20px);
-      box-shadow: var(--shadow-lg), var(--glow);
-      margin-bottom: 20px;
-      border: 1px solid rgba(0, 212, 255, 0.1);
-    }
-    
-    .brand-container {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
+  .brand-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
   }
   
   .brand-logo {
@@ -867,11 +869,14 @@
   
   .mobile-menu-link {
     display: block;
-    padding: 8px 0;
+    padding: 10px 0;
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   
   .mobile-menu-link:hover {
@@ -1074,6 +1079,12 @@
 </style>
 </head>
 <body>
+<!-- Desktop Brand Container (only for desktop) -->
+<div class="desktop-brand-container">
+  <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
+  <div class="brand">Global Toolkit</div>
+</div>
+
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
@@ -1093,12 +1104,6 @@
   <div class="mobile-menu-footer">
     <!-- Footer content will be populated here -->
   </div>
-</div>
-
-<!-- Desktop Brand Container (sticky) -->
-<div class="brand-container" id="desktopBrandContainer">
-  <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
-  <div class="brand">Global Toolkit</div>
 </div>
 
 <!-- Top Controls (outside header) -->
@@ -1141,11 +1146,11 @@
   <div class="wrap">
     <div class="muted lang-en">
       <strong>Disclosure:</strong> We may earn affiliate commissions when you purchase through our links. 
-      <a href="#affiliate-disclosure" id="disclosureLink">Learn how we make money →</a>
+      <a href="#affiliate-disclosure" class="disclosure-link">Learn how we make money →</a>
     </div>
     <div class="muted lang-fr">
       <strong>Divulgation :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens. 
-      <a href="#affiliate-disclosure" id="disclosureLinkFr">Apprenez comment nous gagnons de l'argent →</a>
+      <a href="#affiliate-disclosure" class="disclosure-link">Apprenez comment nous gagnons de l'argent →</a>
     </div>
   </div>
 </div>
@@ -1910,15 +1915,6 @@ function updateAllLinks(lang) {
   if (mobileMenuHomeLink) {
     mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
   }
-  
-  // Update desktop brand container link
-  const desktopBrandContainer = document.getElementById('desktopBrandContainer');
-  if (desktopBrandContainer) {
-    desktopBrandContainer.onclick = function() {
-      window.location.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
-    };
-    desktopBrandContainer.style.cursor = 'pointer';
-  }
 }
 
 // Function to get language from URL parameter
@@ -2038,54 +2034,43 @@ function setupFAQ() {
     });
   });
   
-  // Initialize FAQ items
-  setupFAQItemListeners();
-}
-
-// Setup FAQ item listeners
-function setupFAQItemListeners() {
-  // FAQ items in categories
-  document.querySelectorAll('.faq-category-content .faq-item').forEach(item => {
-    item.addEventListener('click', function() {
-      // Close other FAQ items in the same category
-      const categoryContent = this.closest('.faq-category-content');
-      if (categoryContent) {
-        categoryContent.querySelectorAll('.faq-item').forEach(otherItem => {
-          if (otherItem !== this) {
+  // Initialize FAQ items with single answer at a time behavior
+  function initializeFAQItems() {
+    // Close all FAQ items first
+    closeAllFAQItems();
+    
+    // Add click event to all FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', function() {
+        // If this item is already expanded, close it
+        if (this.classList.contains('expanded')) {
+          this.classList.remove('expanded');
+          return;
+        }
+        
+        // Close all FAQ items in the same section
+        const section = this.closest('.faq-category-content') || this.closest('.faq-container');
+        if (section) {
+          section.querySelectorAll('.faq-item').forEach(otherItem => {
             otherItem.classList.remove('expanded');
-          }
-        });
-      }
-      
-      // Toggle current item
-      this.classList.toggle('expanded');
+          });
+        }
+        
+        // Expand the clicked item
+        this.classList.add('expanded');
+      });
     });
-  });
+  }
   
-  // FAQ items in affiliate disclosure section
-  document.querySelectorAll('#affiliate-disclosure .faq-item').forEach(item => {
-    item.addEventListener('click', function() {
-      // Close other FAQ items in the same section
-      const section = this.closest('#affiliate-disclosure');
-      if (section) {
-        section.querySelectorAll('.faq-item').forEach(otherItem => {
-          if (otherItem !== this) {
-            otherItem.classList.remove('expanded');
-          }
-        });
-      }
-      
-      // Toggle current item
-      this.classList.toggle('expanded');
+  // Close all FAQ items
+  function closeAllFAQItems() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('expanded');
     });
-  });
-}
-
-// Close all FAQ items
-function closeAllFAQItems() {
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.classList.remove('expanded');
-  });
+  }
+  
+  // Initialize FAQ items
+  initializeFAQItems();
 }
 
 // Mobile menu functionality
@@ -2110,7 +2095,6 @@ function setupMobileMenu() {
   updateMobileMenuContent();
 }
 
-// Update mobile menu content
 function updateMobileMenuContent() {
   const mobileMenuContent = document.querySelector('.mobile-menu-content');
   const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
@@ -2128,12 +2112,7 @@ function updateMobileMenuContent() {
   const homeLink = document.createElement('a');
   homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}&currency=${currentCurrency}`;
   homeLink.className = 'mobile-menu-link';
-  homeLink.innerHTML = '<i class="fas fa-home" style="margin-right: 8px;"></i>';
-  homeLink.onclick = function() {
-    document.getElementById('mobileMenu').classList.remove('active');
-    document.getElementById('mobileMenuOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-  };
+  homeLink.innerHTML = '<i class="fas fa-home"></i>';
   
   const homeText = document.createElement('span');
   homeText.textContent = currentLang === 'fr' ? 'Accueil' : 'Home';
@@ -2149,7 +2128,6 @@ function updateMobileMenuContent() {
   
   const categoriesTitle = document.createElement('h3');
   categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
-  
   categoriesSection.appendChild(categoriesTitle);
   
   // Add category links
@@ -2163,13 +2141,7 @@ function updateMobileMenuContent() {
     const link = document.createElement('a');
     link.href = `${cat.url}?lang=${currentLang}&currency=${currentCurrency}`;
     link.className = 'mobile-menu-link';
-    link.textContent = cat.name;
-    link.onclick = function() {
-      document.getElementById('mobileMenu').classList.remove('active');
-      document.getElementById('mobileMenuOverlay').classList.remove('active');
-      document.body.style.overflow = '';
-    };
-    
+    link.innerHTML = `<i class="fas fa-folder"></i><span>${cat.name}</span>`;
     categoriesSection.appendChild(link);
   });
   
@@ -2181,49 +2153,29 @@ function updateMobileMenuContent() {
   
   const toolsTitle = document.createElement('h3');
   toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
-  
   toolsSection.appendChild(toolsTitle);
   
-  // Add tool links
+  // Add tool links with coming soon functionality
   const tools = [
-    { name: currentLang === 'fr' ? 'Calculateur Comparatif' : 'Comparison Calculator', url: 'https://global-toolkit.github.io/comparison-calculator', isComingSoon: true },
-    { name: currentLang === 'fr' ? 'Suivi Offres' : 'Deals Tracker', url: 'https://global-toolkit.github.io/deals-tracker', isComingSoon: true },
-    { name: currentLang === 'fr' ? 'Guides Débutants' : 'Beginner Guides', url: 'https://global-toolkit.github.io/beginner-guides', isComingSoon: false }
+    { name: currentLang === 'fr' ? 'Calculateur Comparatif' : 'Comparison Calculator', url: 'https://global-toolkit.github.io/comparison-calculator', comingSoon: true },
+    { name: currentLang === 'fr' ? 'Suivi Offres' : 'Deals Tracker', url: 'https://global-toolkit.github.io/deals-tracker', comingSoon: true },
+    { name: currentLang === 'fr' ? 'Guides Débutants' : 'Beginner Guides', url: 'https://global-toolkit.github.io/beginner-guides', comingSoon: false }
   ];
   
   tools.forEach(tool => {
     const link = document.createElement('a');
     link.href = `${tool.url}?lang=${currentLang}&currency=${currentCurrency}`;
     link.className = 'mobile-menu-link';
-    link.textContent = tool.name;
+    if (tool.comingSoon) {
+      link.classList.add('coming-soon-link');
+    }
+    link.innerHTML = `<i class="fas fa-tools"></i><span>${tool.name}</span>`;
     
-    if (tool.isComingSoon) {
-      link.onclick = function(e) {
+    if (tool.comingSoon) {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        // Remove any existing message
-        const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
-        if (existingMsg) {
-          existingMsg.remove();
-        }
-        
-        // Create and append message
-        const msg = document.createElement('span');
-        msg.className = 'coming-soon-msg';
-        msg.textContent = currentLang === 'fr' ? ' (Bientôt disponible)' : ' (Coming soon)';
-        this.appendChild(msg);
-        
-        // Remove message after animation
-        setTimeout(() => {
-          msg.remove();
-        }, 2000);
-      };
-    } else {
-      link.onclick = function() {
-        document.getElementById('mobileMenu').classList.remove('active');
-        document.getElementById('mobileMenuOverlay').classList.remove('active');
-        document.body.style.overflow = '';
-      };
+        showComingSoonMessage(this);
+      });
     }
     
     toolsSection.appendChild(link);
@@ -2231,52 +2183,49 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(toolsSection);
   
-  // Add footer content
+  // Add footer content with updated order and removed icons
   const footerContent = document.createElement('div');
   footerContent.innerHTML = `
     <div class="mobile-menu-section">
-      <a href="#contact" class="mobile-menu-link" id="mobileMenuContactToggle" style="display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <i class="fas fa-envelope"></i>
-          <span>${currentLang === 'fr' ? 'Contact' : 'Contact'}</span>
-        </div>
-        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
-      </a>
+      <div class="mobile-menu-contact-item" style="cursor: pointer;" id="mobileMenuContactToggle">
+        <i class="fas fa-envelope"></i>
+        <span>${currentLang === 'fr' ? 'Contact' : 'Contact'}</span>
+        <i class="fas fa-chevron-down" style="margin-left: auto; font-size: 12px;"></i>
+      </div>
       <div id="mobileMenuContactContent" style="display: none; padding-left: 20px; margin-top: 10px;">
         <a href="mailto:globaltoolkit.contact@gmail.com" class="mobile-menu-contact-item">
-          <i class="fas fa-envelope"></i>
           <span>Email</span>
         </a>
         <a href="https://www.facebook.com/GlobalToolkit" class="mobile-menu-contact-item">
-          <i class="fab fa-facebook"></i>
           <span>Facebook</span>
         </a>
         <a href="#feedback" class="mobile-menu-contact-item" onclick="document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';">
-          <i class="fas fa-comment-alt"></i>
           <span>${currentLang === 'fr' ? 'Partager Feedback' : 'Share Feedback'}</span>
         </a>
       </div>
-      <div style="margin-top: 15px;"></div>
-      <a href="https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
-        ${currentLang === 'fr' ? 'À Propos' : 'About Us'}
+      
+      <a href="https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link" style="margin-top: 15px;">
+        <span>${currentLang === 'fr' ? 'À Propos de Nous' : 'About Us'}</span>
       </a>
     </div>
-    <div style="margin: 20px 0; border-top: 1px solid rgba(0, 212, 255, 0.1);"></div>
+    
+    <div style="margin: 20px 0;"></div>
+    
     <div class="mobile-menu-section">
       <a href="https://global-toolkit.github.io/privacy?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
-        ${currentLang === 'fr' ? 'Politique de Confidentialité' : 'Privacy Policy'}
+        <span>${currentLang === 'fr' ? 'Politique de Confidentialité' : 'Privacy Policy'}</span>
       </a>
       <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
-        ${currentLang === 'fr' ? 'Divulgation d\'Affiliation' : 'Affiliate Disclosure'}
+        <span>${currentLang === 'fr' ? 'Divulgation d\'Affiliation' : 'Affiliate Disclosure'}</span>
       </a>
       <a href="https://global-toolkit.github.io/terms?lang=${currentLang}&currency=${currentCurrency}" class="mobile-menu-link">
-        ${currentLang === 'fr' ? 'Conditions d\'Utilisation' : 'Terms of Service'}
+        <span>${currentLang === 'fr' ? 'Conditions d\'Utilisation' : 'Terms of Service'}</span>
       </a>
     </div>
     <div class="muted" style="font-size: 12px; margin-top: 20px; text-align: center; line-height: 1.5;">
       <strong>${currentLang === 'fr' ? 'Important :' : 'Important:'}</strong> ${currentLang === 'fr' ? 'Nous pouvons gagner des commissions d\'affiliation lorsque vous achetez via nos liens.' : 'We may earn affiliate commissions when you purchase through our links.'}
       <br><br>
-      Global Toolkit © 2026
+      ${currentLang === 'fr' ? 'Global Toolkit © 2026' : 'Global Toolkit © 2026'}
     </div>
   `;
   
@@ -2288,8 +2237,7 @@ function updateMobileMenuContent() {
     const contactContent = document.getElementById('mobileMenuContactContent');
     
     if (contactToggle && contactContent) {
-      contactToggle.addEventListener('click', function(e) {
-        e.preventDefault();
+      contactToggle.addEventListener('click', function() {
         const isExpanded = contactContent.style.display === 'block';
         contactContent.style.display = isExpanded ? 'none' : 'block';
         const icon = this.querySelector('.fa-chevron-down');
@@ -2301,35 +2249,25 @@ function updateMobileMenuContent() {
   }, 100);
 }
 
-// Fix for disclosure banner scrolling on mobile
-function setupDisclosureBannerScroll() {
-  const disclosureLinks = document.querySelectorAll('#disclosureLink, #disclosureLinkFr');
+// Function to show coming soon message
+function showComingSoonMessage(element) {
+  // Remove any existing message
+  const existingMsg = element.parentNode.querySelector('.coming-soon-msg');
+  if (existingMsg) {
+    existingMsg.remove();
+  }
   
-  disclosureLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector('#affiliate-disclosure');
-      if (target) {
-        // Close mobile menu if open
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        if (mobileMenu.classList.contains('active')) {
-          mobileMenu.classList.remove('active');
-          mobileMenuOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-        
-        // Calculate offset for sticky banner
-        const bannerHeight = document.querySelector('.disclosure-banner').offsetHeight;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - bannerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
+  // Create and append message
+  const msg = document.createElement('span');
+  msg.className = 'coming-soon-msg';
+  msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+  msg.style.marginLeft = '8px';
+  element.appendChild(msg);
+  
+  // Remove message after animation
+  setTimeout(() => {
+    msg.remove();
+  }, 2000);
 }
 
 // Event listeners for language dropdown
@@ -2367,6 +2305,29 @@ document.querySelectorAll('.currency-option').forEach(option => {
   option.addEventListener('click', function() {
     const currency = this.getAttribute('data-currency');
     switchCurrency(currency);
+  });
+});
+
+// Fix for disclosure banner scroll on mobile
+document.querySelectorAll('.disclosure-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      if (mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      // Scroll to target
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   });
 });
 
@@ -2415,46 +2376,28 @@ document.getElementById('visitor-feedback')?.addEventListener('submit', function
   this.reset();
 });
 
-// Coming soon links in footer
+// Coming soon links in main content
 document.querySelectorAll('.coming-soon-link').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
-    
-    // Remove any existing message
-    const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
-    if (existingMsg) {
-      existingMsg.remove();
-    }
-    
-    // Create and append message
-    const msg = document.createElement('span');
-    msg.className = 'coming-soon-msg';
-    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
-    this.parentNode.appendChild(msg);
-    
-    // Remove message after animation
-    setTimeout(() => {
-      msg.remove();
-    }, 2000);
+    showComingSoonMessage(this);
   });
 });
 
-// Smooth scrolling for anchor links (excluding disclosure banner links which are handled separately)
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  if (!anchor.id.includes('disclosureLink')) {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#' && !this.classList.contains('coming-soon-link')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && !this.classList.contains('coming-soon-link')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
-    });
-  }
+    }
+  });
 });
 
 // Initialize everything
@@ -2463,7 +2406,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeCurrency();
   setupFAQ();
   setupMobileMenu();
-  setupDisclosureBannerScroll();
   
   setTimeout(() => {
     updateAllLinks(currentLang);
