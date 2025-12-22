@@ -94,7 +94,7 @@
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    margin: 0px 0;
+    margin: 10px 0; /* Changed from 0px 0 to 10px 0 */
   }
   
   .badge {
@@ -505,6 +505,10 @@
     .connect-links {
       align-items: center;
     }
+    /* Desktop: increase gap between trust badges to 80px */
+    .trust-badges {
+      gap: 80px;
+    }
   }
   
   @media (min-width: 1024px) {
@@ -557,8 +561,8 @@
   /* NEW: Brand Container (outside header) - UPDATED */
   .brand-container {
     position: fixed;
-    top: 55px; /* Changed from 60px to 55px */
-    left: 20px;
+    top: 30px; /* Changed from 55px to 30px */
+    left: 4px; /* Changed from 20px to 4px */
     display: flex;
     align-items: center;
     gap: 1px; /* Changed from 5px to 1px */
@@ -589,11 +593,11 @@
   /* NEW: Top Controls (outside header) - UPDATED */
   .top-controls-container {
     position: fixed;
-    top: 55px; /* Changed from 60px to 55px */
-    right: 20px;
+    top: 55px; /* Default for mobile */
+    right: 20px; /* Default for mobile */
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Default for mobile */
     z-index: 2000;
     backdrop-filter: blur(10px);
     background: rgba(17, 24, 39, 0.7);
@@ -605,7 +609,7 @@
   /* Currency Selector - Updated with visual effect */
   .currency-selector {
     display: flex;
-    gap: 3px;
+    gap: 3px; /* Default for desktop */
     background: rgba(0, 212, 255, 0.1);
     border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 12px;
@@ -767,10 +771,25 @@
   .mobile-menu-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px; /* Changed from 30px to 10px */
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
+  }
+  
+  .mobile-menu-close {
+    background: none;
+    border: none;
+    color: var(--electric-blue);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .mobile-menu-logo {
@@ -779,7 +798,7 @@
   }
   
   .mobile-menu-brand {
-    font-size: 20px;
+    font-size: 23px; /* Changed from 20px to 23px */
     font-weight: 700;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
@@ -812,13 +831,13 @@
   }
   
   .mobile-menu-footer {
-    margin-top: 30px;
+    margin-top: 17px; /* Changed from 30px to 17px */
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    border-top: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
   .mobile-menu-section {
-    margin-bottom: 20px;
+    margin-bottom: 5px; /* Changed from 20px to 5px */
   }
   
   .mobile-menu-section h3 {
@@ -830,11 +849,11 @@
   
   .mobile-menu-link {
     display: block;
-    padding: 12px 0;
+    padding: 5px 0; /* Changed from 12px 0 to 5px 0 */
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    font-size: 14px;
+    font-size: 16px; /* Changed from 14px to 16px */
   }
   
   .mobile-menu-link:hover {
@@ -845,10 +864,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 0;
+    padding: 1px 0; /* Changed from 8px 0 to 1px 0 */
     color: var(--text-light);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 17px; /* Changed from 14px to 17px */
   }
   
   .mobile-menu-contact-item:hover {
@@ -866,6 +885,11 @@
   @media (min-width: 768px) {
     .faq-categories {
       grid-template-columns: repeat(4, 1fr);
+    }
+    /* Desktop: adjust top-controls-container */
+    .top-controls-container {
+      top: 43px; /* Changed from 55px to 43px for desktop */
+      right: 15px; /* Changed from 20px to 15px for desktop */
     }
   }
   
@@ -1034,6 +1058,43 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
+  
+  /* Mobile specific styles */
+  @media (max-width: 767px) {
+    /* Mobile: adjust top-controls-container */
+    .top-controls-container {
+      gap: 3px; /* Changed from 10px to 3px */
+      right: 15px; /* Changed from 20px to 15px */
+      top: 59px; /* Changed from 55px to 59px */
+    }
+    
+    /* Mobile: adjust currency-selector gap */
+    .currency-selector {
+      gap: 0px; /* Changed from 3px to 0px */
+    }
+    
+    /* Mobile: make brand text stack vertically */
+    .brand-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+    
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    
+    .brand::after {
+      content: "Toolkit";
+      margin-top: -2px;
+    }
+    
+    .brand::before {
+      content: "Global";
+    }
+  }
 </style>
 </head>
 <body>
@@ -1047,6 +1108,9 @@
       <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="mobile-menu-logo">
       <div class="mobile-menu-brand">Global Toolkit</div>
     </a>
+    <button class="mobile-menu-close" id="mobileMenuClose">
+      <i class="fas fa-times"></i>
+    </button>
   </div>
   
   <div class="mobile-menu-content">
@@ -1961,7 +2025,7 @@ async function initializeCurrency() {
   switchCurrency(savedCurrency);
 }
 
-// FAQ functionality
+// FAQ functionality - Fixed hiding mechanism
 function setupFAQ() {
   // FAQ category switching
   const categoryButtons = document.querySelectorAll('.faq-category-btn');
@@ -1984,17 +2048,40 @@ function setupFAQ() {
     });
   });
   
-  // FAQ item toggle with single answer at a time
+  // FAQ item toggle with single answer at a time - FIXED VERSION
   function setupFAQItemListeners() {
-    // Handle main FAQ items
-    document.querySelectorAll('.faq-section .faq-item').forEach(item => {
-      // Remove any existing listeners
+    // Handle main FAQ section items
+    const mainFAQItems = document.querySelectorAll('.faq-section .faq-item');
+    mainFAQItems.forEach(item => {
+      // Remove any existing listeners by cloning and replacing
       const newItem = item.cloneNode(true);
       item.parentNode.replaceChild(newItem, item);
       
       newItem.addEventListener('click', function() {
-        // Close other FAQ items in the same section
+        // Close other FAQ items in the same FAQ section (not just same category)
         const section = this.closest('.faq-section');
+        if (section) {
+          section.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== this) {
+              otherItem.classList.remove('expanded');
+            }
+          });
+        }
+        
+        // Toggle current item
+        this.classList.toggle('expanded');
+      });
+    });
+    
+    // Handle affiliate disclosure section items separately
+    const affiliateFAQItems = document.querySelectorAll('#affiliate-disclosure .faq-item');
+    affiliateFAQItems.forEach(item => {
+      const newItem = item.cloneNode(true);
+      item.parentNode.replaceChild(newItem, item);
+      
+      newItem.addEventListener('click', function() {
+        // Close other FAQ items in the affiliate disclosure section
+        const section = document.getElementById('affiliate-disclosure');
         if (section) {
           section.querySelectorAll('.faq-item').forEach(otherItem => {
             if (otherItem !== this) {
@@ -2024,18 +2111,25 @@ function setupMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
   
-  menuToggle.addEventListener('click', function() {
-    mobileMenu.classList.toggle('active');
-    mobileMenuOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-  });
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
   
-  mobileMenuOverlay.addEventListener('click', function() {
+  function closeMobileMenu() {
     mobileMenu.classList.remove('active');
-    this.classList.remove('active');
+    mobileMenuOverlay.classList.remove('active');
     document.body.style.overflow = '';
-  });
+  }
+  
+  menuToggle.addEventListener('click', openMobileMenu);
+  
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
   
   // Populate mobile menu content
   updateMobileMenuContent();
@@ -2060,15 +2154,10 @@ function updateMobileMenuContent() {
   homeLink.className = 'mobile-menu-link';
   homeLink.innerHTML = '<i class="fas fa-home" style="margin-right: 8px;"></i>';
   
-  const homeTextEn = document.createElement('span');
-  homeTextEn.className = 'lang-en';
-  homeTextEn.textContent = 'Home';
+  const homeText = document.createElement('span');
+  homeText.textContent = currentLang === 'fr' ? 'Accueil' : 'Home';
   
-  const homeTextFr = document.createElement('span');
-  homeTextFr.className = 'lang-fr';
-  homeTextFr.textContent = 'Accueil';
-  
-  homeLink.appendChild(currentLang === 'fr' ? homeTextFr : homeTextEn);
+  homeLink.appendChild(homeText);
   homeSection.appendChild(homeLink);
   
   mobileMenuContent.appendChild(homeSection);
@@ -2078,12 +2167,11 @@ function updateMobileMenuContent() {
   categoriesSection.className = 'mobile-menu-section';
   
   const categoriesTitle = document.createElement('h3');
-  categoriesTitle.className = currentLang === 'fr' ? 'lang-fr' : 'lang-en';
-  categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
   categoriesTitle.style.color = 'var(--electric-blue)';
   categoriesTitle.style.marginBottom = '10px';
-  categoriesTitle.style.fontSize = '16px';
+  categoriesTitle.style.fontSize = '19px'; /* Changed from 16px to 19px */
   categoriesTitle.style.fontWeight = '600';
+  categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
   
   categoriesSection.appendChild(categoriesTitle);
   
@@ -2110,12 +2198,11 @@ function updateMobileMenuContent() {
   toolsSection.className = 'mobile-menu-section';
   
   const toolsTitle = document.createElement('h3');
-  toolsTitle.className = currentLang === 'fr' ? 'lang-fr' : 'lang-en';
-  toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
   toolsTitle.style.color = 'var(--electric-blue)';
   toolsTitle.style.marginBottom = '10px';
-  toolsTitle.style.fontSize = '16px';
+  toolsTitle.style.fontSize = '19px'; /* Changed from 16px to 19px */
   toolsTitle.style.fontWeight = '600';
+  toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
   
   toolsSection.appendChild(toolsTitle);
   
@@ -2138,7 +2225,7 @@ function updateMobileMenuContent() {
         e.preventDefault();
         
         // Remove any existing message
-        const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
+        const existingMsg = this.querySelector('.coming-soon-msg');
         if (existingMsg) {
           existingMsg.remove();
         }
@@ -2182,7 +2269,7 @@ function updateMobileMenuContent() {
   
   const contactArrow = document.createElement('i');
   contactArrow.className = 'fas fa-chevron-down';
-  contactArrow.style.marginLeft = 'auto';
+  contactArrow.style.marginLeft = '4px'; /* Reduced gap from auto to 4px */
   contactArrow.style.fontSize = '12px';
   
   contactToggle.appendChild(contactIcon);
@@ -2193,7 +2280,7 @@ function updateMobileMenuContent() {
   contactContent.id = 'mobileMenuContactContent';
   contactContent.style.display = 'none';
   contactContent.style.paddingLeft = '20px';
-  contactContent.style.marginTop = '10px';
+  contactContent.style.marginTop = '5px';
   
   // Contact items
   const contactItems = [
@@ -2230,7 +2317,7 @@ function updateMobileMenuContent() {
   const aboutLink = document.createElement('a');
   aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}`;
   aboutLink.className = 'mobile-menu-link';
-  aboutLink.style.marginTop = '15px';
+  aboutLink.style.marginTop = '3px'; /* Changed from 15px to 3px */
   aboutLink.style.display = 'block';
   
   const aboutIcon = document.createElement('i');
@@ -2247,7 +2334,7 @@ function updateMobileMenuContent() {
   
   // Add space
   const space = document.createElement('div');
-  space.style.margin = '20px 0';
+  space.style.margin = '15px 0';
   space.style.borderTop = '1px solid rgba(0, 212, 255, 0.1)';
   
   // Add legal links
@@ -2282,7 +2369,7 @@ function updateMobileMenuContent() {
   const footerText = document.createElement('div');
   footerText.className = 'muted';
   footerText.style.fontSize = '12px';
-  footerText.style.marginTop = '20px';
+  footerText.style.marginTop = '15px';
   footerText.style.textAlign = 'center';
   footerText.style.lineHeight = '1.5';
   
@@ -2365,11 +2452,13 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// Fix disclosure banner scroll on mobile
+// Fix disclosure banner scroll on mobile - Improved version
 document.querySelectorAll('.disclosure-link').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const targetId = this.getAttribute('href');
+    const target = document.querySelector(targetId);
+    
     if (target) {
       // Close mobile menu if open
       const mobileMenu = document.getElementById('mobileMenu');
@@ -2380,8 +2469,13 @@ document.querySelectorAll('.disclosure-link').forEach(link => {
         document.body.style.overflow = '';
       }
       
+      // Calculate offset for fixed header
+      const offset = 80;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      
       // Scroll to target
-      target.scrollIntoView({
+      window.scrollTo({
+        top: targetPosition,
         behavior: 'smooth'
       });
     }
@@ -2466,7 +2560,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          target.scrollIntoView({
+          // Calculate offset for fixed header
+          const offset = 80;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: targetPosition,
             behavior: 'smooth'
           });
         }
