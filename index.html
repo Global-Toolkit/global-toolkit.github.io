@@ -574,12 +574,12 @@
     align-items: center;
     gap: 1px; /* Changed from 5px to 1px */
     z-index: 2000;
-    backdrop-filter: blur(10px);
-    background: rgba(17, 24, 39, 0.7);
     border-radius: 12px;
     padding: 8px 12px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* CHANGED: Removed background and border to make container invisible */
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
   }
   
   .brand-logo {
@@ -1105,6 +1105,11 @@
     
     .brand-line-1 {
       margin-bottom: -2px;
+    }
+    
+    /* CHANGED: Make mobile menu scrollable */
+    .mobile-menu {
+      overflow-y: auto;
     }
   }
   
@@ -1932,6 +1937,19 @@ function switchLanguage(lang) {
   
   // Update mobile menu content
   updateMobileMenuContent();
+  
+  // Reinitialize FAQ to fix language issues
+  setTimeout(() => {
+    initFAQItemListeners();
+    // Hide all answers initially
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('expanded');
+      const answers = item.querySelectorAll('.faq-answer');
+      answers.forEach(answer => {
+        answer.style.display = 'none';
+      });
+    });
+  }, 50);
 }
 
 // CHANGED: Updated function to handle all links with language and currency parameters
@@ -2084,15 +2102,16 @@ function setupFAQ() {
   
   // Initialize FAQ item listeners for all FAQ sections
   function initFAQItemListeners() {
-    // Handle FAQ items in category sections
+    // Handle FAQ items in category sections and affiliate disclosure
     const allFAQItems = document.querySelectorAll('.faq-item');
     
     allFAQItems.forEach(item => {
-      // Make sure answers are hidden initially
-      const answer = item.querySelector('.faq-answer');
-      if (answer) {
-        answer.style.display = 'none';
-      }
+      // Make sure only current language answers are visible initially (all hidden)
+      const enAnswer = item.querySelector('.faq-answer.lang-en');
+      const frAnswer = item.querySelector('.faq-answer.lang-fr');
+      
+      if (enAnswer) enAnswer.style.display = 'none';
+      if (frAnswer) frAnswer.style.display = 'none';
       
       // Remove existing click listeners to avoid duplicates
       const newItem = item.cloneNode(true);
@@ -2112,28 +2131,37 @@ function setupFAQ() {
           parentContainer.querySelectorAll('.faq-item').forEach(otherItem => {
             if (otherItem !== this) {
               otherItem.classList.remove('expanded');
-              const otherAnswer = otherItem.querySelector('.faq-answer');
-              if (otherAnswer) {
-                otherAnswer.style.display = 'none';
-              }
+              const otherEnAnswer = otherItem.querySelector('.faq-answer.lang-en');
+              const otherFrAnswer = otherItem.querySelector('.faq-answer.lang-fr');
+              if (otherEnAnswer) otherEnAnswer.style.display = 'none';
+              if (otherFrAnswer) otherFrAnswer.style.display = 'none';
             }
           });
           
           // Toggle current item
           const wasExpanded = this.classList.contains('expanded');
-          this.classList.toggle('expanded');
-          const answer = this.querySelector('.faq-answer');
-          if (answer) {
-            answer.style.display = wasExpanded ? 'none' : 'block';
+          
+          // Remove expanded class from all items first
+          parentContainer.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('expanded');
+          });
+          
+          if (!wasExpanded) {
+            this.classList.add('expanded');
+            // Show only the current language answer
+            const currentLangAnswer = this.querySelector(`.faq-answer.lang-${currentLang}`);
+            if (currentLangAnswer) {
+              currentLangAnswer.style.display = 'block';
+            }
+          } else {
+            // Hide all answers for this item
+            const enAnswer = this.querySelector('.faq-answer.lang-en');
+            const frAnswer = this.querySelector('.faq-answer.lang-fr');
+            if (enAnswer) enAnswer.style.display = 'none';
+            if (frAnswer) frAnswer.style.display = 'none';
           }
         }
       });
-      
-      // Ensure answers are hidden initially
-      const answer = item.querySelector('.faq-answer');
-      if (answer && !item.classList.contains('expanded')) {
-        answer.style.display = 'none';
-      }
     });
   }
   
@@ -2141,10 +2169,10 @@ function setupFAQ() {
   function closeAllFAQItems() {
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('expanded');
-      const answer = item.querySelector('.faq-answer');
-      if (answer) {
-        answer.style.display = 'none';
-      }
+      const enAnswer = item.querySelector('.faq-answer.lang-en');
+      const frAnswer = item.querySelector('.faq-answer.lang-fr');
+      if (enAnswer) enAnswer.style.display = 'none';
+      if (frAnswer) frAnswer.style.display = 'none';
     });
   }
   
@@ -2155,7 +2183,11 @@ function setupFAQ() {
   const originalSwitchLanguage = switchLanguage;
   switchLanguage = function(lang) {
     originalSwitchLanguage(lang);
-    setTimeout(initFAQItemListeners, 100);
+    setTimeout(() => {
+      // Close all expanded FAQ items and reinitialize
+      closeAllFAQItems();
+      initFAQItemListeners();
+    }, 50);
   };
 }
 
@@ -2290,11 +2322,10 @@ function updateMobileMenuContent() {
   categoriesSection.className = 'mobile-menu-section';
   
   const categoriesTitle = document.createElement('h3');
-  categoriesTitle.className = currentLang === 'fr' ? 'lang-fr' : 'lang-en';
   categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
   categoriesTitle.style.color = 'var(--electric-blue)';
   categoriesTitle.style.marginBottom = '10px';
-  categoriesTitle.style.fontSize = '19px'; // Changed from 16px to 19px
+  categoriesTitle.style.fontSize = '19px';
   categoriesTitle.style.fontWeight = '600';
   
   categoriesSection.appendChild(categoriesTitle);
@@ -2325,11 +2356,10 @@ function updateMobileMenuContent() {
   toolsSection.className = 'mobile-menu-section';
   
   const toolsTitle = document.createElement('h3');
-  toolsTitle.className = currentLang === 'fr' ? 'lang-fr' : 'lang-en';
   toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
   toolsTitle.style.color = 'var(--electric-blue)';
   toolsTitle.style.marginBottom = '10px';
-  toolsTitle.style.fontSize = '19px'; // Changed from 16px to 19px
+  toolsTitle.style.fontSize = '19px';
   toolsTitle.style.fontWeight = '600';
   
   toolsSection.appendChild(toolsTitle);
@@ -2397,7 +2427,7 @@ function updateMobileMenuContent() {
   
   const contactArrow = document.createElement('i');
   contactArrow.className = 'fas fa-chevron-down';
-  contactArrow.style.marginLeft = '8px'; // Reduced gap
+  contactArrow.style.marginLeft = '8px';
   contactArrow.style.fontSize = '12px';
   
   contactToggle.appendChild(contactIcon);
@@ -2445,7 +2475,7 @@ function updateMobileMenuContent() {
   const aboutLink = document.createElement('a');
   aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}`;
   aboutLink.className = 'mobile-menu-link';
-  aboutLink.style.marginTop = '3px'; // Changed from 15px to 3px
+  aboutLink.style.marginTop = '3px';
   aboutLink.style.display = 'block';
   
   const aboutIcon = document.createElement('i');
@@ -2582,15 +2612,25 @@ document.querySelectorAll('.currency-option').forEach(option => {
 
 // Fix disclosure banner scroll on mobile - FIXED VERSION
 function fixDisclosureBannerScroll() {
-  document.querySelectorAll('.disclosure-link').forEach(link => {
-    // Remove existing listeners to avoid duplicates
-    const newLink = link.cloneNode(true);
-    link.parentNode.replaceChild(newLink, link);
-  });
+  // Remove all existing disclosure links and recreate them
+  const disclosureLinks = document.querySelectorAll('.disclosure-link');
   
-  // Re-select after cloning
-  document.querySelectorAll('.disclosure-link').forEach(link => {
-    link.addEventListener('click', function(e) {
+  disclosureLinks.forEach(link => {
+    // Store the parent and href
+    const parent = link.parentNode;
+    const href = link.getAttribute('href');
+    
+    // Create new link
+    const newLink = document.createElement('a');
+    newLink.href = href;
+    newLink.className = 'disclosure-link';
+    newLink.innerHTML = link.innerHTML;
+    
+    // Replace the old link
+    parent.replaceChild(newLink, link);
+    
+    // Add click event listener to new link
+    newLink.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       const target = document.querySelector(targetId);
@@ -2607,7 +2647,8 @@ function fixDisclosureBannerScroll() {
         
         // Scroll to target
         target.scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
+          block: 'start'
         });
       }
     });
@@ -2685,15 +2726,16 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  if (!anchor.classList.contains('disclosure-link')) {
+  if (!anchor.classList.contains('disclosure-link') && !anchor.classList.contains('coming-soon-link')) {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      if (href !== '#' && !this.classList.contains('coming-soon-link')) {
+      if (href !== '#') {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({
-            behavior: 'smooth'
+            behavior: 'smooth',
+            block: 'start'
           });
         }
       }
@@ -2712,6 +2754,15 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(() => {
     updateAllLinks(currentLang);
     fixDisclosureBannerScroll();
+    
+    // Initialize FAQ - hide all answers initially
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('expanded');
+      const enAnswer = item.querySelector('.faq-answer.lang-en');
+      const frAnswer = item.querySelector('.faq-answer.lang-fr');
+      if (enAnswer) enAnswer.style.display = 'none';
+      if (frAnswer) frAnswer.style.display = 'none';
+    });
   }, 100);
   
   // Add keyboard shortcuts
