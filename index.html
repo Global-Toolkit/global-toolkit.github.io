@@ -57,6 +57,13 @@
     overflow-x: hidden;
   }
   
+  /* Mobile scroll margin for anchor links to avoid overlap with fixed elements */
+  @media (max-width: 767px) {
+    :target {
+      scroll-margin-top: 120px;
+    }
+  }
+  
   /* AFFILIATE DISCLOSURE BANNER - ADDED */
   .disclosure-banner {
     background: linear-gradient(90deg, rgba(14, 102, 210, 0.15), rgba(157, 78, 221, 0.15));
@@ -555,13 +562,13 @@
     box-shadow: var(--shadow-lg), var(--glow);
     margin-bottom: 20px;
     border: 1px solid rgba(0, 212, 255, 0.1);
-    margin-top: 20px; /* Added space between disclosure banner and header */
+    margin-top: 35px; /* CHANGED: Increased from 20px to 35px */
   }
   
   /* NEW: Brand Container (outside header) - UPDATED */
   .brand-container {
     position: fixed;
-    top: 30px; /* Changed from 55px to 30px */
+    top: 51px; /* CHANGED: Desktop default - matches top-controls-container */
     left: 4px; /* Changed from 20px to 4px */
     display: flex;
     align-items: center;
@@ -596,7 +603,7 @@
   /* NEW: Top Controls (outside header) - UPDATED */
   .top-controls-container {
     position: fixed;
-    top: 43px; /* Desktop: Changed from 55px to 43px */
+    top: 51px; /* CHANGED: Desktop - increased from 43px to 51px */
     right: 15px; /* Desktop: Changed from 20px to 15px */
     display: flex;
     align-items: center;
@@ -1065,9 +1072,14 @@
   
   /* Mobile-specific styles */
   @media (max-width: 767px) {
+    /* Mobile: brand container */
+    .brand-container {
+      top: 69px; /* CHANGED: Mobile - matches mobile top-controls-container */
+    }
+    
     /* Mobile: top controls container */
     .top-controls-container {
-      top: 59px; /* Mobile: Changed from 55px to 59px */
+      top: 69px; /* CHANGED: Mobile - increased from 59px to 69px */
       right: 15px; /* Mobile: Changed from 20px to 15px */
       gap: 3px; /* Mobile: Changed from 10px to 3px */
     }
@@ -2065,36 +2077,35 @@ function setupFAQ() {
   // Initialize FAQ item listeners
   function initFAQItemListeners() {
     // Handle FAQ items in category sections
-    document.querySelectorAll('.faq-category-content .faq-item').forEach(item => {
+    const allFAQItems = document.querySelectorAll('.faq-item');
+    
+    allFAQItems.forEach(item => {
       // Remove existing click listeners to avoid duplicates
-      item.removeEventListener('click', handleFAQItemClick);
-      item.addEventListener('click', handleFAQItemClick);
+      const newItem = item.cloneNode(true);
+      item.parentNode.replaceChild(newItem, item);
     });
     
-    // Handle FAQ items in affiliate disclosure section
-    document.querySelectorAll('#affiliate-disclosure .faq-item').forEach(item => {
-      // Remove existing click listeners to avoid duplicates
-      item.removeEventListener('click', handleFAQItemClick);
-      item.addEventListener('click', handleFAQItemClick);
-    });
-  }
-  
-  // FAQ item click handler
-  function handleFAQItemClick() {
-    // Get the parent container (either category content or affiliate disclosure section)
-    const parentContainer = this.closest('.faq-category-content') || this.closest('#affiliate-disclosure');
+    // Re-select all FAQ items after cloning
+    const refreshedFAQItems = document.querySelectorAll('.faq-item');
     
-    if (parentContainer) {
-      // Close all other FAQ items in the same container
-      parentContainer.querySelectorAll('.faq-item').forEach(otherItem => {
-        if (otherItem !== this) {
-          otherItem.classList.remove('expanded');
+    refreshedFAQItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // Get the parent container (either category content or affiliate disclosure section)
+        const parentContainer = this.closest('.faq-category-content') || this.closest('#affiliate-disclosure');
+        
+        if (parentContainer) {
+          // Close all other FAQ items in the same container
+          parentContainer.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== this) {
+              otherItem.classList.remove('expanded');
+            }
+          });
+          
+          // Toggle current item
+          this.classList.toggle('expanded');
         }
       });
-      
-      // Toggle current item
-      this.classList.toggle('expanded');
-    }
+    });
   }
   
   // Close all FAQ items
@@ -2190,7 +2201,7 @@ function updateMobileMenuContent() {
   
   categoriesSection.appendChild(categoriesTitle);
   
-  // Add category links
+  // Add category links with ">" as requested
   const categories = [
     { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web', url: 'https://global-toolkit.github.io/saas-&-web-hosting' },
     { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs', url: 'https://global-toolkit.github.io/online-tools' },
@@ -2201,7 +2212,10 @@ function updateMobileMenuContent() {
     const link = document.createElement('a');
     link.href = `${cat.url}?lang=${currentLang}&currency=${currentCurrency}`;
     link.className = 'mobile-menu-link';
-    link.textContent = currentLang === 'fr' ? cat.fr : cat.en;
+    
+    const linkText = currentLang === 'fr' ? cat.fr : cat.en;
+    // CHANGED: Add ">" to the end of each category name as requested
+    link.textContent = linkText + ' >';
     
     categoriesSection.appendChild(link);
   });
@@ -2471,32 +2485,28 @@ document.querySelectorAll('.currency-option').forEach(option => {
 // Fix disclosure banner scroll on mobile
 function fixDisclosureBannerScroll() {
   document.querySelectorAll('.disclosure-link').forEach(link => {
-    // Remove existing listeners to avoid duplicates
-    link.removeEventListener('click', handleDisclosureLinkClick);
-    link.addEventListener('click', handleDisclosureLinkClick);
-  });
-  
-  function handleDisclosureLinkClick(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    const target = document.querySelector(targetId);
-    
-    if (target) {
-      // Close mobile menu if open
-      const mobileMenu = document.getElementById('mobileMenu');
-      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-      if (mobileMenu && mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const target = document.querySelector(targetId);
       
-      // Scroll to target
-      target.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  }
+      if (target) {
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        
+        // Scroll to target
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 }
 
 // Email form submission - CHANGED: Updated message
