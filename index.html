@@ -60,7 +60,7 @@
   /* Mobile scroll margin for anchor links to avoid overlap with fixed elements */
   @media (max-width: 767px) {
     :target {
-      scroll-margin-top: 120px;
+      scroll-margin-top: 90px; /* CHANGED: Decreased from 120px to 90px */
     }
   }
   
@@ -568,7 +568,7 @@
   /* NEW: Brand Container (outside header) - UPDATED */
   .brand-container {
     position: fixed;
-    top: 51px; /* CHANGED: Desktop default - matches top-controls-container */
+    top: 33px; /* CHANGED: Desktop - decreased from 51px to 33px */
     left: 4px; /* Changed from 20px to 4px */
     display: flex;
     align-items: center;
@@ -579,6 +579,7 @@
     border-radius: 12px;
     padding: 8px 12px;
     border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   .brand-logo {
@@ -614,6 +615,7 @@
     border-radius: 12px;
     padding: 0px; /* Changed from 8px to 0px */
     border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   /* Currency Selector - Updated with visual effect */
@@ -1074,7 +1076,7 @@
   @media (max-width: 767px) {
     /* Mobile: brand container */
     .brand-container {
-      top: 69px; /* CHANGED: Mobile - matches mobile top-controls-container */
+      top: 57px; /* CHANGED: Mobile - decreased from 69px to 57px */
     }
     
     /* Mobile: top controls container */
@@ -1146,7 +1148,7 @@
 </div>
 
 <!-- Brand Container (outside header) -->
-<div class="brand-container">
+<div class="brand-container" id="brandContainer">
   <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
   <div class="brand">
     <span class="brand-line-1">Global</span>
@@ -1155,7 +1157,7 @@
 </div>
 
 <!-- Top Controls (outside header) -->
-<div class="top-controls-container">
+<div class="top-controls-container" id="topControlsContainer">
   <div class="currency-selector" id="currencySelector">
     <div class="currency-option active" data-currency="USD">USD</div>
     <div class="currency-option" data-currency="EUR">EUR</div>
@@ -1887,6 +1889,12 @@ let currentLang = 'en';
 let currentCurrency = 'USD';
 let exchangeRate = 1.0; // Default 1 USD = 1 USD
 
+// Mobile scroll hiding variables
+let scrollTimer;
+let isMobile = window.innerWidth <= 767;
+let isAtTop = window.scrollY === 0;
+let hideControlsTimer;
+
 // Function to switch language
 function switchLanguage(lang) {
   currentLang = lang;
@@ -2074,12 +2082,18 @@ function setupFAQ() {
     });
   });
   
-  // Initialize FAQ item listeners
+  // Initialize FAQ item listeners for all FAQ sections
   function initFAQItemListeners() {
     // Handle FAQ items in category sections
     const allFAQItems = document.querySelectorAll('.faq-item');
     
     allFAQItems.forEach(item => {
+      // Make sure answers are hidden initially
+      const answer = item.querySelector('.faq-answer');
+      if (answer) {
+        answer.style.display = 'none';
+      }
+      
       // Remove existing click listeners to avoid duplicates
       const newItem = item.cloneNode(true);
       item.parentNode.replaceChild(newItem, item);
@@ -2098,13 +2112,28 @@ function setupFAQ() {
           parentContainer.querySelectorAll('.faq-item').forEach(otherItem => {
             if (otherItem !== this) {
               otherItem.classList.remove('expanded');
+              const otherAnswer = otherItem.querySelector('.faq-answer');
+              if (otherAnswer) {
+                otherAnswer.style.display = 'none';
+              }
             }
           });
           
           // Toggle current item
+          const wasExpanded = this.classList.contains('expanded');
           this.classList.toggle('expanded');
+          const answer = this.querySelector('.faq-answer');
+          if (answer) {
+            answer.style.display = wasExpanded ? 'none' : 'block';
+          }
         }
       });
+      
+      // Ensure answers are hidden initially
+      const answer = item.querySelector('.faq-answer');
+      if (answer && !item.classList.contains('expanded')) {
+        answer.style.display = 'none';
+      }
     });
   }
   
@@ -2112,6 +2141,10 @@ function setupFAQ() {
   function closeAllFAQItems() {
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('expanded');
+      const answer = item.querySelector('.faq-answer');
+      if (answer) {
+        answer.style.display = 'none';
+      }
     });
   }
   
@@ -2124,6 +2157,72 @@ function setupFAQ() {
     originalSwitchLanguage(lang);
     setTimeout(initFAQItemListeners, 100);
   };
+}
+
+// Mobile scroll hiding functionality
+function setupMobileScrollHiding() {
+  if (!isMobile) return;
+  
+  const brandContainer = document.getElementById('brandContainer');
+  const topControlsContainer = document.getElementById('topControlsContainer');
+  
+  function handleScroll() {
+    isAtTop = window.scrollY === 0;
+    
+    // Clear previous timer
+    clearTimeout(hideControlsTimer);
+    
+    // Show controls when scrolling
+    if (brandContainer && topControlsContainer) {
+      brandContainer.style.opacity = '1';
+      brandContainer.style.transform = 'translateY(0)';
+      topControlsContainer.style.opacity = '1';
+      topControlsContainer.style.transform = 'translateY(0)';
+    }
+    
+    // If at top, don't hide (to avoid void space)
+    if (isAtTop) {
+      clearTimeout(hideControlsTimer);
+      return;
+    }
+    
+    // Set timer to hide after 2 seconds of no scrolling
+    hideControlsTimer = setTimeout(() => {
+      if (brandContainer && topControlsContainer && !isAtTop) {
+        brandContainer.style.opacity = '0';
+        brandContainer.style.transform = 'translateY(-10px)';
+        topControlsContainer.style.opacity = '0';
+        topControlsContainer.style.transform = 'translateY(-10px)';
+      }
+    }, 2000);
+  }
+  
+  // Initial check
+  handleScroll();
+  
+  // Listen for scroll events
+  window.addEventListener('scroll', handleScroll);
+  
+  // Show controls on touch/mouse interaction
+  document.addEventListener('touchstart', () => {
+    if (brandContainer && topControlsContainer) {
+      brandContainer.style.opacity = '1';
+      brandContainer.style.transform = 'translateY(0)';
+      topControlsContainer.style.opacity = '1';
+      topControlsContainer.style.transform = 'translateY(0)';
+      clearTimeout(hideControlsTimer);
+    }
+  });
+  
+  document.addEventListener('mousemove', () => {
+    if (brandContainer && topControlsContainer) {
+      brandContainer.style.opacity = '1';
+      brandContainer.style.transform = 'translateY(0)';
+      topControlsContainer.style.opacity = '1';
+      topControlsContainer.style.transform = 'translateY(0)';
+      clearTimeout(hideControlsTimer);
+    }
+  });
 }
 
 // Mobile menu functionality
@@ -2165,29 +2264,28 @@ function updateMobileMenuContent() {
   mobileMenuContent.innerHTML = '';
   mobileMenuFooter.innerHTML = '';
   
-  // Add Home section
+  // Add Home section - FIXED: Add text next to icon
   const homeSection = document.createElement('div');
   homeSection.className = 'mobile-menu-section';
   
   const homeLink = document.createElement('a');
   homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}&currency=${currentCurrency}`;
   homeLink.className = 'mobile-menu-link';
-  homeLink.innerHTML = '<i class="fas fa-home" style="margin-right: 8px;"></i>';
   
-  const homeTextEn = document.createElement('span');
-  homeTextEn.className = 'lang-en';
-  homeTextEn.textContent = 'Home';
+  const homeIcon = document.createElement('i');
+  homeIcon.className = 'fas fa-home';
+  homeIcon.style.marginRight = '8px';
   
-  const homeTextFr = document.createElement('span');
-  homeTextFr.className = 'lang-fr';
-  homeTextFr.textContent = 'Accueil';
+  const homeText = document.createElement('span');
+  homeText.textContent = currentLang === 'fr' ? 'Accueil' : 'Home';
   
-  homeLink.appendChild(currentLang === 'fr' ? homeTextFr : homeTextEn);
+  homeLink.appendChild(homeIcon);
+  homeLink.appendChild(homeText);
   homeSection.appendChild(homeLink);
   
   mobileMenuContent.appendChild(homeSection);
   
-  // Add Categories section
+  // Add Categories section - FIXED: Add French title
   const categoriesSection = document.createElement('div');
   categoriesSection.className = 'mobile-menu-section';
   
@@ -2222,7 +2320,7 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(categoriesSection);
   
-  // Add Tools section
+  // Add Tools section - FIXED: Add French title
   const toolsSection = document.createElement('div');
   toolsSection.className = 'mobile-menu-section';
   
@@ -2482,8 +2580,15 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// Fix disclosure banner scroll on mobile
+// Fix disclosure banner scroll on mobile - FIXED VERSION
 function fixDisclosureBannerScroll() {
+  document.querySelectorAll('.disclosure-link').forEach(link => {
+    // Remove existing listeners to avoid duplicates
+    const newLink = link.cloneNode(true);
+    link.parentNode.replaceChild(newLink, link);
+  });
+  
+  // Re-select after cloning
   document.querySelectorAll('.disclosure-link').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -2602,6 +2707,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeCurrency();
   setupFAQ();
   setupMobileMenu();
+  setupMobileScrollHiding();
   
   setTimeout(() => {
     updateAllLinks(currentLang);
@@ -2618,6 +2724,11 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       switchLanguage('fr');
     }
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    isMobile = window.innerWidth <= 767;
   });
 });
 </script>
