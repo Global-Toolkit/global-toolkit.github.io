@@ -183,12 +183,11 @@
     color: var(--muted);
   }
   
-  /* Email Capture - ADDED */
+  /* Email Capture - ADDED - MOVED to aside */
   .email-capture {
     background: rgba(0, 212, 255, 0.08);
     border-radius: 16px;
     padding: 20px;
-    margin: 25px 0;
     border: 1px solid rgba(0, 212, 255, 0.2);
   }
   
@@ -409,10 +408,13 @@
   .faq-item {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
     border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 12px;
+    /* CHANGED: Decreased padding from 20 to 10px */
+    padding: 10px;
+    /* CHANGED: Decreased margin-bottom from 12 to 5px */
+    margin-bottom: 5px;
     border: 1px solid rgba(0, 212, 255, 0.1);
     cursor: pointer;
+    position: relative;
   }
   
   .faq-question {
@@ -421,6 +423,24 @@
     font-size: 16px;
     margin-bottom: 10px;
     line-height: 1.4;
+    padding-right: 30px; /* Space for arrow */
+  }
+  
+  /* CHANGED: Added arrow for FAQ items */
+  .faq-item::after {
+    content: '\f078'; /* FontAwesome chevron-down icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: var(--electric-blue);
+    font-size: 14px;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-item.expanded::after {
+    transform: rotate(180deg);
   }
   
   .faq-answer {
@@ -497,11 +517,6 @@
     .footer-links { grid-template-columns: repeat(4, 1fr); }
     .email-form { flex-direction: row; }
     h1 { font-size: 40px; }
-    .illustration {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
     .tile-badge {
       min-width: 140px; /* Slightly larger on desktop */
     }
@@ -551,6 +566,22 @@
     box-sizing: border-box;
   }
   
+  /* Header margins - FIXED: Ensure proper override */
+  header {
+    padding: 0px 18px; /* Changed from 18px to 0px 18px */
+    border-radius: 16px;
+    background: rgba(17, 24, 39, 0.85);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg), var(--glow);
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    /* Base value will be overridden by media queries below */
+    margin-top: 35px;
+  }
+  
   /* CHANGED: Desktop header margin-top from 35 to 37px */
   @media (min-width: 768px) {
     header {
@@ -563,21 +594,6 @@
     header {
       margin-top: 43px;
     }
-  }
-  
-  /* Default header margin (will be overridden by media queries above) */
-  header {
-    padding: 0px 18px; /* Changed from 18px to 0px 18px */
-    border-radius: 16px;
-    background: rgba(17, 24, 39, 0.85);
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    box-shadow: var(--shadow-lg), var(--glow);
-    margin-bottom: 20px;
-    border: 1px solid rgba(0, 212, 255, 0.1);
-    margin-top: 35px; /* Base value, overridden by media queries */
   }
   
   /* NEW: Brand Container (outside header) - UPDATED */
@@ -1028,7 +1044,7 @@
     line-height: 1.5;
   }
   
-  /* Illustration adjustments */
+  /* Illustration adjustments - UPDATED */
   .illustration {
     width: 100%;
     max-width: 420px;
@@ -1039,6 +1055,28 @@
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin: 0 auto;
     opacity: 0.9;
+    position: relative;
+  }
+  
+  /* CHANGED: Added illustration overlay with text */
+  .illustration-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.6), transparent);
+    padding: 20px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+  
+  .illustration-overlay .muted {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .illustration:hover {
@@ -1127,6 +1165,12 @@
     .brand-line-1 {
       margin-bottom: -2px;
     }
+    
+    /* Mobile: Adjust illustration overlay text */
+    .illustration-overlay .muted {
+      font-size: 14px;
+      padding: 10px;
+    }
   }
   
   /* Desktop-specific styles */
@@ -1139,6 +1183,22 @@
     
     .brand-line-1, .brand-line-2 {
       display: inline;
+    }
+    
+    /* Desktop: Adjust hero aside layout */
+    .hero aside {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .illustration {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    
+    .email-capture {
+      margin-top: 20px;
     }
   }
 </style>
@@ -1284,8 +1344,23 @@
           </div>
         </div>
 
-        <!-- EMAIL CAPTURE - UPDATED -->
-        <!-- REPLACE THIS ENTIRE SECTION WITH YOUR BEEHIIV EMBED CODE -->
+        <!-- EMAIL CAPTURE - MOVED to aside section -->
+      </section>
+
+      <!-- Illustration with overlay text and email capture -->
+      <aside>
+        <!-- CHANGED: Added illustration with overlay text -->
+        <div style="position: relative;">
+          <img class="illustration" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9f3be2b6d6b1f8069a2b8b9a1c6f3f86"
+               alt="Fintech illustration" />
+          <div class="illustration-overlay">
+            <!-- CHANGED: Updated text to be more marketing-oriented -->
+            <div class="muted lang-en">Compare top-rated tools & get exclusive discounts. Save up to 40% with our verified deals.</div>
+            <div class="muted lang-fr">Comparez les meilleurs outils & obtenez des réductions exclusives. Économisez jusqu'à 40% avec nos offres vérifiées.</div>
+          </div>
+        </div>
+        
+        <!-- CHANGED: Moved email capture here from hero-card -->
         <div class="email-capture">
           <div class="lang-en">
             <strong>Get Our Free Guide:</strong> "Top 10 Tools & Services 2026" + exclusive deals newsletter
@@ -1305,15 +1380,6 @@
             <span class="lang-fr">Pas de spam. Désabonnez-vous à tout moment.</span>
           </div>
         </div>
-      </section>
-
-      <!-- Illustration with adjusted opacity -->
-      <aside>
-        <img class="illustration" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9f3be2b6d6b1f8069a2b8b9a1c6f3f86"
-             alt="Fintech illustration" />
-        <div style="height:12px"></div>
-        <div class="muted lang-en">Three focused categories with verified reviews and exclusive discounts</div>
-        <div class="muted lang-fr">Trois catégories ciblées avec des avis vérifiés et des réductions exclusives</div>
       </aside>
     </div>
 
@@ -2649,12 +2715,13 @@ function fixDisclosureBannerScroll() {
           document.body.style.overflow = '';
         }
         
-        // Calculate scroll position with offset for mobile
-        const headerOffset = window.innerWidth <= 767 ? 90 : 60; // CHANGED: Use appropriate offset
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // Calculate the target position
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        // Calculate offset based on screen size
+        const offset = window.innerWidth <= 767 ? 90 : 60;
+        const offsetPosition = targetPosition - offset;
         
-        // Smooth scroll to target
+        // Scroll to the target
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -2742,12 +2809,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          // Calculate scroll position with offset for mobile
-          const headerOffset = window.innerWidth <= 767 ? 90 : 60;
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          // Calculate the target position
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+          // Calculate offset based on screen size
+          const offset = window.innerWidth <= 767 ? 90 : 60;
+          const offsetPosition = targetPosition - offset;
           
-          // Smooth scroll to target
+          // Scroll to the target
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
