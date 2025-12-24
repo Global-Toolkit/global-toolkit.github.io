@@ -551,6 +551,21 @@
     box-sizing: border-box;
   }
   
+  /* CHANGED: Desktop header margin-top from 35 to 37px */
+  @media (min-width: 768px) {
+    header {
+      margin-top: 37px;
+    }
+  }
+  
+  /* CHANGED: Mobile header margin-top from 35 to 43px */
+  @media (max-width: 767px) {
+    header {
+      margin-top: 43px;
+    }
+  }
+  
+  /* Default header margin (will be overridden by media queries above) */
   header {
     padding: 0px 18px; /* Changed from 18px to 0px 18px */
     border-radius: 16px;
@@ -562,7 +577,7 @@
     box-shadow: var(--shadow-lg), var(--glow);
     margin-bottom: 20px;
     border: 1px solid rgba(0, 212, 255, 0.1);
-    margin-top: 35px; /* CHANGED: Increased from 20px to 35px */
+    margin-top: 35px; /* Base value, overridden by media queries */
   }
   
   /* NEW: Brand Container (outside header) - UPDATED */
@@ -776,16 +791,22 @@
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
   
+  /* CHANGED: Ensure mobile menu is scrollable */
+  .mobile-menu {
+    overflow-y: auto;
+  }
+  
   .mobile-menu.active {
     right: 0;
   }
   
+  /* CHANGED: Increased margin-bottom from 10 to 30px */
   .mobile-menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 10px; /* Changed from 30px to 10px */
+    margin-bottom: 30px; /* Changed from 10px to 30px */
     padding-bottom: 20px;
     border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
@@ -1106,11 +1127,6 @@
     .brand-line-1 {
       margin-bottom: -2px;
     }
-    
-    /* CHANGED: Make mobile menu scrollable */
-    .mobile-menu {
-      overflow-y: auto;
-    }
   }
   
   /* Desktop-specific styles */
@@ -1203,9 +1219,10 @@
       <strong>Disclosure:</strong> We may earn affiliate commissions when you purchase through our links. 
       <a href="#affiliate-disclosure" class="disclosure-link">Learn how we make money →</a>
     </div>
+    <!-- CHANGED: French text updated as requested -->
     <div class="muted lang-fr">
       <strong>Divulgation :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens. 
-      <a href="#affiliate-disclosure" class="disclosure-link">Apprenez comment nous gagnons de l'argent →</a>
+      <a href="#affiliate-disclosure" class="disclosure-link">Lire→</a>
     </div>
   </div>
 </div>
@@ -1379,8 +1396,9 @@
       <div class="tile tile-affiliate">
         <div class="tile-header">
           <div>
-            <h3 class="lang-en">Digital Payment Services</h3>
-            <h3 class="lang-fr">Services de paiement numérique</h3>
+            <!-- CHANGED: "Digital Payment Services" to "Payment Services" -->
+            <h3 class="lang-en">Payment Services</h3>
+            <h3 class="lang-fr">Services de paiement</h3>
           </div>
           <span class="tile-badge lang-en">Best for e-commerce</span>
           <span class="tile-badge lang-fr">Meilleur pour e-commerce</span>
@@ -1900,6 +1918,9 @@ let isMobile = window.innerWidth <= 767;
 let isAtTop = window.scrollY === 0;
 let hideControlsTimer;
 
+// FIXED: Declare initFAQItemListeners in global scope to avoid ReferenceError
+let initFAQItemListeners;
+
 // Function to switch language
 function switchLanguage(lang) {
   currentLang = lang;
@@ -1940,7 +1961,10 @@ function switchLanguage(lang) {
   
   // Reinitialize FAQ to fix language issues
   setTimeout(() => {
-    initFAQItemListeners();
+    // FIXED: initFAQItemListeners is now defined globally
+    if (typeof initFAQItemListeners === 'function') {
+      initFAQItemListeners();
+    }
     // Hide all answers initially
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('expanded');
@@ -2100,8 +2124,8 @@ function setupFAQ() {
     });
   });
   
-  // Initialize FAQ item listeners for all FAQ sections
-  function initFAQItemListeners() {
+  // FIXED: Initialize FAQ item listeners for all FAQ sections (now defined globally)
+  initFAQItemListeners = function() {
     // Handle FAQ items in category sections and affiliate disclosure
     const allFAQItems = document.querySelectorAll('.faq-item');
     
@@ -2163,7 +2187,7 @@ function setupFAQ() {
         }
       });
     });
-  }
+  };
   
   // Close all FAQ items
   function closeAllFAQItems() {
@@ -2178,17 +2202,6 @@ function setupFAQ() {
   
   // Initialize listeners
   initFAQItemListeners();
-  
-  // Re-initialize listeners when language changes
-  const originalSwitchLanguage = switchLanguage;
-  switchLanguage = function(lang) {
-    originalSwitchLanguage(lang);
-    setTimeout(() => {
-      // Close all expanded FAQ items and reinitialize
-      closeAllFAQItems();
-      initFAQItemListeners();
-    }, 50);
-  };
 }
 
 // Mobile scroll hiding functionality
@@ -2475,7 +2488,8 @@ function updateMobileMenuContent() {
   const aboutLink = document.createElement('a');
   aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}`;
   aboutLink.className = 'mobile-menu-link';
-  aboutLink.style.marginTop = '3px';
+  // CHANGED: Increased margin-top from 3 to 9px
+  aboutLink.style.marginTop = '9px';
   aboutLink.style.display = 'block';
   
   const aboutIcon = document.createElement('i');
@@ -2610,26 +2624,16 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// Fix disclosure banner scroll on mobile - FIXED VERSION
+// Fix disclosure banner scroll on mobile - IMPROVED VERSION
 function fixDisclosureBannerScroll() {
-  // Remove all existing disclosure links and recreate them
   const disclosureLinks = document.querySelectorAll('.disclosure-link');
   
   disclosureLinks.forEach(link => {
-    // Store the parent and href
-    const parent = link.parentNode;
-    const href = link.getAttribute('href');
+    // Remove any existing event listeners by cloning the link
+    const newLink = link.cloneNode(true);
+    link.parentNode.replaceChild(newLink, link);
     
-    // Create new link
-    const newLink = document.createElement('a');
-    newLink.href = href;
-    newLink.className = 'disclosure-link';
-    newLink.innerHTML = link.innerHTML;
-    
-    // Replace the old link
-    parent.replaceChild(newLink, link);
-    
-    // Add click event listener to new link
+    // Add new event listener
     newLink.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
@@ -2645,10 +2649,15 @@ function fixDisclosureBannerScroll() {
           document.body.style.overflow = '';
         }
         
-        // Scroll to target
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        // Calculate scroll position with offset for mobile
+        const headerOffset = window.innerWidth <= 767 ? 90 : 60; // CHANGED: Use appropriate offset
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        // Smooth scroll to target
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
       }
     });
@@ -2733,9 +2742,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          // Calculate scroll position with offset for mobile
+          const headerOffset = window.innerWidth <= 767 ? 90 : 60;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          // Smooth scroll to target
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
           });
         }
       }
