@@ -120,6 +120,39 @@
     color: var(--electric-blue);
   }
   
+  /* Typewriter Section - NEW */
+  .typewriter-section {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(0, 212, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .typewriter-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-light);
+    opacity: 0;
+  }
+  
+  .typewriter-text.visible {
+    opacity: 1;
+  }
+  
+  .typewriter-char {
+    opacity: 0;
+    animation: fadeInChar 0.1s forwards;
+  }
+  
+  @keyframes fadeInChar {
+    to {
+      opacity: 1;
+    }
+  }
+  
   /* Updated Hero Section */
   .hero {
     display: grid;
@@ -127,6 +160,13 @@
     gap: 25px;
     align-items: center;
     margin-top: 10px;
+  }
+  
+  /* CHANGED: Desktop hero-card padding increased from 25 to 30px */
+  @media (min-width: 768px) {
+    .hero-card {
+      padding: 30px;
+    }
   }
   
   .hero-card {
@@ -417,11 +457,12 @@
     position: relative;
   }
   
+  /* CHANGED: Reduced margin-bottom from 10 to 0px */
   .faq-question {
     font-weight: 600;
     color: white;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     line-height: 1.4;
     padding-right: 30px; /* Space for arrow */
   }
@@ -597,6 +638,13 @@
   }
   
   /* NEW: Brand Container (outside header) - UPDATED */
+  /* CHANGED: Desktop brand-container top from 33px to 37px */
+  @media (min-width: 768px) {
+    .brand-container {
+      top: 37px;
+    }
+  }
+  
   .brand-container {
     position: fixed;
     top: 33px; /* CHANGED: Desktop - decreased from 51px to 33px */
@@ -1064,10 +1112,14 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.6), transparent);
-    padding: 20px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    /* CHANGED: Expanded overlay from top to cover first sentence */
+    top: 0;
+    background: linear-gradient(to top, rgba(10, 15, 28, 0.85) 30%, rgba(10, 15, 28, 0.4) 70%, transparent);
+    /* CHANGED: Increased padding from 20 to 40px */
+    padding: 40px;
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-end;
   }
   
   .illustration-overlay .muted {
@@ -1082,6 +1134,52 @@
   .illustration:hover {
     transform: perspective(1000px) rotateY(5deg);
     opacity: 1;
+  }
+  
+  /* CHANGED: Desktop positioning for illustration and email-capture */
+  @media (min-width: 768px) {
+    .hero aside {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .illustration {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    
+    .email-capture {
+      margin-top: 20px;
+      flex-shrink: 0;
+    }
+    
+    /* Ensure illustration top and email-capture bottom align with hero-card borders */
+    .hero aside {
+      justify-content: space-between;
+    }
+  }
+  
+  /* CHANGED: Mobile - increase space between illustration and email-capture */
+  @media (max-width: 767px) {
+    .email-capture {
+      margin-top: 25px; /* Increased space */
+    }
+    
+    .illustration {
+      margin-bottom: 0;
+    }
+    
+    /* Mobile: Adjust illustration overlay text */
+    .illustration-overlay .muted {
+      font-size: 14px;
+      padding: 10px;
+    }
+    
+    /* CHANGED: Mobile illustration overlay padding */
+    .illustration-overlay {
+      padding: 30px 20px;
+    }
   }
   
   /* Language classes */
@@ -1165,12 +1263,6 @@
     .brand-line-1 {
       margin-bottom: -2px;
     }
-    
-    /* Mobile: Adjust illustration overlay text */
-    .illustration-overlay .muted {
-      font-size: 14px;
-      padding: 10px;
-    }
   }
   
   /* Desktop-specific styles */
@@ -1183,22 +1275,6 @@
     
     .brand-line-1, .brand-line-2 {
       display: inline;
-    }
-    
-    /* Desktop: Adjust hero aside layout */
-    .hero aside {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    
-    .illustration {
-      flex: 1;
-      margin-bottom: 0;
-    }
-    
-    .email-capture {
-      margin-top: 20px;
     }
   }
 </style>
@@ -1382,6 +1458,18 @@
         </div>
       </aside>
     </div>
+
+    <!-- NEW: Typewriter Section -->
+    <section class="typewriter-section" id="typewriter-section">
+      <div class="typewriter-text lang-en" id="typewriter-en">
+        Choosing the wrong tool costs time and money.
+        Global Toolkit exists to simplify that decision by highlighting trustworthy platforms, verified offers, and practical comparisons across hosting, online tools, and payment services. Following our recommendations helps you avoid trial-and-error and start with solutions that are proven, accessible, and globally usable.
+      </div>
+      <div class="typewriter-text lang-fr" id="typewriter-fr">
+        Choisir le mauvais outil coûte du temps et de l'argent.
+        Global Toolkit existe pour simplifier cette décision en mettant en avant des plateformes fiables, des offres vérifiées et des comparaisons pratiques à travers l'hébergement, les outils en ligne et les services de paiement. Suivre nos recommandations vous aide à éviter les essais-erreurs et à commencer avec des solutions éprouvées, accessibles et utilisables globalement.
+      </div>
+    </section>
 
     <!-- TOP PICKS SECTION - ADDED -->
     <section class="top-picks">
@@ -1903,8 +1991,9 @@
           <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
           <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
           <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Processors</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Processeurs Paiement</a>
+          <!-- CHANGED: "Payment Processors" to "Payment Services" -->
+          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
         </div>
         <div class="footer-column">
           <h4 class="lang-en">Resources</h4>
@@ -1984,6 +2073,12 @@ let isMobile = window.innerWidth <= 767;
 let isAtTop = window.scrollY === 0;
 let hideControlsTimer;
 
+// Typewriter effect variables
+let typewriterStarted = false;
+let typewriterCharsRevealed = 0;
+let typewriterTotalChars = 0;
+let typewriterInterval;
+
 // FIXED: Declare initFAQItemListeners in global scope to avoid ReferenceError
 let initFAQItemListeners;
 
@@ -2025,6 +2120,9 @@ function switchLanguage(lang) {
   // Update mobile menu content
   updateMobileMenuContent();
   
+  // Reset typewriter effect when language changes
+  resetTypewriterEffect();
+  
   // Reinitialize FAQ to fix language issues
   setTimeout(() => {
     // FIXED: initFAQItemListeners is now defined globally
@@ -2040,6 +2138,84 @@ function switchLanguage(lang) {
       });
     });
   }, 50);
+}
+
+// Typewriter effect functions
+function resetTypewriterEffect() {
+  typewriterStarted = false;
+  typewriterCharsRevealed = 0;
+  
+  // Clear any existing interval
+  if (typewriterInterval) {
+    clearInterval(typewriterInterval);
+    typewriterInterval = null;
+  }
+  
+  // Reset all typewriter characters
+  document.querySelectorAll('.typewriter-char').forEach(char => {
+    char.classList.remove('typewriter-char');
+    char.style.opacity = '0';
+  });
+  
+  // Reinitialize the text
+  const typewriterText = document.querySelector(`.typewriter-text.lang-${currentLang}`);
+  if (typewriterText) {
+    typewriterText.innerHTML = typewriterText.textContent;
+    typewriterText.classList.remove('visible');
+  }
+}
+
+function startTypewriterEffect() {
+  if (typewriterStarted) return;
+  typewriterStarted = true;
+  
+  const typewriterText = document.querySelector(`.typewriter-text.lang-${currentLang}`);
+  if (!typewriterText) return;
+  
+  typewriterText.classList.add('visible');
+  
+  // Get the text and split into characters
+  const text = typewriterText.textContent;
+  typewriterTotalChars = text.length;
+  
+  // Wrap each character in a span
+  const chars = text.split('').map(char => {
+    if (char === ' ') return ' ';
+    return `<span class="typewriter-char" style="opacity: 0">${char}</span>`;
+  }).join('');
+  
+  typewriterText.innerHTML = chars;
+  
+  // Start revealing characters
+  typewriterCharsRevealed = 0;
+  const charsElements = typewriterText.querySelectorAll('.typewriter-char');
+  
+  typewriterInterval = setInterval(() => {
+    if (typewriterCharsRevealed < charsElements.length) {
+      charsElements[typewriterCharsRevealed].style.opacity = '1';
+      charsElements[typewriterCharsRevealed].style.animation = 'fadeInChar 0.1s forwards';
+      typewriterCharsRevealed++;
+    } else {
+      clearInterval(typewriterInterval);
+    }
+  }, 30); // 30ms between characters
+}
+
+function setupTypewriterObserver() {
+  const typewriterSection = document.getElementById('typewriter-section');
+  if (!typewriterSection) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !typewriterStarted) {
+        startTypewriterEffect();
+      }
+    });
+  }, {
+    threshold: 0.5 // Start when 50% of the section is visible
+  });
+  
+  observer.observe(typewriterSection);
 }
 
 // CHANGED: Updated function to handle all links with language and currency parameters
@@ -2715,9 +2891,11 @@ function fixDisclosureBannerScroll() {
           document.body.style.overflow = '';
         }
         
-        // Calculate the target position
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-        // Calculate offset based on screen size
+        // Get the target position
+        const targetRect = target.getBoundingClientRect();
+        const targetPosition = targetRect.top + window.pageYOffset;
+        
+        // Calculate offset for mobile
         const offset = window.innerWidth <= 767 ? 90 : 60;
         const offsetPosition = targetPosition - offset;
         
@@ -2809,9 +2987,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          // Calculate the target position
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-          // Calculate offset based on screen size
+          // Get the target position
+          const targetRect = target.getBoundingClientRect();
+          const targetPosition = targetRect.top + window.pageYOffset;
+          
+          // Calculate offset for mobile
           const offset = window.innerWidth <= 767 ? 90 : 60;
           const offsetPosition = targetPosition - offset;
           
@@ -2833,6 +3013,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setupFAQ();
   setupMobileMenu();
   setupMobileScrollHiding();
+  setupTypewriterObserver();
   
   setTimeout(() => {
     updateAllLinks(currentLang);
