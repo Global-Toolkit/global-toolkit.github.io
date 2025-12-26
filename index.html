@@ -181,10 +181,10 @@
     flex-wrap: wrap;
   }
   
-  /* CHANGED: Desktop - hero-stats margin-top */
+  /* CHANGED: Desktop - hero-stats margin-top from 60px to 50px */
   @media (min-width: 768px) {
     .hero-stats {
-      margin-top: 60px;
+      margin-top: 50px;
     }
   }
   
@@ -360,6 +360,156 @@
     height: 3px;
     background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
     border-radius: 2px;
+  }
+  
+  /* NEW: Product Scroller Section */
+  .product-scroller-section {
+    margin: 60px 0;
+  }
+  
+  .product-scroller-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .product-scroller {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    padding: 20px 10px;
+    cursor: grab;
+  }
+  
+  .product-scroller::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  .product-scroller.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+  }
+  
+  .product-card {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--electric-blue);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+  }
+  
+  .product-card.highlighted {
+    border-color: var(--electric-blue);
+    box-shadow: 0 0 0 2px var(--electric-blue), 0 8px 25px rgba(0, 212, 255, 0.3);
+    transform: translateY(-5px);
+  }
+  
+  .product-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .product-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+  }
+  
+  .product-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    margin: 0;
+  }
+  
+  .product-category {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--electric-blue);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    align-self: flex-start;
+  }
+  
+  .product-review {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .scroller-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    color: var(--electric-blue);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .scroller-arrow:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--electric-blue);
+  }
+  
+  .scroller-arrow.left-arrow {
+    left: 0;
+  }
+  
+  .scroller-arrow.right-arrow {
+    right: 0;
+  }
+  
+  .scroller-arrow.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 767px) {
+    .product-scroller-container {
+      padding: 0 30px;
+    }
+    
+    .scroller-arrow {
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
+    }
   }
   
   /* Testimonials - ADDED */
@@ -642,6 +792,7 @@
     background: transparent;
     border: none;
     backdrop-filter: none;
+    cursor: pointer;
   }
   
   /* CHANGED: Desktop - increase Top from 33px to 37px */
@@ -1089,28 +1240,33 @@
     border-radius: 16px;
     display: block;
     box-shadow: var(--shadow-lg);
-    transition: transform 0.5s ease;
+    /* CHANGED: Removed hover animation */
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin: 0 auto;
     opacity: 0.9;
     position: relative;
   }
   
-  /* CHANGED: Updated illustration overlay with increased darkening effect */
+  /* CHANGED: Updated illustration overlay with new horizontal darkening effect */
   .illustration-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    /* CHANGED: Increased darkening effect */
-    background: linear-gradient(to top, rgba(10, 15, 28, 0.95), rgba(10, 15, 28, 0.75), transparent);
-    padding: 20px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    bottom: 0;
+    /* New: Horizontal darkening with center darker and gradually lightened upwards and downwards */
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 15, 28, 0.2) 0%,
+      rgba(10, 15, 28, 0.6) 30%,
+      rgba(10, 15, 28, 0.8) 50%,
+      rgba(10, 15, 28, 0.6) 70%,
+      rgba(10, 15, 28, 0.2) 100%
+    );
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80px;
   }
   
   .illustration-overlay .muted {
@@ -1120,12 +1276,8 @@
     font-weight: 500;
     text-align: center;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 90%;
-  }
-  
-  .illustration:hover {
-    transform: perspective(1000px) rotateY(5deg);
-    opacity: 1;
+    max-width: 80%;
+    padding: 20px;
   }
   
   /* Language classes */
@@ -1163,10 +1315,10 @@
     text-decoration: underline;
   }
   
-  /* NEW: Typing animation paragraph */
-  .typing-paragraph {
-    font-size: 36px;
-    line-height: 1.3;
+  /* NEW: Updated paragraph with fade-in/slide-up animation */
+  .value-proposition {
+    font-size: 30px;
+    line-height: 1.4;
     margin: 60px 0;
     text-align: center;
     color: var(--text-light);
@@ -1174,29 +1326,30 @@
     position: relative;
   }
   
-  .typing-text {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .typing-text.visible {
-    opacity: 1;
-  }
-  
-  .typing-text .char {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .typing-text .char.visible {
+  .value-proposition .first-sentence {
+    font-weight: 800;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 25px;
+    display: block;
     opacity: 1;
     transform: translateY(0);
   }
   
-  .typing-text .char.space {
-    width: 0.3em;
+  .value-proposition .rest-of-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease forwards;
+    animation-delay: 0.1s;
+    font-weight: 500;
+    color: var(--text-light);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   @keyframes fadeInOut {
@@ -1249,14 +1402,19 @@
     /* Mobile: Adjust illustration overlay text */
     .illustration-overlay .muted {
       font-size: 14px;
-      padding: 10px;
+      padding: 15px;
     }
     
-    /* Mobile: Adjust typing paragraph */
-    .typing-paragraph {
-      font-size: 24px;
+    /* Mobile: Adjust value proposition */
+    .value-proposition {
+      font-size: 22px;
       margin: 40px 0;
       min-height: 150px;
+    }
+    
+    .value-proposition .first-sentence {
+      font-size: 24px;
+      margin-bottom: 20px;
     }
   }
   
@@ -1315,14 +1473,16 @@
   </div>
 </div>
 
-<!-- Brand Container (outside header) -->
-<div class="brand-container" id="brandContainer">
-  <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
-  <div class="brand">
-    <span class="brand-line-1">Global</span>
-    <span class="brand-line-2">Toolkit</span>
+<!-- Brand Container (outside header) - CHANGED: Now clickable -->
+<a id="brandLink" style="text-decoration: none;">
+  <div class="brand-container" id="brandContainer">
+    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
+    <div class="brand">
+      <span class="brand-line-1">Global</span>
+      <span class="brand-line-2">Toolkit</span>
+    </div>
   </div>
-</div>
+</a>
 
 <!-- Top Controls (outside header) -->
 <div class="top-controls-container" id="topControlsContainer">
@@ -1470,10 +1630,16 @@
       </aside>
     </div>
 
-    <!-- NEW: Typing animation paragraph -->
-    <div class="typing-paragraph" id="typingParagraph">
-      <div class="typing-text lang-en" id="typingTextEn"></div>
-      <div class="typing-text lang-fr" id="typingTextFr"></div>
+    <!-- NEW: Value proposition paragraph -->
+    <div class="value-proposition" id="valueProposition">
+      <div class="lang-en">
+        <span class="first-sentence">Choosing the wrong tool costs time and money.</span>
+        <span class="rest-of-text">Global Toolkit exists to simplify that decision by highlighting trustworthy platforms, verified offers, and practical comparisons across hosting, online tools, and payment services. Following our recommendations helps you avoid trial-and-error and start with solutions that are proven, accessible, and globally usable.</span>
+      </div>
+      <div class="lang-fr">
+        <span class="first-sentence">Choisir le mauvais outil coûte du temps et de l'argent.</span>
+        <span class="rest-of-text">Global Toolkit existe pour simplifier cette décision en mettant en avant des plateformes de confiance, des offres vérifiées et des comparaisons pratiques dans l'hébergement, les outils en ligne et les services de paiement. Suivre nos recommandations vous aide à éviter les essais et erreurs et à commencer avec des solutions éprouvées, accessibles et utilisables mondialement.</span>
+      </div>
     </div>
 
     <!-- TOP PICKS SECTION - ADDED -->
@@ -1583,6 +1749,22 @@
           <span class="lang-fr">Voir Solutions Paiement</span>
           <i class="fas fa-arrow-right"></i>
         </a>
+      </div>
+    </section>
+
+    <!-- NEW: Product Scroller Section -->
+    <section class="product-scroller-section">
+      <h2 class="section-title lang-en">Explore Popular Tools</h2>
+      <h2 class="section-title lang-fr">Explorez les Outils Populaires</h2>
+      
+      <div class="product-scroller-container">
+        <button class="scroller-arrow left-arrow disabled" id="leftArrow">←</button>
+        
+        <div class="product-scroller" id="productScroller">
+          <!-- Cards will be generated by JavaScript -->
+        </div>
+        
+        <button class="scroller-arrow right-arrow" id="rightArrow">→</button>
       </div>
     </section>
 
@@ -2081,11 +2263,130 @@ let hideControlsTimer;
 // FIXED: Declare initFAQItemListeners in global scope to avoid ReferenceError
 let initFAQItemListeners;
 
-// Typing animation variables
-let typingTextEn = "Choosing the wrong tool costs time and money. Global Toolkit exists to simplify that decision by highlighting trustworthy platforms, verified offers, and practical comparisons across hosting, online tools, and payment services. Following our recommendations helps you avoid trial-and-error and start with solutions that are proven, accessible, and globally usable.";
-let typingTextFr = "Choisir le mauvais outil coûte du temps et de l'argent. Global Toolkit existe pour simplifier cette décision en mettant en avant des plateformes de confiance, des offres vérifiées et des comparaisons pratiques dans l'hébergement, les outils en ligne et les services de paiement. Suivre nos recommandations vous aide à éviter les essais et erreurs et à commencer avec des solutions éprouvées, accessibles et utilisables mondialement.";
-let typingAnimationStarted = false;
-let typingAnimationCompleted = false;
+// Product scroller variables
+let productScroller;
+let leftArrow;
+let rightArrow;
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+// Product data
+const products = [
+  // Website Builders
+  {
+    id: 'wix',
+    name: 'Wix',
+    category: 'Website Builder',
+    categoryFr: 'Constructeur de Site',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Wix.com_website_logo.svg/1200px-Wix.com_website_logo.svg.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/website-builders/products/wix'
+  },
+  {
+    id: 'shopify',
+    name: 'Shopify',
+    category: 'Website Builder',
+    categoryFr: 'Constructeur de Site',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/1200px-Shopify_logo_2018.svg.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/website-builders/products/shopify'
+  },
+  {
+    id: 'bluehost',
+    name: 'Bluehost',
+    category: 'Website Builder',
+    categoryFr: 'Constructeur de Site',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Bluehost_logo.svg/1200px-Bluehost_logo.svg.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/website-builders/products/bluehost'
+  },
+  
+  // VPN Services
+  {
+    id: 'nordvpn',
+    name: 'NordVPN',
+    category: 'VPN Service',
+    categoryFr: 'Service VPN',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nordvpn_logo.svg/1200px-Nordvpn_logo.svg.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/vpn-services/products/nordvpn'
+  },
+  {
+    id: 'surfshark',
+    name: 'Surfshark',
+    category: 'VPN Service',
+    categoryFr: 'Service VPN',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Surfshark_logo.svg/1200px-Surfshark_logo.svg.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/vpn-services/products/surfshark'
+  },
+  {
+    id: 'atlasvpn',
+    name: 'AtlasVPN',
+    category: 'VPN Service',
+    categoryFr: 'Service VPN',
+    logo: 'https://atlasvpn.com/wp-content/themes/atlas-vpn/dist/images/logo/atlasvpn-logo.svg',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/vpn-services/products/atlasvpn'
+  },
+  
+  // Productivity Tools
+  {
+    id: 'notion',
+    name: 'Notion',
+    category: 'Productivity Tool',
+    categoryFr: 'Outil de Productivité',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Notion_app_logo.png/1200px-Notion_app_logo.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/productivity-tools/products/notion'
+  },
+  {
+    id: 'todoist',
+    name: 'Todoist',
+    category: 'Productivity Tool',
+    categoryFr: 'Outil de Productivité',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Todoist_logo.svg/1200px-Todoist_logo.svg.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/productivity-tools/products/todoist'
+  },
+  {
+    id: 'clickup',
+    name: 'ClickUp',
+    category: 'Productivity Tool',
+    categoryFr: 'Outil de Productivité',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/ClickUp_Logo.png/1200px-ClickUp_Logo.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/productivity-tools/products/clickup'
+  },
+  
+  // Automation Platforms
+  {
+    id: 'zapier',
+    name: 'Zapier',
+    category: 'Automation Platform',
+    categoryFr: 'Plateforme d\'Automatisation',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Zapier_logo.svg/1200px-Zapier_logo.svg.png',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/automation-platforms/products/zapier'
+  },
+  {
+    id: 'apify',
+    name: 'Apify',
+    category: 'Automation Platform',
+    categoryFr: 'Plateforme d\'Automatisation',
+    logo: 'https://avatars.githubusercontent.com/u/45719974?s=280&v=4',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/automation-platforms/products/apify'
+  },
+  {
+    id: 'make',
+    name: 'Make (Integromat)',
+    category: 'Automation Platform',
+    categoryFr: 'Plateforme d\'Automatisation',
+    logo: 'https://www.make.com/images/og-image.jpg',
+    baseUrl: 'https://global-toolkit.github.io/online-tools/automation-platforms/products/make'
+  },
+  
+  // Digital Wallets & Cards
+  {
+    id: 'redotpay',
+    name: 'RedotPay',
+    category: 'Digital Wallet & Card',
+    categoryFr: 'Portefeuille & Carte Numérique',
+    logo: 'https://redotpay.com/images/logo.png',
+    baseUrl: 'https://global-toolkit.github.io/payments/digital-wallets&cards/products/redotpay'
+  }
+];
 
 // Function to switch language
 function switchLanguage(lang) {
@@ -2141,10 +2442,8 @@ function switchLanguage(lang) {
     });
   }, 50);
   
-  // Reset typing animation if it hasn't started yet
-  if (!typingAnimationStarted) {
-    setupTypingAnimation();
-  }
+  // Update product cards language
+  updateProductCardsLanguage();
 }
 
 // CHANGED: Updated function to handle all links with language and currency parameters
@@ -2175,6 +2474,12 @@ function updateAllLinks(lang) {
   const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
   if (mobileMenuHomeLink) {
     mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
+  }
+  
+  // Update brand link
+  const brandLink = document.getElementById('brandLink');
+  if (brandLink) {
+    brandLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
   }
 }
 
@@ -2272,87 +2577,222 @@ async function initializeCurrency() {
   switchCurrency(savedCurrency);
 }
 
-// Typing animation function
-function setupTypingAnimation() {
-  const typingParagraph = document.getElementById('typingParagraph');
-  const typingTextEnElement = document.getElementById('typingTextEn');
-  const typingTextFrElement = document.getElementById('typingTextFr');
+// Product Scroller Functions
+function setupProductScroller() {
+  productScroller = document.getElementById('productScroller');
+  leftArrow = document.getElementById('leftArrow');
+  rightArrow = document.getElementById('rightArrow');
   
-  if (!typingParagraph || !typingTextEnElement || !typingTextFrElement) return;
+  if (!productScroller) return;
   
   // Clear existing content
-  typingTextEnElement.innerHTML = '';
-  typingTextFrElement.innerHTML = '';
+  productScroller.innerHTML = '';
   
-  // Split text into characters for English
-  for (let i = 0; i < typingTextEn.length; i++) {
-    const char = typingTextEn[i];
-    const span = document.createElement('span');
-    span.className = 'char';
-    span.textContent = char === ' ' ? ' ' : char;
-    if (char === ' ') {
-      span.classList.add('space');
-    }
-    typingTextEnElement.appendChild(span);
-  }
-  
-  // Split text into characters for French
-  for (let i = 0; i < typingTextFr.length; i++) {
-    const char = typingTextFr[i];
-    const span = document.createElement('span');
-    span.className = 'char';
-    span.textContent = char === ' ' ? ' ' : char;
-    if (char === ' ') {
-      span.classList.add('space');
-    }
-    typingTextFrElement.appendChild(span);
-  }
-  
-  // Create Intersection Observer for typing animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !typingAnimationStarted) {
-        typingAnimationStarted = true;
-        startTypingAnimation();
-      }
-    });
-  }, { threshold: 0.3 });
-  
-  observer.observe(typingParagraph);
-}
-
-function startTypingAnimation() {
-  const currentTypingText = currentLang === 'en' 
-    ? document.getElementById('typingTextEn') 
-    : document.getElementById('typingTextFr');
-  
-  if (!currentTypingText) return;
-  
-  // Make the text visible
-  currentTypingText.classList.add('visible');
-  
-  // Get all character elements
-  const chars = currentTypingText.querySelectorAll('.char');
-  let delay = 0;
-  
-  // Animate each character with a delay
-  chars.forEach((char, index) => {
-    setTimeout(() => {
-      char.classList.add('visible');
-    }, delay);
+  // Create product cards
+  products.forEach(product => {
+    const card = document.createElement('a');
+    card.className = 'product-card';
+    card.href = `${product.baseUrl}?lang=${currentLang}&currency=${currentCurrency}`;
+    card.dataset.id = product.id;
     
-    // Adjust delay based on character type for natural typing effect
-    if (char.textContent === ' ' || char.textContent === '.') {
-      delay += 50; // Shorter pause for spaces and periods
-    } else {
-      delay += 30; // Normal typing speed
-    }
+    card.innerHTML = `
+      <div class="product-card-header">
+        <img src="${product.logo}" alt="${product.name}" class="product-logo" onerror="this.src='https://via.placeholder.com/40/111827/00d4ff?text=${product.name.charAt(0)}'">
+        <div>
+          <h3 class="product-name">${product.name}</h3>
+          <div class="product-category lang-en">${product.category}</div>
+          <div class="product-category lang-fr">${product.categoryFr}</div>
+        </div>
+      </div>
+      <div class="product-review lang-en">Full review</div>
+      <div class="product-review lang-fr">Revue complète</div>
+    `;
+    
+    // Add click event to show coming soon message
+    card.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Remove any existing message
+      const existingMsg = this.querySelector('.coming-soon-msg');
+      if (existingMsg) {
+        existingMsg.remove();
+      }
+      
+      // Create and append message
+      const msg = document.createElement('div');
+      msg.className = 'coming-soon-msg';
+      msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+      msg.style.position = 'absolute';
+      msg.style.bottom = '10px';
+      msg.style.right = '10px';
+      msg.style.fontSize = '11px';
+      msg.style.color = 'var(--electric-blue)';
+      msg.style.fontStyle = 'italic';
+      
+      this.appendChild(msg);
+      
+      // Remove message after animation
+      setTimeout(() => {
+        msg.remove();
+      }, 2000);
+    });
+    
+    productScroller.appendChild(card);
   });
   
-  // Mark animation as completed
-  setTimeout(() => {
-    typingAnimationCompleted = true;
-  }, delay);
+  // Update arrows based on scroll position
+  function updateArrows() {
+    const scrollLeft = productScroller.scrollLeft;
+    const maxScrollLeft = productScroller.scrollWidth - productScroller.clientWidth;
+    
+    if (scrollLeft <= 0) {
+      leftArrow.classList.add('disabled');
+    } else {
+      leftArrow.classList.remove('disabled');
+    }
+    
+    if (scrollLeft >= maxScrollLeft - 1) { // -1 for rounding errors
+      rightArrow.classList.add('disabled');
+    } else {
+      rightArrow.classList.remove('disabled');
+    }
+    
+    // Highlight the card that's most in view
+    highlightCardInView();
+  }
+  
+  // Highlight the card that's most in view
+  function highlightCardInView() {
+    const cards = productScroller.querySelectorAll('.product-card');
+    const containerRect = productScroller.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+    
+    let closestCard = null;
+    let closestDistance = Infinity;
+    
+    cards.forEach(card => {
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(cardCenter - containerCenter);
+      
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestCard = card;
+      }
+      
+      // Remove highlight from all cards
+      card.classList.remove('highlighted');
+    });
+    
+    // Add highlight to closest card
+    if (closestCard) {
+      closestCard.classList.add('highlighted');
+    }
+  }
+  
+  // Arrow click handlers
+  leftArrow.addEventListener('click', function() {
+    if (this.classList.contains('disabled')) return;
+    
+    const cardWidth = 320; // 300px width + 20px gap
+    productScroller.scrollBy({
+      left: -cardWidth,
+      behavior: 'smooth'
+    });
+    
+    setTimeout(updateArrows, 300);
+  });
+  
+  rightArrow.addEventListener('click', function() {
+    if (this.classList.contains('disabled')) return;
+    
+    const cardWidth = 320; // 300px width + 20px gap
+    productScroller.scrollBy({
+      left: cardWidth,
+      behavior: 'smooth'
+    });
+    
+    setTimeout(updateArrows, 300);
+  });
+  
+  // Drag functionality
+  productScroller.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    startX = e.pageX - productScroller.offsetLeft;
+    scrollLeft = productScroller.scrollLeft;
+    productScroller.classList.add('dragging');
+  });
+  
+  productScroller.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - productScroller.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    productScroller.scrollLeft = scrollLeft - walk;
+  });
+  
+  productScroller.addEventListener('mouseup', function() {
+    isDragging = false;
+    productScroller.classList.remove('dragging');
+    updateArrows();
+  });
+  
+  productScroller.addEventListener('mouseleave', function() {
+    isDragging = false;
+    productScroller.classList.remove('dragging');
+  });
+  
+  // Touch events for mobile
+  productScroller.addEventListener('touchstart', function(e) {
+    isDragging = true;
+    startX = e.touches[0].pageX - productScroller.offsetLeft;
+    scrollLeft = productScroller.scrollLeft;
+    productScroller.classList.add('dragging');
+  });
+  
+  productScroller.addEventListener('touchmove', function(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - productScroller.offsetLeft;
+    const walk = (x - startX) * 2;
+    productScroller.scrollLeft = scrollLeft - walk;
+  });
+  
+  productScroller.addEventListener('touchend', function() {
+    isDragging = false;
+    productScroller.classList.remove('dragging');
+    updateArrows();
+  });
+  
+  // Update arrows on scroll
+  productScroller.addEventListener('scroll', updateArrows);
+  
+  // Initialize arrows
+  updateArrows();
+}
+
+// Update product cards language
+function updateProductCardsLanguage() {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const enElements = card.querySelectorAll('.lang-en');
+    const frElements = card.querySelectorAll('.lang-fr');
+    
+    if (currentLang === 'fr') {
+      enElements.forEach(el => el.style.display = 'none');
+      frElements.forEach(el => el.style.display = 'block');
+    } else {
+      enElements.forEach(el => el.style.display = 'block');
+      frElements.forEach(el => el.style.display = 'none');
+    }
+    
+    // Update href with current language and currency
+    const productId = card.dataset.id;
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      card.href = `${product.baseUrl}?lang=${currentLang}&currency=${currentCurrency}`;
+    }
+  });
 }
 
 // FAQ functionality - FIXED VERSION
@@ -2878,7 +3318,7 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// Fix disclosure banner scroll on mobile - IMPROVED VERSION
+// FIXED: Mobile banner disclosure link - Improved version
 function fixDisclosureBannerScroll() {
   const disclosureLinks = document.querySelectorAll('.disclosure-link');
   
@@ -2890,23 +3330,34 @@ function fixDisclosureBannerScroll() {
     // Add new event listener
     newLink.addEventListener('click', function(e) {
       e.preventDefault();
+      
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      if (mobileMenu && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      // Get the target element
       const targetId = this.getAttribute('href');
       const target = document.querySelector(targetId);
       
       if (target) {
-        // Close mobile menu if open
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        if (mobileMenu && mobileMenu.classList.contains('active')) {
-          mobileMenu.classList.remove('active');
-          mobileMenuOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-        
         // Calculate the target position
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-        // Calculate offset based on screen size
-        const offset = window.innerWidth <= 767 ? 90 : 60;
+        
+        // Calculate offset - different for mobile vs desktop
+        let offset;
+        if (window.innerWidth <= 767) {
+          // Mobile: account for fixed banner and mobile controls
+          offset = 90; // 90px for mobile
+        } else {
+          // Desktop: account for fixed banner
+          offset = 60; // 60px for desktop
+        }
+        
         const offsetPosition = targetPosition - offset;
         
         // Scroll to the target
@@ -3021,7 +3472,15 @@ document.addEventListener('DOMContentLoaded', function() {
   setupFAQ();
   setupMobileMenu();
   setupMobileScrollHiding();
-  setupTypingAnimation();
+  setupProductScroller();
+  
+  // Trigger the fade-in animation for the value proposition
+  setTimeout(() => {
+    const valueProposition = document.getElementById('valueProposition');
+    if (valueProposition) {
+      // The animation is already defined in CSS, it will trigger automatically
+    }
+  }, 100);
   
   setTimeout(() => {
     updateAllLinks(currentLang);
