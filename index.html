@@ -312,7 +312,8 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 24px;
+    /* CHANGED: padding from 12px 24px to 12px 0px */
+    padding: 12px 0px;
     background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
     color: white;
     border-radius: 12px;
@@ -485,6 +486,7 @@
     border-radius: 20px;
     font-size: 11px;
     font-weight: 600;
+    /* CHANGED: display from block to inline-block */
     display: inline-block;
     margin-bottom: 8px;
   }
@@ -1748,7 +1750,8 @@
         </ul>
         
         <a class="tile-cta" href="https://global-toolkit.github.io/saas-&-web-hosting" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">
-          <span class="lang-en">View & Compare Top Providers</span>
+          <!-- CHANGED: "View & Compare Top Providers" to "Find Top Providers" -->
+          <span class="lang-en">Find Top Providers</span>
           <span class="lang-fr">Voir les meilleurs fournisseurs</span> 
           <i class="fas fa-arrow-right"></i>
         </a>
@@ -2586,10 +2589,11 @@ function updateAllLinks(lang) {
     link.setAttribute('href', `${cleanUrl}?lang=${lang}&currency=${currentCurrency}`);
   });
   
-  // Update Affiliate Disclosure links in footer
+  // Update Affiliate Disclosure links in footer - FIXED: Avoid using full URLs as selectors
   const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
   affiliateLinks.forEach(link => {
-    if (link.href.includes('global-toolkit.github.io')) {
+    // Check if it's a full URL (not an anchor link)
+    if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
       link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}&currency=${currentCurrency}`;
     }
   });
@@ -3536,11 +3540,18 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
   });
 });
 
-// Smooth scrolling for anchor links
+// Smooth scrolling for anchor links - FIXED: Don't prevent default for disclosure banner links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
     if (href !== '#') {
+      // FIXED: Don't prevent default for disclosure banner links that should go to external page
+      // Check if it's a disclosure link that should go to external page
+      if (this.classList.contains('disclosure-link') && this.closest('.disclosure-banner')) {
+        // Let it navigate to #affiliate-disclosure (on-page anchor)
+        return; // Allow default behavior
+      }
+      
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
