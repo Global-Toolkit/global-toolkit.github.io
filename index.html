@@ -394,12 +394,12 @@
     scroll-behavior: auto;
   }
   
-  /* UPDATED: Product Card Dimensions - CHANGED as requested */
+  /* UPDATED: Product Card Dimensions */
   .product-card {
     flex: 0 0 auto;
-    /* Mobile first - CHANGED: from 260/160px to 240/140px */
-    width: 240px;
-    height: 140px;
+    /* Mobile first - UPDATED */
+    width: 230px;
+    height: 145px;
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
     border-radius: 12px;
     padding: 15px;
@@ -412,11 +412,11 @@
     overflow: hidden;
   }
   
-  /* Desktop sizes - CHANGED: from 300/170px to 250/150px */
+  /* Desktop sizes - UPDATED */
   @media (min-width: 768px) {
     .product-card {
-      width: 250px;
-      height: 150px;
+      width: 278px;
+      height: 145px;
     }
   }
   
@@ -426,16 +426,16 @@
     box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
   }
   
-  /* CHANGED: Added hover effect for "view details" */
-  .product-card:hover .product-review {
-    color: var(--electric-blue);
-    text-decoration: underline;
-  }
-  
   .product-card.highlighted {
     border-color: var(--electric-blue);
     box-shadow: 0 0 0 2px var(--electric-blue), 0 8px 25px rgba(0, 212, 255, 0.3);
     transform: translateY(-5px);
+  }
+  
+  /* NEW: Hover effect for "view details" */
+  .product-card:hover .product-review {
+    text-decoration: underline;
+    color: var(--electric-blue);
   }
   
   /* UPDATED: Product Card Header */
@@ -447,12 +447,12 @@
     flex-shrink: 0;
   }
   
-  /* UPDATED: Logo size - CHANGED: Increased size of logos (from 35% to 38%, 70px to 75px) */
+  /* UPDATED: Logo size - fixed 40x40px */
   .product-logo {
-    width: auto;
-    height: auto;
-    max-height: 38%; /* CHANGED: Increased from 35% to 38% */
-    max-width: 75px; /* CHANGED: Increased from 70px to 75px */
+    width: 40px;
+    height: 40px;
+    max-height: 40px;
+    max-width: 40px;
     border-radius: 8px;
     object-fit: contain;
     background: rgba(255, 255, 255, 0.1);
@@ -521,7 +521,7 @@
     border-top: 1px solid rgba(0, 212, 255, 0.1);
     margin-top: auto;
     flex-shrink: 0;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+    transition: all 0.3s ease;
   }
   
   .scroller-arrow {
@@ -567,28 +567,16 @@
       padding: 0 30px;
     }
     
-    /* CHANGED: Fixed mobile arrow sizes - ensure both arrows are same size */
     .scroller-arrow {
       width: 35px;
       height: 35px;
       font-size: 18px;
     }
     
-    /* CHANGED: Adjust left arrow only in mobile display */
-    .scroller-arrow.left-arrow {
-      width: 40px; /* Slightly larger */
-      height: 40px;
-      font-size: 20px;
-      left: 5px; /* Adjusted for better centering */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* CHANGED: Ensure product card stays within new mobile range */
+    /* Ensure product card stays within mobile range - UPDATED */
     .product-card {
-      width: 240px;
-      height: 140px;
+      width: 230px;
+      height: 145px;
     }
   }
   
@@ -1604,12 +1592,12 @@
   <div class="wrap">
     <div class="muted lang-en">
       <strong>Disclosure:</strong> We may earn affiliate commissions when you purchase through our links. 
-      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="disclosure-link">Learn how we make money →</a>
+      <a href="#affiliate-disclosure" class="disclosure-link">Learn how we make money →</a>
     </div>
     <!-- CHANGED: French text updated as requested -->
     <div class="muted lang-fr">
       <strong>Divulgation :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens. 
-      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="disclosure-link">Lire→</a>
+      <a href="#affiliate-disclosure" class="disclosure-link">Lire→</a>
     </div>
   </div>
 </div>
@@ -2361,7 +2349,7 @@ function getFallbackLogo(letter) {
   return 'data:image/svg+xml;base64,' + btoa(svg);
 }
 
-// UPDATED: Product data with "Ideal for" and "Key value" information - CHANGED: Updated logo URLs
+// UPDATED: Product data with "Ideal for" and "Key value" information and updated logo URLs
 const products = [
   // Website Builders
   {
@@ -2847,7 +2835,7 @@ function setupProductScroller() {
     if (this.classList.contains('disabled')) return;
     
     const firstCard = productScroller.querySelector('.product-card');
-    const cardWidth = firstCard ? firstCard.offsetWidth : 250;
+    const cardWidth = firstCard ? firstCard.offsetWidth : 278;
     const gap = 20;
     
     productScroller.scrollBy({
@@ -2862,7 +2850,7 @@ function setupProductScroller() {
     if (this.classList.contains('disabled')) return;
     
     const firstCard = productScroller.querySelector('.product-card');
-    const cardWidth = firstCard ? firstCard.offsetWidth : 250;
+    const cardWidth = firstCard ? firstCard.offsetWidth : 278;
     const gap = 20;
     
     productScroller.scrollBy({
@@ -3479,9 +3467,6 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// REMOVED: The fixDisclosureBannerScroll function has been removed as requested
-// The disclosure links now directly link to the GitHub page
-
 // Email form submission - CHANGED: Updated message
 document.getElementById('email-form')?.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -3551,31 +3536,28 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
   });
 });
 
-// Smooth scrolling for anchor links (excluding disclosure links which now have direct links)
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  // Only add smooth scroll for non-disclosure links
-  if (!anchor.classList.contains('disclosure-link')) {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#') {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          // Calculate the target position
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-          // Calculate offset based on screen size
-          const offset = window.innerWidth <= 767 ? 90 : 60;
-          const offsetPosition = targetPosition - offset;
-          
-          // Scroll to the target
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        // Calculate the target position
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        // Calculate offset based on screen size
+        const offset = window.innerWidth <= 767 ? 90 : 60;
+        const offsetPosition = targetPosition - offset;
+        
+        // Scroll to the target
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
-    });
-  }
+    }
+  });
 });
 
 // Initialize everything
@@ -3597,8 +3579,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   setTimeout(() => {
     updateAllLinks(currentLang);
-    
-    // REMOVED: fixDisclosureBannerScroll() call as requested
     
     // Initialize FAQ - hide all answers initially
     document.querySelectorAll('.faq-item').forEach(item => {
