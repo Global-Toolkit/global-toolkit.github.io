@@ -447,12 +447,12 @@
     flex-shrink: 0;
   }
   
-  /* UPDATED: Logo size - CHANGED: Increased size of logos */
+  /* UPDATED: Logo size - CHANGED: Increased size of logos (from 35% to 38%, 70px to 75px) */
   .product-logo {
     width: auto;
     height: auto;
-    max-height: 35%; /* CHANGED: Increased from 30% to 35% */
-    max-width: 70px; /* CHANGED: Increased from 60px to 70px */
+    max-height: 38%; /* CHANGED: Increased from 35% to 38% */
+    max-width: 75px; /* CHANGED: Increased from 70px to 75px */
     border-radius: 8px;
     object-fit: contain;
     background: rgba(255, 255, 255, 0.1);
@@ -572,6 +572,17 @@
       width: 35px;
       height: 35px;
       font-size: 18px;
+    }
+    
+    /* CHANGED: Adjust left arrow only in mobile display */
+    .scroller-arrow.left-arrow {
+      width: 40px; /* Slightly larger */
+      height: 40px;
+      font-size: 20px;
+      left: 5px; /* Adjusted for better centering */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     /* CHANGED: Ensure product card stays within new mobile range */
