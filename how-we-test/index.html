@@ -60,11 +60,11 @@
   /* Mobile scroll margin for anchor links to avoid overlap with fixed elements */
   @media (max-width: 767px) {
     :target {
-      scroll-margin-top: 90px;
+      scroll-margin-top: 90px; /* CHANGED: Decreased from 120px to 90px */
     }
   }
   
-  /* AFFILIATE DISCLOSURE BANNER - ADDED */
+  /* AFFILIATE DISCLOSURE BANNER - UPDATED: Changed content as requested */
   .disclosure-banner {
     background: linear-gradient(90deg, rgba(14, 102, 210, 0.15), rgba(157, 78, 221, 0.15));
     padding: 10px 0;
@@ -101,7 +101,7 @@
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    margin: 10px 0;
+    margin: 10px 0; /* Changed from 0px 0 to 10px 0 */
   }
   
   .badge {
@@ -129,7 +129,7 @@
     margin-top: 10px;
   }
   
-  /* Desktop - align-items from center to normal */
+  /* CHANGED: Desktop - align-items from center to normal */
   @media (min-width: 768px) {
     .hero {
       align-items: normal;
@@ -166,47 +166,12 @@
     font-weight: 500;
   }
   
-  /* Desktop - hero-subtitle margin-top and font-size */
+  /* CHANGED: Desktop - hero-subtitle margin-top and font-size */
   @media (min-width: 768px) {
     .hero-subtitle {
       margin-top: 42px;
       font-size: 23px;
     }
-  }
-  
-  /* Email Capture - MOVED to aside */
-  .email-capture {
-    background: rgba(0, 212, 255, 0.08);
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-  }
-  
-  /* Mobile - increased margin space between illustration and email-capture */
-  @media (max-width: 767px) {
-    .email-capture {
-      margin-top: 30px;
-    }
-  }
-  
-  .email-form {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-  }
-  
-  .email-input {
-    flex: 1;
-    padding: 14px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    border-radius: 12px;
-    color: white;
-    font-size: 16px;
-  }
-  
-  .email-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
   }
   
   /* Content Section Styles */
@@ -334,7 +299,9 @@
   .faq-item {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
     border-radius: 16px;
+    /* CHANGED: Decreased padding from 20 to 10px */
     padding: 10px;
+    /* CHANGED: Decreased margin-bottom from 12 to 5px */
     margin-bottom: 5px;
     border: 1px solid rgba(0, 212, 255, 0.1);
     cursor: pointer;
@@ -345,12 +312,13 @@
     font-weight: 600;
     color: white;
     font-size: 16px;
+    /* CHANGED: margin-bottom from 10 to 0px */
     margin-bottom: 0px;
     line-height: 1.4;
     padding-right: 30px; /* Space for arrow */
   }
   
-  /* Added arrow for FAQ items */
+  /* CHANGED: Added arrow for FAQ items */
   .faq-item::after {
     content: '\f078'; /* FontAwesome chevron-down icon */
     font-family: 'Font Awesome 6 Free';
@@ -437,9 +405,8 @@
       gap: 30px;
     }
     .footer-links { grid-template-columns: repeat(4, 1fr); }
-    .email-form { flex-direction: row; }
     h1 { font-size: 40px; }
-    /* Align connect links with other sections on desktop */
+    /* CHANGED: Align connect links with other sections on desktop */
     .footer-column:last-child {
       align-items: center;
     }
@@ -448,7 +415,7 @@
     }
     /* Desktop: trust badges gap */
     .trust-badges {
-      gap: 80px;
+      gap: 80px; /* Increased from 15px to 80px for desktop */
     }
   }
   
@@ -457,7 +424,6 @@
   }
   
   @media (max-width: 480px) {
-    .email-form { flex-direction: column; }
     .footer-links { grid-template-columns: 1fr; }
     .trust-badges { justify-content: center; }
     /* Mobile disclosure banner font size */
@@ -477,9 +443,9 @@
     box-sizing: border-box;
   }
   
-  /* Header margins */
+  /* Header margins - FIXED: Ensure proper override */
   header {
-    padding: 0px 18px;
+    padding: 0px 18px; /* Changed from 18px to 0px 18px */
     border-radius: 16px;
     background: rgba(17, 24, 39, 0.85);
     color: #fff;
@@ -487,43 +453,46 @@
     overflow: hidden;
     backdrop-filter: blur(20px);
     box-shadow: var(--shadow-lg), var(--glow);
+    /* CHANGED: margin-bottom from 20 to 50px */
     margin-bottom: 50px;
     border: 1px solid rgba(0, 212, 255, 0.1);
+    /* Base value will be overridden by media queries below */
     margin-top: 35px;
   }
   
-  /* Desktop header margin-top */
+  /* CHANGED: Desktop header margin-top from 35 to 37px */
   @media (min-width: 768px) {
     header {
       margin-top: 37px;
     }
   }
   
-  /* Mobile header margin-top */
+  /* CHANGED: Mobile header margin-top from 35 to 65px */
   @media (max-width: 767px) {
     header {
       margin-top: 65px;
     }
   }
   
-  /* NEW: Brand Container (outside header) */
+  /* NEW: Brand Container (outside header) - UPDATED */
   .brand-container {
     position: fixed;
-    top: 33px;
-    left: 4px;
+    top: 33px; /* CHANGED: Desktop - decreased from 51px to 33px */
+    left: -4px; /* Changed from 20px to 4px */
     display: flex;
     align-items: center;
-    gap: 1px;
+    gap: 2px; /* Changed from 5px to 1px */
     z-index: 2000;
     border-radius: 12px;
     padding: 8px 12px;
+    /* CHANGED: Removed background and border to make container invisible */
     background: transparent;
     border: none;
     backdrop-filter: none;
     cursor: pointer;
   }
   
-  /* Desktop - increase Top from 33px to 37px */
+  /* CHANGED: Desktop - increase Top from 33px to 37px */
   @media (min-width: 768px) {
     .brand-container {
       top: 37px;
@@ -534,12 +503,12 @@
     height: 40px;
     width: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0px 0px rgba(0, 212, 255, 0.3);
   }
   
   .brand {
     font-weight: 800;
-    font-size: 22px;
+    font-size: 22px; /* Changed from 25px to 22px */
     background: linear-gradient(135deg, #ffffff, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -549,11 +518,11 @@
     line-height: 1;
   }
   
-  /* NEW: Top Controls (outside header) */
+  /* NEW: Top Controls (outside header) - UPDATED */
   .top-controls-container {
     position: fixed;
-    top: 51px;
-    right: 15px;
+    top: 51px; /* CHANGED: Desktop - increased from 43px to 51px */
+    right: 15px; /* Desktop: Changed from 20px to 15px */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -561,7 +530,7 @@
     backdrop-filter: blur(10px);
     background: rgba(17, 24, 39, 0.7);
     border-radius: 12px;
-    padding: 0px;
+    padding: 0px; /* Changed from 8px to 0px */
     border: 1px solid rgba(0, 212, 255, 0.2);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
@@ -724,7 +693,7 @@
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
   
-  /* Ensure mobile menu is scrollable */
+  /* CHANGED: Ensure mobile menu is scrollable */
   .mobile-menu {
     overflow-y: auto;
   }
@@ -733,15 +702,15 @@
     right: 0;
   }
   
-  /* Increased margin-bottom from 10 to 30px */
+  /* CHANGED: Increased margin-bottom from 10 to 30px */
   .mobile-menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Changed from 10px to 30px */
     padding-bottom: 20px;
-    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
   .mobile-menu-logo {
@@ -750,7 +719,7 @@
   }
   
   .mobile-menu-brand {
-    font-size: 23px;
+    font-size: 23px; /* Changed from 20px to 23px */
     font-weight: 700;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
@@ -783,7 +752,7 @@
   .mobile-menu-content {
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 0px; /* Changed from 20px to 0px */
   }
   
   .mobile-menu-overlay {
@@ -803,29 +772,29 @@
   }
   
   .mobile-menu-footer {
-    margin-top: 17px;
+    margin-top: 17px; /* Changed from 30px to 17px */
     padding-top: 20px;
-    border-top: 2px solid rgba(0, 212, 255, 0.2);
+    border-top: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
   .mobile-menu-section {
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Changed from 20px to 5px */
   }
   
   .mobile-menu-section h3 {
     color: var(--electric-blue);
     margin-bottom: 10px;
-    font-size: 19px;
+    font-size: 19px; /* Changed from 16px to 19px */
     font-weight: 600;
   }
   
   .mobile-menu-link {
     display: block;
-    padding: 5px 0;
+    padding: 5px 0; /* Changed from 12px 0 to 5px 0 */
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    font-size: 16px;
+    font-size: 16px; /* Changed from 14px to 16px */
   }
   
   .mobile-menu-link:hover {
@@ -836,10 +805,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 1px 0;
+    padding: 1px 0; /* Changed from 8px 0 to 1px 0 */
     color: var(--text-light);
     text-decoration: none;
-    font-size: 17px;
+    font-size: 17px; /* Changed from 14px to 17px */
   }
   
   .mobile-menu-contact-item:hover {
@@ -914,49 +883,18 @@
     line-height: 1.5;
   }
   
-  /* Illustration adjustments */
+  /* Illustration adjustments - UPDATED */
   .illustration {
     width: 100%;
     max-width: 420px;
     border-radius: 16px;
     display: block;
     box-shadow: var(--shadow-lg);
+    /* CHANGED: Removed hover animation */
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin: 0 auto;
     opacity: 0.9;
     position: relative;
-  }
-  
-  /* Updated illustration overlay with new horizontal darkening effect */
-  .illustration-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(10, 15, 28, 0.2) 0%,
-      rgba(10, 15, 28, 0.6) 30%,
-      rgba(10, 15, 28, 0.8) 50%,
-      rgba(10, 15, 28, 0.6) 70%,
-      rgba(10, 15, 28, 0.2) 100%
-    );
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .illustration-overlay .muted {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 500;
-    text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 80%;
-    padding: 20px;
   }
   
   /* Language classes */
@@ -1002,49 +940,43 @@
   }
   
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
   /* Mobile-specific styles */
   @media (max-width: 767px) {
     /* Mobile: brand container */
     .brand-container {
-      top: 60px;
+      top: 60px; /* CHANGED: Mobile - increased from 57px to 60px */
     }
     
     /* Mobile: top controls container */
     .top-controls-container {
-      top: 73px;
-      right: 15px;
-      gap: 3px;
+      top: 73px; /* CHANGED: Mobile - increased from 69px to 73px */
+      right: 15px; /* Mobile: Changed from 20px to 15px */
+      gap: 3px; /* Mobile: Changed from 10px to 3px */
     }
     
     /* Mobile: currency selector gap */
     .currency-selector {
-      gap: 0px;
+      gap: 0px; /* Mobile: Changed from 3px to 0px */
     }
     
     /* Mobile: brand text stacking */
     .brand {
       flex-direction: column;
       line-height: 1;
-      font-size: 18px;
+      font-size: 16px;
     }
     
     .brand-line-1, .brand-line-2 {
       display: block;
-      line-height: 0.9;
+      line-height: 0.95;
     }
     
     .brand-line-1 {
       margin-bottom: -2px;
-    }
-    
-    /* Mobile: Adjust illustration overlay text */
-    .illustration-overlay .muted {
-      font-size: 14px;
-      padding: 15px;
     }
   }
   
@@ -1071,10 +1003,6 @@
       flex: 1;
       margin-bottom: 0;
     }
-    
-    .email-capture {
-      margin-top: 20px;
-    }
   }
 </style>
 </head>
@@ -1086,7 +1014,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
     <a href="https://global-toolkit.github.io/" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="mobile-menu-logo">
+      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
       <div class="mobile-menu-brand">Global Toolkit</div>
     </a>
     <button class="mobile-menu-close" id="mobileMenuClose">
@@ -1103,10 +1031,10 @@
   </div>
 </div>
 
-<!-- Brand Container (outside header) - Now clickable -->
+<!-- Brand Container (outside header) - CHANGED: Now clickable -->
 <a id="brandLink" style="text-decoration: none;">
   <div class="brand-container" id="brandContainer">
-    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
+    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
     <div class="brand">
       <span class="brand-line-1">Global</span>
       <span class="brand-line-2">Toolkit</span>
@@ -1134,6 +1062,7 @@
       <a href="#" class="lang-option" data-lang="fr">
         <span>Français</span>
       </a>
+      <!-- CHANGED: Added Español option back -->
       <a href="#" class="lang-option" data-lang="es">
         <span>Español</span>
         <span class="coming-soon">(soon)</span>
@@ -1148,16 +1077,14 @@
   </button>
 </div>
 
-<!-- AFFILIATE DISCLOSURE BANNER - ADDED -->
+<!-- AFFILIATE DISCLOSURE BANNER - UPDATED: Changed content as requested -->
 <div class="disclosure-banner">
   <div class="wrap">
     <div class="muted lang-en">
-      <strong>Disclosure:</strong> We may earn affiliate commissions when you purchase through our links. 
-      <a href="#affiliate-disclosure" class="disclosure-link">Learn how we make money →</a>
+      <strong>Transparent Testing:</strong> We combine hands-on testing with verified research from multiple sources.
     </div>
     <div class="muted lang-fr">
-      <strong>Divulgation :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens. 
-      <a href="#affiliate-disclosure" class="disclosure-link">Lire→</a>
+      <strong>Tests Transparents :</strong> Nous combinons tests pratiques avec recherches vérifiées de multiples sources.
     </div>
   </div>
 </div>
@@ -1205,21 +1132,18 @@
         </div>
       </section>
 
-      <!-- Illustration with overlay text -->
+      <!-- Illustration for testing methodology - UPDATED: Changed image source -->
       <aside>
-        <div style="position: relative;">
-          <img class="illustration" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3"
-               alt="Testing methodology illustration" />
-          <div class="illustration-overlay">
-            <div class="muted lang-en">Our testing combines practical evaluation with comprehensive research</div>
-            <div class="muted lang-fr">Notre test combine évaluation pratique et recherche complète</div>
-          </div>
-        </div>
+        <img class="illustration" src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/how-we-test/how-we-test-logo.png"
+             alt="Testing methodology illustration" />
+        <div style="height:12px"></div>
+        <div class="muted lang-en">Our testing combines practical evaluation with comprehensive research</div>
+        <div class="muted lang-fr">Notre test combine évaluation pratique et recherche complète</div>
       </aside>
     </div>
 
     <!-- OUR METHODOLOGY SECTION -->
-    <section class="content-section">
+    <section class="content-section" id="methodology">
       <h2 class="section-title lang-en">Our Testing Methodology</h2>
       <h2 class="section-title lang-fr">Notre Méthodologie de Test</h2>
       
@@ -1408,20 +1332,21 @@
         <div class="footer-column">
           <h4 class="lang-en">Categories</h4>
           <h4 class="lang-fr">Catégories</h4>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting?lang=en" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting?lang=fr" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
+          <a href="https://global-toolkit.github.io/online-tools?lang=en" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
+          <a href="https://global-toolkit.github.io/online-tools?lang=fr" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
+          <!-- CHANGED: "Payment Processors" to "Payment Services" -->
+          <a href="https://global-toolkit.github.io/payments?lang=en" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
+          <a href="https://global-toolkit.github.io/payments?lang=fr" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
         </div>
         <div class="footer-column">
           <h4 class="lang-en">Resources</h4>
           <h4 class="lang-fr">Ressources</h4>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy">Privacy</a>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
+          <a href="https://global-toolkit.github.io/privacy?lang=en" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy">Privacy</a>
+          <a href="https://global-toolkit.github.io/privacy?lang=fr" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
+          <a href="https://global-toolkit.github.io/how-we-test?lang=en" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
+          <a href="https://global-toolkit.github.io/how-we-test?lang=fr" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
           <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
           <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
           <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
@@ -1429,12 +1354,12 @@
         <div class="footer-column">
           <h4 class="lang-en">Tools</h4>
           <h4 class="lang-fr">Outils</h4>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Comparison Calculator</a>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Calculateur Comparatif</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Deals Tracker</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Suivi Offres</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Beginner Guides</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Guides Débutants</a>
+          <a href="https://global-toolkit.github.io/comparison-calculator?lang=en" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Comparison Calculator</a>
+          <a href="https://global-toolkit.github.io/comparison-calculator?lang=fr" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Calculateur Comparatif</a>
+          <a href="https://global-toolkit.github.io/deals-tracker?lang=en" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Deals Tracker</a>
+          <a href="https://global-toolkit.github.io/deals-tracker?lang=fr" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Suivi Offres</a>
+          <a href="https://global-toolkit.github.io/beginner-guides?lang=en" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Beginner Guides</a>
+          <a href="https://global-toolkit.github.io/beginner-guides?lang=fr" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Guides Débutants</a>
         </div>
         <div class="footer-column">
           <h4 class="lang-en">Connect</h4>
@@ -1460,15 +1385,15 @@
       
       <!-- NEW: Footer bottom links in single line -->
       <div class="footer-bottom-links">
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
+        <a href="https://global-toolkit.github.io/privacy?lang=en" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
+        <a href="https://global-toolkit.github.io/privacy?lang=fr" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
         <span class="separator">|</span>
         <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
         <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
         <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
         <span class="separator">|</span>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
+        <a href="https://global-toolkit.github.io/terms?lang=en" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
+        <a href="https://global-toolkit.github.io/terms?lang=fr" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
       </div>
       
       <div style="height:6px"></div>
@@ -1485,13 +1410,16 @@
 // Language switching functionality
 let currentLang = 'en';
 let currentCurrency = 'USD';
-let exchangeRate = 1.0;
+let exchangeRate = 1.0; // Default 1 USD = 1 USD
 
 // Mobile scroll hiding variables
 let scrollTimer;
 let isMobile = window.innerWidth <= 767;
 let isAtTop = window.scrollY === 0;
 let hideControlsTimer;
+
+// FIXED: Declare initFAQItemListeners in global scope to avoid ReferenceError
+let initFAQItemListeners;
 
 // Function to switch language
 function switchLanguage(lang) {
@@ -1530,9 +1458,25 @@ function switchLanguage(lang) {
   
   // Update mobile menu content
   updateMobileMenuContent();
+  
+  // Reinitialize FAQ to fix language issues
+  setTimeout(() => {
+    // FIXED: initFAQItemListeners is now defined globally
+    if (typeof initFAQItemListeners === 'function') {
+      initFAQItemListeners();
+    }
+    // Hide all answers initially
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('expanded');
+      const answers = item.querySelectorAll('.faq-answer');
+      answers.forEach(answer => {
+        answer.style.display = 'none';
+      });
+    });
+  }, 50);
 }
 
-// Function to update all links with language and currency parameters
+// CHANGED: Updated function to handle all links with language and currency parameters
 function updateAllLinks(lang) {
   const links = document.querySelectorAll('a[data-base-url]');
   
@@ -1542,7 +1486,7 @@ function updateAllLinks(lang) {
     link.setAttribute('href', `${cleanUrl}?lang=${lang}&currency=${currentCurrency}`);
   });
   
-  // Update Affiliate Disclosure links in footer
+  // Update Affiliate Disclosure links in footer - FIXED: Avoid using full URLs as selectors
   const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
   affiliateLinks.forEach(link => {
     // Check if it's a full URL (not an anchor link)
@@ -1602,7 +1546,7 @@ async function fetchExchangeRate() {
     return data.rates.EUR;
   } catch (error) {
     console.error('Failed to fetch exchange rate:', error);
-    return 0.92;
+    return 0.92; // Fallback rate if API fails
   }
 }
 
@@ -1618,6 +1562,7 @@ function convertPrices() {
       convertedPrice = usdPrice * exchangeRate;
     }
     
+    // Format price with 2 decimal places
     const formattedPrice = convertedPrice.toFixed(2);
     
     if (currentLang === 'fr') {
@@ -1663,68 +1608,75 @@ async function initializeCurrency() {
   switchCurrency(savedCurrency);
 }
 
-// FAQ functionality
+// FAQ functionality - FIXED VERSION
 function setupFAQ() {
-  const allFAQItems = document.querySelectorAll('.faq-item');
-  
-  allFAQItems.forEach(item => {
-    // Make sure only current language answers are visible initially (all hidden)
-    const enAnswer = item.querySelector('.faq-answer.lang-en');
-    const frAnswer = item.querySelector('.faq-answer.lang-fr');
+  // FIXED: Initialize FAQ item listeners for all FAQ sections (now defined globally)
+  initFAQItemListeners = function() {
+    // Handle FAQ items in category sections and affiliate disclosure
+    const allFAQItems = document.querySelectorAll('.faq-item');
     
-    if (enAnswer) enAnswer.style.display = 'none';
-    if (frAnswer) frAnswer.style.display = 'none';
-    
-    // Remove existing click listeners to avoid duplicates
-    const newItem = item.cloneNode(true);
-    item.parentNode.replaceChild(newItem, item);
-  });
-  
-  // Re-select all FAQ items after cloning
-  const refreshedFAQItems = document.querySelectorAll('.faq-item');
-  
-  refreshedFAQItems.forEach(item => {
-    item.addEventListener('click', function() {
-      // Get the parent container
-      const parentContainer = this.closest('.faq-section');
+    allFAQItems.forEach(item => {
+      // Make sure only current language answers are visible initially (all hidden)
+      const enAnswer = item.querySelector('.faq-answer.lang-en');
+      const frAnswer = item.querySelector('.faq-answer.lang-fr');
       
-      if (parentContainer) {
-        // Close all other FAQ items in the same container
-        parentContainer.querySelectorAll('.faq-item').forEach(otherItem => {
-          if (otherItem !== this) {
-            otherItem.classList.remove('expanded');
-            const otherEnAnswer = otherItem.querySelector('.faq-answer.lang-en');
-            const otherFrAnswer = otherItem.querySelector('.faq-answer.lang-fr');
-            if (otherEnAnswer) otherEnAnswer.style.display = 'none';
-            if (otherFrAnswer) otherFrAnswer.style.display = 'none';
-          }
-        });
-        
-        // Toggle current item
-        const wasExpanded = this.classList.contains('expanded');
-        
-        // Remove expanded class from all items first
-        parentContainer.querySelectorAll('.faq-item').forEach(item => {
-          item.classList.remove('expanded');
-        });
-        
-        if (!wasExpanded) {
-          this.classList.add('expanded');
-          // Show only the current language answer
-          const currentLangAnswer = this.querySelector(`.faq-answer.lang-${currentLang}`);
-          if (currentLangAnswer) {
-            currentLangAnswer.style.display = 'block';
-          }
-        } else {
-          // Hide all answers for this item
-          const enAnswer = this.querySelector('.faq-answer.lang-en');
-          const frAnswer = this.querySelector('.faq-answer.lang-fr');
-          if (enAnswer) enAnswer.style.display = 'none';
-          if (frAnswer) frAnswer.style.display = 'none';
-        }
-      }
+      if (enAnswer) enAnswer.style.display = 'none';
+      if (frAnswer) frAnswer.style.display = 'none';
+      
+      // Remove existing click listeners to avoid duplicates
+      const newItem = item.cloneNode(true);
+      item.parentNode.replaceChild(newItem, item);
     });
-  });
+    
+    // Re-select all FAQ items after cloning
+    const refreshedFAQItems = document.querySelectorAll('.faq-item');
+    
+    refreshedFAQItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // Get the parent container (FAQ section)
+        const parentContainer = this.closest('.faq-section');
+        
+        if (parentContainer) {
+          // Close all other FAQ items in the same container
+          parentContainer.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== this) {
+              otherItem.classList.remove('expanded');
+              const otherEnAnswer = otherItem.querySelector('.faq-answer.lang-en');
+              const otherFrAnswer = otherItem.querySelector('.faq-answer.lang-fr');
+              if (otherEnAnswer) otherEnAnswer.style.display = 'none';
+              if (otherFrAnswer) otherFrAnswer.style.display = 'none';
+            }
+          });
+          
+          // Toggle current item
+          const wasExpanded = this.classList.contains('expanded');
+          
+          // Remove expanded class from all items first
+          parentContainer.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('expanded');
+          });
+          
+          if (!wasExpanded) {
+            this.classList.add('expanded');
+            // Show only the current language answer
+            const currentLangAnswer = this.querySelector(`.faq-answer.lang-${currentLang}`);
+            if (currentLangAnswer) {
+              currentLangAnswer.style.display = 'block';
+            }
+          } else {
+            // Hide all answers for this item
+            const enAnswer = this.querySelector('.faq-answer.lang-en');
+            const frAnswer = this.querySelector('.faq-answer.lang-fr');
+            if (enAnswer) enAnswer.style.display = 'none';
+            if (frAnswer) frAnswer.style.display = 'none';
+          }
+        }
+      });
+    });
+  };
+  
+  // Initialize listeners
+  initFAQItemListeners();
 }
 
 // Mobile scroll hiding functionality
@@ -1832,7 +1784,7 @@ function updateMobileMenuContent() {
   mobileMenuContent.innerHTML = '';
   mobileMenuFooter.innerHTML = '';
   
-  // Add Home section
+  // Add Home section - FIXED: Add text next to icon
   const homeSection = document.createElement('div');
   homeSection.className = 'mobile-menu-section';
   
@@ -1853,7 +1805,7 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(homeSection);
   
-  // Add Categories section
+  // Add Categories section - FIXED: Add French title
   const categoriesSection = document.createElement('div');
   categoriesSection.className = 'mobile-menu-section';
   
@@ -1879,6 +1831,7 @@ function updateMobileMenuContent() {
     link.className = 'mobile-menu-link';
     
     const linkText = currentLang === 'fr' ? cat.fr : cat.en;
+    // CHANGED: Add ">" to the end of each category name as requested
     link.textContent = linkText + ' >';
     
     categoriesSection.appendChild(link);
@@ -1886,7 +1839,7 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(categoriesSection);
   
-  // Add Tools section
+  // Add Tools section - FIXED: Add French title
   const toolsSection = document.createElement('div');
   toolsSection.className = 'mobile-menu-section';
   
@@ -1940,30 +1893,6 @@ function updateMobileMenuContent() {
   });
   
   mobileMenuContent.appendChild(toolsSection);
-  
-  // Add How We Test link
-  const howWeTestSection = document.createElement('div');
-  howWeTestSection.className = 'mobile-menu-section';
-  
-  const howWeTestLink = document.createElement('a');
-  howWeTestLink.href = `https://global-toolkit.github.io/how-we-test?lang=${currentLang}&currency=${currentCurrency}`;
-  howWeTestLink.className = 'mobile-menu-link';
-  howWeTestLink.style.marginTop = '9px';
-  howWeTestLink.style.display = 'block';
-  
-  const howWeTestIcon = document.createElement('i');
-  howWeTestIcon.className = 'fas fa-flask';
-  howWeTestIcon.style.marginRight = '8px';
-  
-  const howWeTestText = document.createElement('span');
-  howWeTestText.textContent = currentLang === 'fr' ? 'Comment Nous Testons' : 'How We Test';
-  
-  howWeTestLink.appendChild(howWeTestIcon);
-  howWeTestLink.appendChild(howWeTestText);
-  
-  howWeTestSection.appendChild(howWeTestLink);
-  
-  mobileMenuContent.appendChild(howWeTestSection);
   
   // Add footer content
   const footerContent = document.createElement('div');
@@ -2029,6 +1958,26 @@ function updateMobileMenuContent() {
   
   contactSection.appendChild(contactToggle);
   contactSection.appendChild(contactContent);
+  
+  // Add about us link
+  const aboutLink = document.createElement('a');
+  aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}`;
+  aboutLink.className = 'mobile-menu-link';
+  // CHANGED: Increased margin-top from 3 to 9px
+  aboutLink.style.marginTop = '9px';
+  aboutLink.style.display = 'block';
+  
+  const aboutIcon = document.createElement('i');
+  aboutIcon.className = 'fas fa-info-circle';
+  aboutIcon.style.marginRight = '8px';
+  
+  const aboutText = document.createElement('span');
+  aboutText.textContent = currentLang === 'fr' ? 'À Propos' : 'About Us';
+  
+  aboutLink.appendChild(aboutIcon);
+  aboutLink.appendChild(aboutText);
+  
+  contactSection.appendChild(aboutLink);
   
   // Add space
   const space = document.createElement('div');
@@ -2174,18 +2123,11 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
   });
 });
 
-// Smooth scrolling for anchor links - FIXED: Don't prevent default for disclosure banner links
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
     if (href !== '#') {
-      // FIXED: Don't prevent default for disclosure banner links that should go to external page
-      // Check if it's a disclosure link that should go to external page
-      if (this.classList.contains('disclosure-link') && this.closest('.disclosure-banner')) {
-        // Let it navigate to #affiliate-disclosure (on-page anchor)
-        return; // Allow default behavior
-      }
-      
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
