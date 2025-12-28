@@ -312,7 +312,8 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 24px;
+    /* CHANGED: padding from 12px 24px to 12px 0px */
+    padding: 12px 0px;
     background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
     color: white;
     border-radius: 12px;
@@ -397,9 +398,9 @@
   /* UPDATED: Product Card Dimensions */
   .product-card {
     flex: 0 0 auto;
-    /* Mobile first */
-    width: 260px;
-    height: 160px;
+    /* Mobile first - UPDATED */
+    width: 230px;
+    height: 145px;
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
     border-radius: 12px;
     padding: 15px;
@@ -412,11 +413,11 @@
     overflow: hidden;
   }
   
-  /* Desktop sizes */
+  /* Desktop sizes - UPDATED */
   @media (min-width: 768px) {
     .product-card {
-      width: 300px;
-      height: 170px;
+      width: 278px;
+      height: 145px;
     }
   }
   
@@ -432,6 +433,12 @@
     transform: translateY(-5px);
   }
   
+  /* NEW: Hover effect for "view details" */
+  .product-card:hover .product-review {
+    text-decoration: underline;
+    color: var(--electric-blue);
+  }
+  
   /* UPDATED: Product Card Header */
   .product-card-header {
     display: flex;
@@ -441,12 +448,12 @@
     flex-shrink: 0;
   }
   
-  /* UPDATED: Logo size - max 30% of card height, centered */
+  /* UPDATED: Logo size - fixed 40x40px */
   .product-logo {
-    width: auto;
-    height: auto;
-    max-height: 30%; /* Max 30% of card height */
-    max-width: 60px;
+    width: 40px;
+    height: 40px;
+    max-height: 40px;
+    max-width: 40px;
     border-radius: 8px;
     object-fit: contain;
     background: rgba(255, 255, 255, 0.1);
@@ -479,7 +486,7 @@
     border-radius: 20px;
     font-size: 11px;
     font-weight: 600;
-    display: inline-block;
+    display: block;
     margin-bottom: 8px;
   }
   
@@ -515,6 +522,7 @@
     border-top: 1px solid rgba(0, 212, 255, 0.1);
     margin-top: auto;
     flex-shrink: 0;
+    transition: all 0.3s ease;
   }
   
   .scroller-arrow {
@@ -566,10 +574,10 @@
       font-size: 18px;
     }
     
-    /* Ensure product card stays within mobile range */
+    /* Ensure product card stays within mobile range - UPDATED */
     .product-card {
-      width: 260px;
-      height: 160px;
+      width: 230px;
+      height: 145px;
     }
   }
   
@@ -831,10 +839,10 @@
     }
   }
   
-  /* CHANGED: Mobile header margin-top from 35 to 43px */
+  /* CHANGED: Mobile header margin-top from 35 to 65px */
   @media (max-width: 767px) {
     header {
-      margin-top: 43px;
+      margin-top: 65px;
     }
   }
   
@@ -1429,12 +1437,12 @@
   @media (max-width: 767px) {
     /* Mobile: brand container */
     .brand-container {
-      top: 57px; /* CHANGED: Mobile - decreased from 69px to 57px */
+      top: 60px; /* CHANGED: Mobile - increased from 57px to 60px */
     }
     
     /* Mobile: top controls container */
     .top-controls-container {
-      top: 69px; /* CHANGED: Mobile - increased from 59px to 69px */
+      top: 73px; /* CHANGED: Mobile - increased from 69px to 73px */
       right: 15px; /* Mobile: Changed from 20px to 15px */
       gap: 3px; /* Mobile: Changed from 10px to 3px */
     }
@@ -1580,17 +1588,17 @@
   </button>
 </div>
 
-<!-- AFFILIATE DISCLOSURE BANNER - ADDED -->
+<!-- AFFILIATE DISCLOSURE BANNER - FIXED: Links now point to GitHub disclosure page with parameters -->
 <div class="disclosure-banner">
   <div class="wrap">
     <div class="muted lang-en">
       <strong>Disclosure:</strong> We may earn affiliate commissions when you purchase through our links. 
-      <a href="#affiliate-disclosure" class="disclosure-link">Learn how we make money →</a>
+      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="disclosure-link">Learn how we make money →</a>
     </div>
     <!-- CHANGED: French text updated as requested -->
     <div class="muted lang-fr">
       <strong>Divulgation :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens. 
-      <a href="#affiliate-disclosure" class="disclosure-link">Lire→</a>
+      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="disclosure-link">Lire→</a>
     </div>
   </div>
 </div>
@@ -1741,7 +1749,8 @@
         </ul>
         
         <a class="tile-cta" href="https://global-toolkit.github.io/saas-&-web-hosting" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">
-          <span class="lang-en">View & Compare Top Providers</span>
+          <!-- CHANGED: "View & Compare Top Providers" to "Find Top Providers" -->
+          <span class="lang-en">Find Top Providers</span>
           <span class="lang-fr">Voir les meilleurs fournisseurs</span> 
           <i class="fas fa-arrow-right"></i>
         </a>
@@ -2342,7 +2351,7 @@ function getFallbackLogo(letter) {
   return 'data:image/svg+xml;base64,' + btoa(svg);
 }
 
-// UPDATED: Product data with "Ideal for" and "Key value" information
+// UPDATED: Product data with "Ideal for" and "Key value" information and updated logo URLs
 const products = [
   // Website Builders
   {
@@ -2350,7 +2359,7 @@ const products = [
     name: 'Wix',
     category: 'Website Builder',
     categoryFr: 'Constructeur de Site',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Wix.com_website_logo.svg/1200px-Wix.com_website_logo.svg.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Website-Builders/products/wix/logo.png',
     idealFor: 'Beginners, small businesses',
     idealForFr: 'Débutants, petites entreprises',
     keyValue: 'No-code, beginner-friendly',
@@ -2362,7 +2371,7 @@ const products = [
     name: 'Shopify',
     category: 'Website Builder',
     categoryFr: 'Constructeur de Site',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/1200px-Shopify_logo_2018.svg.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Website-Builders/products/shopify/logo.jpg',
     idealFor: 'E-commerce stores, online sellers',
     idealForFr: 'Boutiques e-commerce, vendeurs en ligne',
     keyValue: 'All-in-one e-commerce platform',
@@ -2374,7 +2383,7 @@ const products = [
     name: 'Bluehost',
     category: 'Website Builder',
     categoryFr: 'Constructeur de Site',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Bluehost_logo.svg/1200px-Bluehost_logo.svg.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Website-Builders/products/bluehost/logo.png',
     idealFor: 'WordPress websites, bloggers',
     idealForFr: 'Sites WordPress, blogueurs',
     keyValue: 'WordPress optimized hosting',
@@ -2388,7 +2397,7 @@ const products = [
     name: 'NordVPN',
     category: 'VPN Service',
     categoryFr: 'Service VPN',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nordvpn_logo.svg/1200px-Nordvpn_logo.svg.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/VPN-services/products/nordvpn/logo.png',
     idealFor: 'Security-conscious users, streamers',
     idealForFr: 'Utilisateurs soucieux de sécurité, streamers',
     keyValue: 'Strong security, fast speeds',
@@ -2400,7 +2409,7 @@ const products = [
     name: 'Surfshark',
     category: 'VPN Service',
     categoryFr: 'Service VPN',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Surfshark_logo.svg/1200px-Surfshark_logo.svg.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/VPN-services/products/surfshark/logo.png',
     idealFor: 'Budget users, multi-device households',
     idealForFr: 'Utilisateurs économes, foyers multi-appareils',
     keyValue: 'Unlimited devices, affordable',
@@ -2412,7 +2421,7 @@ const products = [
     name: 'AtlasVPN',
     category: 'VPN Service',
     categoryFr: 'Service VPN',
-    logo: 'https://atlasvpn.com/wp-content/themes/atlas-vpn/dist/images/logo/atlasvpn-logo.svg',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/VPN-services/products/atlasvpn/logo.png',
     idealFor: 'Casual users, free VPN seekers',
     idealForFr: 'Utilisateurs occasionnels, chercheur VPN gratuit',
     keyValue: 'Free tier available, simple interface',
@@ -2426,7 +2435,7 @@ const products = [
     name: 'Notion',
     category: 'Productivity Tool',
     categoryFr: 'Outil de Productivité',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Notion_app_logo.png/1200px-Notion_app_logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Productivity-tools/products/notion/logo.png',
     idealFor: 'Teams, project management, notes',
     idealForFr: 'Équipes, gestion de projet, notes',
     keyValue: 'All-in-one workspace',
@@ -2438,7 +2447,7 @@ const products = [
     name: 'Todoist',
     category: 'Productivity Tool',
     categoryFr: 'Outil de Productivité',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Todoist_logo.svg/1200px-Todoist_logo.svg.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Productivity-tools/products/todoist/logo.jpg',
     idealFor: 'Task management, personal productivity',
     idealForFr: 'Gestion des tâches, productivité personnelle',
     keyValue: 'Simple task management',
@@ -2450,7 +2459,7 @@ const products = [
     name: 'ClickUp',
     category: 'Productivity Tool',
     categoryFr: 'Outil de Productivité',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/ClickUp_Logo.png/1200px-ClickUp_Logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Productivity-tools/products/clickup/logo.png',
     idealFor: 'Teams, agile workflows',
     idealForFr: 'Équipes, workflows agiles',
     keyValue: 'Customizable project management',
@@ -2464,7 +2473,7 @@ const products = [
     name: 'Zapier',
     category: 'Automation Platform',
     categoryFr: 'Plateforme d\'Automatisation',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Zapier_logo.svg/1200px-Zapier_logo.svg.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Automation-tools/products/zapier/logo.png',
     idealFor: 'Connecting apps, workflow automation',
     idealForFr: 'Connexion d\'applications, automatisation des workflows',
     keyValue: 'Connect 5,000+ apps',
@@ -2476,7 +2485,7 @@ const products = [
     name: 'Apify',
     category: 'Automation Platform',
     categoryFr: 'Plateforme d\'Automatisation',
-    logo: 'https://avatars.githubusercontent.com/u/45719974?s=280&v=4',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Automation-tools/products/apify/logo.png',
     idealFor: 'Web scraping, data extraction',
     idealForFr: 'Web scraping, extraction de données',
     keyValue: 'Web automation & scraping',
@@ -2488,7 +2497,7 @@ const products = [
     name: 'Make (Integromat)',
     category: 'Automation Platform',
     categoryFr: 'Plateforme d\'Automatisation',
-    logo: 'https://www.make.com/images/og-image.jpg',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Automation-tools/products/make/logo.jpg',
     idealFor: 'Visual automation, complex workflows',
     idealForFr: 'Automatisation visuelle, workflows complexes',
     keyValue: 'Visual workflow builder',
@@ -2502,7 +2511,7 @@ const products = [
     name: 'RedotPay',
     category: 'Digital Wallet & Card',
     categoryFr: 'Portefeuille & Carte Numérique',
-    logo: 'https://redotpay.com/images/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/payment-services/Digital-Wallets-&-Cards/products/redotpay/logo.png',
     idealFor: 'Crypto users, global payments',
     idealForFr: 'Utilisateurs crypto, paiements globaux',
     keyValue: 'Global payments, low fees',
@@ -2579,10 +2588,11 @@ function updateAllLinks(lang) {
     link.setAttribute('href', `${cleanUrl}?lang=${lang}&currency=${currentCurrency}`);
   });
   
-  // Update Affiliate Disclosure links in footer
+  // Update Affiliate Disclosure links in footer - FIXED: Avoid using full URLs as selectors
   const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
   affiliateLinks.forEach(link => {
-    if (link.href.includes('global-toolkit.github.io')) {
+    // Check if it's a full URL (not an anchor link)
+    if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
       link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}&currency=${currentCurrency}`;
     }
   });
@@ -2828,7 +2838,7 @@ function setupProductScroller() {
     if (this.classList.contains('disabled')) return;
     
     const firstCard = productScroller.querySelector('.product-card');
-    const cardWidth = firstCard ? firstCard.offsetWidth : 300;
+    const cardWidth = firstCard ? firstCard.offsetWidth : 278;
     const gap = 20;
     
     productScroller.scrollBy({
@@ -2843,7 +2853,7 @@ function setupProductScroller() {
     if (this.classList.contains('disabled')) return;
     
     const firstCard = productScroller.querySelector('.product-card');
-    const cardWidth = firstCard ? firstCard.offsetWidth : 300;
+    const cardWidth = firstCard ? firstCard.offsetWidth : 278;
     const gap = 20;
     
     productScroller.scrollBy({
@@ -3460,58 +3470,6 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// FIXED: Mobile banner disclosure link - Fixed scroll to #affiliate-disclosure
-function fixDisclosureBannerScroll() {
-  const disclosureLinks = document.querySelectorAll('.disclosure-link');
-  
-  disclosureLinks.forEach(link => {
-    // Remove any existing event listeners by cloning the link
-    const newLink = link.cloneNode(true);
-    link.parentNode.replaceChild(newLink, link);
-    
-    // Add new event listener
-    newLink.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Close mobile menu if open
-      const mobileMenu = document.getElementById('mobileMenu');
-      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-      if (mobileMenu && mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      
-      // Get the target element
-      const targetId = this.getAttribute('href');
-      const target = document.querySelector(targetId);
-      
-      if (target) {
-        // Calculate the target position
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-        
-        // Calculate offset - different for mobile vs desktop
-        let offset;
-        if (window.innerWidth <= 767) {
-          // Mobile: account for fixed banner and mobile controls
-          offset = 90; // 90px for mobile
-        } else {
-          // Desktop: account for fixed banner
-          offset = 60; // 60px for desktop
-        }
-        
-        const offsetPosition = targetPosition - offset;
-        
-        // Scroll to the target
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-}
-
 // Email form submission - CHANGED: Updated message
 document.getElementById('email-form')?.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -3581,30 +3539,35 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
   });
 });
 
-// Smooth scrolling for anchor links (including fixed disclosure banner issue)
+// Smooth scrolling for anchor links - FIXED: Don't prevent default for disclosure banner links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  if (!anchor.classList.contains('disclosure-link')) {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#') {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          // Calculate the target position
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-          // Calculate offset based on screen size
-          const offset = window.innerWidth <= 767 ? 90 : 60;
-          const offsetPosition = targetPosition - offset;
-          
-          // Scroll to the target
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
+      // FIXED: Don't prevent default for disclosure banner links that should go to external page
+      // Check if it's a disclosure link that should go to external page
+      if (this.classList.contains('disclosure-link') && this.closest('.disclosure-banner')) {
+        // Let it navigate to #affiliate-disclosure (on-page anchor)
+        return; // Allow default behavior
       }
-    });
-  }
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        // Calculate the target position
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        // Calculate offset based on screen size
+        const offset = window.innerWidth <= 767 ? 90 : 60;
+        const offsetPosition = targetPosition - offset;
+        
+        // Scroll to the target
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
 });
 
 // Initialize everything
@@ -3626,7 +3589,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   setTimeout(() => {
     updateAllLinks(currentLang);
-    fixDisclosureBannerScroll();
     
     // Initialize FAQ - hide all answers initially
     document.querySelectorAll('.faq-item').forEach(item => {
