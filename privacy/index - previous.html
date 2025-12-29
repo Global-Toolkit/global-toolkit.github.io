@@ -77,12 +77,11 @@
     backdrop-filter: blur(10px);
   }
   
-  /* CHANGED: Make banner non-sticky on mobile and slimmer */
+  /* CHANGED: Make banner non-sticky on mobile */
   @media (max-width: 767px) {
     .disclosure-banner {
       position: relative;
       top: 0;
-      padding: 6px 0; /* Slimmer height on mobile */
     }
   }
   
@@ -102,6 +101,13 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 30px 20px;
+  }
+  
+  /* CHANGED: Decreased padding for desktop */
+  @media (min-width: 768px) {
+    .privacy-container {
+      padding: 10px 0; /* CHANGED: from 40px to 10px */
+    }
   }
   
   .privacy-header {
@@ -126,10 +132,11 @@
     margin-bottom: 30px;
   }
   
-  /* Illustration Container - UPDATED margin-bottom */
+  /* Illustration Container */
   .privacy-illustration {
     text-align: center;
-    margin-bottom: 30px; /* CHANGED: from 40px to 30px */
+    /* CHANGED: Decreased margin-bottom from 40px to 30px */
+    margin-bottom: 30px;
   }
   
   .privacy-icon {
@@ -248,7 +255,6 @@
     border: none;
     backdrop-filter: none;
     cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Added for hide/show animation */
   }
   
   /* CHANGED: Desktop - increase Top from 33px to 37px */
@@ -277,7 +283,7 @@
     line-height: 1;
   }
   
-  /* NEW: Top Controls (outside header) - UPDATED */
+  /* NEW: Top Controls (outside header) - UPDATED: Removed currency selector */
   .top-controls-container {
     position: fixed;
     top: 51px; /* CHANGED: Desktop - increased from 43px to 51px */
@@ -791,10 +797,8 @@
   </div>
 </a>
 
-<!-- Top Controls (outside header) - REMOVED: Currency selector -->
+<!-- Top Controls (outside header) - REMOVED: currency-selector -->
 <div class="top-controls-container" id="topControlsContainer">
-  <!-- REMOVED: Currency selector -->
-  
   <div class="lang-selector">
     <button class="lang-dropdown-btn" id="langDropdownBtn">
       <i class="fas fa-globe"></i>
@@ -861,88 +865,220 @@
         <div class="privacy-date lang-fr">Dernière mise à jour : Décembre 2025</div>
       </div>
       
-      <!-- NEW Privacy Content - Completely rewritten -->
+      <!-- UPDATED: New Privacy Content - Completely rewritten -->
       <div class="privacy-section">
-        <h2 class="lang-en">1. Data Collection Principles</h2>
-        <h2 class="lang-fr">1. Principes de Collecte de Données</h2>
+        <h2 class="lang-en">1. Our Commitment to Your Privacy</h2>
+        <h2 class="lang-fr">1. Notre engagement envers votre confidentialité</h2>
         
         <p class="lang-en">
-          At Global Toolkit, we believe in collecting only what's necessary. We gather minimal data to provide and improve our services, including website analytics, basic interaction metrics, and voluntary contact information when you reach out to us. We never collect sensitive personal information without explicit consent.
+          At Global Toolkit, we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website and use our services. We respect your privacy rights and strive to be transparent about our data practices.
         </p>
         <p class="lang-fr">
-          Chez Global Toolkit, nous croyons en la collecte uniquement de ce qui est nécessaire. Nous recueillons un minimum de données pour fournir et améliorer nos services, y compris les analyses de site web, les métriques d'interaction de base et les informations de contact volontaires lorsque vous nous contactez. Nous ne collectons jamais d'informations personnelles sensibles sans consentement explicite.
+          Chez Global Toolkit, nous nous engageons à protéger votre vie privée et vos informations personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos données lorsque vous visitez notre site Web et utilisez nos services. Nous respectons vos droits à la vie privée et nous efforçons d'être transparents concernant nos pratiques en matière de données.
         </p>
       </div>
       
       <div class="privacy-section">
-        <h2 class="lang-en">2. How We Use Your Information</h2>
-        <h2 class="lang-fr">2. Comment Nous Utilisons Vos Informations</h2>
+        <h2 class="lang-en">2. Information We Collect</h2>
+        <h2 class="lang-fr">2. Informations que nous collectons</h2>
         
         <p class="lang-en">
-          The limited data we collect serves specific purposes: improving website functionality, analyzing content performance, responding to inquiries, and ensuring security. We process data based on legitimate interests, contractual necessity, or your explicit consent. We never sell your personal information to third parties.
+          We collect different types of information to provide and improve our services:
         </p>
         <p class="lang-fr">
-          Les données limitées que nous collectons servent à des fins spécifiques : améliorer la fonctionnalité du site web, analyser les performances du contenu, répondre aux demandes et assurer la sécurité. Nous traitons les données sur la base d'intérêts légitimes, de nécessité contractuelle ou de votre consentement explicite. Nous ne vendons jamais vos informations personnelles à des tiers.
+          Nous collectons différents types d'informations pour fournir et améliorer nos services :
+        </p>
+        
+        <h3 class="lang-en">Information You Provide Directly</h3>
+        <h3 class="lang-fr">Informations que vous fournissez directement</h3>
+        
+        <ul class="lang-en">
+          <li>Contact information when you reach out to us</li>
+          <li>Feedback and survey responses</li>
+          <li>Subscription preferences for newsletters</li>
+          <li>Information provided through forms or contact methods</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Informations de contact lorsque vous nous contactez</li>
+          <li>Retours d'expérience et réponses aux enquêtes</li>
+          <li>Préférences d'abonnement aux newsletters</li>
+          <li>Informations fournies via des formulaires ou méthodes de contact</li>
+        </ul>
+        
+        <h3 class="lang-en">Automatically Collected Information</h3>
+        <h3 class="lang-fr">Informations collectées automatiquement</h3>
+        
+        <ul class="lang-en">
+          <li>Device and browser information</li>
+          <li>IP address and approximate location</li>
+          <li>Pages visited and time spent on our site</li>
+          <li>Referring website or search terms</li>
+          <li>Usage patterns and preferences</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Informations sur l'appareil et le navigateur</li>
+          <li>Adresse IP et localisation approximative</li>
+          <li>Pages visitées et temps passé sur notre site</li>
+          <li>Site Web référent ou termes de recherche</li>
+          <li>Modèles d'utilisation et préférences</li>
+        </ul>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">3. How We Use Your Information</h2>
+        <h2 class="lang-fr">3. Comment nous utilisons vos informations</h2>
+        
+        <p class="lang-en">
+          We use the information we collect for legitimate business purposes, including:
+        </p>
+        <p class="lang-fr">
+          Nous utilisons les informations que nous collectons à des fins commerciales légitimes, notamment :
+        </p>
+        
+        <ul class="lang-en">
+          <li>Providing and improving our website services</li>
+          <li>Personalizing your experience and content recommendations</li>
+          <li>Responding to your inquiries and providing support</li>
+          <li>Analyzing usage patterns to enhance our platform</li>
+          <li>Sending important updates about our services</li>
+          <li>Preventing fraud and ensuring security</li>
+          <li>Complying with legal obligations</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Fournir et améliorer les services de notre site Web</li>
+          <li>Personnaliser votre expérience et les recommandations de contenu</li>
+          <li>Répondre à vos demandes et fournir un support</li>
+          <li>Analyser les modèles d'utilisation pour améliorer notre plateforme</li>
+          <li>Envoyer des mises à jour importantes concernant nos services</li>
+          <li>Prévenir la fraude et assurer la sécurité</li>
+          <li>Se conformer aux obligations légales</li>
+        </ul>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">4. Information Sharing and Disclosure</h2>
+        <h2 class="lang-fr">4. Partage et divulgation d'informations</h2>
+        
+        <p class="lang-en">
+          We respect your privacy and do not sell your personal information. We may share your information only in these specific circumstances:
+        </p>
+        <p class="lang-fr">
+          Nous respectons votre vie privée et ne vendons pas vos informations personnelles. Nous pouvons partager vos informations uniquement dans ces circonstances spécifiques :
+        </p>
+        
+        <ul class="lang-en">
+          <li><strong>Service Providers:</strong> With trusted partners who help us operate our website and services, under strict confidentiality agreements</li>
+          <li><strong>Legal Requirements:</strong> When required by law, court order, or government request</li>
+          <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+          <li><strong>Protection of Rights:</strong> To protect our rights, property, or safety, or those of others</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li><strong>Prestataires de services :</strong> Avec des partenaires de confiance qui nous aident à exploiter notre site Web et nos services, sous des accords de confidentialité stricts</li>
+          <li><strong>Exigences légales :</strong> Lorsque requis par la loi, ordonnance du tribunal ou demande gouvernementale</li>
+          <li><strong>Transferts d'entreprise :</strong> Dans le cadre d'une fusion, acquisition ou vente d'actifs</li>
+          <li><strong>Protection des droits :</strong> Pour protéger nos droits, notre propriété ou notre sécurité, ou ceux d'autrui</li>
+        </ul>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">5. Data Security and Protection</h2>
+        <h2 class="lang-fr">5. Sécurité et protection des données</h2>
+        
+        <p class="lang-en">
+          We implement appropriate technical and organizational measures to protect your personal information:
+        </p>
+        <p class="lang-fr">
+          Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos informations personnelles :
+        </p>
+        
+        <ul class="lang-en">
+          <li>Secure server infrastructure with encryption</li>
+          <li>Regular security assessments and updates</li>
+          <li>Access controls and authentication measures</li>
+          <li>Employee training on data protection</li>
+          <li>Regular backup and recovery procedures</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Infrastructure de serveur sécurisée avec chiffrement</li>
+          <li>Évaluations de sécurité et mises à jour régulières</li>
+          <li>Contrôles d'accès et mesures d'authentification</li>
+          <li>Formation des employés sur la protection des données</li>
+          <li>Procédures régulières de sauvegarde et de récupération</li>
+        </ul>
+        
+        <p class="lang-en">
+          While we strive to protect your personal information, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security but we continuously work to maintain high security standards.
+        </p>
+        <p class="lang-fr">
+          Bien que nous nous efforcions de protéger vos informations personnelles, aucune méthode de transmission sur Internet ou de stockage électronique n'est sûre à 100%. Nous ne pouvons pas garantir une sécurité absolue, mais nous travaillons continuellement pour maintenir des normes de sécurité élevées.
         </p>
       </div>
       
       <div class="privacy-section">
-        <h2 class="lang-en">3. Data Storage and Security</h2>
-        <h2 class="lang-fr">3. Stockage et Sécurité des Données</h2>
+        <h2 class="lang-en">6. Your Rights and Choices</h2>
+        <h2 class="lang-fr">6. Vos droits et choix</h2>
         
         <p class="lang-en">
-          We implement industry-standard security measures to protect your information. Data is stored securely using encryption where appropriate, and access is restricted to authorized personnel only. We retain information only as long as necessary for the purposes collected or as required by law.
+          Depending on your location, you may have certain rights regarding your personal information:
         </p>
         <p class="lang-fr">
-          Nous mettons en œuvre des mesures de sécurité standard de l'industrie pour protéger vos informations. Les données sont stockées en toute sécurité en utilisant le chiffrement le cas échéant, et l'accès est limité au personnel autorisé uniquement. Nous conservons les informations uniquement aussi longtemps que nécessaire aux fins collectées ou selon les exigences légales.
+          En fonction de votre localisation, vous pouvez avoir certains droits concernant vos informations personnelles :
+        </p>
+        
+        <ul class="lang-en">
+          <li><strong>Access:</strong> Request access to your personal information</li>
+          <li><strong>Correction:</strong> Request correction of inaccurate information</li>
+          <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+          <li><strong>Restriction:</strong> Request restriction of processing</li>
+          <li><strong>Objection:</strong> Object to certain processing activities</li>
+          <li><strong>Data Portability:</strong> Request transfer of your data</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li><strong>Accès :</strong> Demander l'accès à vos informations personnelles</li>
+          <li><strong>Correction :</strong> Demander la correction d'informations inexactes</li>
+          <li><strong>Suppression :</strong> Demander la suppression de vos informations personnelles</li>
+          <li><strong>Restriction :</strong> Demander la restriction du traitement</li>
+          <li><strong>Opposition :</strong> Vous opposer à certaines activités de traitement</li>
+          <li><strong>Portabilité des données :</strong> Demander le transfert de vos données</li>
+        </ul>
+        
+        <p class="lang-en">
+          To exercise these rights or for any privacy-related questions, please contact us using the information provided in the "Contact Us" section.
+        </p>
+        <p class="lang-fr">
+          Pour exercer ces droits ou pour toute question liée à la confidentialité, veuillez nous contacter en utilisant les informations fournies dans la section "Contactez-nous".
         </p>
       </div>
       
       <div class="privacy-section">
-        <h2 class="lang-en">4. Third-Party Services</h2>
-        <h2 class="lang-fr">4. Services Tiers</h2>
+        <h2 class="lang-en">7. Contact Us</h2>
+        <h2 class="lang-fr">7. Contactez-nous</h2>
         
         <p class="lang-en">
-          We work with trusted third-party service providers for specific functions like analytics and hosting. These providers are carefully selected and contractually bound to protect your data. When you interact with external links from our platform, you become subject to their respective privacy policies.
+          If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
         </p>
         <p class="lang-fr">
-          Nous travaillons avec des fournisseurs de services tiers de confiance pour des fonctions spécifiques comme l'analyse et l'hébergement. Ces fournisseurs sont soigneusement sélectionnés et contractuellement liés pour protéger vos données. Lorsque vous interagissez avec des liens externes depuis notre plateforme, vous devenez soumis à leurs politiques de confidentialité respectives.
+          Si vous avez des questions, des préoccupations ou des demandes concernant cette Politique de Confidentialité ou nos pratiques en matière de données, veuillez nous contacter :
         </p>
-      </div>
-      
-      <div class="privacy-section">
-        <h2 class="lang-en">5. Your Rights and Choices</h2>
-        <h2 class="lang-fr">5. Vos Droits et Choix</h2>
         
         <p class="lang-en">
-          You have rights regarding your personal information, including access, correction, deletion, and objection to processing. You can manage cookie preferences through your browser settings. For specific requests about your data, contact us directly, and we'll respond within a reasonable timeframe.
+          Email: globaltoolkit.contact@gmail.com
         </p>
         <p class="lang-fr">
-          Vous avez des droits concernant vos informations personnelles, y compris l'accès, la correction, la suppression et l'opposition au traitement. Vous pouvez gérer les préférences de cookies via les paramètres de votre navigateur. Pour des demandes spécifiques concernant vos données, contactez-nous directement et nous répondrons dans un délai raisonnable.
+          E-mail : globaltoolkit.contact@gmail.com
         </p>
-      </div>
-      
-      <div class="privacy-section">
-        <h2 class="lang-en">6. International Data Transfers</h2>
-        <h2 class="lang-fr">6. Transferts Internationaux de Données</h2>
         
         <p class="lang-en">
-          As a global platform, your information may be processed in countries with different data protection laws. We ensure appropriate safeguards are in place through standard contractual clauses or other approved mechanisms when transferring data internationally.
+          We will respond to your inquiry as soon as possible, typically within 30 days.
         </p>
         <p class="lang-fr">
-          En tant que plateforme mondiale, vos informations peuvent être traitées dans des pays avec des lois de protection des données différentes. Nous assurons des garanties appropriées par le biais de clauses contractuelles types ou d'autres mécanismes approuvés lors du transfert international de données.
-        </p>
-      </div>
-      
-      <div class="privacy-section">
-        <h2 class="lang-en">7. Contact and Updates</h2>
-        <h2 class="lang-fr">7. Contact et Mises à Jour</h2>
-        
-        <p class="lang-en">
-          For privacy-related questions or to exercise your rights, contact us at globaltoolkit.contact@gmail.com. We may update this policy periodically to reflect changes in our practices or legal requirements. The updated version will be posted here with a revised "Last Updated" date.
-        </p>
-        <p class="lang-fr">
-          Pour des questions liées à la confidentialité ou pour exercer vos droits, contactez-nous à globaltoolkit.contact@gmail.com. Nous pouvons mettre à jour cette politique périodiquement pour refléter les changements dans nos pratiques ou les exigences légales. La version mise à jour sera publiée ici avec une date "Dernière mise à jour" révisée.
+          Nous répondrons à votre demande dès que possible, généralement dans les 30 jours.
         </p>
       </div>
     </div>
@@ -995,8 +1131,8 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <!-- UPDATED: Share Feedback with dynamic language-based href -->
-            <a href="#" class="connect-link" id="shareFeedbackLink">
+            <!-- UPDATED: Share Feedback with language-specific href -->
+            <a href="https://global-toolkit.github.io/?lang=en#feedback" class="connect-link" id="shareFeedbackLink">
               <i class="fas fa-comment-alt"></i>
               <span>Share Feedback</span>
             </a>
@@ -1030,12 +1166,6 @@
 <script>
 // Language switching functionality
 let currentLang = 'en';
-let currentCurrency = 'USD';
-
-// Mobile hide/show variables
-let hideControlsTimer;
-let isMobile = window.innerWidth <= 767;
-let lastInteractionTime = Date.now();
 
 // Function to switch language
 function switchLanguage(lang) {
@@ -1052,6 +1182,12 @@ function switchLanguage(lang) {
     localStorage.setItem('preferredLanguage', 'fr');
     updateAllLinks('fr');
     
+    // Update Share Feedback link for French
+    const shareFeedbackLink = document.getElementById('shareFeedbackLink');
+    if (shareFeedbackLink) {
+      shareFeedbackLink.href = "https://global-toolkit.github.io/?lang=fr#feedback";
+    }
+    
   } else {
     enElements.forEach(el => el.style.display = 'block');
     frElements.forEach(el => el.style.display = 'none');
@@ -1059,6 +1195,12 @@ function switchLanguage(lang) {
     document.documentElement.setAttribute('lang', 'en');
     localStorage.setItem('preferredLanguage', 'en');
     updateAllLinks('en');
+    
+    // Update Share Feedback link for English
+    const shareFeedbackLink = document.getElementById('shareFeedbackLink');
+    if (shareFeedbackLink) {
+      shareFeedbackLink.href = "https://global-toolkit.github.io/?lang=en#feedback";
+    }
   }
   
   // Update dropdown button text
@@ -1074,9 +1216,6 @@ function switchLanguage(lang) {
   
   // Update mobile menu content
   updateMobileMenuContent();
-  
-  // Update Share Feedback link
-  updateShareFeedbackLink();
 }
 
 // CHANGED: Updated function to handle all links with language and currency parameters
@@ -1086,7 +1225,7 @@ function updateAllLinks(lang) {
   links.forEach(link => {
     const baseUrl = link.getAttribute('data-base-url');
     let cleanUrl = baseUrl.split('?')[0];
-    link.setAttribute('href', `${cleanUrl}?lang=${lang}&currency=${currentCurrency}`);
+    link.setAttribute('href', `${cleanUrl}?lang=${lang}`);
   });
   
   // Update Affiliate Disclosure links in footer
@@ -1094,36 +1233,26 @@ function updateAllLinks(lang) {
   affiliateLinks.forEach(link => {
     // Check if it's a full URL (not an anchor link)
     if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
-      link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}&currency=${currentCurrency}`;
+      link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}`;
     }
   });
   
   // Update Facebook link with language reference
   const facebookLinks = document.querySelectorAll('a[href*="facebook.com/GlobalToolkit"]');
   facebookLinks.forEach(link => {
-    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}_${currentCurrency}`);
+    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}`);
   });
   
   // Update mobile menu home link
   const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
   if (mobileMenuHomeLink) {
-    mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
+    mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
   }
   
   // Update brand link
   const brandLink = document.getElementById('brandLink');
   if (brandLink) {
-    brandLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
-  }
-}
-
-// Function to update Share Feedback link
-function updateShareFeedbackLink() {
-  const shareFeedbackLink = document.getElementById('shareFeedbackLink');
-  if (shareFeedbackLink) {
-    shareFeedbackLink.href = currentLang === 'fr' 
-      ? 'https://global-toolkit.github.io/?lang=fr#feedback'
-      : 'https://global-toolkit.github.io/?lang=en#feedback';
+    brandLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
   }
 }
 
@@ -1151,59 +1280,6 @@ function initializeLanguage() {
   }
 }
 
-// Mobile hide/show functionality for top controls
-function setupMobileHideControls() {
-  if (!isMobile) return;
-  
-  const brandContainer = document.getElementById('brandContainer');
-  const topControlsContainer = document.getElementById('topControlsContainer');
-  
-  function handleInteraction() {
-    lastInteractionTime = Date.now();
-    
-    // Show controls
-    if (brandContainer && topControlsContainer) {
-      brandContainer.style.opacity = '1';
-      brandContainer.style.transform = 'translateY(0)';
-      topControlsContainer.style.opacity = '1';
-      topControlsContainer.style.transform = 'translateY(0)';
-    }
-    
-    // Clear existing timer
-    clearTimeout(hideControlsTimer);
-    
-    // Set timer to hide after 2 seconds of no interaction
-    hideControlsTimer = setTimeout(() => {
-      const timeSinceLastInteraction = Date.now() - lastInteractionTime;
-      
-      // Only hide if it's been more than 2 seconds since last interaction
-      if (timeSinceLastInteraction >= 2000 && brandContainer && topControlsContainer) {
-        brandContainer.style.opacity = '0';
-        brandContainer.style.transform = 'translateY(-10px)';
-        topControlsContainer.style.opacity = '0';
-        topControlsContainer.style.transform = 'translateY(-10px)';
-      }
-    }, 2000);
-  }
-  
-  // Initial show
-  handleInteraction();
-  
-  // Events that count as interaction
-  const interactionEvents = ['scroll', 'touchstart', 'touchmove', 'click', 'mousemove', 'keydown'];
-  
-  interactionEvents.forEach(eventType => {
-    document.addEventListener(eventType, handleInteraction, { passive: true });
-  });
-  
-  // Also handle menu interactions
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('#menuToggle') || e.target.closest('#mobileMenu')) {
-      handleInteraction();
-    }
-  });
-}
-
 // Mobile menu functionality
 function setupMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
@@ -1215,14 +1291,12 @@ function setupMobileMenu() {
     mobileMenu.classList.add('active');
     mobileMenuOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
-    lastInteractionTime = Date.now(); // Count as interaction
   }
   
   function closeMobileMenu() {
     mobileMenu.classList.remove('active');
     mobileMenuOverlay.classList.remove('active');
     document.body.style.overflow = '';
-    lastInteractionTime = Date.now(); // Count as interaction
   }
   
   menuToggle.addEventListener('click', openMobileMenu);
@@ -1250,7 +1324,7 @@ function updateMobileMenuContent() {
   homeSection.className = 'mobile-menu-section';
   
   const homeLink = document.createElement('a');
-  homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}&currency=${currentCurrency}`;
+  homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}`;
   homeLink.className = 'mobile-menu-link';
   
   const homeIcon = document.createElement('i');
@@ -1288,7 +1362,7 @@ function updateMobileMenuContent() {
   
   categories.forEach(cat => {
     const link = document.createElement('a');
-    link.href = `${cat.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    link.href = `${cat.url}?lang=${currentLang}`;
     link.className = 'mobile-menu-link';
     
     const linkText = currentLang === 'fr' ? cat.fr : cat.en;
@@ -1312,7 +1386,7 @@ function updateMobileMenuContent() {
   
   toolsSection.appendChild(toolsTitle);
   
-  // Add tool links
+  // Add tool links with special handling for comparison calculator and deals tracker
   const tools = [
     { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
     { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
@@ -1321,9 +1395,33 @@ function updateMobileMenuContent() {
   
   tools.forEach(tool => {
     const link = document.createElement('a');
-    link.href = `${tool.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    link.href = `${tool.url}?lang=${currentLang}`;
     link.className = 'mobile-menu-link';
     link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
+    
+    // CHANGED: Add click handler for comparison calculator and deals tracker
+    if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove any existing message
+        const existingMsg = this.querySelector('.coming-soon-msg');
+        if (existingMsg) {
+          existingMsg.remove();
+        }
+        
+        // Create and append message
+        const msg = document.createElement('span');
+        msg.className = 'coming-soon-msg';
+        msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+        this.appendChild(msg);
+        
+        // Remove message after animation
+        setTimeout(() => {
+          msg.remove();
+        }, 2000);
+      });
+    }
     
     toolsSection.appendChild(link);
   });
@@ -1364,17 +1462,14 @@ function updateMobileMenuContent() {
   contactContent.style.paddingLeft = '20px';
   contactContent.style.marginTop = '10px';
   
-  // Contact items - UPDATED: Share Feedback link
+  // Contact items
   const contactItems = [
     { icon: 'fas fa-envelope', text: 'Email', href: 'mailto:globaltoolkit.contact@gmail.com' },
     { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' },
     { 
       icon: 'fas fa-comment-alt', 
       text: 'Share Feedback', 
-      href: currentLang === 'fr' 
-        ? 'https://global-toolkit.github.io/?lang=fr#feedback'
-        : 'https://global-toolkit.github.io/?lang=en#feedback',
-      onclick: "document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';" 
+      href: currentLang === 'fr' ? 'https://global-toolkit.github.io/?lang=fr#feedback' : 'https://global-toolkit.github.io/?lang=en#feedback'
     }
   ];
   
@@ -1392,10 +1487,6 @@ function updateMobileMenuContent() {
     contactItem.appendChild(itemIcon);
     contactItem.appendChild(itemText);
     
-    if (item.onclick) {
-      contactItem.setAttribute('onclick', item.onclick);
-    }
-    
     contactContent.appendChild(contactItem);
   });
   
@@ -1404,7 +1495,7 @@ function updateMobileMenuContent() {
   
   // Add about us link
   const aboutLink = document.createElement('a');
-  aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}`;
+  aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}`;
   aboutLink.className = 'mobile-menu-link';
   aboutLink.style.marginTop = '9px';
   aboutLink.style.display = 'block';
@@ -1438,7 +1529,7 @@ function updateMobileMenuContent() {
   
   legalLinks.forEach(link => {
     const legalLink = document.createElement('a');
-    legalLink.href = `https://global-toolkit.github.io/${link.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    legalLink.href = `https://global-toolkit.github.io/${link.url}?lang=${currentLang}`;
     legalLink.className = 'mobile-menu-link';
     
     const linkIcon = document.createElement('i');
@@ -1561,10 +1652,6 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
 document.addEventListener('DOMContentLoaded', function() {
   initializeLanguage();
   setupMobileMenu();
-  setupMobileHideControls();
-  
-  // Update Share Feedback link on load
-  updateShareFeedbackLink();
   
   setTimeout(() => {
     updateAllLinks(currentLang);
@@ -1580,11 +1667,6 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       switchLanguage('fr');
     }
-  });
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    isMobile = window.innerWidth <= 767;
   });
 });
 </script>
