@@ -257,13 +257,14 @@
     }
   }
   
-  /* CHANGED: Mobile - unstick (unpin) the brand container */
+  /* REMOVED: Mobile-specific fixed positioning for brand container */
   @media (max-width: 767px) {
     .brand-container {
-      position: static;
-      margin: 10px auto;
-      width: fit-content;
-      justify-content: center;
+      position: relative; /* CHANGED: from fixed to relative */
+      top: auto; /* CHANGED: from 60px to auto */
+      left: auto; /* CHANGED: from -4px to auto */
+      margin-bottom: 10px; /* Added for spacing */
+      justify-content: center; /* Center on mobile */
     }
   }
   
@@ -302,13 +303,17 @@
     border: 1px solid rgba(0, 212, 255, 0.2);
   }
   
-  /* CHANGED: Mobile - unstick (unpin) the top controls container */
+  /* REMOVED: Mobile-specific fixed positioning for top controls container */
   @media (max-width: 767px) {
     .top-controls-container {
-      position: static;
-      margin: 10px auto;
-      width: fit-content;
-      justify-content: center;
+      position: relative; /* CHANGED: from fixed to relative */
+      top: auto; /* CHANGED: from 73px to auto */
+      right: auto; /* CHANGED: from 15px to auto */
+      margin-bottom: 10px; /* Added for spacing */
+      justify-content: center; /* Center on mobile */
+      width: fit-content; /* Adjust to content */
+      margin-left: auto;
+      margin-right: auto;
     }
   }
   
@@ -637,6 +642,11 @@
     .disclosure-banner .muted {
       font-size: 12px;
     }
+    
+    /* Updated mobile header margin since brand container is now relative */
+    header {
+      margin-top: 20px; /* CHANGED: Reduced from 65px since containers are no longer fixed */
+    }
   }
   
   .footer {
@@ -730,10 +740,6 @@
   
   /* Mobile-specific styles */
   @media (max-width: 767px) {
-    /* Mobile: brand container - already updated above */
-    
-    /* Mobile: top controls container - already updated above */
-    
     /* Mobile: brand text stacking */
     .brand {
       flex-direction: column;
@@ -1249,7 +1255,7 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(categoriesSection);
   
-  // Add Tools section
+  // Add Tools section - FIXED: Add coming soon functionality
   const toolsSection = document.createElement('div');
   toolsSection.className = 'mobile-menu-section';
   
@@ -1262,11 +1268,11 @@ function updateMobileMenuContent() {
   
   toolsSection.appendChild(toolsTitle);
   
-  // Add tool links
+  // Add tool links with coming soon functionality
   const tools = [
-    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
-    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
-    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides' }
+    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator', comingSoon: true },
+    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker', comingSoon: true },
+    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides', comingSoon: false }
   ];
   
   tools.forEach(tool => {
@@ -1276,7 +1282,7 @@ function updateMobileMenuContent() {
     link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
     
     // Add click handler for comparison calculator and deals tracker
-    if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
+    if (tool.comingSoon) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -1290,6 +1296,11 @@ function updateMobileMenuContent() {
         const msg = document.createElement('span');
         msg.className = 'coming-soon-msg';
         msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+        msg.style.marginLeft = '8px';
+        msg.style.fontSize = '12px';
+        msg.style.color = 'var(--electric-blue)';
+        msg.style.fontStyle = 'italic';
+        
         this.appendChild(msg);
         
         // Remove message after animation
@@ -1307,7 +1318,7 @@ function updateMobileMenuContent() {
   // Add footer content
   const footerContent = document.createElement('div');
   
-  // Create contact section
+  // Create contact section - FIXED: Contact toggle functionality
   const contactSection = document.createElement('div');
   contactSection.className = 'mobile-menu-section';
   
@@ -1327,6 +1338,7 @@ function updateMobileMenuContent() {
   contactArrow.className = 'fas fa-chevron-down';
   contactArrow.style.marginLeft = '8px';
   contactArrow.style.fontSize = '12px';
+  contactArrow.style.transition = 'transform 0.3s ease';
   
   contactToggle.appendChild(contactIcon);
   contactToggle.appendChild(contactText);
@@ -1459,18 +1471,18 @@ function updateMobileMenuContent() {
   
   mobileMenuFooter.appendChild(footerContent);
   
-  // Add contact toggle functionality
+  // Add contact toggle functionality - FIXED: Now properly working
   setTimeout(() => {
     const contactToggle = document.getElementById('mobileMenuContactToggle');
     const contactContent = document.getElementById('mobileMenuContactContent');
+    const contactArrowIcon = contactToggle.querySelector('.fa-chevron-down');
     
     if (contactToggle && contactContent) {
       contactToggle.addEventListener('click', function() {
         const isExpanded = contactContent.style.display === 'block';
         contactContent.style.display = isExpanded ? 'none' : 'block';
-        const icon = this.querySelector('.fa-chevron-down');
-        if (icon) {
-          icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        if (contactArrowIcon) {
+          contactArrowIcon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
         }
       });
     }
