@@ -4,11 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>Privacy Policy - Global Toolkit</title>
-<meta name="description" content="Global Toolkit Privacy Policy: Learn how we handle information on our educational platform about fintech tools, SaaS, hosting, and digital payments." />
+<meta name="description" content="Global Toolkit's Privacy Policy - Learn how we handle your information and protect your data privacy." />
 
 <!-- OpenGraph -->
 <meta property="og:title" content="Privacy Policy - Global Toolkit" />
-<meta property="og:description" content="Learn how we handle information on our educational platform about fintech tools, SaaS, hosting, and digital payments." />
+<meta property="og:description" content="Learn how Global Toolkit handles your information and protects your data privacy." />
 <meta property="og:image" content="https://global-toolkit.github.io/assets/og-image.png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://global-toolkit.github.io/privacy" />
@@ -60,11 +60,11 @@
   /* Mobile scroll margin for anchor links to avoid overlap with fixed elements */
   @media (max-width: 767px) {
     :target {
-      scroll-margin-top: 90px;
+      scroll-margin-top: 90px; /* CHANGED: Decreased from 120px to 90px */
     }
   }
   
-  /* UPDATED: Privacy Banner - Non-sticky on mobile */
+  /* PRIVACY DISCLOSURE BANNER - UPDATED */
   .disclosure-banner {
     background: linear-gradient(90deg, rgba(14, 102, 210, 0.15), rgba(157, 78, 221, 0.15));
     padding: 10px 0;
@@ -77,10 +77,11 @@
     backdrop-filter: blur(10px);
   }
   
-  /* NEW: Make banner non-sticky on mobile */
+  /* CHANGED: Make banner non-sticky on mobile */
   @media (max-width: 767px) {
     .disclosure-banner {
-      position: static;
+      position: relative;
+      top: 0;
     }
   }
   
@@ -95,83 +96,100 @@
     font-size: 13px;
   }
   
-  .disclosure-banner a {
-    color: var(--electric-blue);
-    font-weight: 600;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  /* Privacy Illustration - NEW */
-  .privacy-illustration {
-    text-align: center;
-    margin: 30px 0 40px;
-  }
-  
-  .privacy-illustration img {
-    width: 120px;
-    height: 120px;
-    border-radius: 20px;
-    object-fit: contain;
-    opacity: 0.9;
-    filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.2));
-    border: 1px solid rgba(0, 212, 255, 0.1);
-  }
-  
-  /* Privacy Content Styling - NEW */
-  .privacy-content {
+  /* Privacy Content Styles */
+  .privacy-container {
     max-width: 800px;
-    margin: 0 auto 60px;
-    padding: 0 15px;
+    margin: 0 auto;
+    padding: 30px 20px;
   }
   
-  .privacy-content h1 {
+  .privacy-header {
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .privacy-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 10px;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
-  .privacy-content h2 {
+  .privacy-date {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  /* Illustration Container */
+  .privacy-illustration {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .privacy-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(14, 102, 210, 0.1), rgba(157, 78, 221, 0.1));
+    border-radius: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .privacy-icon i {
+    font-size: 48px;
+    color: var(--electric-blue);
+  }
+  
+  /* Privacy Content Sections */
+  .privacy-section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .privacy-section h2 {
     font-size: 24px;
-    margin: 35px 0 15px;
-    color: white;
+    font-weight: 700;
+    color: var(--electric-blue);
+    margin-bottom: 15px;
     border-bottom: 2px solid rgba(0, 212, 255, 0.2);
     padding-bottom: 8px;
   }
   
-  .privacy-content h3 {
+  .privacy-section h3 {
     font-size: 18px;
-    margin: 25px 0 10px;
-    color: var(--electric-blue);
+    font-weight: 600;
+    color: white;
+    margin: 20px 0 10px;
   }
   
-  .privacy-content p {
+  .privacy-section p {
+    color: var(--muted);
     line-height: 1.6;
     margin-bottom: 15px;
+  }
+  
+  .privacy-section ul {
     color: var(--muted);
-  }
-  
-  .privacy-content ul {
-    margin-bottom: 20px;
     padding-left: 20px;
+    margin-bottom: 15px;
   }
   
-  .privacy-content li {
+  .privacy-section li {
     margin-bottom: 8px;
     line-height: 1.5;
-    color: var(--muted);
-  }
-  
-  .last-updated {
-    text-align: center;
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 30px;
-    font-style: italic;
   }
   
   /* Keep existing styles for unchanged elements */
@@ -182,9 +200,9 @@
     box-sizing: border-box;
   }
   
-  /* Header margins - Keep as in main page */
+  /* Header margins - FIXED: Ensure proper override */
   header {
-    padding: 0px 18px;
+    padding: 0px 18px; /* Changed from 18px to 0px 18px */
     border-radius: 16px;
     background: rgba(17, 24, 39, 0.85);
     color: #fff;
@@ -192,42 +210,46 @@
     overflow: hidden;
     backdrop-filter: blur(20px);
     box-shadow: var(--shadow-lg), var(--glow);
+    /* CHANGED: margin-bottom from 20 to 50px */
     margin-bottom: 50px;
     border: 1px solid rgba(0, 212, 255, 0.1);
+    /* Base value will be overridden by media queries below */
     margin-top: 35px;
   }
   
-  /* Desktop header margin-top */
+  /* CHANGED: Desktop header margin-top from 35 to 37px */
   @media (min-width: 768px) {
     header {
       margin-top: 37px;
     }
   }
   
-  /* Mobile header margin-top */
+  /* CHANGED: Mobile header margin-top from 35 to 65px */
   @media (max-width: 767px) {
     header {
       margin-top: 65px;
     }
   }
   
-  /* Brand Container */
+  /* NEW: Brand Container (outside header) - UPDATED */
   .brand-container {
     position: fixed;
-    top: 33px;
-    left: -4px;
+    top: 33px; /* CHANGED: Desktop - decreased from 51px to 33px */
+    left: -4px; /* Changed from 20px to 4px */
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 2px; /* Changed from 5px to 1px */
     z-index: 2000;
     border-radius: 12px;
     padding: 8px 12px;
+    /* CHANGED: Removed background and border to make container invisible */
     background: transparent;
     border: none;
     backdrop-filter: none;
     cursor: pointer;
   }
   
+  /* CHANGED: Desktop - increase Top from 33px to 37px */
   @media (min-width: 768px) {
     .brand-container {
       top: 37px;
@@ -243,7 +265,7 @@
   
   .brand {
     font-weight: 800;
-    font-size: 22px;
+    font-size: 22px; /* Changed from 25px to 22px */
     background: linear-gradient(135deg, #ffffff, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -253,11 +275,11 @@
     line-height: 1;
   }
   
-  /* Top Controls Container */
+  /* NEW: Top Controls (outside header) - UPDATED */
   .top-controls-container {
     position: fixed;
-    top: 51px;
-    right: 15px;
+    top: 51px; /* CHANGED: Desktop - increased from 43px to 51px */
+    right: 15px; /* Desktop: Changed from 20px to 15px */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -265,12 +287,12 @@
     backdrop-filter: blur(10px);
     background: rgba(17, 24, 39, 0.7);
     border-radius: 12px;
-    padding: 0px;
+    padding: 0px; /* Changed from 8px to 0px */
     border: 1px solid rgba(0, 212, 255, 0.2);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
-  /* Currency Selector */
+  /* Currency Selector - Updated with visual effect */
   .currency-selector {
     display: flex;
     gap: 3px;
@@ -311,7 +333,7 @@
     box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
   }
   
-  /* Language Selector */
+  /* Language Selector - Updated */
   .lang-selector {
     position: relative;
     display: inline-block;
@@ -383,6 +405,12 @@
     color: var(--electric-blue);
   }
   
+  .lang-option .coming-soon {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  
   /* Menu Button */
   .menu-toggle {
     display: flex;
@@ -422,18 +450,24 @@
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
   
+  /* CHANGED: Ensure mobile menu is scrollable */
+  .mobile-menu {
+    overflow-y: auto;
+  }
+  
   .mobile-menu.active {
     right: 0;
   }
   
+  /* CHANGED: Increased margin-bottom from 10 to 30px */
   .mobile-menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Changed from 10px to 30px */
     padding-bottom: 20px;
-    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
   .mobile-menu-logo {
@@ -442,7 +476,7 @@
   }
   
   .mobile-menu-brand {
-    font-size: 23px;
+    font-size: 23px; /* Changed from 20px to 23px */
     font-weight: 700;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
@@ -475,7 +509,7 @@
   .mobile-menu-content {
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 0px; /* Changed from 20px to 0px */
   }
   
   .mobile-menu-overlay {
@@ -495,29 +529,29 @@
   }
   
   .mobile-menu-footer {
-    margin-top: 17px;
+    margin-top: 17px; /* Changed from 30px to 17px */
     padding-top: 20px;
-    border-top: 2px solid rgba(0, 212, 255, 0.2);
+    border-top: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
   .mobile-menu-section {
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Changed from 20px to 5px */
   }
   
   .mobile-menu-section h3 {
     color: var(--electric-blue);
     margin-bottom: 10px;
-    font-size: 19px;
+    font-size: 19px; /* Changed from 16px to 19px */
     font-weight: 600;
   }
   
   .mobile-menu-link {
     display: block;
-    padding: 5px 0;
+    padding: 5px 0; /* Changed from 12px 0 to 5px 0 */
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    font-size: 16px;
+    font-size: 16px; /* Changed from 14px to 16px */
   }
   
   .mobile-menu-link:hover {
@@ -528,31 +562,17 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 1px 0;
+    padding: 1px 0; /* Changed from 8px 0 to 1px 0 */
     color: var(--text-light);
     text-decoration: none;
-    font-size: 17px;
+    font-size: 17px; /* Changed from 14px to 17px */
   }
   
   .mobile-menu-contact-item:hover {
     color: var(--electric-blue);
   }
   
-  /* Language classes */
-  .lang-en { display: block; }
-  .lang-fr { display: none; }
-  
-  /* Coming soon message style */
-  .coming-soon-msg {
-    display: inline-block;
-    margin-left: 8px;
-    font-size: 12px;
-    color: var(--electric-blue);
-    font-style: italic;
-    animation: fadeInOut 2s ease;
-  }
-  
-  /* Footer */
+  /* Updated Footer */
   .footer-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -579,7 +599,7 @@
     color: var(--electric-blue);
   }
   
-  /* Connect Section */
+  /* Connect Section - Updated */
   .connect-links {
     display: flex;
     flex-direction: column;
@@ -595,7 +615,7 @@
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 14px;
-    white-space: nowrap;
+    white-space: nowrap; /* Ensures icon and text stay on same line */
   }
   
   .connect-link:hover {
@@ -604,20 +624,42 @@
   
   /* Responsive Styles */
   @media (min-width: 768px) {
+    .privacy-container {
+      padding: 40px 0;
+    }
+    
+    .privacy-title {
+      font-size: 42px;
+    }
+    
     .footer-links { grid-template-columns: repeat(4, 1fr); }
-    .brand {
-      flex-direction: row;
-      gap: 5px;
+    /* CHANGED: Align connect links with other sections on desktop */
+    .footer-column:last-child {
+      align-items: center;
+    }
+    .connect-links {
+      align-items: center;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .footer-links { grid-template-columns: repeat(4, 1fr); }
+    .privacy-title {
+      font-size: 48px;
     }
   }
   
   @media (max-width: 480px) {
     .footer-links { grid-template-columns: 1fr; }
-    .privacy-content h1 { font-size: 28px; }
-    .privacy-content h2 { font-size: 22px; }
+    /* Mobile disclosure banner font size */
+    .disclosure-banner {
+      font-size: 12px;
+    }
+    .disclosure-banner .muted {
+      font-size: 12px;
+    }
   }
   
-  /* Footer */
   .footer {
     margin-top: 35px;
     padding: 25px 20px;
@@ -660,6 +702,41 @@
     line-height: 1.5;
   }
   
+  /* Language classes */
+  .lang-en { display: block; }
+  .lang-fr { display: none; }
+  
+  /* Coming soon message style */
+  .coming-soon-msg {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--electric-blue);
+    font-style: italic;
+    animation: fadeInOut 2s ease;
+  }
+  
+  /* NEW: Footer links in single line */
+  .footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .footer-bottom-links a {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .footer-bottom-links a:hover {
+    text-decoration: underline;
+  }
+  
   @keyframes fadeInOut {
     0% { opacity: 0; }
     20% { opacity: 1; }
@@ -674,24 +751,50 @@
   
   /* Mobile-specific styles */
   @media (max-width: 767px) {
+    /* Mobile: brand container */
     .brand-container {
-      top: 60px;
+      top: 60px; /* CHANGED: Mobile - increased from 57px to 60px */
     }
     
+    /* Mobile: top controls container */
     .top-controls-container {
-      top: 73px;
-      right: 15px;
-      gap: 3px;
+      top: 73px; /* CHANGED: Mobile - increased from 69px to 73px */
+      right: 15px; /* Mobile: Changed from 20px to 15px */
+      gap: 3px; /* Mobile: Changed from 10px to 3px */
     }
     
+    /* Mobile: currency selector gap */
     .currency-selector {
-      gap: 0px;
+      gap: 0px; /* Mobile: Changed from 3px to 0px */
     }
     
+    /* Mobile: brand text stacking */
     .brand {
       flex-direction: column;
       line-height: 1;
       font-size: 16px;
+    }
+    
+    .brand-line-1, .brand-line-2 {
+      display: block;
+      line-height: 0.95;
+    }
+    
+    .brand-line-1 {
+      margin-bottom: -2px;
+    }
+  }
+  
+  /* Desktop-specific styles */
+  @media (min-width: 768px) {
+    /* Desktop: brand text single line */
+    .brand {
+      flex-direction: row;
+      gap: 5px;
+    }
+    
+    .brand-line-1, .brand-line-2 {
+      display: inline;
     }
   }
 </style>
@@ -721,7 +824,7 @@
   </div>
 </div>
 
-<!-- Brand Container -->
+<!-- Brand Container (outside header) - CHANGED: Now clickable -->
 <a id="brandLink" style="text-decoration: none;">
   <div class="brand-container" id="brandContainer">
     <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
@@ -732,7 +835,7 @@
   </div>
 </a>
 
-<!-- Top Controls -->
+<!-- Top Controls (outside header) -->
 <div class="top-controls-container" id="topControlsContainer">
   <div class="currency-selector" id="currencySelector">
     <div class="currency-option active" data-currency="USD">USD</div>
@@ -752,6 +855,7 @@
       <a href="#" class="lang-option" data-lang="fr">
         <span>Français</span>
       </a>
+      <!-- CHANGED: Added Español option back -->
       <a href="#" class="lang-option" data-lang="es">
         <span>Español</span>
         <span class="coming-soon">(soon)</span>
@@ -766,96 +870,152 @@
   </button>
 </div>
 
-<!-- UPDATED: Privacy Banner with non-sticky on mobile -->
+<!-- UPDATED: Privacy Disclosure Banner -->
 <div class="disclosure-banner">
   <div class="wrap">
-    <div class="muted lang-en">Your data privacy matters. This page explains how information is handled on Global Toolkit.</div>
-    <div class="muted lang-fr">Votre vie privée compte. Cette page explique comment les informations sont traitées sur Global Toolkit.</div>
+    <div class="muted lang-en">
+      Your data privacy matters. This page explains how information is handled on Global Toolkit.
+    </div>
+    <div class="muted lang-fr">
+      La confidentialité de vos données est importante. Cette page explique comment les informations sont traitées sur Global Toolkit.
+    </div>
   </div>
 </div>
 
 <div class="wrap">
+  <!-- REMOVED: Trust badges section as requested -->
   <header>
-    <!-- Privacy Page doesn't need trust badges in header -->
+    <!-- REMOVED: Trust badges section -->
   </header>
 
   <main>
-    <!-- Privacy Illustration - NEW -->
-    <div class="privacy-illustration">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9f3be2b6d6b1f8069a2b8b9a1c6f3f86" 
-           alt="Privacy illustration showing abstract data flow, lock, and shield">
-    </div>
-
-    <!-- Privacy Content - NEW -->
-    <div class="privacy-content">
-      <div class="lang-en">
-        <h1>Privacy Policy</h1>
-        <div class="last-updated">Last Updated: December 2025</div>
-
-        <h2>1. Introduction</h2>
-        <p>Welcome to Global Toolkit ("we," "our," or "us"). This Privacy Policy explains how we handle information on our educational platform. Global Toolkit is a software company providing educational resources about fintech tools, SaaS, hosting, and digital payments.</p>
-
-        <h2>2. Information We Collect</h2>
-        <p>As an educational platform, we collect minimal information. We may collect:</p>
-        <ul>
+    <!-- Privacy Policy Content -->
+    <div class="privacy-container">
+      <!-- Privacy Illustration -->
+      <div class="privacy-illustration">
+        <div class="privacy-icon">
+          <i class="fas fa-lock"></i>
+          <i class="fas fa-shield-alt" style="position: absolute; font-size: 24px; margin-left: 30px; margin-top: 20px;"></i>
+        </div>
+      </div>
+      
+      <!-- Privacy Header -->
+      <div class="privacy-header">
+        <h1 class="privacy-title lang-en">Privacy Policy</h1>
+        <h1 class="privacy-title lang-fr">Politique de Confidentialité</h1>
+        
+        <div class="privacy-date lang-en">Last Updated: December 2025</div>
+        <div class="privacy-date lang-fr">Dernière mise à jour : Décembre 2025</div>
+      </div>
+      
+      <!-- Privacy Content -->
+      <div class="privacy-section">
+        <h2 class="lang-en">1. Introduction</h2>
+        <h2 class="lang-fr">1. Introduction</h2>
+        
+        <p class="lang-en">
+          Welcome to Global Toolkit ("we," "our," or "us"). This Privacy Policy and Disclaimer explains how we handle information on our educational platform and outlines important legal disclaimers regarding our content. Global Toolkit is a software company providing educational resources about online tools, SaaS, hosting, and digital payments.
+        </p>
+        <p class="lang-fr">
+          Bienvenue sur Global Toolkit ("nous", "notre" ou "nos"). Cette Politique de Confidentialité et Clause de Non-Responsabilité explique comment nous traitons les informations sur notre plateforme éducative et décrit les importantes clauses de non-responsabilité légales concernant notre contenu. Global Toolkit est une entreprise de logiciels fournissant des ressources éducatives sur les outils en ligne, le SaaS, l'hébergement et les paiements numériques.
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">2. Information We Collect</h2>
+        <h2 class="lang-fr">2. Informations que nous collectons</h2>
+        
+        <p class="lang-en">
+          As an educational platform, we collect minimal information. We may collect:
+        </p>
+        <p class="lang-fr">
+          En tant que plateforme éducative, nous collectons un minimum d'informations. Nous pouvons collecter :
+        </p>
+        
+        <ul class="lang-en">
           <li>Anonymous usage data through cookies for analytics</li>
           <li>Email addresses if you voluntarily contact us</li>
           <li>Browser information for compatibility optimization</li>
           <li>Aggregated statistics about content usage</li>
         </ul>
-
-        <h2>3. Cookies and Tracking Technologies</h2>
-        <p>We use essential cookies for website functionality and may use analytics cookies to understand how visitors interact with our content. You can control cookie settings through your browser preferences. We do not use cookies for advertising or third-party tracking.</p>
-
-        <h2>4. Third-Party Links and Services</h2>
-        <p>Our educational content may include links to third-party websites. We are not responsible for the privacy practices or content of these external sites. When you click on third-party links, you will be subject to their privacy policies and terms of service.</p>
-
-        <h2>5. Children's Privacy</h2>
-        <p>Our content is intended for adults and professionals. We do not knowingly collect information from children under 16. If you believe we have inadvertently collected information from a child, please contact us immediately.</p>
-
-        <h2>6. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy periodically. We will notify users of significant changes by updating the "Last Updated" date at the top of this page. Continued use of our platform after changes constitutes acceptance of the updated terms.</p>
-
-        <h2>7. Contact Us</h2>
-        <p>If you have questions about this Privacy Policy, or if you need to report a privacy concern, please contact us:</p>
-        <p>Email: globaltoolkit.contact@gmail.com</p>
-      </div>
-
-      <div class="lang-fr" style="display: none;">
-        <h1>Politique de Confidentialité</h1>
-        <div class="last-updated">Dernière mise à jour : Décembre 2025</div>
-
-        <h2>1. Introduction</h2>
-        <p>Bienvenue sur Global Toolkit ("nous", "notre" ou "notre société"). Cette Politique de Confidentialité explique comment nous traitons les informations sur notre plateforme éducative. Global Toolkit est une entreprise de logiciels fournissant des ressources éducatives sur les outils fintech, SaaS, l'hébergement et les paiements numériques.</p>
-
-        <h2>2. Informations que nous collectons</h2>
-        <p>En tant que plateforme éducative, nous collectons un minimum d'informations. Nous pouvons collecter :</p>
-        <ul>
-          <li>Des données d'utilisation anonymes via des cookies pour l'analyse</li>
-          <li>Des adresses e-mail si vous nous contactez volontairement</li>
-          <li>Des informations sur le navigateur pour l'optimisation de la compatibilité</li>
-          <li>Des statistiques agrégées sur l'utilisation du contenu</li>
+        
+        <ul class="lang-fr">
+          <li>Données d'utilisation anonymes via des cookies pour l'analyse</li>
+          <li>Adresses e-mail si vous nous contactez volontairement</li>
+          <li>Informations sur le navigateur pour l'optimisation de la compatibilité</li>
+          <li>Statistiques agrégées sur l'utilisation du contenu</li>
         </ul>
-
-        <h2>3. Cookies et technologies de suivi</h2>
-        <p>Nous utilisons des cookies essentiels pour la fonctionnalité du site Web et pouvons utiliser des cookies d'analyse pour comprendre comment les visiteurs interagissent avec notre contenu. Vous pouvez contrôler les paramètres des cookies via les préférences de votre navigateur. Nous n'utilisons pas de cookies pour la publicité ou le suivi par des tiers.</p>
-
-        <h2>4. Liens et services tiers</h2>
-        <p>Notre contenu éducatif peut inclure des liens vers des sites Web tiers. Nous ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces sites externes. Lorsque vous cliquez sur des liens tiers, vous serez soumis à leurs politiques de confidentialité et conditions d'utilisation.</p>
-
-        <h2>5. Confidentialité des enfants</h2>
-        <p>Notre contenu est destiné aux adultes et aux professionnels. Nous ne collectons pas sciemment d'informations auprès d'enfants de moins de 16 ans. Si vous pensez que nous avons involontairement collecté des informations concernant un enfant, veuillez nous contacter immédiatement.</p>
-
-        <h2>6. Modifications de cette politique</h2>
-        <p>Nous pouvons mettre à jour cette Politique de Confidentialité périodiquement. Nous informerons les utilisateurs des changements significatifs en mettant à jour la date "Dernière mise à jour" en haut de cette page. L'utilisation continue de notre plateforme après les modifications constitue l'acceptation des termes mis à jour.</p>
-
-        <h2>7. Contactez-nous</h2>
-        <p>Si vous avez des questions concernant cette Politique de Confidentialité, ou si vous devez signaler un problème de confidentialité, veuillez nous contacter :</p>
-        <p>Email : globaltoolkit.contact@gmail.com</p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">3. Cookies and Tracking Technologies</h2>
+        <h2 class="lang-fr">3. Cookies et technologies de suivi</h2>
+        
+        <p class="lang-en">
+          We use essential cookies for website functionality and may use analytics cookies to understand how visitors interact with our content. You can control cookie settings through your browser preferences. We do not use cookies for advertising or third-party tracking.
+        </p>
+        <p class="lang-fr">
+          Nous utilisons des cookies essentiels pour la fonctionnalité du site web et pouvons utiliser des cookies d'analyse pour comprendre comment les visiteurs interagissent avec notre contenu. Vous pouvez contrôler les paramètres des cookies via les préférences de votre navigateur. Nous n'utilisons pas de cookies pour la publicité ou le suivi par des tiers.
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">4. Third-Party Links and Services</h2>
+        <h2 class="lang-fr">4. Liens et services tiers</h2>
+        
+        <p class="lang-en">
+          Our educational content may include links to third-party websites. We are not responsible for the privacy practices or content of these external sites. When you click on third-party links, you will be subject to their privacy policies and terms of service.
+        </p>
+        <p class="lang-fr">
+          Notre contenu éducatif peut inclure des liens vers des sites web tiers. Nous ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces sites externes. Lorsque vous cliquez sur des liens tiers, vous serez soumis à leurs politiques de confidentialité et conditions d'utilisation.
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">5. Children's Privacy</h2>
+        <h2 class="lang-fr">5. Confidentialité des enfants</h2>
+        
+        <p class="lang-en">
+          Our content is intended for adults and professionals. We do not knowingly collect information from children under 16. If you believe we have inadvertently collected information from a child, please contact us immediately.
+        </p>
+        <p class="lang-fr">
+          Notre contenu est destiné aux adultes et aux professionnels. Nous ne collectons pas sciemment d'informations auprès d'enfants de moins de 16 ans. Si vous pensez que nous avons involontairement collecté des informations auprès d'un enfant, veuillez nous contacter immédiatement.
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">6. Changes to This Policy</h2>
+        <h2 class="lang-fr">6. Modifications de cette politique</h2>
+        
+        <p class="lang-en">
+          We may update this Privacy Policy and Disclaimer periodically. We will notify users of significant changes by updating the "Last Updated" date at the top of this page. Continued use of our platform after changes constitutes acceptance of the updated terms.
+        </p>
+        <p class="lang-fr">
+          Nous pouvons mettre à jour cette Politique de Confidentialité et Clause de Non-Responsabilité périodiquement. Nous informerons les utilisateurs des changements significatifs en mettant à jour la date "Dernière mise à jour" en haut de cette page. L'utilisation continue de notre plateforme après les modifications constitue une acceptation des conditions mises à jour.
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">7. Contact Us</h2>
+        <h2 class="lang-fr">7. Contactez-nous</h2>
+        
+        <p class="lang-en">
+          If you have questions about this Privacy Policy and Disclaimer, or if you need to report a privacy concern, please contact us:
+        </p>
+        <p class="lang-fr">
+          Si vous avez des questions concernant cette Politique de Confidentialité et Clause de Non-Responsabilité, ou si vous devez signaler un problème de confidentialité, veuillez nous contacter :
+        </p>
+        
+        <p class="lang-en">
+          Email: globaltoolkit.contact@gmail.com
+        </p>
+        <p class="lang-fr">
+          E-mail : globaltoolkit.contact@gmail.com
+        </p>
       </div>
     </div>
 
-    <!-- Footer -->
+    <!-- UPDATED FOOTER WITH MORE LINKS -->
     <div class="footer">
       <div class="footer-links">
         <div class="footer-column">
@@ -865,6 +1025,7 @@
           <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
           <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
           <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
+          <!-- CHANGED: "Payment Processors" to "Payment Services" -->
           <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
           <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
         </div>
@@ -875,6 +1036,7 @@
           <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
           <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
           <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
+          <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
           <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
           <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
         </div>
@@ -891,6 +1053,7 @@
         <div class="footer-column">
           <h4 class="lang-en">Connect</h4>
           <h4 class="lang-fr">Contact</h4>
+          <!-- UPDATED: Connect links layout with icon for Share Feedback -->
           <div class="connect-links">
             <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
               <i class="fas fa-envelope"></i>
@@ -900,7 +1063,8 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <a href="#feedback" class="connect-link">
+            <!-- UPDATED: Share Feedback with icon and new href -->
+            <a href="https://global-toolkit.github.io/#feedback" class="connect-link" id="shareFeedbackLink">
               <i class="fas fa-comment-alt"></i>
               <span>Share Feedback</span>
             </a>
@@ -908,10 +1072,12 @@
         </div>
       </div>
       
+      <!-- NEW: Footer bottom links in single line -->
       <div class="footer-bottom-links">
         <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
         <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
         <span class="separator">|</span>
+        <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
         <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
         <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
         <span class="separator">|</span>
@@ -973,7 +1139,7 @@ function switchLanguage(lang) {
   updateMobileMenuContent();
 }
 
-// Function to update all links with language and currency parameters
+// CHANGED: Updated function to handle all links with language and currency parameters
 function updateAllLinks(lang) {
   const links = document.querySelectorAll('a[data-base-url]');
   
@@ -986,9 +1152,16 @@ function updateAllLinks(lang) {
   // Update Affiliate Disclosure links in footer
   const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
   affiliateLinks.forEach(link => {
+    // Check if it's a full URL (not an anchor link)
     if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
       link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}&currency=${currentCurrency}`;
     }
+  });
+  
+  // Update Facebook link with language reference
+  const facebookLinks = document.querySelectorAll('a[href*="facebook.com/GlobalToolkit"]');
+  facebookLinks.forEach(link => {
+    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}_${currentCurrency}`);
   });
   
   // Update mobile menu home link
@@ -1001,6 +1174,12 @@ function updateAllLinks(lang) {
   const brandLink = document.getElementById('brandLink');
   if (brandLink) {
     brandLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
+  }
+  
+  // Update Share Feedback link
+  const shareFeedbackLink = document.getElementById('shareFeedbackLink');
+  if (shareFeedbackLink) {
+    shareFeedbackLink.href = `https://global-toolkit.github.io/#feedback?lang=${lang}&currency=${currentCurrency}`;
   }
 }
 
@@ -1036,7 +1215,7 @@ async function fetchExchangeRate() {
     return data.rates.EUR;
   } catch (error) {
     console.error('Failed to fetch exchange rate:', error);
-    return 0.92;
+    return 0.92; // Fallback rate if API fails
   }
 }
 
@@ -1092,7 +1271,9 @@ function setupMobileMenu() {
   }
   
   menuToggle.addEventListener('click', openMobileMenu);
+  
   mobileMenuClose.addEventListener('click', closeMobileMenu);
+  
   mobileMenuOverlay.addEventListener('click', closeMobileMenu);
   
   // Populate mobile menu content
@@ -1163,6 +1344,37 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(categoriesSection);
   
+  // Add Tools section
+  const toolsSection = document.createElement('div');
+  toolsSection.className = 'mobile-menu-section';
+  
+  const toolsTitle = document.createElement('h3');
+  toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
+  toolsTitle.style.color = 'var(--electric-blue)';
+  toolsTitle.style.marginBottom = '10px';
+  toolsTitle.style.fontSize = '19px';
+  toolsTitle.style.fontWeight = '600';
+  
+  toolsSection.appendChild(toolsTitle);
+  
+  // Add tool links
+  const tools = [
+    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
+    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
+    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides' }
+  ];
+  
+  tools.forEach(tool => {
+    const link = document.createElement('a');
+    link.href = `${tool.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    link.className = 'mobile-menu-link';
+    link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
+    
+    toolsSection.appendChild(link);
+  });
+  
+  mobileMenuContent.appendChild(toolsSection);
+  
   // Add footer content
   const footerContent = document.createElement('div');
   
@@ -1201,7 +1413,7 @@ function updateMobileMenuContent() {
   const contactItems = [
     { icon: 'fas fa-envelope', text: 'Email', href: 'mailto:globaltoolkit.contact@gmail.com' },
     { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' },
-    { icon: 'fas fa-comment-alt', text: 'Share Feedback', href: '#feedback', onclick: "document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';" }
+    { icon: 'fas fa-comment-alt', text: 'Share Feedback', href: `https://global-toolkit.github.io/#feedback?lang=${currentLang}&currency=${currentCurrency}`, onclick: "document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';" }
   ];
   
   contactItems.forEach(item => {
@@ -1350,9 +1562,11 @@ document.querySelectorAll('.lang-option').forEach(option => {
     e.preventDefault();
     const lang = this.getAttribute('data-lang');
     
+    // Only switch if language is en or fr
     if (lang === 'en' || lang === 'fr') {
       switchLanguage(lang);
     }
+    // For español, just close dropdown
     document.getElementById('langDropdown').classList.remove('show');
   });
 });
@@ -1370,40 +1584,22 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
     
+    // Remove any existing message
     const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
     if (existingMsg) {
       existingMsg.remove();
     }
     
+    // Create and append message
     const msg = document.createElement('span');
     msg.className = 'coming-soon-msg';
     msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
     this.parentNode.appendChild(msg);
     
+    // Remove message after animation
     setTimeout(() => {
       msg.remove();
     }, 2000);
-  });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href !== '#') {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-        const offset = window.innerWidth <= 767 ? 90 : 60;
-        const offsetPosition = targetPosition - offset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }
   });
 });
 
