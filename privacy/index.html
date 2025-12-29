@@ -248,13 +248,22 @@
     border: none;
     backdrop-filter: none;
     cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Added for hide/show animation */
   }
   
   /* CHANGED: Desktop - increase Top from 33px to 37px */
   @media (min-width: 768px) {
     .brand-container {
       top: 37px;
+    }
+  }
+  
+  /* CHANGED: Mobile - unstick (unpin) the brand container */
+  @media (max-width: 767px) {
+    .brand-container {
+      position: static;
+      margin: 10px auto;
+      width: fit-content;
+      justify-content: center;
     }
   }
   
@@ -291,7 +300,16 @@
     border-radius: 12px;
     padding: 0px; /* Changed from 8px to 0px */
     border: 1px solid rgba(0, 212, 255, 0.2);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* CHANGED: Mobile - unstick (unpin) the top controls container */
+  @media (max-width: 767px) {
+    .top-controls-container {
+      position: static;
+      margin: 10px auto;
+      width: fit-content;
+      justify-content: center;
+    }
   }
   
   /* Language Selector - Updated */
@@ -712,17 +730,9 @@
   
   /* Mobile-specific styles */
   @media (max-width: 767px) {
-    /* Mobile: brand container */
-    .brand-container {
-      top: 60px; /* CHANGED: Mobile - increased from 57px to 60px */
-    }
+    /* Mobile: brand container - already updated above */
     
-    /* Mobile: top controls container */
-    .top-controls-container {
-      top: 73px; /* CHANGED: Mobile - increased from 69px to 73px */
-      right: 15px; /* Mobile: Changed from 20px to 15px */
-      gap: 3px; /* Mobile: Changed from 10px to 3px */
-    }
+    /* Mobile: top controls container - already updated above */
     
     /* Mobile: brand text stacking */
     .brand {
@@ -1032,11 +1042,6 @@
 let currentLang = 'en';
 let currentCurrency = 'USD';
 
-// Mobile hide/show variables
-let hideControlsTimer;
-let isMobile = window.innerWidth <= 767;
-let lastInteractionTime = Date.now();
-
 // Function to switch language
 function switchLanguage(lang) {
   currentLang = lang;
@@ -1151,59 +1156,6 @@ function initializeLanguage() {
   }
 }
 
-// Mobile hide/show functionality for top controls
-function setupMobileHideControls() {
-  if (!isMobile) return;
-  
-  const brandContainer = document.getElementById('brandContainer');
-  const topControlsContainer = document.getElementById('topControlsContainer');
-  
-  function handleInteraction() {
-    lastInteractionTime = Date.now();
-    
-    // Show controls
-    if (brandContainer && topControlsContainer) {
-      brandContainer.style.opacity = '1';
-      brandContainer.style.transform = 'translateY(0)';
-      topControlsContainer.style.opacity = '1';
-      topControlsContainer.style.transform = 'translateY(0)';
-    }
-    
-    // Clear existing timer
-    clearTimeout(hideControlsTimer);
-    
-    // Set timer to hide after 2 seconds of no interaction
-    hideControlsTimer = setTimeout(() => {
-      const timeSinceLastInteraction = Date.now() - lastInteractionTime;
-      
-      // Only hide if it's been more than 2 seconds since last interaction
-      if (timeSinceLastInteraction >= 2000 && brandContainer && topControlsContainer) {
-        brandContainer.style.opacity = '0';
-        brandContainer.style.transform = 'translateY(-10px)';
-        topControlsContainer.style.opacity = '0';
-        topControlsContainer.style.transform = 'translateY(-10px)';
-      }
-    }, 2000);
-  }
-  
-  // Initial show
-  handleInteraction();
-  
-  // Events that count as interaction
-  const interactionEvents = ['scroll', 'touchstart', 'touchmove', 'click', 'mousemove', 'keydown'];
-  
-  interactionEvents.forEach(eventType => {
-    document.addEventListener(eventType, handleInteraction, { passive: true });
-  });
-  
-  // Also handle menu interactions
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('#menuToggle') || e.target.closest('#mobileMenu')) {
-      handleInteraction();
-    }
-  });
-}
-
 // Mobile menu functionality
 function setupMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
@@ -1215,14 +1167,12 @@ function setupMobileMenu() {
     mobileMenu.classList.add('active');
     mobileMenuOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
-    lastInteractionTime = Date.now(); // Count as interaction
   }
   
   function closeMobileMenu() {
     mobileMenu.classList.remove('active');
     mobileMenuOverlay.classList.remove('active');
     document.body.style.overflow = '';
-    lastInteractionTime = Date.now(); // Count as interaction
   }
   
   menuToggle.addEventListener('click', openMobileMenu);
@@ -1324,6 +1274,30 @@ function updateMobileMenuContent() {
     link.href = `${tool.url}?lang=${currentLang}&currency=${currentCurrency}`;
     link.className = 'mobile-menu-link';
     link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
+    
+    // Add click handler for comparison calculator and deals tracker
+    if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove any existing message
+        const existingMsg = this.querySelector('.coming-soon-msg');
+        if (existingMsg) {
+          existingMsg.remove();
+        }
+        
+        // Create and append message
+        const msg = document.createElement('span');
+        msg.className = 'coming-soon-msg';
+        msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+        this.appendChild(msg);
+        
+        // Remove message after animation
+        setTimeout(() => {
+          msg.remove();
+        }, 2000);
+      });
+    }
     
     toolsSection.appendChild(link);
   });
@@ -1561,7 +1535,6 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
 document.addEventListener('DOMContentLoaded', function() {
   initializeLanguage();
   setupMobileMenu();
-  setupMobileHideControls();
   
   // Update Share Feedback link on load
   updateShareFeedbackLink();
@@ -1580,11 +1553,6 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       switchLanguage('fr');
     }
-  });
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    isMobile = window.innerWidth <= 767;
   });
 });
 </script>
