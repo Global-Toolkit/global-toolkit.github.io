@@ -1,0 +1,2405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<title>Online Tools & Builders Comparison - Global Toolkit</title>
+<meta name="description" content="Compare top website builders, VPN services, productivity tools, and automation platforms. Get unbiased reviews and exclusive deals." />
+
+<!-- OpenGraph -->
+<meta property="og:title" content="Online Tools & Builders Comparison - Global Toolkit" />
+<meta property="og:description" content="Compare top website builders, VPN services, productivity tools, and automation platforms. Get unbiased reviews and exclusive deals." />
+<meta property="og:image" content="https://global-toolkit.github.io/online-tools/onlinetools-pic.avif" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://global-toolkit.github.io/onlinetools.html" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root{
+    --navy1:#072a4a;
+    --blue1:#0e66d2;
+    --accent:#0e69d4;
+    --gradient-start:#0e66d2;
+    --gradient-end:#4a90e2;
+    --electric-blue:#00d4ff;
+    --neon-purple:#9d4edd;
+    --success:#00d98b;
+    --warning:#ffb74d;
+    --bg:#0a0f1c;
+    --card:#111827;
+    --muted:#94a3b8;
+    --text-light:#f1f5f9;
+    --maxw:1100px;
+    --gap:18px;
+    --shadow-sm:0 4px 12px rgba(0, 212, 255, 0.1);
+    --shadow-md:0 8px 24px rgba(0, 212, 255, 0.15);
+    --shadow-lg:0 12px 32px rgba(0, 212, 255, 0.2);
+    --glow:0 0 20px rgba(0, 212, 255, 0.3);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Global Styles */
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-light);
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(14, 102, 210, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 25%),
+      linear-gradient(to bottom, #0a0f1c, #0d1424);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Trust Badges */
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 0px 0;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-light);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+  }
+
+  .badge i {
+    color: var(--electric-blue);
+  }
+
+  /* Updated Hero Section */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .hero-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 32px;
+    color: white;
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    margin-top: 12px;
+    font-size: 18px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--electric-blue);
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* Quick Navigation - Updated for Desktop (2x2 grid) */
+  .quick-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 25px 0;
+  }
+
+  @media (min-width: 768px) {
+    .quick-nav {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-btn:hover,
+  .nav-btn.active {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--electric-blue);
+    transform: translateY(-2px);
+  }
+
+  .nav-btn i {
+    font-size: 18px;
+  }
+
+  /* Choice Modal */
+  .choice-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 15, 28, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .choice-modal.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .choice-content {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .choice-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .choice-btn {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+  }
+
+  .choice-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+  }
+
+  /* Category Grid - Optimized for Desktop */
+  .category-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 30px 0;
+  }
+
+  /* On desktop, make it a single column for better vertical reading */
+  @media (min-width: 768px) {
+    .category-grid {
+      grid-template-columns: 1fr;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .category-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .category-card.hidden {
+    display: none;
+  }
+
+  .category-card:hover {
+    border-color: var(--electric-blue);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .category-icon {
+    font-size: 32px;
+    color: var(--electric-blue);
+    margin-bottom: 15px;
+  }
+
+  /* Product Cards */
+  .product-card {
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+  }
+
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .product-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+  }
+
+  .recommended-badge {
+    background: linear-gradient(135deg, var(--success), #00b875);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .product-description {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .review-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+    color: white;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .review-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+  }
+
+  /* Comparison Tables - Updated for pinned column on mobile without overlap */
+  .table-container {
+    overflow-x: auto;
+    margin: 30px 0;
+    border-radius: 12px;
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 900px;
+  }
+
+  .comparison-table th {
+    background: rgba(0, 212, 255, 0.1);
+    padding: 15px;
+    text-align: left;
+    font-weight: 700;
+    color: white;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .comparison-table th .lang-en,
+  .comparison-table th .lang-fr {
+    display: none;
+  }
+
+  .comparison-table th .lang-en:first-child,
+  .comparison-table th .lang-fr:first-child {
+    display: inline;
+  }
+
+  .comparison-table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: relative;
+  }
+
+  .comparison-table tr:hover td {
+    background: rgba(0, 212, 255, 0.05);
+  }
+
+  /* Pin first column on mobile - Fixed overlap issue */
+  @media (max-width: 767px) {
+    .comparison-table {
+      position: relative;
+    }
+    
+    .comparison-table thead th:first-child,
+    .comparison-table tbody td:first-child {
+      position: sticky;
+      left: 0;
+      background: var(--card);
+      z-index: 20;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+      min-width: 120px;
+      max-width: 150px;
+    }
+    
+    .comparison-table thead th:first-child {
+      background: rgba(0, 212, 255, 0.15);
+      z-index: 30;
+      top: 0;
+    }
+    
+    .comparison-table tbody td:first-child {
+      z-index: 10;
+    }
+    
+    /* Ensure no overlap with other cells */
+    .comparison-table th,
+    .comparison-table td {
+      background-clip: padding-box;
+    }
+    
+    .comparison-table td:not(:first-child),
+    .comparison-table th:not(:first-child) {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .price-cell {
+    font-weight: 700;
+    color: var(--electric-blue);
+  }
+
+  /* Table row click message */
+  .row-click-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 212, 255, 0.95);
+    color: var(--bg);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 1000;
+    pointer-events: none;
+    animation: fadeInOut 2s ease;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Table sections */
+  .table-section {
+    display: block;
+  }
+
+  .table-section.hidden {
+    display: none;
+  }
+
+  /* How to Choose Section */
+  .choose-section {
+    background: linear-gradient(135deg, rgba(14, 102, 210, 0.1), rgba(157, 78, 221, 0.1));
+    border-radius: 16px;
+    padding: 30px;
+    margin: 40px 0;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+  }
+
+  .step {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* FAQ */
+  .faq-item {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    cursor: pointer;
+  }
+
+  .faq-question {
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .faq-answer {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+
+  .faq-item .faq-answer {
+    display: none;
+  }
+
+  .faq-item.expanded .faq-answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  /* Footer */
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+  }
+
+  .footer-column h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .footer-column a {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-column a:hover {
+    color: var(--electric-blue);
+  }
+
+  .connect-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: center;
+  }
+
+  .connect-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .connect-link:hover {
+    color: var(--electric-blue);
+  }
+
+  /* Footer bottom links */
+  .footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .footer-bottom-links a {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .footer-bottom-links a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    color: var(--muted);
+  }
+
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    .hero {
+      grid-template-columns: 3fr 2fr;
+      gap: 30px;
+    }
+    .footer-links {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 48px;
+    }
+    .category-grid {
+      max-width: 950px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    /* Mobile adjustments for quick-nav */
+    .quick-nav {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    
+    .nav-btn {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+    
+    .nav-btn i {
+      font-size: 16px;
+    }
+    
+    /* Make "Smart Comparisons + Exclusive Deals" smaller on mobile */
+    .hero h1 span {
+      font-size: 24px !important;
+    }
+    
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+    .trust-badges {
+      justify-content: center;
+    }
+    .footer-bottom-links {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .quick-nav {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .nav-btn {
+      font-size: 13px;
+      padding: 8px 12px;
+    }
+    
+    .hero h1 span {
+      font-size: 22px !important;
+    }
+  }
+
+  /* Keep existing styles */
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  header {
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(17, 24, 39, 0.85);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg), var(--glow);
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+  }
+
+  .brand-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .brand-logo {
+    height: 40px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .brand {
+    font-weight: 800;
+    font-size: 23px;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Language and Currency Selector */
+  .top-right-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+    z-index: 100;
+  }
+
+  .lang-selector {
+    position: relative;
+    display: inline-block;
+  }
+
+  .lang-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 5px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .lang-dropdown-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--electric-blue);
+  }
+
+  .lang-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    min-width: 160px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  .lang-dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0px;
+    padding: 2px 30px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  }
+
+  .lang-option:last-child {
+    border-bottom: none;
+  }
+
+  .lang-option:hover {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--electric-blue);
+  }
+
+  .lang-option.active {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--electric-blue);
+  }
+
+  .lang-option .coming-soon {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: 10px;
+  }
+
+  .currency-selector {
+    display: flex;
+    gap: 3px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    padding: 0px;
+    backdrop-filter: blur(10px);
+  }
+
+  .currency-option {
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .currency-option:hover {
+    background: rgba(0, 212, 255, 0.2);
+  }
+
+  .currency-option.active {
+    background: rgba(0, 212, 255, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+  }
+
+  .footer {
+    margin-top: 35px;
+    padding: 25px 20px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    box-shadow: var(--shadow-md);
+  }
+
+  .muted {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Illustration adjustments */
+  .illustration {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    display: block;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.5s ease;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  .illustration:hover {
+    transform: perspective(1000px) rotateY(5deg);
+    opacity: 1;
+  }
+
+  /* Language classes */
+  .lang-en { display: block; }
+  .lang-fr { display: none; }
+
+  /* Coming soon message style */
+  .coming-soon-msg {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--electric-blue);
+    font-style: italic;
+    animation: fadeInOut 2s ease;
+  }
+
+  .section-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    margin: 40px 0 25px;
+    position: relative;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
+    border-radius: 2px;
+  }
+
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand-container">
+      <a href="https://global-toolkit.github.io/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/Global-toolkit-LOGO.jpg" alt="Global Toolkit Logo" class="brand-logo">
+        <div class="brand">Global Toolkit</div>
+      </a>
+    </div>
+
+    <!-- Language and Currency Selector -->
+    <div class="top-right-controls">
+      <div class="lang-selector">
+        <button class="lang-dropdown-btn" id="langDropdownBtn">
+          <i class="fas fa-globe"></i>
+          <span id="currentLangText">English</span>
+          <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+        </button>
+        <div class="lang-dropdown-content" id="langDropdown">
+          <a href="#" class="lang-option active" data-lang="en">
+            <span>English</span>
+          </a>
+          <a href="#" class="lang-option" data-lang="fr">
+            <span>Français</span>
+          </a>
+          <!-- Added Español (soon) option -->
+          <a href="#" class="lang-option" data-lang="es">
+            <span>Español</span>
+            <span class="coming-soon">(soon)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="currency-selector" id="currencySelector">
+        <div class="currency-option active" data-currency="USD">USD</div>
+        <div class="currency-option" data-currency="EUR">EUR</div>
+      </div>
+    </div>
+
+    <!-- TRUST BADGES -->
+    <div class="trust-badges">
+      <div class="badge">
+        <i class="fas fa-shield-alt"></i>
+        <span class="lang-en">Unbiased Reviews</span>
+        <span class="lang-fr">Avis Impartiaux</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-star"></i>
+        <span class="lang-en">Trusted Guidance</span>
+        <span class="lang-fr">Conseils Fiables</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-tag"></i>
+        <span class="lang-en">Exclusive Deals</span>
+        <span class="lang-fr">Offres Exclusives</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-lock"></i>
+        <span class="lang-en">Secure Comparison</span>
+        <span class="lang-fr">Comparaison Sécurisée</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Choice Modal -->
+    <div class="choice-modal" id="choiceModal">
+      <div class="choice-content">
+        <h3 id="choiceCategoryTitle" class="lang-en">Choose Your View</h3>
+        <h3 id="choiceCategoryTitleFr" class="lang-fr">Choisissez Votre Vue</h3>
+        <p class="muted lang-en" id="choiceCategoryDesc">How would you like to explore the products?</p>
+        <p class="muted lang-fr" id="choiceCategoryDescFr">Comment souhaitez-vous explorer les produits ?</p>
+        
+        <div class="choice-buttons">
+          <button class="choice-btn" id="viewReviewsBtn">
+            <span class="lang-en">Top 5 Products Reviews</span>
+            <span class="lang-fr">Avis des 5 Meilleurs Produits</span>
+          </button>
+          <button class="choice-btn" id="viewComparisonBtn">
+            <span class="lang-en">Top 5 Products Comparison</span>
+            <span class="lang-fr">Comparaison des 5 Meilleurs Produits</span>
+          </button>
+        </div>
+        
+        <button class="nav-btn" id="closeChoiceBtn" style="margin-top: 20px; background: rgba(255,255,255,0.1);">
+          <span class="lang-en">Cancel</span>
+          <span class="lang-fr">Annuler</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+      <section class="hero-card">
+        <h1 class="lang-en">Online Tools & Builders<br><span style="font-size: 32px; color: var(--electric-blue);">Smart Comparisons + Exclusive Deals</span></h1>
+        <h1 class="lang-fr">Outils en ligne & Constructeurs<br><span style="font-size: 32px; color: var(--electric-blue);">Comparaisons Intelligentes + Offres Exclusives</span></h1>
+
+        <p class="hero-subtitle lang-en">Unbiased reviews & comparison guides for website builders, VPN services, productivity tools, and automation platforms. Find the perfect tools for your needs and save with our exclusive deals.</p>
+        <p class="hero-subtitle lang-fr">Avis impartiaux et guides comparatifs pour les constructeurs de sites, services VPN, outils de productivité et plateformes d'automatisation. Trouvez les outils parfaits pour vos besoins et économisez avec nos offres exclusives.</p>
+
+        <!-- Quick Navigation with icons -->
+        <div class="quick-nav" id="quickNav">
+          <button class="nav-btn active" data-category="website-builders">
+            <i class="fas fa-globe"></i>
+            <span class="lang-en">Website Builders</span>
+            <span class="lang-fr">Constructeurs Sites</span>
+          </button>
+          <button class="nav-btn" data-category="vpn-services">
+            <i class="fas fa-shield-alt"></i>
+            <span class="lang-en">VPN Services</span>
+            <span class="lang-fr">Services VPN</span>
+          </button>
+          <button class="nav-btn" data-category="productivity-tools">
+            <i class="fas fa-tasks"></i>
+            <span class="lang-en">Productivity Tools</span>
+            <span class="lang-fr">Outils Productivité</span>
+          </button>
+          <button class="nav-btn" data-category="automation-tools">
+            <i class="fas fa-robot"></i>
+            <span class="lang-en">Automation Tools</span>
+            <span class="lang-fr">Outils Automatisation</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Illustration -->
+      <aside>
+        <img class="illustration" src="https://global-toolkit.github.io/online-tools/onlinetools-pic.avif"
+             alt="Online tools and builders illustration" />
+        <div style="height:12px"></div>
+        <div class="muted lang-en">Compare top tools across 4 essential categories with verified reviews</div>
+        <div class="muted lang-fr">Comparez les meilleurs outils dans 4 catégories essentielles avec des avis vérifiés</div>
+      </aside>
+    </div>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="category-grid">
+      <!-- Website Builders -->
+      <div class="category-card" id="website-builders-card">
+        <div class="category-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3 class="lang-en">Website Builders</h3>
+        <h3 class="lang-fr">Constructeurs de Sites</h3>
+        <p class="muted lang-en">Tools that help you create professional websites without coding. Perfect for businesses, portfolios, and online stores.</p>
+        <p class="muted lang-fr">Outils qui vous aident à créer des sites web professionnels sans coder. Parfait pour les entreprises, portfolios et boutiques en ligne.</p>
+
+        <!-- Products -->
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Wix</div>
+          </div>
+          <p class="product-description lang-en">An intuitive drag-and-drop website builder with a vast library of customizable templates and powerful AI design tools. Perfect for beginners and small businesses looking to establish a professional online presence quickly without any coding skills.</p>
+          <p class="product-description lang-fr">Constructeur de site intuitif par glisser-déposer avec une vaste bibliothèque de modèles personnalisables et des outils de design IA puissants. Idéal pour les débutants et les petites entreprises souhaitant établir une présence en ligne professionnelle rapidement sans aucune compétence en codage.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/wix-review?lang=en" data-landing-page="https://global-toolkit.github.io/wix-review" data-product="Wix">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Shopify</div>
+          </div>
+          <p class="product-description lang-en">The leading dedicated e-commerce platform providing everything needed to start, run, and scale an online store. Includes payment processing, inventory management, and a massive app store for extending functionality to suit any business model.</p>
+          <p class="product-description lang-fr">La plateforme e-commerce dédiée leader offrant tout le nécessaire pour démarrer, gérer et développer une boutique en ligne. Inclut le traitement des paiements, la gestion des stocks et un immense magasin d'applications pour étendre les fonctionnalités selon tout modèle commercial.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/shopify-review?lang=en" data-landing-page="https://global-toolkit.github.io/shopify-review" data-product="Shopify">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Bluehost</div>
+          </div>
+          <p class="product-description lang-en">A powerful web hosting service with an integrated, user-friendly WordPress website builder. It's an excellent choice for beginners, offering a seamless setup process, reliable performance, and expert support tailored for WordPress users.</p>
+          <p class="product-description lang-fr">Un service d'hébergement web puissant avec un constructeur de site WordPress intégré et convivial. C'est un excellent choix pour les débutants, offrant un processus d'installation fluide, des performances fiables et un support expert adapté aux utilisateurs de WordPress.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/bluehost-review?lang=en" data-landing-page="https://global-toolkit.github.io/bluehost-review" data-product="Bluehost">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Webflow</div>
+          </div>
+          <p class="product-description lang-en">A professional-grade visual development platform that grants designers pixel-perfect control while generating clean, production-ready code. It bridges the gap between advanced visual design and front-end development without locking users into proprietary frameworks.</p>
+          <p class="product-description lang-fr">Une plateforme de développement visuel de niveau professionnel qui offre aux designers un contrôle pixel par pixel tout en générant un code propre et prêt pour la production. Elle comble le fossé entre le design visuel avancé et le développement front-end sans enfermer les utilisateurs dans des frameworks propriétaires.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/webflow-review?lang=en" data-landing-page="https://global-toolkit.github.io/webflow-review" data-product="Webflow">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">GoDaddy</div>
+          </div>
+          <p class="product-description lang-en">A comprehensive all-in-one platform that combines a simple website builder with domain registration, hosting, and business email services. Designed for quick setup and ease of use, it's ideal for entrepreneurs who need to get online fast with minimal technical hassle.</p>
+          <p class="product-description lang-fr">Une plateforme tout-en-un complète qui combine un constructeur de site simple avec l'enregistrement de domaine, l'hébergement et les services de messagerie professionnelle. Conçue pour une installation rapide et une facilité d'utilisation, elle est idéale pour les entrepreneurs qui doivent être en ligne rapidement avec un minimum de tracas techniques.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/godaddy-review?lang=en" data-landing-page="https://global-toolkit.github.io/godaddy-review" data-product="GoDaddy">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- VPN Services -->
+      <div class="category-card hidden" id="vpn-services-card">
+        <div class="category-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="lang-en">VPN Services</h3>
+        <h3 class="lang-fr">Services VPN</h3>
+        <p class="muted lang-en">Protect your online privacy, access geo-restricted content, and secure your internet connection on any device.</p>
+        <p class="muted lang-fr">Protégez votre vie privée en ligne, accédez au contenu géo-restreint et sécurisez votre connexion internet sur n'importe quel appareil.</p>
+
+        <!-- Products -->
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">NordVPN</div>
+            <div class="recommended-badge lang-en">RECOMMENDED</div>
+            <div class="recommended-badge lang-fr">RECOMMANDÉ</div>
+          </div>
+          <p class="product-description lang-en">An industry-leading VPN renowned for its advanced security features, exceptional connection speeds, and a vast global network of servers. It consistently ranks highly for reliability and user privacy, making it a top choice for both beginners and security-conscious users.</p>
+          <p class="product-description lang-fr">Un VPN leader du secteur réputé pour ses fonctionnalités de sécurité avancées, ses vitesses de connexion exceptionnelles et son vaste réseau mondial de serveurs. Il se classe régulièrement parmi les meilleurs pour sa fiabilité et le respect de la vie privée, ce qui en fait un choix de premier ordre pour les débutants comme pour les utilisateurs soucieux de sécurité.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/nordvpn-review?lang=en" data-landing-page="https://global-toolkit.github.io/nordvpn-review" data-product="NordVPN">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Surfshark</div>
+          </div>
+          <p class="product-description lang-en">A highly affordable VPN that stands out by allowing unlimited simultaneous device connections under a single account. It offers strong privacy features, reliable performance, and is perfect for securing an entire household's worth of gadgets without breaking the bank.</p>
+          <p class="product-description lang-fr">Un VPN très abordable qui se distingue en permettant des connexions simultanées illimitées d'appareils avec un seul compte. Il offre de solides fonctionnalités de confidentialité, des performances fiables et est parfait pour sécuriser tous les appareils d'un foyer sans se ruiner.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/surfshark-review?lang=en" data-landing-page="https://global-toolkit.github.io/surfshark-review" data-product="Surfshark">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">AtlasVPN</div>
+          </div>
+          <p class="product-description lang-en">A user-friendly VPN service with a trustworthy free tier option and a strong commitment to privacy protection. It provides a great balance of essential security features and accessibility, making online privacy available to a wider audience.</p>
+          <p class="product-description lang-fr">Un service VPN convivial avec une option gratuite fiable et un engagement fort envers la protection de la vie privée. Il offre un excellent équilibre entre fonctionnalités de sécurité essentielles et accessibilité, rendant la confidentialité en ligne disponible pour un public plus large.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/atlasvpn-review?lang=en" data-landing-page="https://global-toolkit.github.io/atlasvpn-review" data-product="AtlasVPN">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">ExpressVPN</div>
+          </div>
+          <p class="product-description lang-en">A premium VPN service known for its exceptional speeds, unwavering reliability, and robust security protocols across a wide range of devices. It's a favorite among users who prioritize consistent, high-performance connections for streaming, gaming, or secure browsing.</p>
+          <p class="product-description lang-fr">Un service VPN premium connu pour ses vitesses exceptionnelles, sa fiabilité inébranlable et ses protocoles de sécurité robustes sur une large gamme d'appareils. C'est un favori parmi les utilisateurs qui priorisent des connexions performantes et constantes pour le streaming, le jeu ou la navigation sécurisée.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/expressvpn-review?lang=en" data-landing-page="https://global-toolkit.github.io/expressvpn-review" data-product="ExpressVPN">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">ProtonVPN</div>
+          </div>
+          <p class="product-description lang-en">A security-focused VPN based in Switzerland, benefiting from strong privacy laws. It is transparent, offers open-source applications, and is developed by the team behind the respected ProtonMail, making it a top choice for users who value auditability and trust.</p>
+          <p class="product-description lang-fr">Un VPN axé sur la sécurité, basé en Suisse et bénéficiant de lois strictes sur la vie privée. Il est transparent, propose des applications open-source et est développé par l'équipe derrière le réputé ProtonMail, ce qui en fait un choix de premier ordre pour les utilisateurs qui valorisent la vérifiabilité et la confiance.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/protonvpn-review?lang=en" data-landing-page="https://global-toolkit.github.io/protonvpn-review" data-product="ProtonVPN">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Productivity Tools -->
+      <div class="category-card hidden" id="productivity-tools-card">
+        <div class="category-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <h3 class="lang-en">Productivity Tools</h3>
+        <h3 class="lang-fr">Outils de Productivité</h3>
+        <p class="muted lang-en">Applications that help you organize tasks, manage projects, collaborate with teams, and get more done.</p>
+        <p class="muted lang-fr">Applications qui vous aident à organiser les tâches, gérer les projets, collaborer avec les équipes et accomplir plus.</p>
+
+        <!-- Products -->
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Notion</div>
+          </div>
+          <p class="product-description lang-en">An incredibly flexible all-in-one workspace that combines notes, tasks, wikis, and databases. Its powerful building blocks allow for deep customization, enabling teams to create their own perfect system for knowledge management, project tracking, and collaboration.</p>
+          <p class="product-description lang-fr">Un espace de travail tout-en-un incroyablement flexible qui combine notes, tâches, wikis et bases de données. Ses blocs de construction puissants permettent une personnalisation approfondie, permettant aux équipes de créer leur propre système parfait pour la gestion des connaissances, le suivi des projets et la collaboration.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/notion-review?lang=en" data-landing-page="https://global-toolkit.github.io/notion-review" data-product="Notion">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Todoist</div>
+          </div>
+          <p class="product-description lang-en">A simple yet powerful cross-platform task manager beloved for its clean interface and natural language input. It helps individuals and teams stay organized with projects, priorities, and deadlines, integrating seamlessly into a wide variety of workflows.</p>
+          <p class="product-description lang-fr">Un gestionnaire de tâches multiplateforme simple mais puissant, apprécié pour son interface épurée et sa saisie en langage naturel. Il aide les individus et les équipes à rester organisés avec des projets, des priorités et des échéances, s'intégrant parfaitement à une grande variété de flux de travail.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/todoist-review?lang=en" data-landing-page="https://global-toolkit.github.io/todoist-review" data-product="Todoist">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">ClickUp</div>
+          </div>
+          <p class="product-description lang-en">A highly customizable project management platform designed to replace all other work apps. It offers multiple views (List, Board, Calendar, Gantt), robust goal tracking, and deep automation, making it suitable for everything from simple task lists to complex enterprise project portfolios.</p>
+          <p class="product-description lang-fr">Une plateforme de gestion de projet hautement personnalisable conçue pour remplacer toutes les autres applications de travail. Elle offre de multiples vues (Liste, Tableau, Calendrier, Gantt), un suivi d'objectifs robuste et une automatisation poussée, la rendant adaptée à tout, des simples listes de tâches aux portefeuilles de projets d'entreprise complexes.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/clickup-review?lang=en" data-landing-page="https://global-toolkit.github.io/clickup-review" data-product="ClickUp">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Ora</div>
+          </div>
+          <p class="product-description lang-en">An agile project management tool that combines task management, time tracking, team collaboration, and visual progress reporting into one intuitive interface. It's great for teams that need clear insights into workflow, productivity, and project timelines.</p>
+          <p class="product-description lang-fr">Un outil de gestion de projet agile qui combine gestion des tâches, suivi du temps, collaboration d'équipe et rapports de progression visuels en une interface intuitive. Il est excellent pour les équipes qui ont besoin d'une vision claire du flux de travail, de la productivité et des calendriers de projet.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/ora-review?lang=en" data-landing-page="https://global-toolkit.github.io/ora-review" data-product="Ora">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Monitask</div>
+          </div>
+          <p class="product-description lang-en">An employee monitoring and time tracking software focused on productivity analytics. It provides insights through activity levels, application usage, and optional screenshot capture, helping distributed teams and managers understand work patterns and improve efficiency.</p>
+          <p class="product-description lang-fr">Un logiciel de surveillance des employés et de suivi du temps axé sur l'analyse de la productivité. Il fournit des informations via les niveaux d'activité, l'utilisation des applications et la capture d'écran optionnelle, aidant les équipes distribuées et les managers à comprendre les modes de travail et à améliorer l'efficacité.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/monitask-review?lang=en" data-landing-page="https://global-toolkit.github.io/monitask-review" data-product="Monitask">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Automation Tools -->
+      <div class="category-card hidden" id="automation-tools-card">
+        <div class="category-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3 class="lang-en">Automation Platforms</h3>
+        <h3 class="lang-fr">Plateformes d'Automatisation</h3>
+        <p class="muted lang-en">Connect apps and automate workflows to save time, reduce errors, and streamline business processes.</p>
+        <p class="muted lang-fr">Connectez des applications et automatisez les flux de travail pour gagner du temps, réduire les erreurs et rationaliser les processus métier.</p>
+
+        <!-- Products -->
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Zapier</div>
+          </div>
+          <p class="product-description lang-en">The most popular automation platform, connecting over 5,000 apps to create "Zaps" that move information and trigger actions between them. Its user-friendly interface requires no coding, making powerful workflow automation accessible to everyone from solopreneurs to large enterprises.</p>
+          <p class="product-description lang-fr">La plateforme d'automatisation la plus populaire, connectant plus de 5 000 applications pour créer des "Zaps" qui déplacent les informations et déclenchent des actions entre elles. Son interface conviviale ne nécessite aucun codage, rendant l'automatisation puissante des flux de travail accessible à tous, des solo-entrepreneurs aux grandes entreprises.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/zapier-review?lang=en" data-landing-page="https://global-toolkit.github.io/zapier-review" data-product="Zapier">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Apify</div>
+          </div>
+          <p class="product-description lang-en">A powerful platform focused on web scraping and browser automation, allowing users to extract and process web data at scale. It turns websites into APIs and is used for data aggregation, market research, and automating interactions with web applications that lack a formal API.</p>
+          <p class="product-description lang-fr">Une plateforme puissante axée sur le scraping web et l'automatisation du navigateur, permettant aux utilisateurs d'extraire et de traiter des données web à grande échelle. Elle transforme les sites web en API et est utilisée pour l'agrégation de données, la recherche de marché et l'automatisation des interactions avec des applications web dépourvues d'API formelle.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/apify-review?lang=en" data-landing-page="https://global-toolkit.github.io/apify-review" data-product="Apify">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Make (Integromat)</div>
+          </div>
+          <p class="product-description lang-en">A visual automation platform known for building complex, multi-step scenarios with advanced data transformation capabilities. It offers more granular control over workflows compared to some competitors, making it a favorite for technical users and complex business process automation.</p>
+          <p class="product-description lang-fr">Une plateforme d'automatisation visuelle réputée pour créer des scénarios complexes à plusieurs étapes avec des capacités avancées de transformation des données. Elle offre un contrôle plus granulaire sur les flux de travail que certains concurrents, ce qui en fait un favori des utilisateurs techniques et de l'automatisation des processus métier complexes.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/make-review?lang=en" data-landing-page="https://global-toolkit.github.io/make-review" data-product="Make">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Pabbly</div>
+          </div>
+          <p class="product-description lang-en">An all-in-one business automation suite that combines subscription billing, a versatile form builder, email marketing automation, and workflow automation. It provides a cost-effective solution for businesses looking to consolidate multiple SaaS tools into a single, integrated platform.</p>
+          <p class="product-description lang-fr">Une suite d'automatisation commerciale tout-en-un qui combine la facturation d'abonnement, un constructeur de formulaires polyvalent, le marketing automatique par email et l'automatisation des flux de travail. Elle fournit une solution rentable pour les entreprises souhaitant consolider plusieurs outils SaaS en une seule plateforme intégrée.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/pabbly-review?lang=en" data-landing-page="https://global-toolkit.github.io/pabbly-review" data-product="Pabbly">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Tally</div>
+          </div>
+          <p class="product-description lang-en">A remarkably simple yet powerful form builder with advanced logic, calculations, and automation features. It stands out for its clean design, ease of use, and the ability to create complex, conditional forms that feel native and integrated, perfect for surveys, applications, and lead generation.</p>
+          <p class="product-description lang-fr">Un constructeur de formulaires remarquablement simple mais puissant avec une logique avancée, des calculs et des fonctionnalités d'automatisation. Il se distingue par son design épuré, sa facilité d'utilisation et sa capacité à créer des formulaires complexes et conditionnels qui semblent natifs et intégrés, parfaits pour les sondages, les candidatures et la génération de leads.</p>
+          <a class="review-btn review-cta" href="https://global-toolkit.github.io/tally-review?lang=en" data-landing-page="https://global-toolkit.github.io/tally-review" data-product="Tally">
+            <span class="lang-en">View Review</span>
+            <span class="lang-fr">Voir Avis</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section id="comparison-tables">
+      <h2 class="section-title lang-en">Comparison Table</h2>
+      <h2 class="section-title lang-fr">Tableau Comparatif</h2>
+      <p class="muted lang-en">Compare features, pricing, and key specifications across all top products in each category.</p>
+      <p class="muted lang-fr">Comparez les fonctionnalités, prix et spécifications clés de tous les meilleurs produits dans chaque catégorie.</p>
+
+      <!-- Website Builders Table - UPDATED with new metric column -->
+      <div class="table-section" id="website-builders-table">
+        <h3 style="margin-top: 40px;" class="lang-en">Website Builders Comparison</h3>
+        <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Constructeurs de Sites</h3>
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">Template Count</span>
+                  <span class="lang-fr">Nombre de Modèles</span>
+                </th>
+                <th>
+                  <span class="lang-en">Ease of Use</span>
+                  <span class="lang-fr">Facilité d'Utilisation</span>
+                </th>
+                <th>
+                  <span class="lang-en">Free Trial</span>
+                  <span class="lang-fr">Essai Gratuit</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-product="Wix" data-landing-page="https://global-toolkit.github.io/wix-review">
+                <td>Wix</td>
+                <td>
+                  <span class="lang-en">Beginners, Small Businesses</span>
+                  <span class="lang-fr">Débutants, Petites Entreprises</span>
+                </td>
+                <td>800+</td>
+                <td>★★★★★</td>
+                <td>
+                  <span class="lang-en">14 days</span>
+                  <span class="lang-fr">14 jours</span>
+                </td>
+                <td class="price-cell" data-price-usd="16">$16.00/month</td>
+              </tr>
+              <tr data-product="Shopify" data-landing-page="https://global-toolkit.github.io/shopify-review">
+                <td>Shopify</td>
+                <td>
+                  <span class="lang-en">E-commerce Stores</span>
+                  <span class="lang-fr">Boutiques E-commerce</span>
+                </td>
+                <td>70+</td>
+                <td>★★★★☆</td>
+                <td>
+                  <span class="lang-en">14 days</span>
+                  <span class="lang-fr">14 jours</span>
+                </td>
+                <td class="price-cell" data-price-usd="29">$29.00/month</td>
+              </tr>
+              <tr data-product="Bluehost" data-landing-page="https://global-toolkit.github.io/bluehost-review">
+                <td>Bluehost</td>
+                <td>
+                  <span class="lang-en">WordPress Users</span>
+                  <span class="lang-fr">Utilisateurs WordPress</span>
+                </td>
+                <td>300+</td>
+                <td>★★★★☆</td>
+                <td>
+                  <span class="lang-en">30 days</span>
+                  <span class="lang-fr">30 jours</span>
+                </td>
+                <td class="price-cell" data-price-usd="2.95">$2.95/month</td>
+              </tr>
+              <tr data-product="Webflow" data-landing-page="https://global-toolkit.github.io/webflow-review">
+                <td>Webflow</td>
+                <td>
+                  <span class="lang-en">Designers, Developers</span>
+                  <span class="lang-fr">Designers, Développeurs</span>
+                </td>
+                <td>2,000+</td>
+                <td>★★★☆☆</td>
+                <td>
+                  <span class="lang-en">Free plan</span>
+                  <span class="lang-fr">Plan gratuit</span>
+                </td>
+                <td class="price-cell" data-price-usd="14">$14.00/month</td>
+              </tr>
+              <tr data-product="GoDaddy" data-landing-page="https://global-toolkit.github.io/godaddy-review">
+                <td>GoDaddy</td>
+                <td>
+                  <span class="lang-en">Quick Setup, All-in-One</span>
+                  <span class="lang-fr">Installation Rapide, Tout-en-Un</span>
+                </td>
+                <td>150+</td>
+                <td>★★★★★</td>
+                <td>
+                  <span class="lang-en">30 days</span>
+                  <span class="lang-fr">30 jours</span>
+                </td>
+                <td class="price-cell" data-price-usd="9.99">$9.99/month</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VPN Services Table -->
+      <div class="table-section hidden" id="vpn-services-table">
+        <h3 style="margin-top: 40px;" class="lang-en">VPN Services Comparison</h3>
+        <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Services VPN</h3>
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">Servers</span>
+                  <span class="lang-fr">Serveurs</span>
+                </th>
+                <th>
+                  <span class="lang-en">Speed</span>
+                  <span class="lang-fr">Vitesse</span>
+                </th>
+                <th>
+                  <span class="lang-en">Simultaneous Connections</span>
+                  <span class="lang-fr">Connexions Simultanées</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-product="NordVPN" data-landing-page="https://global-toolkit.github.io/nordvpn-review">
+                <td>NordVPN</td>
+                <td>
+                  <span class="lang-en">Security & Streaming</span>
+                  <span class="lang-fr">Sécurité & Streaming</span>
+                </td>
+                <td>5,900+</td>
+                <td>★★★★★</td>
+                <td>6</td>
+                <td class="price-cell" data-price-usd="3.99">$3.99/month</td>
+              </tr>
+              <tr data-product="Surfshark" data-landing-page="https://global-toolkit.github.io/surfshark-review">
+                <td>Surfshark</td>
+                <td>
+                  <span class="lang-en">Large Families</span>
+                  <span class="lang-fr">Grandes Familles</span>
+                </td>
+                <td>3,200+</td>
+                <td>★★★★☆</td>
+                <td>
+                  <span class="lang-en">Unlimited</span>
+                  <span class="lang-fr">Illimitées</span>
+                </td>
+                <td class="price-cell" data-price-usd="2.49">$2.49/month</td>
+              </tr>
+              <tr data-product="AtlasVPN" data-landing-page="https://global-toolkit.github.io/atlasvpn-review">
+                <td>AtlasVPN</td>
+                <td>
+                  <span class="lang-en">Budget Users</span>
+                  <span class="lang-fr">Utilisateurs Budget</span>
+                </td>
+                <td>1,000+</td>
+                <td>★★★★☆</td>
+                <td>
+                  <span class="lang-en">Unlimited</span>
+                  <span class="lang-fr">Illimitées</span>
+                </td>
+                <td class="price-cell" data-price-usd="1.99">$1.99/month</td>
+              </tr>
+              <tr data-product="ExpressVPN" data-landing-page="https://global-toolkit.github.io/expressvpn-review">
+                <td>ExpressVPN</td>
+                <td>
+                  <span class="lang-en">Speed & Reliability</span>
+                  <span class="lang-fr">Vitesse & Fiabilité</span>
+                </td>
+                <td>3,000+</td>
+                <td>★★★★★</td>
+                <td>5</td>
+                <td class="price-cell" data-price-usd="6.67">$6.67/month</td>
+              </tr>
+              <tr data-product="ProtonVPN" data-landing-page="https://global-toolkit.github.io/protonvpn-review">
+                <td>ProtonVPN</td>
+                <td>
+                  <span class="lang-en">Privacy Focus</span>
+                  <span class="lang-fr">Vie Privée</span>
+                </td>
+                <td>2,900+</td>
+                <td>★★★★☆</td>
+                <td>10</td>
+                <td class="price-cell" data-price-usd="4.99">$4.99/month</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Productivity Tools Table -->
+      <div class="table-section hidden" id="productivity-tools-table">
+        <h3 style="margin-top: 40px;" class="lang-en">Productivity Tools Comparison</h3>
+        <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Outils de Productivité</h3>
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">Project Views</span>
+                  <span class="lang-fr">Vues de Projet</span>
+                </th>
+                <th>
+                  <span class="lang-en">API Access</span>
+                  <span class="lang-fr">Accès API</span>
+                </th>
+                <th>
+                  <span class="lang-en">Team Collaboration</span>
+                  <span class="lang-fr">Collaboration Équipe</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-product="Notion" data-landing-page="https://global-toolkit.github.io/notion-review">
+                <td>Notion</td>
+                <td>
+                  <span class="lang-en">All-in-One Workspace</span>
+                  <span class="lang-fr">Espace de Travail Tout-en-Un</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board, Calendar, Gallery</span>
+                  <span class="lang-fr">Liste, Tableau, Calendrier, Galerie</span>
+                </td>
+                <td>✓</td>
+                <td>★★★★☆</td>
+                <td class="price-cell" data-price-usd="8">$8.00/month</td>
+              </tr>
+              <tr data-product="Todoist" data-landing-page="https://global-toolkit.github.io/todoist-review">
+                <td>Todoist</td>
+                <td>
+                  <span class="lang-en">Personal Task Management</span>
+                  <span class="lang-fr">Gestion de Tâches Personnelles</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board</span>
+                  <span class="lang-fr">Liste, Tableau</span>
+                </td>
+                <td>✓</td>
+                <td>★★★☆☆</td>
+                <td class="price-cell" data-price-usd="4">$4.00/month</td>
+              </tr>
+              <tr data-product="ClickUp" data-landing-page="https://global-toolkit.github.io/clickup-review">
+                <td>ClickUp</td>
+                <td>
+                  <span class="lang-en">Customizable Project Management</span>
+                  <span class="lang-fr">Gestion de Projet Personnalisable</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board, Calendar, Gantt, Box</span>
+                  <span class="lang-fr">Liste, Tableau, Calendrier, Gantt, Box</span>
+                </td>
+                <td>✓</td>
+                <td>★★★★★</td>
+                <td class="price-cell" data-price-usd="5">$5.00/month</td>
+              </tr>
+              <tr data-product="Ora" data-landing-page="https://global-toolkit.github.io/ora-review">
+                <td>Ora</td>
+                <td>
+                  <span class="lang-en">Agile Teams</span>
+                  <span class="lang-fr">Équipes Agiles</span>
+                </td>
+                <td>
+                  <span class="lang-en">List, Board, Timeline</span>
+                  <span class="lang-fr">Liste, Tableau, Chronologie</span>
+                </td>
+                <td>✗</td>
+                <td>★★★★☆</td>
+                <td class="price-cell" data-price-usd="6">$6.00/month</td>
+              </tr>
+              <tr data-product="Monitask" data-landing-page="https://global-toolkit.github.io/monitask-review">
+                <td>Monitask</td>
+                <td>
+                  <span class="lang-en">Employee Monitoring</span>
+                  <span class="lang-fr">Surveillance des Employés</span>
+                </td>
+                <td>
+                  <span class="lang-en">Dashboard, Timeline</span>
+                  <span class="lang-fr">Tableau de bord, Chronologie</span>
+                </td>
+                <td>✓</td>
+                <td>★★★★☆</td>
+                <td class="price-cell" data-price-usd="5.99">$5.99/month</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Automation Tools Table -->
+      <div class="table-section hidden" id="automation-tools-table">
+        <h3 style="margin-top: 40px;" class="lang-en">Automation Platforms Comparison</h3>
+        <h3 style="margin-top: 40px;" class="lang-fr">Comparatif des Plateformes d'Automatisation</h3>
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>
+                  <span class="lang-en">Best For</span>
+                  <span class="lang-fr">Idéal Pour</span>
+                </th>
+                <th>
+                  <span class="lang-en">App Integrations</span>
+                  <span class="lang-fr">Intégrations</span>
+                </th>
+                <th>
+                  <span class="lang-en">Complexity</span>
+                  <span class="lang-fr">Complexité</span>
+                </th>
+                <th>
+                  <span class="lang-en">Free Tasks/Month</span>
+                  <span class="lang-fr">Tâches Gratuites/Mois</span>
+                </th>
+                <th>
+                  <span class="lang-en">Starting Price</span>
+                  <span class="lang-fr">Prix Départ</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-product="Zapier" data-landing-page="https://global-toolkit.github.io/zapier-review">
+                <td>Zapier</td>
+                <td>
+                  <span class="lang-en">Beginner Automation</span>
+                  <span class="lang-fr">Automatisation Débutant</span>
+                </td>
+                <td>5,000+</td>
+                <td>★★★★☆</td>
+                <td>
+                  <span class="lang-en">100</span>
+                  <span class="lang-fr">100</span>
+                </td>
+                <td class="price-cell" data-price-usd="19.99">$19.99/month</td>
+              </tr>
+              <tr data-product="Apify" data-landing-page="https://global-toolkit.github.io/apify-review">
+                <td>Apify</td>
+                <td>
+                  <span class="lang-en">Web Scraping</span>
+                  <span class="lang-fr">Scraping Web</span>
+                </td>
+                <td>1,000+</td>
+                <td>★★★☆☆</td>
+                <td>
+                  <span class="lang-en">10</span>
+                  <span class="lang-fr">10</span>
+                </td>
+                <td class="price-cell" data-price-usd="49">$49.00/month</td>
+              </tr>
+              <tr data-product="Make" data-landing-page="https://global-toolkit.github.io/make-review">
+                <td>Make (Integromat)</td>
+                <td>
+                  <span class="lang-en">Complex Scenarios</span>
+                  <span class="lang-fr">Scénarios Complexes</span>
+                </td>
+                <td>2,000+</td>
+                <td>★★★☆☆</td>
+                <td>
+                  <span class="lang-en">1,000</span>
+                  <span class="lang-fr">1 000</span>
+                </td>
+                <td class="price-cell" data-price-usd="9">$9.00/month</td>
+              </tr>
+              <tr data-product="Pabbly" data-landing-page="https://global-toolkit.github.io/pabbly-review">
+                <td>Pabbly</td>
+                <td>
+                  <span class="lang-en">All-in-One Suite</span>
+                  <span class="lang-fr">Suite Tout-en-Un</span>
+                </td>
+                <td>1,500+</td>
+                <td>★★★★☆</td>
+                <td>
+                  <span class="lang-en">100</span>
+                  <span class="lang-fr">100</span>
+                </td>
+                <td class="price-cell" data-price-usd="15">$15.00/month</td>
+              </tr>
+              <tr data-product="Tally" data-landing-page="https://global-toolkit.github.io/tally-review">
+                <td>Tally</td>
+                <td>
+                  <span class="lang-en">Form Building</span>
+                  <span class="lang-fr">Construction de Formulaires</span>
+                </td>
+                <td>500+</td>
+                <td>★★★★★</td>
+                <td>
+                  <span class="lang-en">Unlimited</span>
+                  <span class="lang-fr">Illimitées</span>
+                </td>
+                <td class="price-cell" data-price-usd="29">$29.00/month</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO CHOOSE SECTION -->
+    <section class="choose-section" id="how-to-choose">
+      <h2 class="section-title lang-en">How to Choose the Right Online Tools</h2>
+      <h2 class="section-title lang-fr">Comment Choisir les Bons Outils en Ligne</h2>
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div>
+          <h4 class="lang-en">Identify Your Needs</h4>
+          <h4 class="lang-fr">Identifiez Vos Besoins</h4>
+          <p class="muted lang-en">Before comparing tools, list your specific requirements. What problems are you trying to solve? What features are essential vs. nice-to-have?</p>
+          <p class="muted lang-fr">Avant de comparer les outils, listez vos besoins spécifiques. Quels problèmes essayez-vous de résoudre ? Quelles fonctionnalités sont essentielles vs. souhaitables ?</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div>
+          <h4 class="lang-en">Consider Your Skill Level</h4>
+          <h4 class="lang-fr">Considérez Votre Niveau de Compétence</h4>
+          <p class="muted lang-en">Choose tools that match your technical expertise. Beginners should prioritize ease of use, while advanced users might need more customization options.</p>
+          <p class="muted lang-fr">Choisissez des outils qui correspondent à votre expertise technique. Les débutants doivent prioriser la facilité d'utilisation, tandis que les utilisateurs avancés pourraient avoir besoin de plus d'options de personnalisation.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div>
+          <h4 class="lang-en">Test Free Trials</h4>
+          <h4 class="lang-fr">Testez les Essais Gratuits</h4>
+          <p class="muted lang-en">Most tools offer free trials or free plans. Use them to test the interface, performance, and see if they truly meet your needs before committing.</p>
+          <p class="muted lang-fr">La plupart des outils proposent des essais gratuits ou des plans gratuits. Utilisez-les pour tester l'interface, les performances et voir s'ils répondent vraiment à vos besoins avant de vous engager.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div>
+          <h4 class="lang-en">Check Integration Capabilities</h4>
+          <h4 class="lang-fr">Vérifiez les Capacités d'Intégration</h4>
+          <p class="muted lang-en">Ensure the tools you choose can integrate with your existing software stack. Good integration saves time and reduces manual work.</p>
+          <p class="muted lang-fr">Assurez-vous que les outils que vous choisissez peuvent s'intégrer à votre pile logicielle existante. Une bonne intégration économise du temps et réduit le travail manuel.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div>
+          <h4 class="lang-en">Evaluate Total Cost</h4>
+          <h4 class="lang-fr">Évaluez le Coût Total</h4>
+          <p class="muted lang-en">Look beyond the starting price. Consider add-ons, per-user costs, transaction fees, and potential scaling costs as your needs grow.</p>
+          <p class="muted lang-fr">Regardez au-delà du prix de départ. Considérez les suppléments, coûts par utilisateur, frais de transaction et coûts d'échelle potentiels à mesure que vos besoins évoluent.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+      <h2 class="section-title lang-en">Frequently Asked Questions</h2>
+      <h2 class="section-title lang-fr">Questions Fréquemment Posées</h2>
+
+      <div class="faq-container">
+        <div class="faq-item" onclick="this.classList.toggle('expanded')">
+          <div class="faq-question lang-en">Which website builder is best for complete beginners?</div>
+          <div class="faq-question lang-fr">Quel constructeur de site est le meilleur pour les débutants complets?</div>
+          <div class="faq-answer lang-en">
+            For complete beginners, Wix and GoDaddy are excellent choices due to their intuitive drag-and-drop interfaces, extensive template libraries, and guided setup processes. They require no coding knowledge and offer extensive help resources.
+          </div>
+          <div class="faq-answer lang-fr">
+            Pour les débutants complets, Wix et GoDaddy sont d'excellents choix grâce à leurs interfaces intuitives de glisser-déposer, leurs vastes bibliothèques de modèles et leurs processus d'installation guidés. Ils ne nécessitent aucune connaissance en codage et offrent de nombreuses ressources d'aide.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('expanded')">
+          <div class="faq-question lang-en">Do I really need a VPN for everyday browsing?</div>
+          <div class="faq-question lang-fr">Ai-je vraiment besoin d'un VPN pour la navigation quotidienne?</div>
+          <div class="faq-answer lang-en">
+            While not strictly necessary, a VPN provides valuable privacy protection, especially on public Wi-Fi networks. It also allows access to geo-restricted content and can prevent bandwidth throttling by ISPs. For users concerned about privacy or who travel frequently, a VPN is highly recommended.
+          </div>
+          <div class="faq-answer lang-fr">
+            Bien que pas strictement nécessaire, un VPN offre une précieuse protection de la vie privée, surtout sur les réseaux Wi-Fi publics. Il permet également d'accéder au contenu géo-restreint et peut empêcher la limitation de bande passante par les FAI. Pour les utilisateurs soucieux de leur vie privée ou qui voyagent fréquemment, un VPN est fortement recommandé.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('expanded')">
+          <div class="faq-question lang-en">What's the difference between project management and task management tools?</div>
+          <div class="faq-question lang-fr">Quelle est la différence entre les outils de gestion de projet et de gestion de tâches?</div>
+          <div class="faq-answer lang-en">
+            Task management tools (like Todoist) focus on individual to-do lists and personal productivity. Project management tools (like ClickUp or Notion) include team collaboration features, timeline views, resource allocation, and progress tracking for complex projects involving multiple people and milestones.
+          </div>
+          <div class="faq-answer lang-fr">
+            Les outils de gestion de tâches (comme Todoist) se concentrent sur les listes de choses à faire individuelles et la productivité personnelle. Les outils de gestion de projet (comme ClickUp ou Notion) incluent des fonctionnalités de collaboration d'équipe, des vues chronologiques, l'allocation des ressources et le suivi de la progression pour des projets complexes impliquant plusieurs personnes et jalons.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('expanded')">
+          <div class="faq-question lang-en">When should I consider using automation tools?</div>
+          <div class="faq-question lang-fr">Quand devrais-je envisager d'utiliser des outils d'automatisation?</div>
+          <div class="faq-answer lang-en">
+            Consider automation tools when you find yourself repeatedly performing the same manual tasks, transferring data between apps, or when errors occur due to manual data entry. Automation is particularly valuable for repetitive workflows, data synchronization, and notifications that follow specific triggers.
+          </div>
+          <div class="faq-answer lang-fr">
+            Envisagez les outils d'automatisation lorsque vous vous retrouvez à effectuer manuellement les mêmes tâches de façon répétée, à transférer des données entre applications, ou lorsque des erreurs se produisent à cause de la saisie manuelle de données. L'automatisation est particulièrement précieuse pour les flux de travail répétitifs, la synchronisation des données et les notifications qui suivent des déclencheurs spécifiques.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('expanded')">
+          <div class="faq-question lang-en">How do I know if a tool will scale with my business?</div>
+          <div class="faq-question lang-fr">Comment savoir si un outil évoluera avec mon entreprise?</div>
+          <div class="faq-answer lang-en">
+            Check the tool's pricing tiers and feature limitations at each level. Look for enterprise plans, API access for custom integrations, and the ability to handle increased users, data, or transactions. Also, research the company's roadmap and update frequency to ensure ongoing development.
+          </div>
+          <div class="faq-answer lang-fr">
+            Vérifiez les niveaux de prix de l'outil et les limitations de fonctionnalités à chaque niveau. Recherchez des plans entreprise, un accès API pour des intégrations personnalisées, et la capacité à gérer plus d'utilisateurs, de données ou de transactions. De plus, recherchez la feuille de route de l'entreprise et la fréquence des mises à jour pour assurer un développement continu.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4 class="lang-en">Categories</h4>
+          <h4 class="lang-fr">Catégories</h4>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting?lang=en">Web Hosting</a>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting?lang=fr">Hébergement Web</a>
+          <a href="https://global-toolkit.github.io/onlinetools" class="lang-en" data-base-url="https://global-toolkit.github.io/onlinetools?lang=en">Online Tools</a>
+          <a href="https://global-toolkit.github.io/onlinetools" class="lang-fr" data-base-url="https://global-toolkit.github.io/onlinetools?lang=fr">Outils en Ligne</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments?lang=en">Payment Processors</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments?lang=fr">Processeurs Paiement</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Resources</h4>
+          <h4 class="lang-fr">Ressources</h4>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy?lang=en">Privacy</a>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy?lang=fr">Confidentialité</a>
+          <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test?lang=en">How We Test</a>
+          <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test?lang=fr">Comment Nous Testons</a>
+          <a href="https://global-toolkit.github.io/affiliate-disclosure" class="lang-en" data-base-url="https://global-toolkit.github.io/affiliate-disclosure?lang=en">Affiliate Disclosure</a>
+          <a href="https://global-toolkit.github.io/affiliate-disclosure" class="lang-fr" data-base-url="https://global-toolkit.github.io/affiliate-disclosure?lang=fr">Divulgation Affiliation</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Tools</h4>
+          <h4 class="lang-fr">Outils</h4>
+          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator?lang=en">Comparison Calculator</a>
+          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator?lang=fr">Calculateur Comparatif</a>
+          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker?lang=en">Deals Tracker</a>
+          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker?lang=fr">Suivi Offres</a>
+          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides?lang=en">Beginner Guides</a>
+          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides?lang=fr">Guides Débutants</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Connect</h4>
+          <h4 class="lang-fr">Contact</h4>
+          <div class="connect-links">
+            <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
+              <i class="fas fa-envelope"></i>
+              <span>Email</span>
+            </a>
+            <a href="https://www.facebook.com/GlobalToolkit" class="connect-link">
+              <i class="fab fa-facebook"></i>
+              <span>Facebook</span>
+            </a>
+            <a href="https://global-toolkit.github.io/#feedback" class="connect-link" id="feedback-link">
+              <span class="lang-en">Share Feedback</span>
+              <span class="lang-fr">Partager Feedback</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Added footer bottom links -->
+      <div class="footer-bottom-links">
+        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
+        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
+        <span class="separator">|</span>
+        <a href="https://global-toolkit.github.io/affiliate-disclosure" data-base-url="https://global-toolkit.github.io/affiliate-disclosure" class="lang-en">Affiliate Disclosure</a>
+        <a href="https://global-toolkit.github.io/affiliate-disclosure" data-base-url="https://global-toolkit.github.io/affiliate-disclosure" class="lang-fr">Divulgation Affiliation</a>
+        <span class="separator">|</span>
+        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
+        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
+      </div>
+
+      <div style="height:6px"></div>
+      <div class="muted lang-en"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
+      <div class="muted lang-fr"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
+      <div style="height:6px"></div>
+      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
+      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils & Offres Exclusives</div>
+    </div>
+  </main>
+</div>
+
+<script>
+// Language switching functionality
+let currentLang = 'en';
+let currentCurrency = 'USD';
+let exchangeRate = 1.0;
+let activeCategory = 'website-builders';
+let selectedCategoryForChoice = '';
+
+// Function to switch language
+function switchLanguage(lang) {
+  currentLang = lang;
+
+  const enElements = document.querySelectorAll('.lang-en');
+  const frElements = document.querySelectorAll('.lang-fr');
+
+  if (lang === 'fr') {
+    enElements.forEach(el => el.style.display = 'none');
+    frElements.forEach(el => el.style.display = 'block');
+
+    document.documentElement.setAttribute('lang', 'fr');
+    localStorage.setItem('preferredLanguage', 'fr');
+
+    updateFooterLinks('fr');
+
+  } else {
+    enElements.forEach(el => el.style.display = 'block');
+    frElements.forEach(el => el.style.display = 'none');
+
+    document.documentElement.setAttribute('lang', 'en');
+    localStorage.setItem('preferredLanguage', 'en');
+
+    updateFooterLinks('en');
+  }
+
+  document.getElementById('currentLangText').textContent = lang === 'fr' ? 'Français' : 'English';
+
+  document.querySelectorAll('.lang-option').forEach(option => {
+    option.classList.remove('active');
+    if (option.getAttribute('data-lang') === lang) {
+      option.classList.add('active');
+    }
+  });
+
+  updateCtaLinks(lang);
+}
+
+// Function to update CTA button links with language parameter
+function updateCtaLinks(lang) {
+  const ctaButtons = document.querySelectorAll('.review-cta[data-landing-page]');
+  ctaButtons.forEach(button => {
+    const baseUrl = button.getAttribute('data-landing-page');
+    const urlWithoutParams = baseUrl.split('?')[0];
+    button.setAttribute('href', `${urlWithoutParams}?lang=${lang}`);
+  });
+}
+
+// Function to update footer links with language parameter
+function updateFooterLinks(lang) {
+  const links = document.querySelectorAll('a[data-base-url]');
+
+  links.forEach(link => {
+    const baseUrl = link.getAttribute('data-base-url');
+    const urlWithoutParams = baseUrl.split('?')[0];
+    link.setAttribute('href', `${urlWithoutParams}?lang=${lang}`);
+  });
+
+  const feedbackLink = document.getElementById('feedback-link');
+  if (feedbackLink) {
+    feedbackLink.setAttribute('href', `https://global-toolkit.github.io/?lang=${lang}#feedback`);
+  }
+}
+
+// Function to get language from URL parameter
+function getLangFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('lang');
+}
+
+// Function to initialize language
+function initializeLanguage() {
+  const urlLang = getLangFromUrl();
+  const savedLang = localStorage.getItem('preferredLanguage');
+  const browserLang = navigator.language || navigator.userLanguage;
+  const browserLangShort = browserLang.split('-')[0];
+
+  if (urlLang && (urlLang === 'en' || urlLang === 'fr')) {
+    switchLanguage(urlLang);
+  } else if (savedLang) {
+    switchLanguage(savedLang);
+  } else if (browserLangShort === 'fr') {
+    switchLanguage('fr');
+  } else {
+    switchLanguage('en');
+  }
+}
+
+// Category switching functionality with choice modal
+function showChoiceModal(category) {
+  selectedCategoryForChoice = category;
+  
+  // Update modal text based on category
+  const categoryNames = {
+    'website-builders': { en: 'Website Builders', fr: 'Constructeurs de Sites' },
+    'vpn-services': { en: 'VPN Services', fr: 'Services VPN' },
+    'productivity-tools': { en: 'Productivity Tools', fr: 'Outils de Productivité' },
+    'automation-tools': { en: 'Automation Tools', fr: 'Outils d\'Automatisation' }
+  };
+  
+  document.getElementById('choiceCategoryTitle').textContent = `Explore ${categoryNames[category].en}`;
+  document.getElementById('choiceCategoryTitleFr').textContent = `Explorez ${categoryNames[category].fr}`;
+  document.getElementById('choiceCategoryDesc').textContent = `How would you like to explore the top 5 ${categoryNames[category].en.toLowerCase()}?`;
+  document.getElementById('choiceCategoryDescFr').textContent = `Comment souhaitez-vous explorer les 5 meilleurs ${categoryNames[category].fr.toLowerCase()} ?`;
+  
+  document.getElementById('choiceModal').classList.add('show');
+}
+
+function hideChoiceModal() {
+  document.getElementById('choiceModal').classList.remove('show');
+}
+
+function showCategory(category, scrollTo = '') {
+  activeCategory = category;
+
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('data-category') === category) {
+      btn.classList.add('active');
+    }
+  });
+
+  document.querySelectorAll('.category-card').forEach(card => {
+    card.classList.add('hidden');
+  });
+
+  document.querySelectorAll('.table-section').forEach(table => {
+    table.classList.add('hidden');
+  });
+
+  const categoryCard = document.getElementById(`${category}-card`);
+  const categoryTable = document.getElementById(`${category}-table`);
+
+  if (categoryCard) {
+    categoryCard.classList.remove('hidden');
+  }
+
+  if (categoryTable) {
+    categoryTable.classList.remove('hidden');
+  }
+  
+  // Scroll to appropriate section
+  if (scrollTo === 'reviews') {
+    setTimeout(() => {
+      categoryCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  } else if (scrollTo === 'comparison') {
+    setTimeout(() => {
+      categoryTable.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
+
+// Table row click functionality - Updated to show message WITHOUT leaving page
+function setupTableRowClicks() {
+  const tableRows = document.querySelectorAll('.comparison-table tbody tr');
+  
+  tableRows.forEach(row => {
+    row.addEventListener('click', function(e) {
+      const product = this.getAttribute('data-product');
+      
+      // Remove any existing message
+      const existingMsg = document.querySelector('.row-click-message');
+      if (existingMsg) {
+        existingMsg.remove();
+      }
+      
+      // Create and append message
+      const msg = document.createElement('div');
+      msg.className = 'row-click-message';
+      msg.textContent = currentLang === 'en' ? 'Review coming soon!' : 'Avis bientôt disponible !';
+      document.body.appendChild(msg);
+      
+      // Display message
+      msg.style.display = 'block';
+      
+      // Remove message after animation
+      setTimeout(() => {
+        msg.remove();
+      }, 2000);
+    });
+  });
+}
+
+// Currency conversion functions
+async function fetchExchangeRate() {
+  try {
+    const response = await fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=EUR');
+    const data = await response.json();
+    return data.rates.EUR;
+  } catch (error) {
+    console.error('Failed to fetch exchange rate:', error);
+    return 0.92;
+  }
+}
+
+function convertPrices() {
+  const priceElements = document.querySelectorAll('[data-price-usd]');
+  const symbol = currentCurrency === 'USD' ? '$' : '€';
+
+  priceElements.forEach(el => {
+    const usdPrice = parseFloat(el.getAttribute('data-price-usd'));
+    let convertedPrice = usdPrice;
+
+    if (currentCurrency === 'EUR') {
+      convertedPrice = usdPrice * exchangeRate;
+    }
+
+    const formattedPrice = convertedPrice.toFixed(2);
+
+    if (currentLang === 'fr') {
+      el.textContent = `${formattedPrice} ${symbol}/mois`;
+    } else {
+      el.textContent = `${symbol}${formattedPrice}/month`;
+    }
+  });
+}
+
+function switchCurrency(currency) {
+  currentCurrency = currency;
+  localStorage.setItem('preferredCurrency', currency);
+
+  document.querySelectorAll('.currency-option').forEach(option => {
+    option.classList.remove('active');
+    if (option.getAttribute('data-currency') === currency) {
+      option.classList.add('active');
+    }
+  });
+
+  convertPrices();
+}
+
+async function initializeCurrency() {
+  const savedCurrency = localStorage.getItem('preferredCurrency') || 'USD';
+  exchangeRate = await fetchExchangeRate();
+  switchCurrency(savedCurrency);
+}
+
+// Event listeners for language dropdown
+document.getElementById('langDropdownBtn').addEventListener('click', function() {
+  document.getElementById('langDropdown').classList.toggle('show');
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+  const dropdown = document.getElementById('langDropdown');
+  const button = document.getElementById('langDropdownBtn');
+
+  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+
+// Language option clicks
+document.querySelectorAll('.lang-option').forEach(option => {
+  option.addEventListener('click', function(e) {
+    e.preventDefault();
+    const lang = this.getAttribute('data-lang');
+
+    if (lang === 'en' || lang === 'fr') {
+      switchLanguage(lang);
+    }
+    document.getElementById('langDropdown').classList.remove('show');
+  });
+});
+
+// Currency option clicks
+document.querySelectorAll('.currency-option').forEach(option => {
+  option.addEventListener('click', function() {
+    const currency = this.getAttribute('data-currency');
+    switchCurrency(currency);
+  });
+});
+
+// Quick navigation category switching with choice modal
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const category = this.getAttribute('data-category');
+    showChoiceModal(category);
+  });
+});
+
+// Choice modal buttons
+document.getElementById('viewReviewsBtn').addEventListener('click', function() {
+  hideChoiceModal();
+  showCategory(selectedCategoryForChoice, 'reviews');
+});
+
+document.getElementById('viewComparisonBtn').addEventListener('click', function() {
+  hideChoiceModal();
+  showCategory(selectedCategoryForChoice, 'comparison');
+});
+
+document.getElementById('closeChoiceBtn').addEventListener('click', function() {
+  hideChoiceModal();
+});
+
+// Close modal when clicking outside
+document.getElementById('choiceModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    hideChoiceModal();
+  }
+});
+
+// CTA Button Click Handler
+document.querySelectorAll('.review-cta').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    const product = this.getAttribute('data-product');
+
+    const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
+    if (existingMsg) {
+      existingMsg.remove();
+    }
+
+    const msg = document.createElement('span');
+    msg.className = 'coming-soon-msg';
+    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+    this.parentNode.appendChild(msg);
+
+    setTimeout(() => {
+      msg.remove();
+    }, 2000);
+
+    console.log(`View Review clicked for: ${product}`);
+  });
+});
+
+// FAQ functionality
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+      if (otherItem !== this && otherItem.classList.contains('expanded')) {
+        otherItem.classList.remove('expanded');
+      }
+    });
+    this.classList.toggle('expanded');
+  });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && !this.classList.contains('coming-soon-link')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
+});
+
+// Coming soon links
+document.querySelectorAll('.coming-soon-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
+    if (existingMsg) {
+      existingMsg.remove();
+    }
+
+    const msg = document.createElement('span');
+    msg.className = 'coming-soon-msg';
+    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+    this.parentNode.appendChild(msg);
+
+    setTimeout(() => {
+      msg.remove();
+    }, 2000);
+  });
+});
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', function() {
+  initializeLanguage();
+  initializeCurrency();
+
+  showCategory(activeCategory);
+
+  updateCtaLinks(currentLang);
+  const feedbackLink = document.getElementById('feedback-link');
+  if (feedbackLink) {
+    feedbackLink.setAttribute('href', `https://global-toolkit.github.io/?lang=${currentLang}#feedback`);
+  }
+
+  // Setup table row clicks
+  setupTableRowClicks();
+
+  // Add keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (e.altKey && e.key === 'e') {
+      e.preventDefault();
+      switchLanguage('en');
+    }
+    if (e.altKey && e.key === 'f') {
+      e.preventDefault();
+      switchLanguage('fr');
+    }
+    // Escape key closes modal
+    if (e.key === 'Escape') {
+      hideChoiceModal();
+    }
+  });
+});
+</script>
+</body>
+</html>
