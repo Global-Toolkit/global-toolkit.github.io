@@ -1538,7 +1538,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     padding-bottom: 20px;
     border-bottom: 2px solid rgba(0, 212, 255, 0.2);
   }
@@ -1564,7 +1564,7 @@
   }
   
   .mobile-submenu-title {
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 700;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
@@ -3401,8 +3401,8 @@ function updateMobileMenuContent() {
     categoryItem.className = 'mobile-menu-link';
     categoryItem.style.cursor = 'pointer';
     categoryItem.style.display = 'flex';
-    categoryItem.style.justifyContent = 'space-between';
-    categoryItem.style.alignItems = 'center';
+    categoryItem.style.justifyContent = 'normal';
+    categoryItem.style.alignItems = 'baseline';
     
     const categoryText = document.createElement('span');
     categoryText.textContent = currentLang === 'fr' ? cat.fr : cat.en;
@@ -3411,6 +3411,7 @@ function updateMobileMenuContent() {
     arrowIcon.className = 'fas fa-chevron-right';
     arrowIcon.style.fontSize = '12px';
     arrowIcon.style.color = 'var(--electric-blue)';
+    arrowIcon.style.marginLeft = '8px';
     
     categoryItem.appendChild(categoryText);
     categoryItem.appendChild(arrowIcon);
