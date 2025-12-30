@@ -3290,8 +3290,14 @@ function setupMobileMenu() {
 function showSubmenu(category) {
   currentSubmenu = category;
   const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
   
   if (!mobileMenuContent) return;
+  
+  // Hide the mobile menu footer in submenu
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'none';
+  }
   
   // Get subcategory data
   const subcategoryData = subcategories[category];
@@ -3337,6 +3343,12 @@ function showSubmenu(category) {
 function showMainMenu() {
   currentSubmenu = null;
   updateMobileMenuContent();
+  
+  // Show the mobile menu footer again when returning to main menu
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'block';
+  }
 }
 
 function updateMobileMenuContent() {
