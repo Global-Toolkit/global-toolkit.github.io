@@ -223,7 +223,7 @@
   
   @media (max-width: 767px) {
     header {
-      margin-top: 65px;
+      margin-top: -17px;
     }
   }
   
@@ -248,8 +248,8 @@
   @media (max-width: 767px) {
     .brand-container {
       position: relative;
-      top: auto;
-      left: auto;
+      top: 10px;
+      left: 7px;
       display: inline-flex;
       margin-bottom: 20px;
     }
@@ -300,8 +300,8 @@
   /* Make non-sticky on mobile */
   @media (max-width: 767px) {
     .top-controls-container {
-      position: relative;
-      top: auto;
+      position: absolute;
+      top: 24px;
       right: auto;
       display: inline-flex;
       margin-bottom: 20px;
@@ -1368,22 +1368,32 @@ function updateMobileMenuContent() {
   
   mobileMenuFooter.appendChild(footerContent);
   
-  // Add contact toggle functionality
+  // FIXED: Contact toggle functionality - attach event listener immediately
+  // Wait a tiny moment for DOM to be fully updated
   setTimeout(() => {
-    const contactToggle = document.getElementById('mobileMenuContactToggle');
-    const contactContent = document.getElementById('mobileMenuContactContent');
+    const contactToggleEl = document.getElementById('mobileMenuContactToggle');
+    const contactContentEl = document.getElementById('mobileMenuContactContent');
     
-    if (contactToggle && contactContent) {
-      contactToggle.addEventListener('click', function() {
-        const isExpanded = contactContent.style.display === 'block';
-        contactContent.style.display = isExpanded ? 'none' : 'block';
-        const icon = this.querySelector('.fa-chevron-down');
-        if (icon) {
-          icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-        }
-      });
+    if (contactToggleEl && contactContentEl) {
+      // Remove any existing event listeners to avoid duplicates
+      const newContactToggleEl = contactToggleEl.cloneNode(true);
+      contactToggleEl.parentNode.replaceChild(newContactToggleEl, contactToggleEl);
+      
+      // Re-get the element after cloning
+      const refreshedContactToggleEl = document.getElementById('mobileMenuContactToggle');
+      
+      if (refreshedContactToggleEl) {
+        refreshedContactToggleEl.addEventListener('click', function() {
+          const isExpanded = contactContentEl.style.display === 'block';
+          contactContentEl.style.display = isExpanded ? 'none' : 'block';
+          const icon = this.querySelector('.fa-chevron-down');
+          if (icon) {
+            icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+          }
+        });
+      }
     }
-  }, 100);
+  }, 10);
 }
 
 // Event listeners for language dropdown
