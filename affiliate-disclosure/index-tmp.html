@@ -992,14 +992,11 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <!-- UPDATED: Share Feedback hrefs with language-based URLs -->
-            <a href="https://global-toolkit.github.io/?lang=en#feedback" class="connect-link lang-en">
+            <!-- UPDATED: Share Feedback link with language-based href -->
+            <a href="#" class="connect-link" id="shareFeedbackLink">
               <i class="fas fa-comment-alt"></i>
-              <span>Share Feedback</span>
-            </a>
-            <a href="https://global-toolkit.github.io/?lang=fr#feedback" class="connect-link lang-fr">
-              <i class="fas fa-comment-alt"></i>
-              <span>Share Feedback</span>
+              <span class="lang-en">Share Feedback</span>
+              <span class="lang-fr">Partager Retour</span>
             </a>
           </div>
         </div>
@@ -1067,6 +1064,9 @@ function switchLanguage(lang) {
   
   // Update mobile menu content
   updateMobileMenuContent();
+  
+  // Update Share Feedback link
+  updateShareFeedbackLink();
 }
 
 // Function to get language from URL parameter
@@ -1121,6 +1121,18 @@ function updateAllLinks(lang) {
   const brandLink = document.getElementById('brandLink');
   if (brandLink) {
     brandLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
+  }
+}
+
+// Update Share Feedback link based on language
+function updateShareFeedbackLink() {
+  const shareFeedbackLink = document.getElementById('shareFeedbackLink');
+  if (shareFeedbackLink) {
+    if (currentLang === 'fr') {
+      shareFeedbackLink.href = 'https://global-toolkit.github.io/?lang=fr#feedback';
+    } else {
+      shareFeedbackLink.href = 'https://global-toolkit.github.io/?lang=en#feedback';
+    }
   }
 }
 
@@ -1320,7 +1332,7 @@ function updateMobileMenuContent() {
   feedbackIcon.className = 'fas fa-comment-alt';
   
   const feedbackText = document.createElement('span');
-  feedbackText.textContent = 'Share Feedback';
+  feedbackText.textContent = currentLang === 'fr' ? 'Partager Retour' : 'Share Feedback';
   
   feedbackItem.appendChild(feedbackIcon);
   feedbackItem.appendChild(feedbackText);
@@ -1442,6 +1454,7 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
 document.addEventListener('DOMContentLoaded', function() {
   initializeLanguage();
   setupMobileMenu();
+  updateShareFeedbackLink();
   
   // Update all links
   updateAllLinks(currentLang);
