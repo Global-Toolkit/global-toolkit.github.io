@@ -81,7 +81,7 @@
   @media (max-width: 767px) {
     .disclosure-banner {
       position: relative;
-      top: 0;
+      top: 4;
     }
   }
   
@@ -232,10 +232,10 @@
     }
   }
   
-  /* CHANGED: Mobile header margin-top from 35 to 65px */
+  /* CHANGED: Mobile header margin-top from 35 to -40px */
   @media (max-width: 767px) {
     header {
-      margin-top: 65px;
+      margin-top: -40px;
     }
   }
   
@@ -255,6 +255,17 @@
     border: none;
     backdrop-filter: none;
     cursor: pointer;
+  }
+  
+  /* CHANGED: Unstick brand-container on mobile */
+  @media (max-width: 767px) {
+    .brand-container {
+      position: relative;
+      top: auto;
+      left: auto;
+      margin: 10px 0 5px 15px;
+      display: inline-flex;
+    }
   }
   
   /* CHANGED: Desktop - increase Top from 33px to 37px */
@@ -298,6 +309,18 @@
     padding: 0px; /* Changed from 8px to 0px */
     border: 1px solid rgba(0, 212, 255, 0.2);
     transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* CHANGED: Unstick top-controls-container on mobile */
+  @media (max-width: 767px) {
+    .top-controls-container {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin: 5px 15px 15px auto;
+      display: inline-flex;
+      float: right;
+    }
   }
   
   /* Language Selector - Updated */
@@ -417,6 +440,13 @@
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
   
+  @media (max-width: 767px) {
+    /* Ensure mobile menu scrolls properly on small screens */
+    .mobile-menu {
+      height: 80vh;
+    }
+  }
+
   /* CHANGED: Ensure mobile menu is scrollable */
   .mobile-menu {
     overflow-y: auto;
@@ -720,14 +750,21 @@
   @media (max-width: 767px) {
     /* Mobile: brand container */
     .brand-container {
-      top: 60px; /* CHANGED: Mobile - increased from 57px to 60px */
+      position: relative;
+      top: auto;
+      left: auto;
+      margin: 3px 0 5px 12px;
+      display: inline-flex;
     }
     
     /* Mobile: top controls container */
     .top-controls-container {
-      top: 73px; /* CHANGED: Mobile - increased from 69px to 73px */
-      right: 15px; /* Mobile: Changed from 20px to 15px */
-      gap: 3px; /* Mobile: Changed from 10px to 3px */
+      position: relative;
+      top: auto;
+      right: auto;
+      margin: 17px 15px 15px auto;
+      display: inline-flex;
+      float: right;
     }
     
     /* Mobile: brand text stacking */
@@ -1576,22 +1613,20 @@ function updateMobileMenuContent() {
   
   mobileMenuFooter.appendChild(footerContent);
   
-  // Add contact toggle functionality
-  setTimeout(() => {
-    const contactToggle = document.getElementById('mobileMenuContactToggle');
-    const contactContent = document.getElementById('mobileMenuContactContent');
-    
-    if (contactToggle && contactContent) {
-      contactToggle.addEventListener('click', function() {
-        const isExpanded = contactContent.style.display === 'block';
-        contactContent.style.display = isExpanded ? 'none' : 'block';
-        const icon = this.querySelector('.fa-chevron-down');
-        if (icon) {
-          icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-        }
-      });
-    }
-  }, 100);
+  // CHANGED: Fixed contact toggle functionality - attach event listener immediately
+  const contactToggleEl = document.getElementById('mobileMenuContactToggle');
+  const contactContentEl = document.getElementById('mobileMenuContactContent');
+  
+  if (contactToggleEl && contactContentEl) {
+    contactToggleEl.addEventListener('click', function() {
+      const isExpanded = contactContentEl.style.display === 'block';
+      contactContentEl.style.display = isExpanded ? 'none' : 'block';
+      const icon = this.querySelector('.fa-chevron-down');
+      if (icon) {
+        icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    });
+  }
 }
 
 // Event listeners for language dropdown
