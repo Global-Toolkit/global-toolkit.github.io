@@ -460,10 +460,11 @@
     margin-top: 35px;
   }
   
-  /* CHANGED: Desktop header margin-top from 35 to 37px */
+  /* CHANGED: Desktop header margin-top from 35 to 52
+  px */
   @media (min-width: 768px) {
     header {
-      margin-top: 37px;
+      margin-top: 52px;
     }
   }
   
@@ -495,7 +496,8 @@
   /* CHANGED: Desktop - increase Top from 33px to 37px */
   @media (min-width: 768px) {
     .brand-container {
-      top: 37px;
+      top: 44px;
+      left: 2px;
     }
   }
   
@@ -521,8 +523,8 @@
   /* NEW: Top Controls (outside header) - UPDATED */
   .top-controls-container {
     position: fixed;
-    top: 51px; /* CHANGED: Desktop - increased from 43px to 51px */
-    right: 15px; /* Desktop: Changed from 20px to 15px */
+    top: 59px; /* CHANGED: Desktop - increased from 43px to 51px */
+    right: 20px; /* Desktop: Changed from 20px to 15px */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -958,9 +960,10 @@
       gap: 3px; /* Mobile: Changed from 10px to 3px */
     }
     
-    /* Mobile: currency selector gap */
+    /* Mobile: Hide currency selector on mobile */
     .currency-selector {
       gap: 0px; /* Mobile: Changed from 3px to 0px */
+      display: none; /* Mobile: Hide currency selector on mobile */
     }
     
     /* Mobile: brand text stacking */
