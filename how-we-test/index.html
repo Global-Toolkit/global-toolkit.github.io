@@ -699,7 +699,15 @@
   .mobile-menu {
     overflow-y: auto;
   }
-  
+
+  /* Ensure mobile menu is scrollable on smaller devices */
+  @media (max-width: 767px) {
+  /* Ensure mobile menu is scrollable */
+  .mobile-menu {
+    height: 80vh;
+  }
+  }
+
   .mobile-menu.active {
     right: 0;
   }
