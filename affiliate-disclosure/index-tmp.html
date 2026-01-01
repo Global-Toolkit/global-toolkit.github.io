@@ -223,7 +223,7 @@
   
   @media (max-width: 767px) {
     header {
-      margin-top: 65px;
+      margin-top: -17px;
     }
   }
   
@@ -248,8 +248,8 @@
   @media (max-width: 767px) {
     .brand-container {
       position: relative;
-      top: auto;
-      left: auto;
+      top: 7px;
+      left: 7px;
       display: inline-flex;
       margin-bottom: 20px;
     }
@@ -300,12 +300,12 @@
   /* Make non-sticky on mobile */
   @media (max-width: 767px) {
     .top-controls-container {
-      position: relative;
-      top: auto;
-      right: auto;
+      position: absolute;
+      top: 21px;
+      right: -235px;
       display: inline-flex;
       margin-bottom: 20px;
-      justify-content: center;
+      justify-content: left;
       width: 100%;
     }
   }
@@ -992,11 +992,14 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <!-- UPDATED: Share Feedback link with language-based href -->
-            <a href="#" class="connect-link" id="shareFeedbackLink">
+            <!-- UPDATED: Share Feedback hrefs with language-based URLs -->
+            <a href="https://global-toolkit.github.io/?lang=en#feedback" class="connect-link lang-en">
               <i class="fas fa-comment-alt"></i>
-              <span class="lang-en">Share Feedback</span>
-              <span class="lang-fr">Partager Retour</span>
+              <span>Share Feedback</span>
+            </a>
+            <a href="https://global-toolkit.github.io/?lang=fr#feedback" class="connect-link lang-fr">
+              <i class="fas fa-comment-alt"></i>
+              <span>Share Feedback</span>
             </a>
           </div>
         </div>
@@ -1064,9 +1067,6 @@ function switchLanguage(lang) {
   
   // Update mobile menu content
   updateMobileMenuContent();
-  
-  // Update Share Feedback link
-  updateShareFeedbackLink();
 }
 
 // Function to get language from URL parameter
@@ -1121,18 +1121,6 @@ function updateAllLinks(lang) {
   const brandLink = document.getElementById('brandLink');
   if (brandLink) {
     brandLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
-  }
-}
-
-// Update Share Feedback link based on language
-function updateShareFeedbackLink() {
-  const shareFeedbackLink = document.getElementById('shareFeedbackLink');
-  if (shareFeedbackLink) {
-    if (currentLang === 'fr') {
-      shareFeedbackLink.href = 'https://global-toolkit.github.io/?lang=fr#feedback';
-    } else {
-      shareFeedbackLink.href = 'https://global-toolkit.github.io/?lang=en#feedback';
-    }
   }
 }
 
@@ -1332,7 +1320,7 @@ function updateMobileMenuContent() {
   feedbackIcon.className = 'fas fa-comment-alt';
   
   const feedbackText = document.createElement('span');
-  feedbackText.textContent = currentLang === 'fr' ? 'Partager Retour' : 'Share Feedback';
+  feedbackText.textContent = 'Share Feedback';
   
   feedbackItem.appendChild(feedbackIcon);
   feedbackItem.appendChild(feedbackText);
@@ -1380,22 +1368,32 @@ function updateMobileMenuContent() {
   
   mobileMenuFooter.appendChild(footerContent);
   
-  // Add contact toggle functionality
+  // FIXED: Contact toggle functionality - attach event listener immediately
+  // Wait a tiny moment for DOM to be fully updated
   setTimeout(() => {
-    const contactToggle = document.getElementById('mobileMenuContactToggle');
-    const contactContent = document.getElementById('mobileMenuContactContent');
+    const contactToggleEl = document.getElementById('mobileMenuContactToggle');
+    const contactContentEl = document.getElementById('mobileMenuContactContent');
     
-    if (contactToggle && contactContent) {
-      contactToggle.addEventListener('click', function() {
-        const isExpanded = contactContent.style.display === 'block';
-        contactContent.style.display = isExpanded ? 'none' : 'block';
-        const icon = this.querySelector('.fa-chevron-down');
-        if (icon) {
-          icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-        }
-      });
+    if (contactToggleEl && contactContentEl) {
+      // Remove any existing event listeners to avoid duplicates
+      const newContactToggleEl = contactToggleEl.cloneNode(true);
+      contactToggleEl.parentNode.replaceChild(newContactToggleEl, contactToggleEl);
+      
+      // Re-get the element after cloning
+      const refreshedContactToggleEl = document.getElementById('mobileMenuContactToggle');
+      
+      if (refreshedContactToggleEl) {
+        refreshedContactToggleEl.addEventListener('click', function() {
+          const isExpanded = contactContentEl.style.display === 'block';
+          contactContentEl.style.display = isExpanded ? 'none' : 'block';
+          const icon = this.querySelector('.fa-chevron-down');
+          if (icon) {
+            icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+          }
+        });
+      }
     }
-  }, 100);
+  }, 10);
 }
 
 // Event listeners for language dropdown
@@ -1454,7 +1452,6 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
 document.addEventListener('DOMContentLoaded', function() {
   initializeLanguage();
   setupMobileMenu();
-  updateShareFeedbackLink();
   
   // Update all links
   updateAllLinks(currentLang);
