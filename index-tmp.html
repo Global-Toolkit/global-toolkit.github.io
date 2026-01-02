@@ -832,10 +832,10 @@
     margin-top: 35px;
   }
   
-  /* CHANGED: Desktop header margin-top from 35 to 37px */
+  /* CHANGED: Desktop header margin-top from 35 to 52px */
   @media (min-width: 768px) {
     header {
-      margin-top: 37px;
+      margin-top: 52px;
     }
   }
   
@@ -864,10 +864,11 @@
     cursor: pointer;
   }
   
-  /* CHANGED: Desktop - increase Top from 33px to 37px */
+  /* CHANGED: Desktop - increase Top from 33px to 44px */
   @media (min-width: 768px) {
     .brand-container {
-      top: 37px;
+      top: 44px;
+      left: 2px; /* Desktop: Changed to 2px */
     }
   }
   
@@ -893,8 +894,8 @@
   /* NEW: Top Controls (outside header) - UPDATED */
   .top-controls-container {
     position: fixed;
-    top: 51px; /* CHANGED: Desktop - increased from 43px to 51px */
-    right: 15px; /* Desktop: Changed from 20px to 15px */
+    top: 58px; /* CHANGED: Desktop - increased from 43px to 58px */
+    right: 20px; /* Desktop: Changed to 20px */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1064,12 +1065,14 @@
     padding: 20px;
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
-  
-  /* CHANGED: Ensure mobile menu is scrollable */
+
+  @media (max-width: 767px) {
+  /* Ensure mobile menu is scrollable */
   .mobile-menu {
-    overflow-y: auto;
+    height: 80vh;
   }
-  
+  }
+
   .mobile-menu.active {
     right: 0;
   }
@@ -1162,7 +1165,7 @@
   
   .mobile-menu-link {
     display: block;
-    padding: 5px 0; /* Changed from 12px 0 to 5px 0 */
+    padding: 7px 0; /* Changed from 12px to 7px 0 */
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
@@ -3290,8 +3293,14 @@ function setupMobileMenu() {
 function showSubmenu(category) {
   currentSubmenu = category;
   const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
   
   if (!mobileMenuContent) return;
+  
+  // Hide the mobile menu footer in submenu
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'none';
+  }
   
   // Get subcategory data
   const subcategoryData = subcategories[category];
@@ -3337,6 +3346,12 @@ function showSubmenu(category) {
 function showMainMenu() {
   currentSubmenu = null;
   updateMobileMenuContent();
+  
+  // Show the mobile menu footer again when returning to main menu
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'block';
+  }
 }
 
 function updateMobileMenuContent() {
