@@ -1,0 +1,1937 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<title>Privacy Policy - Global Toolkit</title>
+<meta name="description" content="Global Toolkit's Privacy Policy - Learn how we handle your information and protect your data privacy." />
+
+<!-- OpenGraph -->
+<meta property="og:title" content="Privacy Policy - Global Toolkit" />
+<meta property="og:description" content="Learn how Global Toolkit handles your information and protects your data privacy." />
+<meta property="og:image" content="https://global-toolkit.github.io/assets/og-image.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://global-toolkit.github.io/privacy" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root{
+    --navy1:#072a4a;
+    --blue1:#0e66d2;
+    --accent:#0e69d4;
+    --gradient-start:#0e66d2;
+    --gradient-end:#4a90e2;
+    --electric-blue:#00d4ff;
+    --neon-purple:#9d4edd;
+    --success:#00d98b;
+    --warning:#ffb74d;
+    --bg:#0a0f1c;
+    --card:#111827;
+    --muted:#94a3b8;
+    --text-light:#f1f5f9;
+    --maxw:1100px;
+    --gap:18px;
+    --shadow-sm:0 4px 12px rgba(0, 212, 255, 0.1);
+    --shadow-md:0 8px 24px rgba(0, 212, 255, 0.15);
+    --shadow-lg:0 12px 32px rgba(0, 212, 255, 0.2);
+    --glow:0 0 20px rgba(0, 212, 255, 0.3);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  /* Global Styles */
+  html { scroll-behavior: smooth; }
+  
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-light);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(14, 102, 210, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 25%),
+      linear-gradient(to bottom, #0a0f1c, #0d1424);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* Mobile scroll margin for anchor links to avoid overlap with fixed elements */
+  @media (max-width: 767px) {
+    :target {
+      scroll-margin-top: 90px; /* CHANGED: Decreased from 120px to 90px */
+    }
+  }
+  
+  /* PRIVACY DISCLOSURE BANNER - UPDATED */
+  .disclosure-banner {
+    background: linear-gradient(90deg, rgba(14, 102, 210, 0.15), rgba(157, 78, 221, 0.15));
+    padding: 10px 0;
+    text-align: center;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* CHANGED: Make banner non-sticky on mobile */
+  @media (max-width: 767px) {
+    .disclosure-banner {
+      position: relative;
+      top: 4;
+    }
+  }
+  
+  .disclosure-banner .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .disclosure-banner .muted {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+  }
+  
+  /* Privacy Content Styles */
+  .privacy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  
+  /* CHANGED: Decreased padding for desktop */
+  @media (min-width: 768px) {
+    .privacy-container {
+      padding: 10px 0; /* CHANGED: from 40px to 10px */
+    }
+  }
+  
+  .privacy-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .privacy-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .privacy-date {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  /* Illustration Container */
+  .privacy-illustration {
+    text-align: center;
+    /* CHANGED: Decreased margin-bottom from 40px to 30px */
+    margin-bottom: 30px;
+  }
+  
+  .privacy-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(14, 102, 210, 0.1), rgba(157, 78, 221, 0.1));
+    border-radius: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .privacy-icon i {
+    font-size: 48px;
+    color: var(--electric-blue);
+  }
+  
+  /* Privacy Content Sections */
+  .privacy-section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .privacy-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--electric-blue);
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+    padding-bottom: 8px;
+  }
+  
+  .privacy-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin: 20px 0 10px;
+  }
+  
+  .privacy-section p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .privacy-section ul {
+    color: var(--muted);
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .privacy-section li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  /* Keep existing styles for unchanged elements */
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  /* Header margins - FIXED: Ensure proper override */
+  header {
+    padding: 0px 18px; /* Changed from 18px to 0px 18px */
+    border-radius: 16px;
+    background: rgba(17, 24, 39, 0.85);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg), var(--glow);
+    /* CHANGED: margin-bottom from 20 to 50px */
+    margin-bottom: 50px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    /* Base value will be overridden by media queries below */
+    margin-top: 35px;
+  }
+  
+  /* CHANGED: Desktop header margin-top from 35 to 37px */
+  @media (min-width: 768px) {
+    header {
+      margin-top: 37px;
+    }
+  }
+  
+  /* CHANGED: Mobile header margin-top from 35 to -40px */
+  @media (max-width: 767px) {
+    header {
+      margin-top: -40px;
+    }
+  }
+  
+  /* NEW: Brand Container (outside header) - UPDATED */
+  .brand-container {
+    position: fixed;
+    top: 33px; /* CHANGED: Desktop - decreased from 51px to 33px */
+    left: -4px; /* Changed from 20px to 4px */
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Changed from 5px to 1px */
+    z-index: 2000;
+    border-radius: 12px;
+    padding: 8px 12px;
+    /* CHANGED: Removed background and border to make container invisible */
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    cursor: pointer;
+  }
+  
+  /* CHANGED: Unstick brand-container on mobile */
+  @media (max-width: 767px) {
+    .brand-container {
+      position: relative;
+      top: auto;
+      left: auto;
+      margin: 10px 0 5px 15px;
+      display: inline-flex;
+    }
+  }
+  
+  /* CHANGED: Desktop - increase Top from 33px to 37px */
+  @media (min-width: 768px) {
+    .brand-container {
+      top: 37px;
+    }
+  }
+  
+  .brand-logo {
+    height: 40px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 0px 0px rgba(0, 212, 255, 0.3);
+  }
+  
+  .brand {
+    font-weight: 800;
+    font-size: 22px; /* Changed from 25px to 22px */
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  
+  /* NEW: Top Controls (outside header) - UPDATED: Removed currency selector */
+  .top-controls-container {
+    position: fixed;
+    top: 51px; /* CHANGED: Desktop - increased from 43px to 51px */
+    right: 15px; /* Desktop: Changed from 20px to 15px */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 12px;
+    padding: 0px; /* Changed from 8px to 0px */
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* CHANGED: Unstick top-controls-container on mobile */
+  @media (max-width: 767px) {
+    .top-controls-container {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin: 5px 15px 15px auto;
+      display: inline-flex;
+      float: right;
+    }
+  }
+  
+  /* Language Selector - Updated */
+  .lang-selector {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .lang-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 5px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .lang-dropdown-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--electric-blue);
+  }
+  
+  .lang-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    min-width: 160px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .lang-dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    padding: 2px 30px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  }
+  
+  .lang-option:last-child {
+    border-bottom: none;
+  }
+  
+  .lang-option:hover {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--electric-blue);
+  }
+  
+  .lang-option.active {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--electric-blue);
+  }
+  
+  .lang-option .coming-soon {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  
+  /* Menu Button */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--electric-blue);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 3000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    padding: 20px;
+    border-left: 1px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  @media (max-width: 767px) {
+    /* Ensure mobile menu scrolls properly on small screens */
+    .mobile-menu {
+      height: 80vh;
+    }
+  }
+
+  /* CHANGED: Ensure mobile menu is scrollable */
+  .mobile-menu {
+    overflow-y: auto;
+  }
+  
+  .mobile-menu.active {
+    right: 0;
+  }
+  
+  /* CHANGED: Increased margin-bottom from 10 to 30px */
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px; /* Changed from 10px to 30px */
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
+  }
+  
+  .mobile-menu-logo {
+    height: 40px;
+    border-radius: 10px;
+  }
+  
+  .mobile-menu-brand {
+    font-size: 23px; /* Changed from 20px to 23px */
+    font-weight: 700;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-close {
+    background: transparent;
+    border: none;
+    color: var(--electric-blue);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-close:hover {
+    background: rgba(0, 212, 255, 0.1);
+  }
+  
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Changed from 20px to 0px */
+  }
+  
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2999;
+    display: none;
+    backdrop-filter: blur(5px);
+  }
+  
+  .mobile-menu-overlay.active {
+    display: block;
+  }
+  
+  .mobile-menu-footer {
+    margin-top: 17px; /* Changed from 30px to 17px */
+    padding-top: 20px;
+    border-top: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
+  }
+  
+  .mobile-menu-section {
+    margin-bottom: 5px; /* Changed from 20px to 5px */
+  }
+  
+  .mobile-menu-section h3 {
+    color: var(--electric-blue);
+    margin-bottom: 10px;
+    font-size: 19px; /* Changed from 16px to 19px */
+    font-weight: 600;
+  }
+  
+  .mobile-menu-link {
+    display: block;
+    padding: 7px 0; /* Changed from 12px 0 to 7px 0 */
+    color: var(--text-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    font-size: 16px; /* Changed from 14px to 16px */
+  }
+  
+  .mobile-menu-link:hover {
+    color: var(--electric-blue);
+  }
+  
+  .mobile-menu-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 1px 0; /* Changed from 8px 0 to 1px 0 */
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 17px; /* Changed from 14px to 17px */
+  }
+  
+  .mobile-menu-contact-item:hover {
+    color: var(--electric-blue);
+  }
+  
+  /* NEW: Mobile submenu styles */
+  .mobile-menu-submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  .mobile-menu-submenu.active {
+    display: block;
+  }
+  
+  .mobile-submenu-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .mobile-submenu-back {
+    background: transparent;
+    border: none;
+    color: var(--electric-blue);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-submenu-back:hover {
+    background: rgba(0, 212, 255, 0.1);
+  }
+  
+  .mobile-submenu-title {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+  
+  .mobile-submenu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  
+  /* Updated Footer */
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+  }
+  
+  .footer-column h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .footer-column a {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column a:hover {
+    color: var(--electric-blue);
+  }
+  
+  /* Connect Section - Updated */
+  .connect-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: center;
+  }
+  
+  .connect-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap; /* Ensures icon and text stay on same line */
+  }
+  
+  .connect-link:hover {
+    color: var(--electric-blue);
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    .privacy-container {
+      padding: 10px 0; /* CHANGED: from 40px to 10px */
+    }
+    
+    .privacy-title {
+      font-size: 42px;
+    }
+    
+    .footer-links { grid-template-columns: repeat(4, 1fr); }
+    /* CHANGED: Align connect links with other sections on desktop */
+    .footer-column:last-child {
+      align-items: center;
+    }
+    .connect-links {
+      align-items: center;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .footer-links { grid-template-columns: repeat(4, 1fr); }
+    .privacy-title {
+      font-size: 48px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-links { grid-template-columns: 1fr; }
+    /* Mobile disclosure banner font size */
+    .disclosure-banner {
+      font-size: 12px;
+    }
+    .disclosure-banner .muted {
+      font-size: 12px;
+    }
+  }
+  
+  .footer {
+    margin-top: 35px;
+    padding: 25px 20px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: rgba(0, 212, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.3s;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .muted {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* Language classes */
+  .lang-en { display: block; }
+  .lang-fr { display: none; }
+  
+  /* Coming soon message style */
+  .coming-soon-msg {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--electric-blue);
+    font-style: italic;
+    animation: fadeInOut 2s ease;
+  }
+  
+  /* NEW: Footer links in single line */
+  .footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .footer-bottom-links a {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .footer-bottom-links a:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 767px) {
+    /* Mobile: brand container */
+    .brand-container {
+      position: relative;
+      top: auto;
+      left: auto;
+      margin: 3px 0 5px 12px;
+      display: inline-flex;
+    }
+    
+    /* Mobile: top controls container */
+    .top-controls-container {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin: 17px 15px 15px auto;
+      display: inline-flex;
+      float: right;
+    }
+    
+    /* Mobile: brand text stacking */
+    .brand {
+      flex-direction: column;
+      line-height: 1;
+      font-size: 16px;
+    }
+    
+    .brand-line-1, .brand-line-2 {
+      display: block;
+      line-height: 0.95;
+    }
+    
+    .brand-line-1 {
+      margin-bottom: -2px;
+    }
+  }
+  
+  /* Desktop-specific styles */
+  @media (min-width: 768px) {
+    /* Desktop: brand text single line */
+    .brand {
+      flex-direction: row;
+      gap: 5px;
+    }
+    
+    .brand-line-1, .brand-line-2 {
+      display: inline;
+    }
+  }
+</style>
+</head>
+<body>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+<!-- Mobile Menu - UPDATED TO MATCH HOME PAGE -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="https://global-toolkit.github.io/" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
+      <div class="mobile-menu-brand">Global Toolkit</div>
+    </a>
+    <button class="mobile-menu-close" id="mobileMenuClose">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  
+  <div class="mobile-menu-content" id="mobileMenuContent">
+    <!-- Menu content will be populated with JavaScript -->
+  </div>
+  
+  <div class="mobile-menu-footer">
+    <!-- Footer content will be populated here -->
+  </div>
+</div>
+
+<!-- Brand Container (outside header) - CHANGED: Now clickable -->
+<a id="brandLink" style="text-decoration: none;">
+  <div class="brand-container" id="brandContainer">
+    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
+    <div class="brand">
+      <span class="brand-line-1">Global</span>
+      <span class="brand-line-2">Toolkit</span>
+    </div>
+  </div>
+</a>
+
+<!-- Top Controls (outside header) - REMOVED: currency-selector -->
+<div class="top-controls-container" id="topControlsContainer">
+  <div class="lang-selector">
+    <button class="lang-dropdown-btn" id="langDropdownBtn">
+      <i class="fas fa-globe"></i>
+      <span id="currentLangText">English</span>
+      <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+    </button>
+    <div class="lang-dropdown-content" id="langDropdown">
+      <a href="#" class="lang-option active" data-lang="en">
+        <span>English</span>
+      </a>
+      <a href="#" class="lang-option" data-lang="fr">
+        <span>Français</span>
+      </a>
+      <!-- CHANGED: Added Español option back -->
+      <a href="#" class="lang-option" data-lang="es">
+        <span>Español</span>
+        <span class="coming-soon">(soon)</span>
+      </a>
+    </div>
+  </div>
+  
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+<!-- UPDATED: Privacy Disclosure Banner -->
+<div class="disclosure-banner">
+  <div class="wrap">
+    <div class="muted lang-en">
+      Your data privacy matters. This page explains how information is handled on Global Toolkit.
+    </div>
+    <div class="muted lang-fr">
+      La confidentialité de vos données est importante. Cette page explique comment les informations sont traitées sur Global Toolkit.
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- REMOVED: Trust badges section as requested -->
+  <header>
+    <!-- REMOVED: Trust badges section -->
+  </header>
+
+  <main>
+    <!-- Privacy Policy Content -->
+    <div class="privacy-container">
+      <!-- Privacy Illustration -->
+      <div class="privacy-illustration">
+        <div class="privacy-icon">
+          <i class="fas fa-lock"></i>
+          <i class="fas fa-shield-alt" style="position: absolute; font-size: 24px; margin-left: 30px; margin-top: 20px;"></i>
+        </div>
+      </div>
+      
+      <!-- Privacy Header -->
+      <div class="privacy-header">
+        <h1 class="privacy-title lang-en">Privacy Policy</h1>
+        <h1 class="privacy-title lang-fr">Politique de Confidentialité</h1>
+        
+        <div class="privacy-date lang-en">Last Updated: December 2025</div>
+        <div class="privacy-date lang-fr">Dernière mise à jour : Décembre 2025</div>
+      </div>
+      
+      <!-- UPDATED: New Privacy Content - Completely rewritten -->
+      <div class="privacy-section">
+        <h2 class="lang-en">1. Our Commitment to Your Privacy</h2>
+        <h2 class="lang-fr">1. Notre engagement envers votre confidentialité</h2>
+        
+        <p class="lang-en">
+          At Global Toolkit, we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website and use our services. We respect your privacy rights and strive to be transparent about our data practices.
+        </p>
+        <p class="lang-fr">
+          Chez Global Toolkit, nous nous engageons à protéger votre vie privée et vos informations personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos données lorsque vous visitez notre site Web et utilisez nos services. Nous respectons vos droits à la vie privée et nous efforçons d'être transparents concernant nos pratiques en matière de données.
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">2. Information We Collect</h2>
+        <h2 class="lang-fr">2. Informations que nous collectons</h2>
+        
+        <p class="lang-en">
+          We collect different types of information to provide and improve our services:
+        </p>
+        <p class="lang-fr">
+          Nous collectons différents types d'informations pour fournir et améliorer nos services :
+        </p>
+        
+        <h3 class="lang-en">Information You Provide Directly</h3>
+        <h3 class="lang-fr">Informations que vous fournissez directement</h3>
+        
+        <ul class="lang-en">
+          <li>Contact information when you reach out to us</li>
+          <li>Feedback and survey responses</li>
+          <li>Subscription preferences for newsletters</li>
+          <li>Information provided through forms or contact methods</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Informations de contact lorsque vous nous contactez</li>
+          <li>Retours d'expérience et réponses aux enquêtes</li>
+          <li>Préférences d'abonnement aux newsletters</li>
+          <li>Informations fournies via des formulaires ou méthodes de contact</li>
+        </ul>
+        
+        <h3 class="lang-en">Automatically Collected Information</h3>
+        <h3 class="lang-fr">Informations collectées automatiquement</h3>
+        
+        <ul class="lang-en">
+          <li>Device and browser information</li>
+          <li>IP address and approximate location</li>
+          <li>Pages visited and time spent on our site</li>
+          <li>Referring website or search terms</li>
+          <li>Usage patterns and preferences</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Informations sur l'appareil et le navigateur</li>
+          <li>Adresse IP et localisation approximative</li>
+          <li>Pages visitées et temps passé sur notre site</li>
+          <li>Site Web référent ou termes de recherche</li>
+          <li>Modèles d'utilisation et préférences</li>
+        </ul>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">3. How We Use Your Information</h2>
+        <h2 class="lang-fr">3. Comment nous utilisons vos informations</h2>
+        
+        <p class="lang-en">
+          We use the information we collect for legitimate business purposes, including:
+        </p>
+        <p class="lang-fr">
+          Nous utilisons les informations que nous collectons à des fins commerciales légitimes, notamment :
+        </p>
+        
+        <ul class="lang-en">
+          <li>Providing and improving our website services</li>
+          <li>Personalizing your experience and content recommendations</li>
+          <li>Responding to your inquiries and providing support</li>
+          <li>Analyzing usage patterns to enhance our platform</li>
+          <li>Sending important updates about our services</li>
+          <li>Preventing fraud and ensuring security</li>
+          <li>Complying with legal obligations</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Fournir et améliorer les services de notre site Web</li>
+          <li>Personnaliser votre expérience et les recommandations de contenu</li>
+          <li>Répondre à vos demandes et fournir un support</li>
+          <li>Analyser les modèles d'utilisation pour améliorer notre plateforme</li>
+          <li>Envoyer des mises à jour importantes concernant nos services</li>
+          <li>Prévenir la fraude et assurer la sécurité</li>
+          <li>Se conformer aux obligations légales</li>
+        </ul>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">4. Information Sharing and Disclosure</h2>
+        <h2 class="lang-fr">4. Partage et divulgation d'informations</h2>
+        
+        <p class="lang-en">
+          We respect your privacy and do not sell your personal information. We may share your information only in these specific circumstances:
+        </p>
+        <p class="lang-fr">
+          Nous respectons votre vie privée et ne vendons pas vos informations personnelles. Nous pouvons partager vos informations uniquement dans ces circonstances spécifiques :
+        </p>
+        
+        <ul class="lang-en">
+          <li><strong>Service Providers:</strong> With trusted partners who help us operate our website and services, under strict confidentiality agreements</li>
+          <li><strong>Legal Requirements:</strong> When required by law, court order, or government request</li>
+          <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+          <li><strong>Protection of Rights:</strong> To protect our rights, property, or safety, or those of others</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li><strong>Prestataires de services :</strong> Avec des partenaires de confiance qui nous aident à exploiter notre site Web et nos services, sous des accords de confidentialité stricts</li>
+          <li><strong>Exigences légales :</strong> Lorsque requis par la loi, ordonnance du tribunal ou demande gouvernementale</li>
+          <li><strong>Transferts d'entreprise :</strong> Dans le cadre d'une fusion, acquisition ou vente d'actifs</li>
+          <li><strong>Protection des droits :</strong> Pour protéger nos droits, notre propriété ou notre sécurité, ou ceux d'autrui</li>
+        </ul>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">5. Data Security and Protection</h2>
+        <h2 class="lang-fr">5. Sécurité et protection des données</h2>
+        
+        <p class="lang-en">
+          We implement appropriate technical and organizational measures to protect your personal information:
+        </p>
+        <p class="lang-fr">
+          Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos informations personnelles :
+        </p>
+        
+        <ul class="lang-en">
+          <li>Secure server infrastructure with encryption</li>
+          <li>Regular security assessments and updates</li>
+          <li>Access controls and authentication measures</li>
+          <li>Employee training on data protection</li>
+          <li>Regular backup and recovery procedures</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li>Infrastructure de serveur sécurisée avec chiffrement</li>
+          <li>Évaluations de sécurité et mises à jour régulières</li>
+          <li>Contrôles d'accès et mesures d'authentification</li>
+          <li>Formation des employés sur la protection des données</li>
+          <li>Procédures régulières de sauvegarde et de récupération</li>
+        </ul>
+        
+        <p class="lang-en">
+          While we strive to protect your personal information, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security but we continuously work to maintain high security standards.
+        </p>
+        <p class="lang-fr">
+          Bien que nous nous efforcions de protéger vos informations personnelles, aucune méthode de transmission sur Internet ou de stockage électronique n'est sûre à 100%. Nous ne pouvons pas garantir une sécurité absolue, mais nous travaillons continuellement pour maintenir des normes de sécurité élevées.
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">6. Your Rights and Choices</h2>
+        <h2 class="lang-fr">6. Vos droits et choix</h2>
+        
+        <p class="lang-en">
+          Depending on your location, you may have certain rights regarding your personal information:
+        </p>
+        <p class="lang-fr">
+          En fonction de votre localisation, vous pouvez avoir certains droits concernant vos informations personnelles :
+        </p>
+        
+        <ul class="lang-en">
+          <li><strong>Access:</strong> Request access to your personal information</li>
+          <li><strong>Correction:</strong> Request correction of inaccurate information</li>
+          <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+          <li><strong>Restriction:</strong> Request restriction of processing</li>
+          <li><strong>Objection:</strong> Object to certain processing activities</li>
+          <li><strong>Data Portability:</strong> Request transfer of your data</li>
+        </ul>
+        
+        <ul class="lang-fr">
+          <li><strong>Accès :</strong> Demander l'accès à vos informations personnelles</li>
+          <li><strong>Correction :</strong> Demander la correction d'informations inexactes</li>
+          <li><strong>Suppression :</strong> Demander la suppression de vos informations personnelles</li>
+          <li><strong>Restriction :</strong> Demander la restriction du traitement</li>
+          <li><strong>Opposition :</strong> Vous opposer à certaines activités de traitement</li>
+          <li><strong>Portabilité des données :</strong> Demander le transfert de vos données</li>
+        </ul>
+        
+        <p class="lang-en">
+          To exercise these rights or for any privacy-related questions, please contact us using the information provided in the "Contact Us" section.
+        </p>
+        <p class="lang-fr">
+          Pour exercer ces droits ou pour toute question liée à la confidentialité, veuillez nous contacter en utilisant les informations fournies dans la section "Contactez-nous".
+        </p>
+      </div>
+      
+      <div class="privacy-section">
+        <h2 class="lang-en">7. Contact Us</h2>
+        <h2 class="lang-fr">7. Contactez-nous</h2>
+        
+        <p class="lang-en">
+          If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+        </p>
+        <p class="lang-fr">
+          Si vous avez des questions, des préoccupations ou des demandes concernant cette Politique de Confidentialité ou nos pratiques en matière de données, veuillez nous contacter :
+        </p>
+        
+        <p class="lang-en">
+          Email: globaltoolkit.contact@gmail.com
+        </p>
+        <p class="lang-fr">
+          E-mail : globaltoolkit.contact@gmail.com
+        </p>
+        
+        <p class="lang-en">
+          We will respond to your inquiry as soon as possible, typically within 30 days.
+        </p>
+        <p class="lang-fr">
+          Nous répondrons à votre demande dès que possible, généralement dans les 30 jours.
+        </p>
+      </div>
+    </div>
+
+    <!-- UPDATED FOOTER WITH MORE LINKS -->
+    <div class="footer">
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4 class="lang-en">Categories</h4>
+          <h4 class="lang-fr">Catégories</h4>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
+          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
+          <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
+          <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
+          <!-- CHANGED: "Payment Processors" to "Payment Services" -->
+          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
+          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Resources</h4>
+          <h4 class="lang-fr">Ressources</h4>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy">Privacy</a>
+          <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
+          <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
+          <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
+          <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
+          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
+          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Tools</h4>
+          <h4 class="lang-fr">Outils</h4>
+          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Comparison Calculator</a>
+          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Calculateur Comparatif</a>
+          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Deals Tracker</a>
+          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Suivi Offres</a>
+          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Beginner Guides</a>
+          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Guides Débutants</a>
+        </div>
+        <div class="footer-column">
+          <h4 class="lang-en">Connect</h4>
+          <h4 class="lang-fr">Contact</h4>
+          <!-- UPDATED: Connect links layout with icon for Share Feedback -->
+          <div class="connect-links">
+            <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
+              <i class="fas fa-envelope"></i>
+              <span>Email</span>
+            </a>
+            <a href="https://www.facebook.com/GlobalToolkit" class="connect-link">
+              <i class="fab fa-facebook"></i>
+              <span>Facebook</span>
+            </a>
+            <!-- UPDATED: Share Feedback with language-specific href -->
+            <a href="https://global-toolkit.github.io/?lang=en#feedback" class="connect-link" id="shareFeedbackLink">
+              <i class="fas fa-comment-alt"></i>
+              <span>Share Feedback</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- NEW: Footer bottom links in single line -->
+      <div class="footer-bottom-links">
+        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
+        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
+        <span class="separator">|</span>
+        <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
+        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
+        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
+        <span class="separator">|</span>
+        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
+        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
+      </div>
+      
+      <div style="height:6px"></div>
+      <div class="muted lang-en"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
+      <div class="muted lang-fr"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
+      <div style="height:6px"></div>
+      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
+      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils & Offres Exclusives</div>
+    </div>
+  </main>
+</div>
+
+<script>
+// Language switching functionality
+let currentLang = 'en';
+
+// Mobile menu state
+let currentSubmenu = null;
+
+// Subcategories data structure - UPDATED WITH CORRECTED URLs
+const subcategories = {
+  'saas': {
+    title: { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    items: [
+      { 
+        en: 'Business SaaS', 
+        fr: 'SaaS Professionnel', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Business-SaaS/index.html' 
+      },
+      { 
+        en: 'Performance & Security', 
+        fr: 'Performance & Sécurité', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Performance-&-Security/index.html' 
+      },
+      { 
+        en: 'Web Hosting', 
+        fr: 'Hébergement Web', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Web-Hosting/index.html' 
+      },
+      { 
+        en: 'Website Platforms & CMS', 
+        fr: 'Plateformes Web & CMS', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
+      }
+    ]
+  },
+  'tools': {
+    title: { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    items: [
+      { 
+        en: 'Automation Platforms', 
+        fr: 'Plateformes d\'Automatisation', 
+        url: 'https://global-toolkit.github.io/online-tools/Automation-tools/index.html' 
+      },
+      { 
+        en: 'Productivity Tools', 
+        fr: 'Outils de Productivité', 
+        url: 'https://global-toolkit.github.io/online-tools/Productivity-tools/index.html' 
+      },
+      { 
+        en: 'VPN Services', 
+        fr: 'Services VPN', 
+        url: 'https://global-toolkit.github.io/online-tools/VPN-services/index.html' 
+      },
+      { 
+        en: 'Website Builders', 
+        fr: 'Constructeurs de Sites', 
+        url: 'https://global-toolkit.github.io/online-tools/Website-Builders/index.html' 
+      }
+    ]
+  },
+  'payments': {
+    title: { en: 'Payment Services', fr: 'Services de Paiement' },
+    items: [
+      { 
+        en: 'Digital Wallets & Cards', 
+        fr: 'Portefeuilles & Cartes Numériques', 
+        url: 'https://global-toolkit.github.io/payment-services/Digital-Wallets-&-Cards/index.html' 
+      },
+      { 
+        en: 'Merchant Payment Processors', 
+        fr: 'Processeurs de Paiement', 
+        url: 'https://global-toolkit.github.io/payment-services/Merchant-Payment-Processors/index.html' 
+      },
+      { 
+        en: 'Multi-Currency Accounts', 
+        fr: 'Comptes Multi-Devises', 
+        url: 'https://global-toolkit.github.io/payment-services/Multi-Currency-Accounts/index.html' 
+      }
+    ]
+  }
+};
+
+// Function to switch language
+function switchLanguage(lang) {
+  currentLang = lang;
+  
+  const enElements = document.querySelectorAll('.lang-en');
+  const frElements = document.querySelectorAll('.lang-fr');
+  
+  if (lang === 'fr') {
+    enElements.forEach(el => el.style.display = 'none');
+    frElements.forEach(el => el.style.display = 'block');
+    
+    document.documentElement.setAttribute('lang', 'fr');
+    localStorage.setItem('preferredLanguage', 'fr');
+    updateAllLinks('fr');
+    
+    // Update Share Feedback link for French
+    const shareFeedbackLink = document.getElementById('shareFeedbackLink');
+    if (shareFeedbackLink) {
+      shareFeedbackLink.href = "https://global-toolkit.github.io/?lang=fr#feedback";
+    }
+    
+  } else {
+    enElements.forEach(el => el.style.display = 'block');
+    frElements.forEach(el => el.style.display = 'none');
+    
+    document.documentElement.setAttribute('lang', 'en');
+    localStorage.setItem('preferredLanguage', 'en');
+    updateAllLinks('en');
+    
+    // Update Share Feedback link for English
+    const shareFeedbackLink = document.getElementById('shareFeedbackLink');
+    if (shareFeedbackLink) {
+      shareFeedbackLink.href = "https://global-toolkit.github.io/?lang=en#feedback";
+    }
+  }
+  
+  // Update dropdown button text
+  document.getElementById('currentLangText').textContent = lang === 'fr' ? 'Français' : 'English';
+  
+  // Update active state in dropdown
+  document.querySelectorAll('.lang-option').forEach(option => {
+    option.classList.remove('active');
+    if (option.getAttribute('data-lang') === lang) {
+      option.classList.add('active');
+    }
+  });
+  
+  // Update mobile menu content
+  updateMobileMenuContent();
+}
+
+// CHANGED: Updated function to handle all links with language and currency parameters
+function updateAllLinks(lang) {
+  const links = document.querySelectorAll('a[data-base-url]');
+  
+  links.forEach(link => {
+    const baseUrl = link.getAttribute('data-base-url');
+    let cleanUrl = baseUrl.split('?')[0];
+    link.setAttribute('href', `${cleanUrl}?lang=${lang}`);
+  });
+  
+  // Update Affiliate Disclosure links in footer
+  const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
+  affiliateLinks.forEach(link => {
+    // Check if it's a full URL (not an anchor link)
+    if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
+      link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}`;
+    }
+  });
+  
+  // Update Facebook link with language reference
+  const facebookLinks = document.querySelectorAll('a[href*="facebook.com/GlobalToolkit"]');
+  facebookLinks.forEach(link => {
+    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}`);
+  });
+  
+  // Update mobile menu home link
+  const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
+  if (mobileMenuHomeLink) {
+    mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
+  }
+  
+  // Update brand link
+  const brandLink = document.getElementById('brandLink');
+  if (brandLink) {
+    brandLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
+  }
+}
+
+// Function to get language from URL parameter
+function getLangFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('lang');
+}
+
+// Function to initialize language
+function initializeLanguage() {
+  const urlLang = getLangFromUrl();
+  const savedLang = localStorage.getItem('preferredLanguage');
+  const browserLang = navigator.language || navigator.userLanguage;
+  const browserLangShort = browserLang.split('-')[0];
+  
+  if (urlLang && (urlLang === 'en' || urlLang === 'fr')) {
+    switchLanguage(urlLang);
+  } else if (savedLang) {
+    switchLanguage(savedLang);
+  } else if (browserLangShort === 'fr') {
+    switchLanguage('fr');
+  } else {
+    switchLanguage('en');
+  }
+}
+
+// Show submenu for a category - NEW FUNCTION FROM HOME PAGE
+function showSubmenu(category) {
+  currentSubmenu = category;
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  
+  if (!mobileMenuContent) return;
+  
+  // Hide the mobile menu footer in submenu
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'none';
+  }
+  
+  // Get subcategory data
+  const subcategoryData = subcategories[category];
+  if (!subcategoryData) return;
+  
+  // Create submenu HTML
+  mobileMenuContent.innerHTML = '';
+  
+  // Create submenu header
+  const submenuHeader = document.createElement('div');
+  submenuHeader.className = 'mobile-submenu-header';
+  
+  const backButton = document.createElement('button');
+  backButton.className = 'mobile-submenu-back';
+  backButton.innerHTML = '<i class="fas fa-arrow-left"></i>';
+  backButton.addEventListener('click', showMainMenu);
+  
+  const submenuTitle = document.createElement('div');
+  submenuTitle.className = 'mobile-submenu-title';
+  submenuTitle.textContent = currentLang === 'fr' ? subcategoryData.title.fr : subcategoryData.title.en;
+  
+  submenuHeader.appendChild(backButton);
+  submenuHeader.appendChild(submenuTitle);
+  mobileMenuContent.appendChild(submenuHeader);
+  
+  // Create submenu content
+  const submenuContent = document.createElement('div');
+  submenuContent.className = 'mobile-submenu-content';
+  
+  // Add subcategory items
+  subcategoryData.items.forEach(item => {
+    const link = document.createElement('a');
+    link.href = `${item.url}?lang=${currentLang}`;
+    link.className = 'mobile-menu-link';
+    link.textContent = currentLang === 'fr' ? item.fr : item.en;
+    submenuContent.appendChild(link);
+  });
+  
+  mobileMenuContent.appendChild(submenuContent);
+}
+
+// Show main menu - NEW FUNCTION FROM HOME PAGE
+function showMainMenu() {
+  currentSubmenu = null;
+  updateMobileMenuContent();
+  
+  // Show the mobile menu footer again when returning to main menu
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'block';
+  }
+}
+
+// Mobile menu functionality - UPDATED TO MATCH HOME PAGE
+function setupMobileMenu() {
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    updateMobileMenuContent();
+  }
+  
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    mobileMenuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  menuToggle.addEventListener('click', openMobileMenu);
+  
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+  
+  // Populate mobile menu content
+  updateMobileMenuContent();
+}
+
+function updateMobileMenuContent() {
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  
+  if (!mobileMenuContent || !mobileMenuFooter) return;
+  
+  // Clear existing content
+  mobileMenuContent.innerHTML = '';
+  mobileMenuFooter.innerHTML = '';
+  
+  // If we're in a submenu, show it
+  if (currentSubmenu) {
+    showSubmenu(currentSubmenu);
+    return;
+  }
+  
+  // Add Home section
+  const homeSection = document.createElement('div');
+  homeSection.className = 'mobile-menu-section';
+  
+  const homeLink = document.createElement('a');
+  homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}`;
+  homeLink.className = 'mobile-menu-link';
+  
+  const homeIcon = document.createElement('i');
+  homeIcon.className = 'fas fa-home';
+  homeIcon.style.marginRight = '8px';
+  
+  const homeText = document.createElement('span');
+  homeText.textContent = currentLang === 'fr' ? 'Accueil' : 'Home';
+  
+  homeLink.appendChild(homeIcon);
+  homeLink.appendChild(homeText);
+  homeSection.appendChild(homeLink);
+  
+  mobileMenuContent.appendChild(homeSection);
+  
+  // Add Categories section - UPDATED: Categories are now expandable
+  const categoriesSection = document.createElement('div');
+  categoriesSection.className = 'mobile-menu-section';
+  
+  const categoriesTitle = document.createElement('h3');
+  categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
+  categoriesTitle.style.color = 'var(--electric-blue)';
+  categoriesTitle.style.marginBottom = '10px';
+  categoriesTitle.style.fontSize = '19px';
+  categoriesTitle.style.fontWeight = '600';
+  
+  categoriesSection.appendChild(categoriesTitle);
+  
+  // Add category items (expandable, no href)
+  const categories = [
+    { key: 'saas', en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    { key: 'tools', en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    { key: 'payments', en: 'Payment Services', fr: 'Services de Paiement' }
+  ];
+  
+  categories.forEach(cat => {
+    const categoryItem = document.createElement('div');
+    categoryItem.className = 'mobile-menu-link';
+    categoryItem.style.cursor = 'pointer';
+    categoryItem.style.display = 'flex';
+    categoryItem.style.justifyContent = 'normal';
+    categoryItem.style.alignItems = 'baseline';
+    
+    const categoryText = document.createElement('span');
+    categoryText.textContent = currentLang === 'fr' ? cat.fr : cat.en;
+    
+    const arrowIcon = document.createElement('i');
+    arrowIcon.className = 'fas fa-chevron-right';
+    arrowIcon.style.fontSize = '12px';
+    arrowIcon.style.color = 'var(--electric-blue)';
+    arrowIcon.style.marginLeft = '8px';
+    
+    categoryItem.appendChild(categoryText);
+    categoryItem.appendChild(arrowIcon);
+    
+    categoryItem.addEventListener('click', () => {
+      showSubmenu(cat.key);
+    });
+    
+    categoriesSection.appendChild(categoryItem);
+  });
+  
+  mobileMenuContent.appendChild(categoriesSection);
+  
+  // Add Tools section
+  const toolsSection = document.createElement('div');
+  toolsSection.className = 'mobile-menu-section';
+  
+  const toolsTitle = document.createElement('h3');
+  toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
+  toolsTitle.style.color = 'var(--electric-blue)';
+  toolsTitle.style.marginBottom = '10px';
+  toolsTitle.style.fontSize = '19px';
+  toolsTitle.style.fontWeight = '600';
+  
+  toolsSection.appendChild(toolsTitle);
+  
+  // Add tool links
+  const tools = [
+    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
+    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
+    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides' }
+  ];
+  
+  tools.forEach(tool => {
+    const link = document.createElement('a');
+    link.href = `${tool.url}?lang=${currentLang}`;
+    link.className = 'mobile-menu-link';
+    link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
+    
+    // Add click handler for coming soon tools
+    if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove any existing message
+        const existingMsg = this.querySelector('.coming-soon-msg');
+        if (existingMsg) {
+          existingMsg.remove();
+        }
+        
+        // Create and append message
+        const msg = document.createElement('span');
+        msg.className = 'coming-soon-msg';
+        msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+        this.appendChild(msg);
+        
+        // Remove message after animation
+        setTimeout(() => {
+          msg.remove();
+        }, 2000);
+      });
+    }
+    
+    toolsSection.appendChild(link);
+  });
+  
+  mobileMenuContent.appendChild(toolsSection);
+  
+  // Add footer content
+  const footerContent = document.createElement('div');
+  
+  // Create contact section
+  const contactSection = document.createElement('div');
+  contactSection.className = 'mobile-menu-section';
+  
+  const contactToggle = document.createElement('div');
+  contactToggle.className = 'mobile-menu-contact-item';
+  contactToggle.style.cursor = 'pointer';
+  contactToggle.id = 'mobileMenuContactToggle';
+  
+  const contactIcon = document.createElement('i');
+  contactIcon.className = 'fas fa-envelope';
+  contactIcon.style.marginRight = '8px';
+  
+  const contactText = document.createElement('span');
+  contactText.textContent = currentLang === 'fr' ? 'Contact' : 'Contact';
+  
+  const contactArrow = document.createElement('i');
+  contactArrow.className = 'fas fa-chevron-down';
+  contactArrow.style.marginLeft = '8px';
+  contactArrow.style.fontSize = '12px';
+  
+  contactToggle.appendChild(contactIcon);
+  contactToggle.appendChild(contactText);
+  contactToggle.appendChild(contactArrow);
+  
+  const contactContent = document.createElement('div');
+  contactContent.id = 'mobileMenuContactContent';
+  contactContent.style.display = 'none';
+  contactContent.style.paddingLeft = '20px';
+  contactContent.style.marginTop = '10px';
+  
+  // Contact items
+  const contactItems = [
+    { icon: 'fas fa-envelope', text: 'Email', href: 'mailto:globaltoolkit.contact@gmail.com' },
+    { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' },
+    { 
+      icon: 'fas fa-comment-alt', 
+      text: 'Share Feedback', 
+      href: currentLang === 'fr' ? 'https://global-toolkit.github.io/?lang=fr#feedback' : 'https://global-toolkit.github.io/?lang=en#feedback'
+    }
+  ];
+  
+  contactItems.forEach(item => {
+    const contactItem = document.createElement('a');
+    contactItem.href = item.href;
+    contactItem.className = 'mobile-menu-contact-item';
+    
+    const itemIcon = document.createElement('i');
+    itemIcon.className = item.icon;
+    
+    const itemText = document.createElement('span');
+    itemText.textContent = item.text;
+    
+    contactItem.appendChild(itemIcon);
+    contactItem.appendChild(itemText);
+    
+    contactContent.appendChild(contactItem);
+  });
+  
+  contactSection.appendChild(contactToggle);
+  contactSection.appendChild(contactContent);
+  
+  // Add about us link
+  const aboutLink = document.createElement('a');
+  aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}`;
+  aboutLink.className = 'mobile-menu-link';
+  aboutLink.style.marginTop = '9px';
+  aboutLink.style.display = 'block';
+  
+  const aboutIcon = document.createElement('i');
+  aboutIcon.className = 'fas fa-info-circle';
+  aboutIcon.style.marginRight = '8px';
+  
+  const aboutText = document.createElement('span');
+  aboutText.textContent = currentLang === 'fr' ? 'À Propos' : 'About Us';
+  
+  aboutLink.appendChild(aboutIcon);
+  aboutLink.appendChild(aboutText);
+  
+  contactSection.appendChild(aboutLink);
+  
+  // Add space
+  const space = document.createElement('div');
+  space.style.margin = '20px 0';
+  space.style.borderTop = '1px solid rgba(0, 212, 255, 0.1)';
+  
+  // Add legal links
+  const legalSection = document.createElement('div');
+  legalSection.className = 'mobile-menu-section';
+  
+  const legalLinks = [
+    { icon: 'fas fa-shield-alt', en: 'Privacy Policy', fr: 'Politique de Confidentialité', url: 'privacy' },
+    { icon: 'fas fa-handshake', en: 'Affiliate Disclosure', fr: 'Divulgation d\'Affiliation', url: 'affiliate-disclosure' },
+    { icon: 'fas fa-file-contract', en: 'Terms of Service', fr: 'Conditions d\'Utilisation', url: 'terms' }
+  ];
+  
+  legalLinks.forEach(link => {
+    const legalLink = document.createElement('a');
+    legalLink.href = `https://global-toolkit.github.io/${link.url}?lang=${currentLang}`;
+    legalLink.className = 'mobile-menu-link';
+    
+    const linkIcon = document.createElement('i');
+    linkIcon.className = link.icon;
+    linkIcon.style.marginRight = '8px';
+    
+    const linkText = document.createElement('span');
+    linkText.textContent = currentLang === 'fr' ? link.fr : link.en;
+    
+    legalLink.appendChild(linkIcon);
+    legalLink.appendChild(linkText);
+    
+    legalSection.appendChild(legalLink);
+  });
+  
+  // Add footer text
+  const footerText = document.createElement('div');
+  footerText.className = 'muted';
+  footerText.style.fontSize = '12px';
+  footerText.style.marginTop = '20px';
+  footerText.style.textAlign = 'center';
+  footerText.style.lineHeight = '1.5';
+  
+  const importantText = document.createElement('div');
+  importantText.style.marginBottom = '10px';
+  
+  if (currentLang === 'fr') {
+    importantText.innerHTML = '<strong>Important :</strong> Nous pouvons gagner des commissions d\'affiliation lorsque vous achetez via nos liens.';
+  } else {
+    importantText.innerHTML = '<strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.';
+  }
+  
+  const copyrightText = document.createElement('div');
+  copyrightText.textContent = currentLang === 'fr' ? 'Global Toolkit © 2026' : 'Global Toolkit © 2026';
+  
+  footerText.appendChild(importantText);
+  footerText.appendChild(copyrightText);
+  
+  // Assemble footer
+  footerContent.appendChild(contactSection);
+  footerContent.appendChild(space);
+  footerContent.appendChild(legalSection);
+  footerContent.appendChild(footerText);
+  
+  mobileMenuFooter.appendChild(footerContent);
+  
+  // CHANGED: Fixed contact toggle functionality - attach event listener immediately
+  const contactToggleEl = document.getElementById('mobileMenuContactToggle');
+  const contactContentEl = document.getElementById('mobileMenuContactContent');
+  
+  if (contactToggleEl && contactContentEl) {
+    contactToggleEl.addEventListener('click', function() {
+      const isExpanded = contactContentEl.style.display === 'block';
+      contactContentEl.style.display = isExpanded ? 'none' : 'block';
+      const icon = this.querySelector('.fa-chevron-down');
+      if (icon) {
+        icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    });
+  }
+}
+
+// Event listeners for language dropdown
+document.getElementById('langDropdownBtn').addEventListener('click', function() {
+  document.getElementById('langDropdown').classList.toggle('show');
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+  const dropdown = document.getElementById('langDropdown');
+  const button = document.getElementById('langDropdownBtn');
+  
+  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+
+// Language option clicks
+document.querySelectorAll('.lang-option').forEach(option => {
+  option.addEventListener('click', function(e) {
+    e.preventDefault();
+    const lang = this.getAttribute('data-lang');
+    
+    // Only switch if language is en or fr
+    if (lang === 'en' || lang === 'fr') {
+      switchLanguage(lang);
+    }
+    // For español, just close dropdown
+    document.getElementById('langDropdown').classList.remove('show');
+  });
+});
+
+// Coming soon links
+document.querySelectorAll('.coming-soon-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Remove any existing message
+    const existingMsg = this.parentNode.querySelector('.coming-soon-msg');
+    if (existingMsg) {
+      existingMsg.remove();
+    }
+    
+    // Create and append message
+    const msg = document.createElement('span');
+    msg.className = 'coming-soon-msg';
+    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+    this.parentNode.appendChild(msg);
+    
+    // Remove message after animation
+    setTimeout(() => {
+      msg.remove();
+    }, 2000);
+  });
+});
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', function() {
+  initializeLanguage();
+  setupMobileMenu();
+  
+  setTimeout(() => {
+    updateAllLinks(currentLang);
+  }, 100);
+  
+  // Add keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (e.altKey && e.key === 'e') {
+      e.preventDefault();
+      switchLanguage('en');
+    }
+    if (e.altKey && e.key === 'f') {
+      e.preventDefault();
+      switchLanguage('fr');
+    }
+  });
+});
+</script>
+</body>
+</html>
