@@ -11,7 +11,12 @@
 <meta property="og:description" content="Compare top fintech tools, get exclusive discounts, and make informed decisions. Unbiased reviews for SaaS, hosting, payments, and online tools." />
 <meta property="og:image" content="https://global-toolkit.github.io/assets/og-image.png" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://global-toolkit.github.io/" />
+<meta property="og:url" content="https://global-toolkit.github.io/en/index.html" />
+
+<!-- SEO: hreflang tags -->
+<link rel="alternate" hreflang="en" href="https://global-toolkit.github.io/en/index.html" />
+<link rel="alternate" hreflang="fr" href="https://global-toolkit.github.io/fr/index.html" />
+<link rel="alternate" hreflang="x-default" href="https://global-toolkit.github.io/en/index.html" />
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,11 +65,11 @@
   /* Mobile scroll margin for anchor links to avoid overlap with fixed elements */
   @media (max-width: 767px) {
     :target {
-      scroll-margin-top: 90px; /* CHANGED: Decreased from 120px to 90px */
+      scroll-margin-top: 90px;
     }
   }
   
-  /* AFFILIATE DISCLOSURE BANNER - ADDED */
+  /* AFFILIATE DISCLOSURE BANNER */
   .disclosure-banner {
     background: linear-gradient(90deg, rgba(14, 102, 210, 0.15), rgba(157, 78, 221, 0.15));
     padding: 10px 0;
@@ -95,13 +100,13 @@
     cursor: pointer;
   }
   
-  /* Trust Badges - ADDED */
+  /* Trust Badges */
   .trust-badges {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    margin: 10px 0; /* Changed from 0px 0 to 10px 0 */
+    margin: 10px 0;
   }
   
   .badge {
@@ -129,7 +134,6 @@
     margin-top: 10px;
   }
   
-  /* CHANGED: Desktop - align-items from center to normal */
   @media (min-width: 768px) {
     .hero {
       align-items: normal;
@@ -166,7 +170,6 @@
     font-weight: 500;
   }
   
-  /* CHANGED: Desktop - hero-subtitle margin-top and font-size */
   @media (min-width: 768px) {
     .hero-subtitle {
       margin-top: 42px;
@@ -181,7 +184,6 @@
     flex-wrap: wrap;
   }
   
-  /* CHANGED: Desktop - hero-stats margin-top from 60px to 50px */
   @media (min-width: 768px) {
     .hero-stats {
       margin-top: 50px;
@@ -205,7 +207,7 @@
     color: var(--muted);
   }
   
-  /* Email Capture - ADDED - MOVED to aside */
+  /* Email Capture */
   .email-capture {
     background: rgba(0, 212, 255, 0.08);
     border-radius: 16px;
@@ -213,7 +215,6 @@
     border: 1px solid rgba(0, 212, 255, 0.2);
   }
   
-  /* CHANGED: Mobile - increased margin space between illustration and email-capture */
   @media (max-width: 767px) {
     .email-capture {
       margin-top: 30px;
@@ -280,7 +281,7 @@
     font-weight: 700;
     display: inline-block;
     text-align: center;
-    min-width: 120px; /* Ensures consistent width */
+    min-width: 120px;
   }
   
   .tile-price {
@@ -312,7 +313,6 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    /* CHANGED: padding from 12px 24px to 12px 0px */
     padding: 12px 0px;
     background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
     color: white;
@@ -333,7 +333,7 @@
     box-shadow: 0 12px 35px rgba(0, 212, 255, 0.5);
   }
   
-  /* Top Picks Section - ADDED */
+  /* Top Picks Section */
   .top-picks {
     margin: 40px 0 25px;
   }
@@ -363,7 +363,7 @@
     border-radius: 2px;
   }
   
-  /* NEW: Product Scroller Section - UPDATED */
+  /* Product Scroller Section */
   .product-scroller-section {
     margin: 60px 0;
   }
@@ -380,14 +380,14 @@
     gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding: 20px 10px;
     cursor: grab;
   }
   
   .product-scroller::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
   }
   
   .product-scroller.dragging {
@@ -395,10 +395,9 @@
     scroll-behavior: auto;
   }
   
-  /* UPDATED: Product Card Dimensions */
+  /* Product Card Dimensions */
   .product-card {
     flex: 0 0 auto;
-    /* Mobile first - UPDATED */
     width: 230px;
     height: 145px;
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
@@ -413,7 +412,6 @@
     overflow: hidden;
   }
   
-  /* Desktop sizes - UPDATED */
   @media (min-width: 768px) {
     .product-card {
       width: 278px;
@@ -433,13 +431,13 @@
     transform: translateY(-5px);
   }
   
-  /* NEW: Hover effect for "view details" */
+  /* Hover effect for "view details" */
   .product-card:hover .product-review {
     text-decoration: underline;
     color: var(--electric-blue);
   }
   
-  /* UPDATED: Product Card Header */
+  /* Product Card Header */
   .product-card-header {
     display: flex;
     align-items: center;
@@ -448,7 +446,6 @@
     flex-shrink: 0;
   }
   
-  /* UPDATED: Logo size - fixed 40x40px */
   .product-logo {
     width: 40px;
     height: 40px;
@@ -464,7 +461,7 @@
   
   .product-header-text {
     flex: 1;
-    min-width: 0; /* Prevent text overflow */
+    min-width: 0;
   }
   
   .product-name {
@@ -473,7 +470,6 @@
     color: white;
     margin: 0 0 4px 0;
     line-height: 1.2;
-    /* Ensure text doesn't get cut off */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -490,7 +486,6 @@
     margin-bottom: 8px;
   }
   
-  /* UPDATED: New sections for product card */
   .product-ideal-for {
     font-size: 12px;
     color: var(--muted);
@@ -513,7 +508,6 @@
     flex-shrink: 0;
   }
   
-  /* UPDATED: CTA section */
   .product-review {
     color: var(--muted);
     font-size: 13px;
@@ -574,14 +568,13 @@
       font-size: 18px;
     }
     
-    /* Ensure product card stays within mobile range - UPDATED */
     .product-card {
       width: 230px;
       height: 145px;
     }
   }
   
-  /* Testimonials - ADDED */
+  /* Testimonials */
   .testimonials {
     margin: 40px 0;
   }
@@ -621,7 +614,7 @@
     color: var(--muted);
   }
   
-  /* Feedback Form - ADDED */
+  /* Feedback Form */
   .feedback-section {
     margin: 40px 0;
     padding: 30px;
@@ -656,9 +649,7 @@
   .faq-item {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.9));
     border-radius: 16px;
-    /* CHANGED: Decreased padding from 20 to 10px */
     padding: 10px;
-    /* CHANGED: Decreased margin-bottom from 12 to 5px */
     margin-bottom: 5px;
     border: 1px solid rgba(0, 212, 255, 0.1);
     cursor: pointer;
@@ -669,15 +660,13 @@
     font-weight: 600;
     color: white;
     font-size: 16px;
-    /* CHANGED: margin-bottom from 10 to 0px */
     margin-bottom: 0px;
     line-height: 1.4;
-    padding-right: 30px; /* Space for arrow */
+    padding-right: 30px;
   }
   
-  /* CHANGED: Added arrow for FAQ items */
   .faq-item::after {
-    content: '\f078'; /* FontAwesome chevron-down icon */
+    content: '\f078';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
@@ -732,7 +721,7 @@
     color: var(--electric-blue);
   }
   
-  /* Connect Section - Updated */
+  /* Connect Section */
   .connect-links {
     display: flex;
     flex-direction: column;
@@ -748,7 +737,7 @@
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 14px;
-    white-space: nowrap; /* Ensures icon and text stay on same line */
+    white-space: nowrap;
   }
   
   .connect-link:hover {
@@ -767,18 +756,16 @@
     .email-form { flex-direction: row; }
     h1 { font-size: 40px; }
     .tile-badge {
-      min-width: 140px; /* Slightly larger on desktop */
+      min-width: 140px;
     }
-    /* CHANGED: Align connect links with other sections on desktop */
     .footer-column:last-child {
       align-items: center;
     }
     .connect-links {
       align-items: center;
     }
-    /* Desktop: trust badges gap */
     .trust-badges {
-      gap: 80px; /* Increased from 15px to 80px for desktop */
+      gap: 80px;
     }
   }
   
@@ -794,11 +781,10 @@
     .footer-links { grid-template-columns: 1fr; }
     .trust-badges { justify-content: center; }
     .tile-badge {
-      min-width: 110px; /* Smaller on mobile */
+      min-width: 110px;
       font-size: 11px;
       padding: 3px 8px;
     }
-    /* Mobile disclosure banner font size */
     .disclosure-banner {
       font-size: 12px;
     }
@@ -807,7 +793,6 @@
     }
   }
   
-  /* Keep existing styles for unchanged elements */
   .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -815,9 +800,8 @@
     box-sizing: border-box;
   }
   
-  /* Header margins - FIXED: Ensure proper override */
   header {
-    padding: 0px 18px; /* Changed from 18px to 0px 18px */
+    padding: 0px 18px;
     border-radius: 16px;
     background: rgba(17, 24, 39, 0.85);
     color: #fff;
@@ -825,50 +809,44 @@
     overflow: hidden;
     backdrop-filter: blur(20px);
     box-shadow: var(--shadow-lg), var(--glow);
-    /* CHANGED: margin-bottom from 20 to 50px */
     margin-bottom: 50px;
     border: 1px solid rgba(0, 212, 255, 0.1);
-    /* Base value will be overridden by media queries below */
     margin-top: 35px;
   }
   
-  /* CHANGED: Desktop header margin-top from 35 to 52px */
   @media (min-width: 768px) {
     header {
       margin-top: 52px;
     }
   }
   
-  /* CHANGED: Mobile header margin-top from 35 to 65px */
   @media (max-width: 767px) {
     header {
       margin-top: 65px;
     }
   }
   
-  /* NEW: Brand Container (outside header) - UPDATED */
+  /* Brand Container */
   .brand-container {
     position: fixed;
-    top: 33px; /* CHANGED: Desktop - decreased from 51px to 33px */
-    left: -4px; /* Changed from 20px to 4px */
+    top: 33px;
+    left: -4px;
     display: flex;
     align-items: center;
-    gap: 2px; /* Changed from 5px to 1px */
+    gap: 2px;
     z-index: 2000;
     border-radius: 12px;
     padding: 8px 12px;
-    /* CHANGED: Removed background and border to make container invisible */
     background: transparent;
     border: none;
     backdrop-filter: none;
     cursor: pointer;
   }
   
-  /* CHANGED: Desktop - increase Top from 33px to 44px */
   @media (min-width: 768px) {
     .brand-container {
       top: 44px;
-      left: 2px; /* Desktop: Changed to 2px */
+      left: 2px;
     }
   }
   
@@ -881,7 +859,7 @@
   
   .brand {
     font-weight: 800;
-    font-size: 22px; /* Changed from 25px to 22px */
+    font-size: 22px;
     background: linear-gradient(135deg, #ffffff, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -891,11 +869,11 @@
     line-height: 1;
   }
   
-  /* NEW: Top Controls (outside header) - UPDATED */
+  /* Top Controls */
   .top-controls-container {
     position: fixed;
-    top: 58px; /* CHANGED: Desktop - increased from 43px to 58px */
-    right: 20px; /* Desktop: Changed to 20px */
+    top: 58px;
+    right: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -903,12 +881,12 @@
     backdrop-filter: blur(10px);
     background: rgba(17, 24, 39, 0.7);
     border-radius: 12px;
-    padding: 0px; /* Changed from 8px to 0px */
+    padding: 0px;
     border: 1px solid rgba(0, 212, 255, 0.2);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
-  /* Currency Selector - Updated with visual effect */
+  /* Currency Selector */
   .currency-selector {
     display: flex;
     gap: 3px;
@@ -949,7 +927,7 @@
     box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
   }
   
-  /* Language Selector - Updated */
+  /* Language Selector */
   .lang-selector {
     position: relative;
     display: inline-block;
@@ -1067,7 +1045,6 @@
   }
 
   @media (max-width: 767px) {
-  /* Ensure mobile menu is scrollable */
   .mobile-menu {
     height: 80vh;
   }
@@ -1077,15 +1054,14 @@
     right: 0;
   }
   
-  /* CHANGED: Increased margin-bottom from 10 to 30px */
   .mobile-menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 30px; /* Changed from 10px to 30px */
+    margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
   }
   
   .mobile-menu-logo {
@@ -1094,7 +1070,7 @@
   }
   
   .mobile-menu-brand {
-    font-size: 23px; /* Changed from 20px to 23px */
+    font-size: 23px;
     font-weight: 700;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
@@ -1127,7 +1103,7 @@
   .mobile-menu-content {
     display: flex;
     flex-direction: column;
-    gap: 0px; /* Changed from 20px to 0px */
+    gap: 0px;
   }
   
   .mobile-menu-overlay {
@@ -1147,29 +1123,29 @@
   }
   
   .mobile-menu-footer {
-    margin-top: 17px; /* Changed from 30px to 17px */
+    margin-top: 17px;
     padding-top: 20px;
-    border-top: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
+    border-top: 2px solid rgba(0, 212, 255, 0.2);
   }
   
   .mobile-menu-section {
-    margin-bottom: 5px; /* Changed from 20px to 5px */
+    margin-bottom: 5px;
   }
   
   .mobile-menu-section h3 {
     color: var(--electric-blue);
     margin-bottom: 10px;
-    font-size: 19px; /* Changed from 16px to 19px */
+    font-size: 19px;
     font-weight: 600;
   }
   
   .mobile-menu-link {
     display: block;
-    padding: 7px 0; /* Changed from 12px to 7px 0 */
+    padding: 7px 0;
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    font-size: 16px; /* Changed from 14px to 16px */
+    font-size: 16px;
   }
   
   .mobile-menu-link:hover {
@@ -1180,10 +1156,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 1px 0; /* Changed from 8px 0 to 1px 0 */
+    padding: 1px 0;
     color: var(--text-light);
     text-decoration: none;
-    font-size: 17px; /* Changed from 14px to 17px */
+    font-size: 17px;
   }
   
   .mobile-menu-contact-item:hover {
@@ -1305,28 +1281,25 @@
     line-height: 1.5;
   }
   
-  /* Illustration adjustments - UPDATED */
+  /* Illustration adjustments */
   .illustration {
     width: 100%;
     max-width: 420px;
     border-radius: 16px;
     display: block;
     box-shadow: var(--shadow-lg);
-    /* CHANGED: Removed hover animation */
     border: 1px solid rgba(0, 212, 255, 0.2);
     margin: 0 auto;
     opacity: 0.9;
     position: relative;
   }
   
-  /* CHANGED: Updated illustration overlay with new horizontal darkening effect */
   .illustration-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    /* New: Horizontal darkening with center darker and gradually lightened upwards and downwards */
     background: linear-gradient(
       to bottom,
       rgba(10, 15, 28, 0.2) 0%,
@@ -1352,10 +1325,6 @@
     padding: 20px;
   }
   
-  /* Language classes */
-  .lang-en { display: block; }
-  .lang-fr { display: none; }
-  
   /* Coming soon message style */
   .coming-soon-msg {
     display: inline-block;
@@ -1366,7 +1335,7 @@
     animation: fadeInOut 2s ease;
   }
   
-  /* NEW: Footer links in single line */
+  /* Footer links in single line */
   .footer-bottom-links {
     display: flex;
     justify-content: center;
@@ -1387,7 +1356,7 @@
     text-decoration: underline;
   }
   
-  /* NEW: Updated paragraph with fade-in/slide-up animation */
+  /* Value proposition */
   .value-proposition {
     font-size: 30px;
     line-height: 1.4;
@@ -1438,24 +1407,20 @@
   
   /* Mobile-specific styles */
   @media (max-width: 767px) {
-    /* Mobile: brand container */
     .brand-container {
-      top: 60px; /* CHANGED: Mobile - increased from 57px to 60px */
+      top: 60px;
     }
     
-    /* Mobile: top controls container */
     .top-controls-container {
-      top: 73px; /* CHANGED: Mobile - increased from 69px to 73px */
-      right: 15px; /* Mobile: Changed from 20px to 15px */
-      gap: 3px; /* Mobile: Changed from 10px to 3px */
+      top: 73px;
+      right: 15px;
+      gap: 3px;
     }
     
-    /* Mobile: currency selector gap */
     .currency-selector {
-      gap: 0px; /* Mobile: Changed from 3px to 0px */
+      gap: 0px;
     }
     
-    /* Mobile: brand text stacking */
     .brand {
       flex-direction: column;
       line-height: 1;
@@ -1471,13 +1436,11 @@
       margin-bottom: -2px;
     }
     
-    /* Mobile: Adjust illustration overlay text */
     .illustration-overlay .muted {
       font-size: 14px;
       padding: 15px;
     }
     
-    /* Mobile: Adjust value proposition */
     .value-proposition {
       font-size: 22px;
       margin: 40px 0;
@@ -1492,7 +1455,6 @@
   
   /* Desktop-specific styles */
   @media (min-width: 768px) {
-    /* Desktop: brand text single line */
     .brand {
       flex-direction: row;
       gap: 5px;
@@ -1502,7 +1464,6 @@
       display: inline;
     }
     
-    /* Desktop: Adjust hero aside layout */
     .hero aside {
       display: flex;
       flex-direction: column;
@@ -1519,7 +1480,7 @@
     }
   }
   
-  /* NEW: Mobile submenu styles */
+  /* Mobile submenu styles */
   .mobile-menu-submenu {
     position: absolute;
     top: 0;
@@ -1590,8 +1551,8 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
-    <a href="https://global-toolkit.github.io/" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
+    <a href="https://global-toolkit.github.io/en/index.html" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
       <div class="mobile-menu-brand">Global Toolkit</div>
     </a>
     <button class="mobile-menu-close" id="mobileMenuClose">
@@ -1608,10 +1569,10 @@
   </div>
 </div>
 
-<!-- Brand Container (outside header) - CHANGED: Now clickable -->
-<a id="brandLink" style="text-decoration: none;">
+<!-- Brand Container -->
+<a href="https://global-toolkit.github.io/en/index.html" style="text-decoration: none;">
   <div class="brand-container" id="brandContainer">
-    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
+    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
     <div class="brand">
       <span class="brand-line-1">Global</span>
       <span class="brand-line-2">Toolkit</span>
@@ -1619,7 +1580,7 @@
   </div>
 </a>
 
-<!-- Top Controls (outside header) -->
+<!-- Top Controls -->
 <div class="top-controls-container" id="topControlsContainer">
   <div class="currency-selector" id="currencySelector">
     <div class="currency-option active" data-currency="USD">USD</div>
@@ -1633,14 +1594,13 @@
       <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
     </button>
     <div class="lang-dropdown-content" id="langDropdown">
-      <a href="#" class="lang-option active" data-lang="en">
+      <a href="https://global-toolkit.github.io/en/index.html" class="lang-option active">
         <span>English</span>
       </a>
-      <a href="#" class="lang-option" data-lang="fr">
+      <a href="https://global-toolkit.github.io/fr/index.html" class="lang-option">
         <span>Français</span>
       </a>
-      <!-- CHANGED: Added Español option back -->
-      <a href="#" class="lang-option" data-lang="es">
+      <a href="#" class="lang-option">
         <span>Español</span>
         <span class="coming-soon">(soon)</span>
       </a>
@@ -1654,170 +1614,125 @@
   </button>
 </div>
 
-<!-- AFFILIATE DISCLOSURE BANNER - FIXED: Links now point to GitHub disclosure page with parameters -->
+<!-- AFFILIATE DISCLOSURE BANNER -->
 <div class="disclosure-banner">
   <div class="wrap">
-    <div class="muted lang-en">
+    <div class="muted">
       <strong>Disclosure:</strong> We may earn affiliate commissions when you purchase through our links. 
-      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="disclosure-link">Learn how we make money →</a>
-    </div>
-    <!-- CHANGED: French text updated as requested -->
-    <div class="muted lang-fr">
-      <strong>Divulgation :</strong> Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens. 
-      <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="disclosure-link">Lire→</a>
+      <a href="https://global-toolkit.github.io/en/affiliate-disclosure?currency=USD" class="disclosure-link">Learn how we make money →</a>
     </div>
   </div>
 </div>
 
 <div class="wrap">
   <header>
-    <!-- TRUST BADGES - UPDATED -->
+    <!-- TRUST BADGES -->
     <div class="trust-badges">
       <div class="badge">
         <i class="fas fa-shield-alt"></i>
-        <span class="lang-en">Unbiased Reviews</span>
-        <span class="lang-fr">Avis Impartiaux</span>
+        <span>Unbiased Reviews</span>
       </div>
       <div class="badge">
         <i class="fas fa-star"></i>
-        <span class="lang-en">Trusted Guidance</span>
-        <span class="lang-fr">Conseils Fiables</span>
+        <span>Trusted Guidance</span>
       </div>
       <div class="badge">
         <i class="fas fa-tag"></i>
-        <span class="lang-en">Exclusive Deals</span>
-        <span class="lang-fr">Offres Exclusives</span>
+        <span>Exclusive Deals</span>
       </div>
       <div class="badge">
         <i class="fas fa-lock"></i>
-        <span class="lang-en">Secure Comparison</span>
-        <span class="lang-fr">Comparaison Sécurisée</span>
+        <span>Secure Comparison</span>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- UPDATED HERO SECTION -->
+    <!-- HERO SECTION -->
     <div class="hero">
       <section class="hero-card">
-        <!-- UPDATED: Changed hero title to "Smart tools for online success + Exclusive Deals" -->
-        <h1 class="lang-en">Smart tools for online success<br><span style="font-size: 32px; color: var(--electric-blue);">+ Exclusive Deals</span></h1>
-        <!-- UPDATED: Changed French hero title accordingly -->
-        <h1 class="lang-fr">Outils intelligents pour réussir en ligne<br><span style="font-size: 32px; color: var(--electric-blue);">+ Offres Exclusives</span></h1>
+        <h1>Smart tools for online success<br><span style="font-size: 32px; color: var(--electric-blue);">+ Exclusive Deals</span></h1>
 
-        <p class="hero-subtitle lang-en">Unbiased reviews & comparison guides to help you choose the right SaaS, hosting, online Tools, builders and payment solutions. Save time and money with our verified recommendations.</p>
-        <p class="hero-subtitle lang-fr">Avis impartiaux & guides comparatifs pour choisir les bonnes solutions SaaS, hébergement, outils en ligne, constructeurs et paiement. Gagnez du temps et de l'argent avec nos recommandations vérifiées.</p>
+        <p class="hero-subtitle">Unbiased reviews & comparison guides to help you choose the right SaaS, hosting, online Tools, builders and payment solutions. Save time and money with our verified recommendations.</p>
         
         <div class="hero-stats">
           <div class="stat">
             <span class="stat-number">___+</span>
-            <span class="stat-label lang-en">Tools Reviewed</span>
-            <span class="stat-label lang-fr">Outils Analysés</span>
+            <span class="stat-label">Tools Reviewed</span>
           </div>
           <div class="stat">
             <span class="stat-number">15-__%</span>
-            <span class="stat-label lang-en">Exclusive Savings</span>
-            <span class="stat-label lang-fr">Économies Exclusives</span>
+            <span class="stat-label">Exclusive Savings</span>
           </div>
           <div class="stat">
             <span class="stat-number">1K+</span>
-            <span class="stat-label lang-en">Monthly Visitors</span>
-            <span class="stat-label lang-fr">Visiteurs Mensuels</span>
+            <span class="stat-label">Monthly Visitors</span>
           </div>
         </div>
-
-        <!-- EMAIL CAPTURE - MOVED to aside section -->
       </section>
 
-      <!-- Illustration with overlay text and email capture -->
       <aside>
-        <!-- CHANGED: Added illustration with overlay text -->
         <div style="position: relative;">
           <img class="illustration" src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/illustration.avif"
                alt="Fintech illustration" />
           <div class="illustration-overlay">
-            <!-- CHANGED: Updated text as requested -->
-            <div class="muted lang-en">Compare reliable digital tools with clear pricing, features, and use-case guidance — all in one place.</div>
-            <div class="muted lang-fr">Comparez des outils numériques fiables avec des tarifs clairs, des fonctionnalités et des conseils d'utilisation — le tout en un seul endroit.</div>
+            <div class="muted">Compare reliable digital tools with clear pricing, features, and use-case guidance — all in one place.</div>
           </div>
         </div>
         
-        <!-- CHANGED: Moved email capture here from hero-card -->
         <div class="email-capture">
-          <div class="lang-en">
+          <div>
             <strong>Get Our Free Guide:</strong> "Top 10 Tools & Services 2026" + exclusive deals newsletter
-          </div>
-          <div class="lang-fr">
-            <strong>Obtenez Notre Guide Gratuit :</strong> "Top 10 des Outils & Services 2026" + newsletter d'offres exclusives
           </div>
           <form class="email-form" id="email-form">
             <input type="email" class="email-input" placeholder="your@email.com" required>
             <button type="submit" class="tile-cta" style="width: auto; padding: 14px 20px;">
-              <span class="lang-en">Get Free Guide</span>
-              <span class="lang-fr">Obtenir Guide Gratuit</span>
+              <span>Get Free Guide</span>
             </button>
           </form>
           <div class="muted" style="font-size: 12px; margin-top: 10px;">
-            <span class="lang-en">No spam. Unsubscribe anytime.</span>
-            <span class="lang-fr">Pas de spam. Désabonnez-vous à tout moment.</span>
+            <span>No spam. Unsubscribe anytime.</span>
           </div>
         </div>
       </aside>
     </div>
 
-    <!-- NEW: Value proposition paragraph -->
+    <!-- Value proposition paragraph -->
     <div class="value-proposition" id="valueProposition">
-      <div class="lang-en">
-        <span class="first-sentence">Choosing the wrong tool costs time and money.</span>
-        <span class="rest-of-text">Global Toolkit exists to simplify that decision by highlighting trustworthy platforms, verified offers, and practical comparisons across hosting, online tools, and payment services. Following our recommendations helps you avoid trial-and-error and start with solutions that are proven, accessible, and globally usable.</span>
-      </div>
-      <div class="lang-fr">
-        <span class="first-sentence">Choisir le mauvais outil coûte du temps et de l'argent.</span>
-        <span class="rest-of-text">Global Toolkit existe pour simplifier cette décision en mettant en avant des plateformes de confiance, des offres vérifiées et des comparaisons pratiques dans l'hébergement, les outils en ligne et les services de paiement. Suivre nos recommandations vous aide à éviter les essais et erreurs et à commencer avec des solutions éprouvées, accessibles et utilisables mondialement.</span>
-      </div>
+      <span class="first-sentence">Choosing the wrong tool costs time and money.</span>
+      <span class="rest-of-text">Global Toolkit exists to simplify that decision by highlighting trustworthy platforms, verified offers, and practical comparisons across hosting, online tools, and payment services. Following our recommendations helps you avoid trial-and-error and start with solutions that are proven, accessible, and globally usable.</span>
     </div>
 
-    <!-- TOP PICKS SECTION - ADDED -->
+    <!-- TOP PICKS SECTION -->
     <section class="top-picks">
-      <h2 class="section-title lang-en">Our Top Picks This Month</h2>
-      <h2 class="section-title lang-fr">Nos Choix du Mois</h2>
+      <h2 class="section-title">Our Top Picks This Month</h2>
       <p class="muted" style="text-align: center; margin-bottom: 30px;">
-        <span class="lang-en">Based on performance, value, and user feedback. Updated regularly.</span>
-        <span class="lang-fr">Basé sur les performances, la valeur et les retours utilisateurs. Mis à jour régulièrement.</span>
+        <span>Based on performance, value, and user feedback. Updated regularly.</span>
       </p>
     </section>
 
-    <!-- UPDATED PRODUCT TILES -->
+    <!-- PRODUCT TILES -->
     <section class="grid-3" id="paths" aria-label="Paths">
       <div class="tile tile-affiliate">
         <div class="tile-header">
           <div>
-            <h3 class="lang-en">SaaS & Web Hosting</h3>
-            <h3 class="lang-fr">SaaS & Hébergement web</h3>
+            <h3>SaaS & Web Hosting</h3>
           </div>
-          <span class="tile-badge lang-en">Best for startups</span>
-          <span class="tile-badge lang-fr">Meilleur pour startups</span>
+          <span class="tile-badge">Best for startups</span>
         </div>
         
-        <p class="tile-price lang-en">Best-value hosting options</p>
-        <p class="tile-price lang-fr">Options d'hébergement à haute valeur</p>
+        <p class="tile-price">Best-value hosting options</p>
         
-        <p class="price-note lang-en">Speed & reliability recommendations</p>
-        <p class="price-note lang-fr">Recommandations vitesse & fiabilité</p>
+        <p class="price-note">Speed & reliability recommendations</p>
         
         <ul class="tile-features">
-          <li class="lang-en">Comprehensive hosting comparisons</li>
-          <li class="lang-fr">Comparatifs d'hébergement complets</li>
-          <li class="lang-en">Easy setup guides</li>
-          <li class="lang-fr">Guides d'installation simples</li>
-          <li class="lang-en">Step-by-step setup tutorials</li>
-          <li class="lang-fr">Tutoriels d'installation étape par étape</li>
+          <li>Comprehensive hosting comparisons</li>
+          <li>Easy setup guides</li>
+          <li>Step-by-step setup tutorials</li>
         </ul>
         
-        <a class="tile-cta" href="https://global-toolkit.github.io/saas-&-web-hosting" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">
-          <!-- CHANGED: "View & Compare Top Providers" to "Find Top Providers" -->
-          <span class="lang-en">Find Top Providers</span>
-          <span class="lang-fr">Voir les meilleurs fournisseurs</span> 
+        <a class="tile-cta" href="https://global-toolkit.github.io/en/saas-&-web-hosting">
+          <span>Find Top Providers</span>
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -1825,31 +1740,23 @@
       <div class="tile tile-affiliate">
         <div class="tile-header">
           <div>
-            <h3 class="lang-en">Online Tools & Builders</h3>
-            <h3 class="lang-fr">Outils en ligne & Constructeurs</h3>
+            <h3>Online Tools & Builders</h3>
           </div>
-          <span class="tile-badge lang-en">Best for creators</span>
-          <span class="tile-badge lang-fr">Meilleur pour créateurs</span>
+          <span class="tile-badge">Best for creators</span>
         </div>
         
-        <p class="tile-price lang-en">Use-case recommendations</p>
-        <p class="tile-price lang-fr">Recommandations d'utilisation</p>
+        <p class="tile-price">Use-case recommendations</p>
         
-        <p class="price-note lang-en">+ 30-day money-back guarantee</p>
-        <p class="price-note lang-fr">+ Garantie de remboursement 30 jours</p>
+        <p class="price-note">+ 30-day money-back guarantee</p>
         
         <ul class="tile-features">
-          <li class="lang-en">Website builder comparisons</li>
-          <li class="lang-fr">Comparatifs de constructeurs de sites</li>
-          <li class="lang-en">VPN service recommendations</li>
-          <li class="lang-fr">Recommandations de services VPN</li>
-          <li class="lang-en">Productivity tool roundups</li>
-          <li class="lang-fr">Sélections d'outils de productivité</li>
+          <li>Website builder comparisons</li>
+          <li>VPN service recommendations</li>
+          <li>Productivity tool roundups</li>
         </ul>
         
-        <a class="tile-cta" href="https://global-toolkit.github.io/online-tools" data-base-url="https://global-toolkit.github.io/online-tools">
-          <span class="lang-en">Compare Tools & Save</span>
-          <span class="lang-fr">Comparer Outils & Économiser</span>
+        <a class="tile-cta" href="https://global-toolkit.github.io/en/online-tools">
+          <span>Compare Tools & Save</span>
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -1857,41 +1764,31 @@
       <div class="tile tile-affiliate">
         <div class="tile-header">
           <div>
-            <!-- CHANGED: "Digital Payment Services" to "Payment Services" -->
-            <h3 class="lang-en">Payment Services</h3>
-            <h3 class="lang-fr">Services de paiement</h3>
+            <h3>Payment Services</h3>
           </div>
-          <span class="tile-badge lang-en">Best for e-commerce</span>
-          <span class="tile-badge lang-fr">Meilleur pour e-commerce</span>
+          <span class="tile-badge">Best for e-commerce</span>
         </div>
         
-        <p class="tile-price lang-en">Lowest fee comparisons</p>
-        <p class="tile-price lang-fr">Comparatifs des frais les plus bas</p>
+        <p class="tile-price">Lowest fee comparisons</p>
         
-        <p class="price-note lang-en">+ Setup fee waivers available</p>
-        <p class="price-note lang-fr">+ Frais d'installation annulés</p>
+        <p class="price-note">+ Setup fee waivers available</p>
         
         <ul class="tile-features">
-          <li class="lang-en">Payment processor comparisons</li>
-          <li class="lang-fr">Comparatifs de processeurs de paiement</li>
-          <li class="lang-en">Security & compliance guides</li>
-          <li class="lang-fr">Guides sécurité & conformité</li>
-          <li class="lang-en">Integration tutorials</li>
-          <li class="lang-fr">Tutoriels d'intégration</li>
+          <li>Payment processor comparisons</li>
+          <li>Security & compliance guides</li>
+          <li>Integration tutorials</li>
         </ul>
         
-        <a class="tile-cta" href="https://global-toolkit.github.io/payments" data-base-url="https://global-toolkit.github.io/payments">
-          <span class="lang-en">View Payment Solutions</span>
-          <span class="lang-fr">Voir Solutions Paiement</span>
+        <a class="tile-cta" href="https://global-toolkit.github.io/en/payments">
+          <span>View Payment Solutions</span>
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
     </section>
 
-    <!-- NEW: Product Scroller Section - UPDATED -->
+    <!-- Product Scroller Section -->
     <section class="product-scroller-section">
-      <h2 class="section-title lang-en">Explore Popular Tools</h2>
-      <h2 class="section-title lang-fr">Explorez les Outils Populaires</h2>
+      <h2 class="section-title">Explore Popular Tools</h2>
       
       <div class="product-scroller-container">
         <button class="scroller-arrow left-arrow disabled" id="leftArrow">←</button>
@@ -1904,17 +1801,13 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS - UPDATED -->
+    <!-- TESTIMONIALS -->
     <section class="testimonials">
-      <h2 class="section-title lang-en">What Our Readers Say</h2>
-      <h2 class="section-title lang-fr">Ce que Disent Nos Lecteurs</h2>
+      <h2 class="section-title">What Our Readers Say</h2>
       <div class="testimonial-grid">
         <div class="testimonial">
-          <div class="testimonial-text lang-en">
+          <div class="testimonial-text">
             "Clear, simple, and helpful reviews."
-          </div>
-          <div class="testimonial-text lang-fr">
-            "Avis clairs, simples et utiles."
           </div>
           <div class="testimonial-author">
             <div>
@@ -1923,11 +1816,8 @@
           </div>
         </div>
         <div class="testimonial">
-          <div class="testimonial-text lang-en">
+          <div class="testimonial-text">
             "Clear, simple, and helpful reviews."
-          </div>
-          <div class="testimonial-text lang-fr">
-            "Avis clairs, simples et utiles."
           </div>
           <div class="testimonial-author">
             <div>
@@ -1936,11 +1826,8 @@
           </div>
         </div>
         <div class="testimonial">
-          <div class="testimonial-text lang-en">
+          <div class="testimonial-text">
             "Clear, simple, and helpful reviews."
-          </div>
-          <div class="testimonial-text lang-fr">
-            "Avis clairs, simples et utiles."
           </div>
           <div class="testimonial-author">
             <div>
@@ -1951,13 +1838,11 @@
       </div>
     </section>
 
-    <!-- FEEDBACK SECTION - ADDED -->
+    <!-- FEEDBACK SECTION -->
     <section id="feedback" class="feedback-section">
-      <h2 class="section-title lang-en">Share Your Feedback</h2>
-      <h2 class="section-title lang-fr">Partagez Vos Retours</h2>
+      <h2 class="section-title">Share Your Feedback</h2>
       <p class="muted" style="text-align: center; margin-bottom: 30px;">
-        <span class="lang-en">We value your experience. Tell us what you think about our guides and recommendations.</span>
-        <span class="lang-fr">Nous valorisons votre expérience. Dites-nous ce que vous pensez de nos guides et recommandations.</span>
+        <span>We value your experience. Tell us what you think about our guides and recommendations.</span>
       </p>
       
       <div class="feedback-form">
@@ -1966,35 +1851,29 @@
           <input type="email" class="feedback-input" placeholder="Your email (optional)" id="feedback-email">
           <textarea class="feedback-textarea" placeholder="Your feedback..." id="feedback-message" required></textarea>
           <button type="submit" class="tile-cta" style="width: 100%;">
-            <span class="lang-en">Submit Feedback</span>
-            <span class="lang-fr">Envoyer Retour</span>
+            <span>Submit Feedback</span>
           </button>
         </form>
       </div>
     </section>
 
-    <!-- UPDATED FAQ WITH CATEGORIES -->
+    <!-- FAQ WITH CATEGORIES -->
     <section class="faq-section">
-      <h2 class="faq-title lang-en">Frequently Asked Questions</h2>
-      <h2 class="faq-title lang-fr">Questions Fréquemment Posées</h2>
+      <h2 class="faq-title">Frequently Asked Questions</h2>
       
       <!-- FAQ Categories -->
       <div class="faq-categories">
         <button class="faq-category-btn active" data-category="general">
-          <span class="lang-en">General</span>
-          <span class="lang-fr">Général</span>
+          <span>General</span>
         </button>
         <button class="faq-category-btn" data-category="saas">
-          <span class="lang-en">SaaS & Hosting</span>
-          <span class="lang-fr">SaaS & Hébergement</span>
+          <span>SaaS & Hosting</span>
         </button>
         <button class="faq-category-btn" data-category="tools">
-          <span class="lang-en">Online Tools</span>
-          <span class="lang-fr">Outils en Ligne</span>
+          <span>Online Tools</span>
         </button>
         <button class="faq-category-btn" data-category="payments">
-          <span class="lang-en">Payment Services</span>
-          <span class="lang-fr">Services de Paiement</span>
+          <span>Payment Services</span>
         </button>
       </div>
       
@@ -2002,57 +1881,37 @@
       <div class="faq-category-content active" id="faq-general">
         <div class="faq-container">
           <div class="faq-item">
-            <div class="faq-question lang-en">How often do you update your recommendations and deals?</div>
-            <div class="faq-question lang-fr">À quelle fréquence mettez-vous à jour vos recommandations et offres?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">How often do you update your recommendations and deals?</div>
+            <div class="faq-answer">
               We review all top recommendations monthly and update deals weekly. Our comparison data is refreshed quarterly to reflect pricing changes, feature updates, and performance improvements from providers.
             </div>
-            <div class="faq-answer lang-fr">
-              Nous révisons toutes les principales recommandations mensuellement et mettons à jour les offres hebdomadairement. Nos données comparatives sont rafraîchies trimestriellement pour refléter les changements de prix, mises à jour de fonctionnalités et améliorations de performance des fournisseurs.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">Do you test all the tools you recommend?</div>
-            <div class="faq-question lang-fr">Testez-vous tous les outils que vous recommandez?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">Do you test all the tools you recommend?</div>
+            <div class="faq-answer">
               We combine hands-on testing (when possible) with research from verified sources, real user experiences, and official performance data. This approach helps us give balanced, practical recommendations without bias.
             </div>
-            <div class="faq-answer lang-fr">
-              Nous combinons des tests pratiques (quand c'est possible) avec des recherches provenant de sources vérifiées, d'expériences réelles d'utilisateurs et de données de performances officielles. Cette approche nous aide à donner des recommandations équilibrées, pratiques et sans parti pris.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">Can I really save money using your exclusive deals?</div>
-            <div class="faq-question lang-fr">Puis-je vraiment économiser de l'argent avec vos offres exclusives?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">Can I really save money using your exclusive deals?</div>
+            <div class="faq-answer">
               Yes. Many tools and services provide discounted pricing through their affiliate programs, and we highlight these offers whenever they are active. The exact savings depend on each provider, but using our links can often give you access to lower introductory prices or limited-time promotions.
             </div>
-            <div class="faq-answer lang-fr">
-              Oui. De nombreux outils et services proposent des tarifs réduits via leurs programmes d'affiliation, et nous mettons en avant ces offres dès qu'elles sont actives. Les économies exactes dépendent de chaque fournisseur, mais utiliser nos liens peut souvent vous donner accès à des prix d'introduction plus bas ou à des promotions limitées dans le temps.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">Is Global Toolkit free to use?</div>
-            <div class="faq-question lang-fr">Global Toolkit est-il gratuit à utiliser?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">Is Global Toolkit free to use?</div>
+            <div class="faq-answer">
               Yes, all our comparison guides, reviews, and educational content are completely free. We earn revenue through affiliate commissions when users purchase through our links, but there's no cost to you for using our site or accessing our recommendations.
             </div>
-            <div class="faq-answer lang-fr">
-              Oui, tous nos guides comparatifs, avis et contenu éducatif sont entièrement gratuits. Nous gagnons des revenus via des commissions d'affiliation lorsque les utilisateurs achètent via nos liens, mais il n'y a aucun coût pour vous d'utiliser notre site ou d'accéder à nos recommandations.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">How do you ensure the accuracy of your information?</div>
-            <div class="faq-question lang-fr">Comment assurez-vous l'exactitude de vos informations?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">How do you ensure the accuracy of your information?</div>
+            <div class="faq-answer">
               We verify information from multiple sources including official provider documentation, user reviews, and industry reports. Our team regularly cross-checks pricing, features, and terms to ensure accuracy. We also invite users to report any discrepancies they find.
-            </div>
-            <div class="faq-answer lang-fr">
-              Nous vérifions les informations auprès de multiples sources incluant la documentation officielle des fournisseurs, les avis d'utilisateurs et les rapports de l'industrie. Notre équipe vérifie régulièrement les prix, fonctionnalités et conditions pour assurer l'exactitude. Nous invitons également les utilisateurs à signaler toute divergence qu'ils trouveraient.
             </div>
           </div>
         </div>
@@ -2062,119 +1921,78 @@
       <div class="faq-category-content" id="faq-saas">
         <div class="faq-container">
           <div class="faq-item">
-            <div class="faq-question lang-en">Which hosting provider is best for beginners with a limited budget?</div>
-            <div class="faq-question lang-fr">Quel hébergeur est le meilleur pour les débutants avec un budget limité?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">Which hosting provider is best for beginners with a limited budget?</div>
+            <div class="faq-answer">
               Several hosting providers offer affordable beginner-friendly plans. The best choice depends on what you need—simplicity, speed, or long-term scalability.
               On our site, we highlight hosting options that are easy to set up, include one-click WordPress installation, provide support for new users, and offer money-back guarantees. You can compare different beginner plans in our hosting section to see which fits your budget and requirements.
             </div>
-            <div class="faq-answer lang-fr">
-              Plusieurs hébergeurs proposent des plans abordables et adaptés aux débutants. Le meilleur choix dépend de ce dont vous avez besoin—simplicité, vitesse ou évolutivité à long terme.
-              Sur notre site, nous mettons en avant les options d'hébergement faciles à configurer, incluent l'installation WordPress en un clic, offrent un support pour les nouveaux utilisateurs et proposent des garanties de remboursement. Vous pouvez comparer différents plans pour débutants dans notre section hébergement pour voir lequel correspond à votre budget et à vos besoins.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">What's the difference between shared hosting and VPS hosting?</div>
-            <div class="faq-question lang-fr">Quelle est la différence entre l'hébergement mutualisé et l'hébergement VPS?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">What's the difference between shared hosting and VPS hosting?</div>
+            <div class="faq-answer">
               Shared hosting means your website shares server resources with other websites, making it affordable but with limited performance. VPS (Virtual Private Server) hosting gives you dedicated resources on a virtual server, offering better performance, security, and control. We recommend shared hosting for beginners and small sites, while VPS is better for growing businesses with more traffic.
             </div>
-            <div class="faq-answer lang-fr">
-              L'hébergement mutualisé signifie que votre site web partage les ressources du serveur avec d'autres sites, le rendant abordable mais avec des performances limitées. L'hébergement VPS (Serveur Privé Virtuel) vous donne des ressources dédiées sur un serveur virtuel, offrant de meilleures performances, sécurité et contrôle. Nous recommandons l'hébergement mutualisé pour les débutants et petits sites, tandis que le VPS est meilleur pour les entreprises en croissance avec plus de trafic.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">How important is website speed for SEO and user experience?</div>
-            <div class="faq-question lang-fr">À quel point la vitesse du site est-elle importante pour le SEO et l'expérience utilisateur?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">How important is website speed for SEO and user experience?</div>
+            <div class="faq-answer">
               Website speed is critical for both SEO and user experience. Google considers page speed as a ranking factor, and faster sites rank better. For users, even a one-second delay can reduce conversions by 7%. We prioritize hosting providers with optimized infrastructure, CDN integration, and caching features to ensure fast loading times.
             </div>
-            <div class="faq-answer lang-fr">
-              La vitesse du site est critique à la fois pour le SEO et l'expérience utilisateur. Google considère la vitesse de page comme un facteur de classement, et les sites plus rapides sont mieux classés. Pour les utilisateurs, même un délai d'une seconde peut réduire les conversions de 7%. Nous priorisons les hébergeurs avec une infrastructure optimisée, une intégration CDN et des fonctionnalités de cache pour assurer des temps de chargement rapides.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">What security features should I look for in a hosting provider?</div>
-            <div class="faq-question lang-fr">Quelles fonctionnalités de sécurité dois-je rechercher dans un hébergeur?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">What security features should I look for in a hosting provider?</div>
+            <div class="faq-answer">
               Essential security features include SSL certificates (for HTTPS), regular backups, DDoS protection, malware scanning, firewalls, and two-factor authentication. Many providers also offer dedicated security plugins or add-ons. We evaluate each provider's security measures in our reviews to help you choose the most secure option for your needs.
             </div>
-            <div class="faq-answer lang-fr">
-              Les fonctionnalités de sécurité essentielles incluent les certificats SSL (pour HTTPS), les sauvegardes régulières, la protection DDoS, le scan de malwares, les pare-feux et l'authentification à deux facteurs. De nombreux fournisseurs offrent également des plugins ou modules complémentaires de sécurité dédiés. Nous évaluons les mesures de sécurité de chaque fournisseur dans nos avis pour vous aider à choisir l'option la plus sécurisée pour vos besoins.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">Can I transfer my existing website to a new hosting provider?</div>
-            <div class="faq-question lang-fr">Puis-je transférer mon site web existant vers un nouvel hébergeur?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">Can I transfer my existing website to a new hosting provider?</div>
+            <div class="faq-answer">
               Yes, most hosting providers offer free website migration services, especially for WordPress sites. The process typically involves backing up your current site, transferring files and databases, and updating DNS records. Many providers have specialized migration plugins or dedicated support teams to assist with the transfer, minimizing downtime during the transition.
-            </div>
-            <div class="faq-answer lang-fr">
-              Oui, la plupart des hébergeurs proposent des services de migration de site web gratuits, surtout pour les sites WordPress. Le processus implique typiquement la sauvegarde de votre site actuel, le transfert des fichiers et bases de données, et la mise à jour des enregistrements DNS. De nombreux hébergeurs ont des plugins de migration spécialisés ou des équipes de support dédiées pour aider au transfert, minimisant les temps d'arrêt pendant la transition.
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Online Tools FAQ - UPDATED -->
+      <!-- Online Tools FAQ -->
       <div class="faq-category-content" id="faq-tools">
         <div class="faq-container">
           <div class="faq-item">
-            <div class="faq-question lang-en">What's the best website builder for beginners without coding skills?</div>
-            <div class="faq-question lang-fr">Quel est le meilleur constructeur de site pour les débutants sans compétences en codage?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">What's the best website builder for beginners without coding skills?</div>
+            <div class="faq-answer">
               For absolute beginners, we recommend drag-and-drop builders with intuitive interfaces, pre-designed templates, and built-in hosting. These platforms allow you to create professional-looking websites without any technical knowledge. Our comparison guides rate builders based on ease of use, template quality, and learning curve to help you choose the right one.
             </div>
-            <div class="faq-answer lang-fr">
-              Pour les débutants absolus, nous recommandons des constructeurs par glisser-déposer avec des interfaces intuitives, des modèles pré-conçus et un hébergement intégré. Ces plateformes vous permettent de créer des sites d'apparence professionnelle sans aucune connaissance technique. Nos guides comparatifs classent les constructeurs sur la base de la facilité d'utilisation, la qualité des modèles et la courbe d'apprentissage pour vous aider à choisir le bon.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">Are free VPN services safe to use?</div>
-            <div class="faq-question lang-fr">Les services VPN gratuits sont-ils sûrs à utiliser?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">Are free VPN services safe to use?</div>
+            <div class="faq-answer">
               While some free VPNs offer basic protection, many have limitations like data caps, slower speeds, and potential privacy concerns (some may log or sell your data). We generally recommend reputable paid VPN services that offer stronger security, no-logs policies, and better performance. Our VPN comparisons highlight both free and paid options with their respective pros and cons.
             </div>
-            <div class="faq-answer lang-fr">
-              Bien que certains VPN gratuits offrent une protection basique, beaucoup ont des limitations comme des plafonds de données, des vitesses plus lentes et des préoccupations potentielles de confidentialité (certains peuvent enregistrer ou vendre vos données). Nous recommandons généralement des services VPN payants réputés qui offrent une sécurité plus forte, des politiques de non-conservation de logs et de meilleures performances. Nos comparatifs de VPN mettent en avant à la fois les options gratuites et payantes avec leurs avantages et inconvénients respectifs.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">What productivity tools are essential for remote teams?</div>
-            <div class="faq-question lang-fr">Quels outils de productivité sont essentiels pour les équipes à distance?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">What productivity tools are essential for remote teams?</div>
+            <div class="faq-answer">
               Essential tools for remote teams include communication platforms (like Slack or Microsoft Teams), project management software (like Asana or Trello), video conferencing tools, cloud storage solutions, and time tracking applications. We evaluate these tools based on features, integration capabilities, pricing, and user reviews to help teams collaborate effectively regardless of location.
             </div>
-            <div class="faq-answer lang-fr">
-              Les outils essentiels pour les équipes à distance incluent des plateformes de communication (comme Slack ou Microsoft Teams), des logiciels de gestion de projet (comme Asana ou Trello), des outils de visioconférence, des solutions de stockage cloud et des applications de suivi du temps. Nous évaluons ces outils sur la base des fonctionnalités, des capacités d'intégration, des prix et des avis utilisateurs pour aider les équipes à collaborer efficacement indépendamment de leur localisation.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">How do automation tools help streamline business processes?</div>
-            <div class="faq-question lang-fr">Comment les outils d'automatisation aident-ils à rationaliser les processus commerciaux?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">How do automation tools help streamline business processes?</div>
+            <div class="faq-answer">
               Automation tools help businesses save time and reduce errors by automating repetitive tasks like data entry, email marketing, social media posting, and customer follow-ups. These tools can integrate different applications, create workflows, and trigger actions based on specific conditions. We compare automation platforms based on ease of setup, integration capabilities, and workflow complexity they can handle.
             </div>
-            <div class="faq-answer lang-fr">
-              Les outils d'automatisation aident les entreprises à gagner du temps et réduire les erreurs en automatisant les tâches répétitives comme la saisie de données, le marketing par email, la publication sur les réseaux sociaux et les relances clients. Ces outils peuvent intégrer différentes applications, créer des flux de travail et déclencher des actions basées sur des conditions spécifiques. Nous comparons les plateformes d'automatisation sur la base de la facilité de configuration, des capacités d'intégration et de la complexité des flux de travail qu'elles peuvent gérer.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">What should I consider when choosing between different website builders?</div>
-            <div class="faq-question lang-fr">Que devrais-je considérer lorsque je choisis entre différents constructeurs de sites?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">What should I consider when choosing between different website builders?</div>
+            <div class="faq-answer">
               Key considerations include ease of use, template selection, customization options, mobile responsiveness, e-commerce capabilities, SEO features, pricing, and scalability. Different builders cater to different needs - some are better for simple portfolios while others excel at e-commerce or complex business websites. Our detailed comparisons help you match the right builder to your specific requirements.
-            </div>
-            <div class="faq-answer lang-fr">
-              Les considérations clés incluent la facilité d'utilisation, la sélection de modèles, les options de personnalisation, la réactivité mobile, les capacités de commerce électronique, les fonctionnalités SEO, le prix et l'évolutivité. Différents constructeurs répondent à différents besoins - certains sont meilleurs pour des portfolios simples tandis que d'autres excellent dans le commerce électronique ou les sites d'entreprise complexes. Nos comparatifs détaillés vous aident à associer le bon constructeur à vos besoins spécifiques.
             </div>
           </div>
         </div>
@@ -2184,165 +2002,108 @@
       <div class="faq-category-content" id="faq-payments">
         <div class="faq-container">
           <div class="faq-item">
-            <div class="faq-question lang-en">What payment processor has the lowest fees for small businesses?</div>
-            <div class="faq-question lang-fr">Quel processeur de paiement a les frais les plus bas pour les petites entreprises?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">What payment processor has the lowest fees for small businesses?</div>
+            <div class="faq-answer">
               The lowest fees depend on your business type, transaction volume, and average ticket size. Some processors offer flat-rate pricing ideal for low-volume businesses, while others provide interchange-plus pricing that can be more cost-effective for higher volumes. Our payment processor comparisons break down all fee structures to help you calculate your actual costs.
             </div>
-            <div class="faq-answer lang-fr">
-              Les frais les plus bas dépendent de votre type d'entreprise, volume de transactions et taille moyenne des tickets. Certains processeurs offrent des tarifs forfaitaires idéaux pour les entreprises à faible volume, tandis que d'autres fournissent des prix interchange-plus qui peuvent être plus rentables pour des volumes plus élevés. Nos comparatifs de processeurs de paiement détaillent toutes les structures de frais pour vous aider à calculer vos coûts réels.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">How do I choose between PayPal, Stripe, and Square?</div>
-            <div class="faq-question lang-fr">Comment choisir entre PayPal, Stripe et Square?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">How do I choose between PayPal, Stripe, and Square?</div>
+            <div class="faq-answer">
               PayPal is great for businesses that need quick setup and wide customer recognition. Stripe offers more customization and developer-friendly features for online businesses. Square excels for in-person retail and restaurants with its hardware ecosystem. We compare these platforms based on fees, integration options, supported countries, and specific use cases in our detailed guides.
             </div>
-            <div class="faq-answer lang-fr">
-              PayPal est excellent pour les entreprises qui ont besoin d'une configuration rapide et d'une large reconnaissance client. Stripe offre plus de personnalisation et des fonctionnalités conviviales pour les développeurs pour les entreprises en ligne. Square excelle pour la vente au détail en personne et les restaurants avec son écosystème matériel. Nous comparons ces plateformes sur la base des frais, options d'intégration, pays supportés et cas d'utilisation spécifiques dans nos guides détaillés.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">What security standards should I look for in a payment processor?</div>
-            <div class="faq-question lang-fr">Quelles normes de sécurité dois-je rechercher dans un processeur de paiement?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">What security standards should I look for in a payment processor?</div>
+            <div class="faq-answer">
               Essential security standards include PCI DSS compliance, tokenization, encryption of sensitive data, fraud detection tools, and 3D Secure authentication. Reputable processors also offer chargeback protection and liability shift for qualified transactions. We evaluate each processor's security measures and certifications in our reviews to ensure your customers' payment data remains secure.
             </div>
-            <div class="faq-answer lang-fr">
-              Les normes de sécurité essentielles incluent la conformité PCI DSS, la tokenisation, le chiffrement des données sensibles, les outils de détection de fraude et l'authentification 3D Secure. Les processeurs réputés offrent également une protection contre les contrefaçons et un transfert de responsabilité pour les transactions qualifiées. Nous évaluons les mesures de sécurité et certifications de chaque processeur dans nos avis pour assurer que les données de paiement de vos clients restent sécurisées.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">Can I accept international payments with my current processor?</div>
-            <div class="faq-question lang-fr">Puis-je accepter des paiements internationaux avec mon processeur actuel?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">Can I accept international payments with my current processor?</div>
+            <div class="faq-answer">
               Most major processors support international payments, but fees, currency conversion rates, and supported countries vary significantly. Some processors specialize in cross-border transactions with lower fees and better currency conversion rates. Our comparisons highlight which processors are best for international businesses based on supported currencies, cross-border fees, and regional availability.
             </div>
-            <div class="faq-answer lang-fr">
-              La plupart des principaux processeurs supportent les paiements internationaux, mais les frais, taux de conversion de devises et pays supportés varient significativement. Certains processeurs se spécialisent dans les transactions transfrontalières avec des frais plus bas et de meilleurs taux de conversion de devises. Nos comparatifs mettent en avant quels processeurs sont les meilleurs pour les entreprises internationales sur la base des devises supportées, frais transfrontaliers et disponibilité régionale.
-            </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question lang-en">How long does it take to receive funds from payment processors?</div>
-            <div class="faq-question lang-fr">Combien de temps faut-il pour recevoir des fonds des processeurs de paiement?</div>
-            <div class="faq-answer lang-en">
+            <div class="faq-question">How long does it take to receive funds from payment processors?</div>
+            <div class="faq-answer">
               Funding timelines vary by processor and business type. Most processors have a standard 1-2 business day transfer time after transaction settlement. Some offer next-day or even instant transfers for eligible businesses (often with additional fees). New businesses may experience longer holding periods initially. Our guides specify each processor's funding schedules and any options for accelerated payouts.
-            </div>
-            <div class="faq-answer lang-fr">
-              Les délais de financement varient selon le processeur et le type d'entreprise. La plupart des processeurs ont un temps de transfert standard de 1-2 jours ouvrables après le règlement de la transaction. Certains offrent des transferts le lendemain ou même instantanés pour les entreprises éligibles (souvent avec des frais supplémentaires). Les nouvelles entreprises peuvent connaître des périodes de retenue plus longues initialement. Nos guides spécifient les horaires de financement de chaque processeur et toutes les options pour des paiements accélérés.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- AFFILIATE DISCLOSURE DETAILED - UPDATED WITH 3 ADDITIONAL QUESTIONS -->
+    <!-- AFFILIATE DISCLOSURE DETAILED -->
     <section id="affiliate-disclosure" class="faq-section">
-      <h2 class="section-title lang-en">Affiliate Disclosure & How We Make Money</h2>
-      <h2 class="section-title lang-fr">Divulgation d'Affiliation & Comment Nous Gagnons de l'Argent</h2>
+      <h2 class="section-title">Affiliate Disclosure & How We Make Money</h2>
       
       <div class="faq-container">
         <div class="faq-item">
-          <div class="faq-question lang-en">How does Global Toolkit make money?</div>
-          <div class="faq-question lang-fr">Comment Global Toolkit gagne-t-il de l'argent?</div>
-          <div class="faq-answer lang-en">
+          <div class="faq-question">How does Global Toolkit make money?</div>
+          <div class="faq-answer">
             We earn affiliate commissions when readers purchase products/services through our links. These commissions don't cost you extra—they're paid by the companies as referral fees. This allows us to maintain the site, conduct thorough testing, and provide free educational content.
           </div>
-          <div class="faq-answer lang-fr">
-            Nous gagnons des commissions d'affiliation lorsque les lecteurs achètent des produits/services via nos liens. Ces commissions ne vous coûtent rien de plus—elles sont payées par les entreprises comme frais de référence. Cela nous permet de maintenir le site, de réaliser des tests approfondis et de fournir du contenu éducatif gratuit.
-          </div>
         </div>
 
         <div class="faq-item">
-          <div class="faq-question lang-en">Does this affect your recommendations?</div>
-          <div class="faq-question lang-fr">Cela affecte-t-il vos recommandations?</div>
-          <div class="faq-answer lang-en">
+          <div class="faq-question">Does this affect your recommendations?</div>
+          <div class="faq-answer">
             We maintain editorial independence. Our testing methodology is consistent across all products, and we only recommend tools we genuinely believe provide value. Higher commission rates don't influence our rankings—we prioritize performance, features, and user experience.
           </div>
-          <div class="faq-answer lang-fr">
-            Nous maintenons notre indépendance éditoriale. Notre méthodologie de test est cohérente pour tous les produits, et nous ne recommandons que les outils que nous croyons vraiment offrir de la valeur. Les taux de commission plus élevés n'influencent pas nos classements—nous priorisons les performances, fonctionnalités et expérience utilisateur.
-          </div>
         </div>
 
         <div class="faq-item">
-          <div class="faq-question lang-en">Do you get paid for positive reviews?</div>
-          <div class="faq-question lang-fr">Êtes-vous payés pour des avis positifs?</div>
-          <div class="faq-answer lang-en">
+          <div class="faq-question">Do you get paid for positive reviews?</div>
+          <div class="faq-answer">
             No, we do not accept payment for positive reviews. Our affiliate relationships are based on referral commissions only when users make purchases. We provide honest assessments of each tool's strengths and weaknesses, regardless of whether we have an affiliate relationship with the company.
           </div>
-          <div class="faq-answer lang-fr">
-            Non, nous n'acceptons pas de paiement pour des avis positifs. Nos relations d'affiliation sont basées uniquement sur des commissions de référence lorsque les utilisateurs effectuent des achats. Nous fournissons des évaluations honnêtes des forces et faiblesses de chaque outil, indépendamment du fait que nous ayons une relation d'affiliation avec l'entreprise.
-          </div>
         </div>
 
         <div class="faq-item">
-          <div class="faq-question lang-en">How can I trust your comparison data?</div>
-          <div class="faq-question lang-fr">Comment puis-je faire confiance à vos données comparatives?</div>
-          <div class="faq-answer lang-en">
+          <div class="faq-question">How can I trust your comparison data?</div>
+          <div class="faq-answer">
             We use multiple verification methods: cross-referencing official documentation, testing tools firsthand when possible, analyzing user reviews from trusted platforms, and monitoring industry reports. All data points include their sources, and we update information regularly to ensure accuracy. We also invite users to report any discrepancies they find.
           </div>
-          <div class="faq-answer lang-fr">
-            Nous utilisons plusieurs méthodes de vérification : recoupement de la documentation officielle, test des outils en première main quand c'est possible, analyse des avis utilisateurs de plateformes fiables et surveillance des rapports de l'industrie. Tous les points de données incluent leurs sources, et nous mettons à jour les informations régulièrement pour assurer l'exactitude. Nous invitons également les utilisateurs à signaler toute divergence qu'ils trouveraient.
-          </div>
         </div>
 
         <div class="faq-item">
-          <div class="faq-question lang-en">What happens if I use your links vs. going directly?</div>
-          <div class="faq-question lang-fr">Que se passe-t-il si j'utilise vos liens vs. aller directement?</div>
-          <div class="faq-answer lang-en">
+          <div class="faq-question">What happens if I use your links vs. going directly?</div>
+          <div class="faq-answer">
             When you use our links, you often get the same or better pricing (through exclusive deals), while we earn a small commission that supports our work. You don't pay extra—the commission comes from the company's marketing budget. Going directly typically means the company keeps 100% of that marketing budget instead.
-          </div>
-          <div class="faq-answer lang-fr">
-            Lorsque vous utilisez nos liens, vous obtenez souvent le même prix ou mieux (via des offres exclusives), tandis que nous gagnons une petite commission qui soutient notre travail. Vous ne payez pas d'extra—la commission vient du budget marketing de l'entreprise. Aller directement signifie typiquement que l'entreprise garde 100% de ce budget marketing à la place.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- UPDATED FOOTER WITH MORE LINKS -->
+    <!-- FOOTER -->
     <div class="footer">
       <div class="footer-links">
         <div class="footer-column">
-          <h4 class="lang-en">Categories</h4>
-          <h4 class="lang-fr">Catégories</h4>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
-          <!-- CHANGED: "Payment Processors" to "Payment Services" -->
-          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
+          <h4>Categories</h4>
+          <a href="https://global-toolkit.github.io/en/saas-&-web-hosting">Web Hosting</a>
+          <a href="https://global-toolkit.github.io/en/online-tools">Online Tools & Builders</a>
+          <a href="https://global-toolkit.github.io/en/payments">Payment Services</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Resources</h4>
-          <h4 class="lang-fr">Ressources</h4>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy">Privacy</a>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
-          <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
-          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
-          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
+          <h4>Resources</h4>
+          <a href="https://global-toolkit.github.io/en/privacy">Privacy</a>
+          <a href="https://global-toolkit.github.io/en/how-we-test">How We Test</a>
+          <a href="https://global-toolkit.github.io/en/affiliate-disclosure?currency=USD">Affiliate Disclosure</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Tools</h4>
-          <h4 class="lang-fr">Outils</h4>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Comparison Calculator</a>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Calculateur Comparatif</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Deals Tracker</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Suivi Offres</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Beginner Guides</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Guides Débutants</a>
+          <h4>Tools</h4>
+          <a href="https://global-toolkit.github.io/en/comparison-calculator" class="coming-soon-link">Comparison Calculator</a>
+          <a href="https://global-toolkit.github.io/en/deals-tracker" class="coming-soon-link">Deals Tracker</a>
+          <a href="https://global-toolkit.github.io/en/beginner-guides" class="coming-soon-link">Beginner Guides</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Connect</h4>
-          <h4 class="lang-fr">Contact</h4>
-          <!-- UPDATED: Connect links layout with icon for Share Feedback -->
+          <h4>Connect</h4>
           <div class="connect-links">
             <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
               <i class="fas fa-envelope"></i>
@@ -2352,7 +2113,6 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <!-- UPDATED: Share Feedback with icon only, no French translation -->
             <a href="#feedback" class="connect-link">
               <i class="fas fa-comment-alt"></i>
               <span>Share Feedback</span>
@@ -2361,43 +2121,34 @@
         </div>
       </div>
       
-      <!-- NEW: Footer bottom links in single line -->
+      <!-- Footer bottom links in single line -->
       <div class="footer-bottom-links">
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
+        <a href="https://global-toolkit.github.io/en/privacy">Privacy</a>
         <span class="separator">|</span>
-        <!-- UPDATED: Affiliate Disclosure links to future GitHub page -->
-        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
-        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
+        <a href="https://global-toolkit.github.io/en/affiliate-disclosure?currency=USD">Affiliate Disclosure</a>
         <span class="separator">|</span>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
+        <a href="https://global-toolkit.github.io/en/terms">Terms</a>
       </div>
       
       <div style="height:6px"></div>
-      <div class="muted lang-en"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
-      <div class="muted lang-fr"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
+      <div class="muted"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
       <div style="height:6px"></div>
-      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
-      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils & Offres Exclusives</div>
+      <div class="muted">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
     </div>
   </main>
 </div>
 
 <script>
-// Language switching functionality
-let currentLang = 'en';
+// Clean English-only JavaScript
+
 let currentCurrency = 'USD';
-let exchangeRate = 1.0; // Default 1 USD = 1 USD
+let exchangeRate = 1.0;
 
 // Mobile scroll hiding variables
 let scrollTimer;
 let isMobile = window.innerWidth <= 767;
 let isAtTop = window.scrollY === 0;
 let hideControlsTimer;
-
-// FIXED: Declare initFAQItemListeners in global scope to avoid ReferenceError
-let initFAQItemListeners;
 
 // Product scroller variables
 let productScroller;
@@ -2410,83 +2161,71 @@ let scrollLeft;
 // Mobile menu state
 let currentSubmenu = null;
 
-// Subcategories data structure
+// Subcategories data structure (English only)
 const subcategories = {
   'saas': {
-    title: { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    title: 'SaaS & Web Hosting',
     items: [
       { 
-        en: 'Web Hosting', 
-        fr: 'Hébergement Web', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Web-Hosting/index.html' 
+        name: 'Web Hosting', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Web-Hosting/index.html' 
       },
       { 
-        en: 'Website Platforms & CMS', 
-        fr: 'Plateformes Web & CMS', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
+        name: 'Website Platforms & CMS', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
       },
       { 
-        en: 'Business SaaS', 
-        fr: 'SaaS Professionnel', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Business-SaaS/index.html' 
+        name: 'Business SaaS', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Business-SaaS/index.html' 
       },
       { 
-        en: 'Performance & Security', 
-        fr: 'Performance & Sécurité', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Performance-&-Security/index.html' 
+        name: 'Performance & Security', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Performance-&-Security/index.html' 
       }
     ]
   },
   'tools': {
-    title: { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    title: 'Online Tools & Builders',
     items: [
       { 
-        en: 'Website Builders', 
-        fr: 'Constructeurs de Sites', 
-        url: 'https://global-toolkit.github.io/online-tools/Website-Builders/index.html' 
+        name: 'Website Builders', 
+        url: 'https://global-toolkit.github.io/en/online-tools/Website-Builders/index.html' 
       },
       { 
-        en: 'VPN Services', 
-        fr: 'Services VPN', 
-        url: 'https://global-toolkit.github.io/online-tools/VPN-services/index.html' 
+        name: 'VPN Services', 
+        url: 'https://global-toolkit.github.io/en/online-tools/VPN-services/index.html' 
       },
       { 
-        en: 'Productivity Tools', 
-        fr: 'Outils de Productivité', 
-        url: 'https://global-toolkit.github.io/online-tools/Productivity-tools/index.html' 
+        name: 'Productivity Tools', 
+        url: 'https://global-toolkit.github.io/en/online-tools/Productivity-tools/index.html' 
       },
       { 
-        en: 'Automation Platforms', 
-        fr: 'Plateformes d\'Automatisation', 
-        url: 'https://global-toolkit.github.io/online-tools/Automation-tools/index.html' 
+        name: 'Automation Platforms', 
+        url: 'https://global-toolkit.github.io/en/online-tools/Automation-tools/index.html' 
       }
     ]
   },
   'payments': {
-    title: { en: 'Payment Services', fr: 'Services de Paiement' },
+    title: 'Payment Services',
     items: [
       { 
-        en: 'Merchant Payment Processors', 
-        fr: 'Processeurs de Paiement', 
-        url: 'https://global-toolkit.github.io/payment-services/Merchant-Payment-Processors/index.html' 
+        name: 'Merchant Payment Processors', 
+        url: 'https://global-toolkit.github.io/en/payment-services/Merchant-Payment-Processors/index.html' 
       },
       { 
-        en: 'Multi-Currency Accounts', 
-        fr: 'Comptes Multi-Devises', 
-        url: 'https://global-toolkit.github.io/payment-services/Multi-Currency-Accounts/index.html' 
+        name: 'Multi-Currency Accounts', 
+        url: 'https://global-toolkit.github.io/en/payment-services/Multi-Currency-Accounts/index.html' 
       },
       { 
-        en: 'Digital Wallets & Cards', 
-        fr: 'Portefeuilles & Cartes Numériques', 
-        url: 'https://global-toolkit.github.io/payment-services/Digital-Wallets-&-Cards/index.html' 
+        name: 'Digital Wallets & Cards', 
+        url: 'https://global-toolkit.github.io/en/payment-services/Digital-Wallets-&-Cards/index.html' 
       }
     ]
   }
 };
 
-// Function to generate a fallback logo using SVG data URI (fixes ERR_NAME_NOT_RESOLVED)
+// Function to generate a fallback logo using SVG data URI
 function getFallbackLogo(letter) {
-  // Create an SVG with the first letter of the product name
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
     <rect width="40" height="40" fill="#111827" rx="8"/>
     <text x="20" y="24" font-family="Inter, sans-serif" font-size="18" font-weight="bold" fill="#00d4ff" text-anchor="middle" alignment-baseline="middle">${letter}</text>
@@ -2494,44 +2233,35 @@ function getFallbackLogo(letter) {
   return 'data:image/svg+xml;base64,' + btoa(svg);
 }
 
-// UPDATED: Product data with "Ideal for" and "Key value" information and updated logo URLs
+// Product data (English only)
 const products = [
   // Website Builders
   {
     id: 'wix',
     name: 'Wix',
     category: 'Website Builder',
-    categoryFr: 'Constructeur de Site',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Website-Builders/products/wix/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Website-Builders/products/wix/logo.png',
     idealFor: 'Beginners, small businesses',
-    idealForFr: 'Débutants, petites entreprises',
     keyValue: 'No-code, beginner-friendly',
-    keyValueFr: 'Sans code, convivial pour débutants',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/website-builders/products/wix'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/website-builders/products/wix'
   },
   {
     id: 'shopify',
     name: 'Shopify',
     category: 'Website Builder',
-    categoryFr: 'Constructeur de Site',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Website-Builders/products/shopify/logo.jpg',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Website-Builders/products/shopify/logo.jpg',
     idealFor: 'E-commerce stores, online sellers',
-    idealForFr: 'Boutiques e-commerce, vendeurs en ligne',
     keyValue: 'All-in-one e-commerce platform',
-    keyValueFr: 'Plateforme e-commerce tout-en-un',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/website-builders/products/shopify'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/website-builders/products/shopify'
   },
   {
     id: 'bluehost',
     name: 'Bluehost',
     category: 'Website Builder',
-    categoryFr: 'Constructeur de Site',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Website-Builders/products/bluehost/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Website-Builders/products/bluehost/logo.png',
     idealFor: 'WordPress websites, bloggers',
-    idealForFr: 'Sites WordPress, blogueurs',
     keyValue: 'WordPress optimized hosting',
-    keyValueFr: 'Hébergement optimisé WordPress',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/website-builders/products/bluehost'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/website-builders/products/bluehost'
   },
   
   // VPN Services
@@ -2539,37 +2269,28 @@ const products = [
     id: 'nordvpn',
     name: 'NordVPN',
     category: 'VPN Service',
-    categoryFr: 'Service VPN',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/VPN-services/products/nordvpn/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/VPN-services/products/nordvpn/logo.png',
     idealFor: 'Security-conscious users, streamers',
-    idealForFr: 'Utilisateurs soucieux de sécurité, streamers',
     keyValue: 'Strong security, fast speeds',
-    keyValueFr: 'Sécurité renforcée, vitesses rapides',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/vpn-services/products/nordvpn'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/vpn-services/products/nordvpn'
   },
   {
     id: 'surfshark',
     name: 'Surfshark',
     category: 'VPN Service',
-    categoryFr: 'Service VPN',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/VPN-services/products/surfshark/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/VPN-services/products/surfshark/logo.png',
     idealFor: 'Budget users, multi-device households',
-    idealForFr: 'Utilisateurs économes, foyers multi-appareils',
     keyValue: 'Unlimited devices, affordable',
-    keyValueFr: 'Appareils illimités, abordable',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/vpn-services/products/surfshark'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/vpn-services/products/surfshark'
   },
   {
     id: 'atlasvpn',
     name: 'AtlasVPN',
     category: 'VPN Service',
-    categoryFr: 'Service VPN',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/VPN-services/products/atlasvpn/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/VPN-services/products/atlasvpn/logo.png',
     idealFor: 'Casual users, free VPN seekers',
-    idealForFr: 'Utilisateurs occasionnels, chercheur VPN gratuit',
     keyValue: 'Free tier available, simple interface',
-    keyValueFr: 'Version gratuite disponible, interface simple',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/vpn-services/products/atlasvpn'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/vpn-services/products/atlasvpn'
   },
   
   // Productivity Tools
@@ -2577,37 +2298,28 @@ const products = [
     id: 'notion',
     name: 'Notion',
     category: 'Productivity Tool',
-    categoryFr: 'Outil de Productivité',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Productivity-tools/products/notion/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Productivity-tools/products/notion/logo.png',
     idealFor: 'Teams, project management, notes',
-    idealForFr: 'Équipes, gestion de projet, notes',
     keyValue: 'All-in-one workspace',
-    keyValueFr: 'Espace de travail tout-en-un',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/productivity-tools/products/notion'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/productivity-tools/products/notion'
   },
   {
     id: 'todoist',
     name: 'Todoist',
     category: 'Productivity Tool',
-    categoryFr: 'Outil de Productivité',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Productivity-tools/products/todoist/logo.jpg',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Productivity-tools/products/todoist/logo.jpg',
     idealFor: 'Task management, personal productivity',
-    idealForFr: 'Gestion des tâches, productivité personnelle',
     keyValue: 'Simple task management',
-    keyValueFr: 'Gestion de tâches simple',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/productivity-tools/products/todoist'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/productivity-tools/products/todoist'
   },
   {
     id: 'clickup',
     name: 'ClickUp',
     category: 'Productivity Tool',
-    categoryFr: 'Outil de Productivité',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Productivity-tools/products/clickup/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Productivity-tools/products/clickup/logo.png',
     idealFor: 'Teams, agile workflows',
-    idealForFr: 'Équipes, workflows agiles',
     keyValue: 'Customizable project management',
-    keyValueFr: 'Gestion de projet personnalisable',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/productivity-tools/products/clickup'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/productivity-tools/products/clickup'
   },
   
   // Automation Platforms
@@ -2615,37 +2327,28 @@ const products = [
     id: 'zapier',
     name: 'Zapier',
     category: 'Automation Platform',
-    categoryFr: 'Plateforme d\'Automatisation',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Automation-tools/products/zapier/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Automation-tools/products/zapier/logo.png',
     idealFor: 'Connecting apps, workflow automation',
-    idealForFr: 'Connexion d\'applications, automatisation des workflows',
     keyValue: 'Connect 5,000+ apps',
-    keyValueFr: 'Connecte 5 000+ applications',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/automation-platforms/products/zapier'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/automation-platforms/products/zapier'
   },
   {
     id: 'apify',
     name: 'Apify',
     category: 'Automation Platform',
-    categoryFr: 'Plateforme d\'Automatisation',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Automation-tools/products/apify/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Automation-tools/products/apify/logo.png',
     idealFor: 'Web scraping, data extraction',
-    idealForFr: 'Web scraping, extraction de données',
     keyValue: 'Web automation & scraping',
-    keyValueFr: 'Automatisation web & scraping',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/automation-platforms/products/apify'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/automation-platforms/products/apify'
   },
   {
     id: 'make',
     name: 'Make (Integromat)',
     category: 'Automation Platform',
-    categoryFr: 'Plateforme d\'Automatisation',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/online-tools/Automation-tools/products/make/logo.jpg',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/online-tools/Automation-tools/products/make/logo.jpg',
     idealFor: 'Visual automation, complex workflows',
-    idealForFr: 'Automatisation visuelle, workflows complexes',
     keyValue: 'Visual workflow builder',
-    keyValueFr: 'Constructeur de workflows visuel',
-    baseUrl: 'https://global-toolkit.github.io/online-tools/automation-platforms/products/make'
+    baseUrl: 'https://global-toolkit.github.io/en/online-tools/automation-platforms/products/make'
   },
   
   // Digital Wallets & Cards
@@ -2653,135 +2356,12 @@ const products = [
     id: 'redotpay',
     name: 'RedotPay',
     category: 'Digital Wallet & Card',
-    categoryFr: 'Portefeuille & Carte Numérique',
-    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/payment-services/Digital-Wallets-&-Cards/products/redotpay/logo.png',
+    logo: 'https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/payment-services/Digital-Wallets-&-Cards/products/redotpay/logo.png',
     idealFor: 'Crypto users, global payments',
-    idealForFr: 'Utilisateurs crypto, paiements globaux',
     keyValue: 'Global payments, low fees',
-    keyValueFr: 'Paiements globaux, frais réduits',
-    baseUrl: 'https://global-toolkit.github.io/payments/digital-wallets&cards/products/redotpay'
+    baseUrl: 'https://global-toolkit.github.io/en/payments/digital-wallets&cards/products/redotpay'
   }
 ];
-
-// Function to switch language
-function switchLanguage(lang) {
-  currentLang = lang;
-  
-  const enElements = document.querySelectorAll('.lang-en');
-  const frElements = document.querySelectorAll('.lang-fr');
-  
-  if (lang === 'fr') {
-    enElements.forEach(el => el.style.display = 'none');
-    frElements.forEach(el => el.style.display = 'block');
-    
-    document.documentElement.setAttribute('lang', 'fr');
-    localStorage.setItem('preferredLanguage', 'fr');
-    updateAllLinks('fr');
-    
-  } else {
-    enElements.forEach(el => el.style.display = 'block');
-    frElements.forEach(el => el.style.display = 'none');
-    
-    document.documentElement.setAttribute('lang', 'en');
-    localStorage.setItem('preferredLanguage', 'en');
-    updateAllLinks('en');
-  }
-  
-  // Update dropdown button text
-  document.getElementById('currentLangText').textContent = lang === 'fr' ? 'Français' : 'English';
-  
-  // Update active state in dropdown
-  document.querySelectorAll('.lang-option').forEach(option => {
-    option.classList.remove('active');
-    if (option.getAttribute('data-lang') === lang) {
-      option.classList.add('active');
-    }
-  });
-  
-  // Update mobile menu content
-  updateMobileMenuContent();
-  
-  // Reinitialize FAQ to fix language issues
-  setTimeout(() => {
-    // FIXED: initFAQItemListeners is now defined globally
-    if (typeof initFAQItemListeners === 'function') {
-      initFAQItemListeners();
-    }
-    // Hide all answers initially
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.classList.remove('expanded');
-      const answers = item.querySelectorAll('.faq-answer');
-      answers.forEach(answer => {
-        answer.style.display = 'none';
-      });
-    });
-  }, 50);
-  
-  // Update product cards language
-  updateProductCardsLanguage();
-}
-
-// CHANGED: Updated function to handle all links with language and currency parameters
-function updateAllLinks(lang) {
-  const links = document.querySelectorAll('a[data-base-url]');
-  
-  links.forEach(link => {
-    const baseUrl = link.getAttribute('data-base-url');
-    let cleanUrl = baseUrl.split('?')[0];
-    link.setAttribute('href', `${cleanUrl}?lang=${lang}&currency=${currentCurrency}`);
-  });
-  
-  // Update Affiliate Disclosure links in footer - FIXED: Avoid using full URLs as selectors
-  const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
-  affiliateLinks.forEach(link => {
-    // Check if it's a full URL (not an anchor link)
-    if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
-      link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}&currency=${currentCurrency}`;
-    }
-  });
-  
-  // Update Facebook link with language reference
-  const facebookLinks = document.querySelectorAll('a[href*="facebook.com/GlobalToolkit"]');
-  facebookLinks.forEach(link => {
-    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}_${currentCurrency}`);
-  });
-  
-  // Update mobile menu home link
-  const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
-  if (mobileMenuHomeLink) {
-    mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
-  }
-  
-  // Update brand link
-  const brandLink = document.getElementById('brandLink');
-  if (brandLink) {
-    brandLink.href = `https://global-toolkit.github.io/?lang=${lang}&currency=${currentCurrency}`;
-  }
-}
-
-// Function to get language from URL parameter
-function getLangFromUrl() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('lang');
-}
-
-// Function to initialize language
-function initializeLanguage() {
-  const urlLang = getLangFromUrl();
-  const savedLang = localStorage.getItem('preferredLanguage');
-  const browserLang = navigator.language || navigator.userLanguage;
-  const browserLangShort = browserLang.split('-')[0];
-  
-  if (urlLang && (urlLang === 'en' || urlLang === 'fr')) {
-    switchLanguage(urlLang);
-  } else if (savedLang) {
-    switchLanguage(savedLang);
-  } else if (browserLangShort === 'fr') {
-    switchLanguage('fr');
-  } else {
-    switchLanguage('en');
-  }
-}
 
 // Currency conversion functions
 async function fetchExchangeRate() {
@@ -2809,12 +2389,7 @@ function convertPrices() {
     
     // Format price with 2 decimal places
     const formattedPrice = convertedPrice.toFixed(2);
-    
-    if (currentLang === 'fr') {
-      el.textContent = `À partir de ${formattedPrice} ${symbol}/mois`;
-    } else {
-      el.textContent = `From ${symbol}${formattedPrice}/month`;
-    }
+    el.textContent = `From ${symbol}${formattedPrice}/month`;
   });
 }
 
@@ -2839,9 +2414,6 @@ function switchCurrency(currency) {
   
   // Convert prices
   convertPrices();
-  
-  // Update all links with new currency
-  updateAllLinks(currentLang);
   
   // Update mobile menu content
   updateMobileMenuContent();
@@ -2868,30 +2440,24 @@ function setupProductScroller() {
   products.forEach(product => {
     const card = document.createElement('a');
     card.className = 'product-card';
-    card.href = `${product.baseUrl}?lang=${currentLang}&currency=${currentCurrency}`;
+    card.href = `${product.baseUrl}?currency=${currentCurrency}`;
     card.dataset.id = product.id;
     
-    // UPDATED: Card template with new structure
     card.innerHTML = `
       <div class="product-card-header">
         <img src="${product.logo}" alt="${product.name}" class="product-logo" 
              onerror="this.src='${getFallbackLogo(product.name.charAt(0))}'">
         <div class="product-header-text">
           <h3 class="product-name">${product.name}</h3>
-          <div class="product-category lang-en">${product.category}</div>
-          <div class="product-category lang-fr">${product.categoryFr}</div>
+          <div class="product-category">${product.category}</div>
         </div>
       </div>
       <div class="product-ideal-for">
-        <span class="lang-en">Ideal for: </span>
-        <span class="lang-fr">Idéal pour : </span>
-        <span class="product-ideal-for-text lang-en">${product.idealFor}</span>
-        <span class="product-ideal-for-text lang-fr">${product.idealForFr}</span>
+        <span>Ideal for: </span>
+        <span class="product-ideal-for-text">${product.idealFor}</span>
       </div>
-      <div class="product-key-value lang-en">${product.keyValue}</div>
-      <div class="product-key-value lang-fr">${product.keyValueFr}</div>
-      <div class="product-review lang-en">View details</div>
-      <div class="product-review lang-fr">Voir les détails</div>
+      <div class="product-key-value">${product.keyValue}</div>
+      <div class="product-review">View details</div>
     `;
     
     // Add click event to show coming soon message
@@ -2907,7 +2473,7 @@ function setupProductScroller() {
       // Create and append message
       const msg = document.createElement('div');
       msg.className = 'coming-soon-msg';
-      msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+      msg.textContent = ' (Coming soon)';
       msg.style.position = 'absolute';
       msg.style.bottom = '10px';
       msg.style.right = '10px';
@@ -2937,7 +2503,7 @@ function setupProductScroller() {
       leftArrow.classList.remove('disabled');
     }
     
-    if (scrollLeft >= maxScrollLeft - 1) { // -1 for rounding errors
+    if (scrollLeft >= maxScrollLeft - 1) {
       rightArrow.classList.add('disabled');
     } else {
       rightArrow.classList.remove('disabled');
@@ -2976,7 +2542,7 @@ function setupProductScroller() {
     }
   }
   
-  // Arrow click handlers - UPDATED: Use actual card width
+  // Arrow click handlers
   leftArrow.addEventListener('click', function() {
     if (this.classList.contains('disabled')) return;
     
@@ -3019,7 +2585,7 @@ function setupProductScroller() {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - productScroller.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed multiplier
+    const walk = (x - startX) * 2;
     productScroller.scrollLeft = scrollLeft - walk;
   });
   
@@ -3061,36 +2627,9 @@ function setupProductScroller() {
   
   // Initialize arrows
   updateArrows();
-  
-  // Initialize language for cards
-  updateProductCardsLanguage();
 }
 
-// Update product cards language
-function updateProductCardsLanguage() {
-  const cards = document.querySelectorAll('.product-card');
-  cards.forEach(card => {
-    const enElements = card.querySelectorAll('.lang-en');
-    const frElements = card.querySelectorAll('.lang-fr');
-    
-    if (currentLang === 'fr') {
-      enElements.forEach(el => el.style.display = 'none');
-      frElements.forEach(el => el.style.display = 'block');
-    } else {
-      enElements.forEach(el => el.style.display = 'block');
-      frElements.forEach(el => el.style.display = 'none');
-    }
-    
-    // Update href with current language and currency
-    const productId = card.dataset.id;
-    const product = products.find(p => p.id === productId);
-    if (product) {
-      card.href = `${product.baseUrl}?lang=${currentLang}&currency=${currentCurrency}`;
-    }
-  });
-}
-
-// FAQ functionality - FIXED VERSION
+// FAQ functionality
 function setupFAQ() {
   // FAQ category switching
   const categoryButtons = document.querySelectorAll('.faq-category-btn');
@@ -3113,18 +2652,15 @@ function setupFAQ() {
     });
   });
   
-  // FIXED: Initialize FAQ item listeners for all FAQ sections (now defined globally)
-  initFAQItemListeners = function() {
+  // Initialize FAQ item listeners
+  function initFAQItemListeners() {
     // Handle FAQ items in category sections and affiliate disclosure
     const allFAQItems = document.querySelectorAll('.faq-item');
     
     allFAQItems.forEach(item => {
-      // Make sure only current language answers are visible initially (all hidden)
-      const enAnswer = item.querySelector('.faq-answer.lang-en');
-      const frAnswer = item.querySelector('.faq-answer.lang-fr');
-      
-      if (enAnswer) enAnswer.style.display = 'none';
-      if (frAnswer) frAnswer.style.display = 'none';
+      // Make sure answers are hidden initially
+      const answer = item.querySelector('.faq-answer');
+      if (answer) answer.style.display = 'none';
       
       // Remove existing click listeners to avoid duplicates
       const newItem = item.cloneNode(true);
@@ -3136,7 +2672,7 @@ function setupFAQ() {
     
     refreshedFAQItems.forEach(item => {
       item.addEventListener('click', function() {
-        // Get the parent container (either category content or affiliate disclosure section)
+        // Get the parent container
         const parentContainer = this.closest('.faq-category-content') || this.closest('#affiliate-disclosure');
         
         if (parentContainer) {
@@ -3144,10 +2680,8 @@ function setupFAQ() {
           parentContainer.querySelectorAll('.faq-item').forEach(otherItem => {
             if (otherItem !== this) {
               otherItem.classList.remove('expanded');
-              const otherEnAnswer = otherItem.querySelector('.faq-answer.lang-en');
-              const otherFrAnswer = otherItem.querySelector('.faq-answer.lang-fr');
-              if (otherEnAnswer) otherEnAnswer.style.display = 'none';
-              if (otherFrAnswer) otherFrAnswer.style.display = 'none';
+              const otherAnswer = otherItem.querySelector('.faq-answer');
+              if (otherAnswer) otherAnswer.style.display = 'none';
             }
           });
           
@@ -3161,17 +2695,15 @@ function setupFAQ() {
           
           if (!wasExpanded) {
             this.classList.add('expanded');
-            // Show only the current language answer
-            const currentLangAnswer = this.querySelector(`.faq-answer.lang-${currentLang}`);
-            if (currentLangAnswer) {
-              currentLangAnswer.style.display = 'block';
+            // Show the answer
+            const answer = this.querySelector('.faq-answer');
+            if (answer) {
+              answer.style.display = 'block';
             }
           } else {
-            // Hide all answers for this item
-            const enAnswer = this.querySelector('.faq-answer.lang-en');
-            const frAnswer = this.querySelector('.faq-answer.lang-fr');
-            if (enAnswer) enAnswer.style.display = 'none';
-            if (frAnswer) frAnswer.style.display = 'none';
+            // Hide the answer
+            const answer = this.querySelector('.faq-answer');
+            if (answer) answer.style.display = 'none';
           }
         }
       });
@@ -3182,10 +2714,8 @@ function setupFAQ() {
   function closeAllFAQItems() {
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('expanded');
-      const enAnswer = item.querySelector('.faq-answer.lang-en');
-      const frAnswer = item.querySelector('.faq-answer.lang-fr');
-      if (enAnswer) enAnswer.style.display = 'none';
-      if (frAnswer) frAnswer.style.display = 'none';
+      const answer = item.querySelector('.faq-answer');
+      if (answer) answer.style.display = 'none';
     });
   }
   
@@ -3320,7 +2850,7 @@ function showSubmenu(category) {
   
   const submenuTitle = document.createElement('div');
   submenuTitle.className = 'mobile-submenu-title';
-  submenuTitle.textContent = currentLang === 'fr' ? subcategoryData.title.fr : subcategoryData.title.en;
+  submenuTitle.textContent = subcategoryData.title;
   
   submenuHeader.appendChild(backButton);
   submenuHeader.appendChild(submenuTitle);
@@ -3333,9 +2863,9 @@ function showSubmenu(category) {
   // Add subcategory items
   subcategoryData.items.forEach(item => {
     const link = document.createElement('a');
-    link.href = `${item.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    link.href = `${item.url}?currency=${currentCurrency}`;
     link.className = 'mobile-menu-link';
-    link.textContent = currentLang === 'fr' ? item.fr : item.en;
+    link.textContent = item.name;
     submenuContent.appendChild(link);
   });
   
@@ -3375,7 +2905,7 @@ function updateMobileMenuContent() {
   homeSection.className = 'mobile-menu-section';
   
   const homeLink = document.createElement('a');
-  homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}&currency=${currentCurrency}`;
+  homeLink.href = `https://global-toolkit.github.io/en/index.html?currency=${currentCurrency}`;
   homeLink.className = 'mobile-menu-link';
   
   const homeIcon = document.createElement('i');
@@ -3383,7 +2913,7 @@ function updateMobileMenuContent() {
   homeIcon.style.marginRight = '8px';
   
   const homeText = document.createElement('span');
-  homeText.textContent = currentLang === 'fr' ? 'Accueil' : 'Home';
+  homeText.textContent = 'Home';
   
   homeLink.appendChild(homeIcon);
   homeLink.appendChild(homeText);
@@ -3391,12 +2921,12 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(homeSection);
   
-  // Add Categories section - UPDATED: Categories are now expandable
+  // Add Categories section
   const categoriesSection = document.createElement('div');
   categoriesSection.className = 'mobile-menu-section';
   
   const categoriesTitle = document.createElement('h3');
-  categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
+  categoriesTitle.textContent = 'Categories';
   categoriesTitle.style.color = 'var(--electric-blue)';
   categoriesTitle.style.marginBottom = '10px';
   categoriesTitle.style.fontSize = '19px';
@@ -3406,9 +2936,9 @@ function updateMobileMenuContent() {
   
   // Add category items (expandable, no href)
   const categories = [
-    { key: 'saas', en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
-    { key: 'tools', en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
-    { key: 'payments', en: 'Payment Services', fr: 'Services de Paiement' }
+    { key: 'saas', name: 'SaaS & Web Hosting' },
+    { key: 'tools', name: 'Online Tools & Builders' },
+    { key: 'payments', name: 'Payment Services' }
   ];
   
   categories.forEach(cat => {
@@ -3420,7 +2950,7 @@ function updateMobileMenuContent() {
     categoryItem.style.alignItems = 'baseline';
     
     const categoryText = document.createElement('span');
-    categoryText.textContent = currentLang === 'fr' ? cat.fr : cat.en;
+    categoryText.textContent = cat.name;
     
     const arrowIcon = document.createElement('i');
     arrowIcon.className = 'fas fa-chevron-right';
@@ -3445,7 +2975,7 @@ function updateMobileMenuContent() {
   toolsSection.className = 'mobile-menu-section';
   
   const toolsTitle = document.createElement('h3');
-  toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
+  toolsTitle.textContent = 'Tools';
   toolsTitle.style.color = 'var(--electric-blue)';
   toolsTitle.style.marginBottom = '10px';
   toolsTitle.style.fontSize = '19px';
@@ -3455,19 +2985,19 @@ function updateMobileMenuContent() {
   
   // Add tool links
   const tools = [
-    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
-    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
-    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides' }
+    { name: 'Comparison Calculator', url: 'https://global-toolkit.github.io/en/comparison-calculator' },
+    { name: 'Deals Tracker', url: 'https://global-toolkit.github.io/en/deals-tracker' },
+    { name: 'Beginner Guides', url: 'https://global-toolkit.github.io/en/beginner-guides' }
   ];
   
   tools.forEach(tool => {
     const link = document.createElement('a');
-    link.href = `${tool.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    link.href = `${tool.url}?currency=${currentCurrency}`;
     link.className = 'mobile-menu-link';
-    link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
+    link.textContent = tool.name;
     
     // Add click handler for coming soon tools
-    if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
+    if (tool.name === 'Comparison Calculator' || tool.name === 'Deals Tracker') {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -3480,7 +3010,7 @@ function updateMobileMenuContent() {
         // Create and append message
         const msg = document.createElement('span');
         msg.className = 'coming-soon-msg';
-        msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+        msg.textContent = ' (Coming soon)';
         this.appendChild(msg);
         
         // Remove message after animation
@@ -3512,7 +3042,7 @@ function updateMobileMenuContent() {
   contactIcon.style.marginRight = '8px';
   
   const contactText = document.createElement('span');
-  contactText.textContent = currentLang === 'fr' ? 'Contact' : 'Contact';
+  contactText.textContent = 'Contact';
   
   const contactArrow = document.createElement('i');
   contactArrow.className = 'fas fa-chevron-down';
@@ -3562,7 +3092,7 @@ function updateMobileMenuContent() {
   
   // Add about us link
   const aboutLink = document.createElement('a');
-  aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}`;
+  aboutLink.href = `https://global-toolkit.github.io/en/about?currency=${currentCurrency}`;
   aboutLink.className = 'mobile-menu-link';
   aboutLink.style.marginTop = '9px';
   aboutLink.style.display = 'block';
@@ -3572,7 +3102,7 @@ function updateMobileMenuContent() {
   aboutIcon.style.marginRight = '8px';
   
   const aboutText = document.createElement('span');
-  aboutText.textContent = currentLang === 'fr' ? 'À Propos' : 'About Us';
+  aboutText.textContent = 'About Us';
   
   aboutLink.appendChild(aboutIcon);
   aboutLink.appendChild(aboutText);
@@ -3589,14 +3119,14 @@ function updateMobileMenuContent() {
   legalSection.className = 'mobile-menu-section';
   
   const legalLinks = [
-    { icon: 'fas fa-shield-alt', en: 'Privacy Policy', fr: 'Politique de Confidentialité', url: 'privacy' },
-    { icon: 'fas fa-handshake', en: 'Affiliate Disclosure', fr: 'Divulgation d\'Affiliation', url: 'affiliate-disclosure' },
-    { icon: 'fas fa-file-contract', en: 'Terms of Service', fr: 'Conditions d\'Utilisation', url: 'terms' }
+    { icon: 'fas fa-shield-alt', name: 'Privacy Policy', url: 'privacy' },
+    { icon: 'fas fa-handshake', name: 'Affiliate Disclosure', url: 'affiliate-disclosure' },
+    { icon: 'fas fa-file-contract', name: 'Terms of Service', url: 'terms' }
   ];
   
   legalLinks.forEach(link => {
     const legalLink = document.createElement('a');
-    legalLink.href = `https://global-toolkit.github.io/${link.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    legalLink.href = `https://global-toolkit.github.io/en/${link.url}?currency=${currentCurrency}`;
     legalLink.className = 'mobile-menu-link';
     
     const linkIcon = document.createElement('i');
@@ -3604,7 +3134,7 @@ function updateMobileMenuContent() {
     linkIcon.style.marginRight = '8px';
     
     const linkText = document.createElement('span');
-    linkText.textContent = currentLang === 'fr' ? link.fr : link.en;
+    linkText.textContent = link.name;
     
     legalLink.appendChild(linkIcon);
     legalLink.appendChild(linkText);
@@ -3622,15 +3152,10 @@ function updateMobileMenuContent() {
   
   const importantText = document.createElement('div');
   importantText.style.marginBottom = '10px';
-  
-  if (currentLang === 'fr') {
-    importantText.innerHTML = '<strong>Important :</strong> Nous pouvons gagner des commissions d\'affiliation lorsque vous achetez via nos liens.';
-  } else {
-    importantText.innerHTML = '<strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.';
-  }
+  importantText.innerHTML = '<strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.';
   
   const copyrightText = document.createElement('div');
-  copyrightText.textContent = currentLang === 'fr' ? 'Global Toolkit © 2026' : 'Global Toolkit © 2026';
+  copyrightText.textContent = 'Global Toolkit © 2026';
   
   footerText.appendChild(importantText);
   footerText.appendChild(copyrightText);
@@ -3661,7 +3186,7 @@ function updateMobileMenuContent() {
   }, 100);
 }
 
-// Event listeners for language dropdown
+// Event listeners for language dropdown (now simple links, no JavaScript needed)
 document.getElementById('langDropdownBtn').addEventListener('click', function() {
   document.getElementById('langDropdown').classList.toggle('show');
 });
@@ -3676,21 +3201,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Language option clicks
-document.querySelectorAll('.lang-option').forEach(option => {
-  option.addEventListener('click', function(e) {
-    e.preventDefault();
-    const lang = this.getAttribute('data-lang');
-    
-    // Only switch if language is en or fr
-    if (lang === 'en' || lang === 'fr') {
-      switchLanguage(lang);
-    }
-    // For español, just close dropdown
-    document.getElementById('langDropdown').classList.remove('show');
-  });
-});
-
 // Currency option clicks
 document.querySelectorAll('.currency-option').forEach(option => {
   option.addEventListener('click', function() {
@@ -3699,21 +3209,16 @@ document.querySelectorAll('.currency-option').forEach(option => {
   });
 });
 
-// Email form submission - CHANGED: Updated message
+// Email form submission
 document.getElementById('email-form')?.addEventListener('submit', function(e) {
   e.preventDefault();
   const email = this.querySelector('.email-input').value;
   
   // Simple validation
   if (email && email.includes('@')) {
-    // Show updated message
-    alert(currentLang === 'en' 
-      ? 'Thank you! We\'ll send you the free guide soon.' 
-      : 'Merci ! Nous vous enverrons le guide gratuit bientôt.');
+    // Show message
+    alert('Thank you! We\'ll send you the free guide soon.');
     this.querySelector('.email-input').value = '';
-    
-    // In a real implementation, you would send this to your email service
-    // Example: fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
   }
 });
 
@@ -3725,20 +3230,18 @@ document.getElementById('visitor-feedback')?.addEventListener('submit', function
   const message = document.getElementById('feedback-message').value;
   
   if (message.trim() === '') {
-    alert(currentLang === 'en' ? 'Please enter your feedback.' : 'Veuillez saisir vos commentaires.');
+    alert('Please enter your feedback.');
     return;
   }
   
   // Create a mailto link with the feedback
-  const subject = currentLang === 'en' ? 'Feedback from Global Toolkit' : 'Retour de Global Toolkit';
+  const subject = 'Feedback from Global Toolkit';
   const body = `Name: ${name || 'Not provided'}\nEmail: ${email || 'Not provided'}\n\nFeedback:\n${message}`;
   
   window.location.href = `mailto:globaltoolkit.contact@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   
   // Show confirmation
-  alert(currentLang === 'en' 
-    ? 'Thank you for your feedback! Your email client will open to send your message.' 
-    : 'Merci pour vos commentaires ! Votre client email va s\'ouvrir pour envoyer votre message.');
+  alert('Thank you for your feedback! Your email client will open to send your message.');
   
   // Clear the form
   this.reset();
@@ -3758,7 +3261,7 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
     // Create and append message
     const msg = document.createElement('span');
     msg.className = 'coming-soon-msg';
-    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+    msg.textContent = ' (Coming soon)';
     this.parentNode.appendChild(msg);
     
     // Remove message after animation
@@ -3768,15 +3271,13 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
   });
 });
 
-// Smooth scrolling for anchor links - FIXED: Don't prevent default for disclosure banner links
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
     if (href !== '#') {
-      // FIXED: Don't prevent default for disclosure banner links that should go to external page
       // Check if it's a disclosure link that should go to external page
       if (this.classList.contains('disclosure-link') && this.closest('.disclosure-banner')) {
-        // Let it navigate to #affiliate-disclosure (on-page anchor)
         return; // Allow default behavior
       }
       
@@ -3801,7 +3302,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
-  initializeLanguage();
   initializeCurrency();
   setupFAQ();
   setupMobileMenu();
@@ -3815,31 +3315,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // The animation is already defined in CSS, it will trigger automatically
     }
   }, 100);
-  
-  setTimeout(() => {
-    updateAllLinks(currentLang);
-    
-    // Initialize FAQ - hide all answers initially
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.classList.remove('expanded');
-      const enAnswer = item.querySelector('.faq-answer.lang-en');
-      const frAnswer = item.querySelector('.faq-answer.lang-fr');
-      if (enAnswer) enAnswer.style.display = 'none';
-      if (frAnswer) frAnswer.style.display = 'none';
-    });
-  }, 100);
-  
-  // Add keyboard shortcuts
-  document.addEventListener('keydown', (e) => {
-    if (e.altKey && e.key === 'e') {
-      e.preventDefault();
-      switchLanguage('en');
-    }
-    if (e.altKey && e.key === 'f') {
-      e.preventDefault();
-      switchLanguage('fr');
-    }
-  });
   
   // Handle window resize
   window.addEventListener('resize', () => {
