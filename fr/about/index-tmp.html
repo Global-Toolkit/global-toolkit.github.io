@@ -1,17 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<title>About Us - Global Toolkit</title>
-<meta name="description" content="Learn about Global Toolkit - a small team dedicated to providing unbiased tool comparisons and reviews for global users." />
+<title>À Propos de Nous - Global Toolkit</title>
+<meta name="description" content="Découvrez Global Toolkit - une petite équipe dédiée à fournir des comparaisons et avis impartiaux d'outils pour les utilisateurs mondiaux." />
+
+<!-- SEO: Hreflang tags for language versions -->
+<link rel="alternate" hreflang="en" href="https://global-toolkit.github.io/en/about" />
+<link rel="alternate" hreflang="fr" href="https://global-toolkit.github.io/fr/about" />
+<link rel="alternate" hreflang="x-default" href="https://global-toolkit.github.io/en/about" />
 
 <!-- OpenGraph -->
-<meta property="og:title" content="About Us - Global Toolkit" />
-<meta property="og:description" content="Learn about Global Toolkit - a small team dedicated to providing unbiased tool comparisons and reviews for global users." />
+<meta property="og:title" content="À Propos de Nous - Global Toolkit" />
+<meta property="og:description" content="Découvrez Global Toolkit - une petite équipe dédiée à fournir des comparaisons et avis impartiaux d'outils pour les utilisateurs mondiaux." />
 <meta property="og:image" content="https://global-toolkit.github.io/assets/og-image.png" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://global-toolkit.github.io/about" />
+<meta property="og:url" content="https://global-toolkit.github.io/fr/about" />
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -772,10 +777,6 @@
     line-height: 1.5;
   }
   
-  /* Language classes */
-  .lang-en { display: block; }
-  .lang-fr { display: none; }
-  
   /* Coming soon message style */
   .coming-soon-msg {
     display: inline-block;
@@ -874,8 +875,8 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
-    <a href="https://global-toolkit.github.io/" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
+    <a href="https://global-toolkit.github.io/fr/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/fr/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
       <div class="mobile-menu-brand">Global Toolkit</div>
     </a>
     <button class="mobile-menu-close" id="mobileMenuClose">
@@ -893,9 +894,9 @@
 </div>
 
 <!-- Brand Container (outside header) -->
-<a id="brandLink" style="text-decoration: none;">
+<a href="https://global-toolkit.github.io/fr/" style="text-decoration: none;">
   <div class="brand-container" id="brandContainer">
-    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
+    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/fr/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
     <div class="brand">
       <span class="brand-line-1">Global</span>
       <span class="brand-line-2">Toolkit</span>
@@ -908,17 +909,13 @@
   <div class="lang-selector">
     <button class="lang-dropdown-btn" id="langDropdownBtn">
       <i class="fas fa-globe"></i>
-      <span id="currentLangText">English</span>
+      <span>Français</span>
       <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
     </button>
     <div class="lang-dropdown-content" id="langDropdown">
-      <a href="#" class="lang-option active" data-lang="en">
-        <span>English</span>
-      </a>
-      <a href="#" class="lang-option" data-lang="fr">
-        <span>Français</span>
-      </a>
-      <a href="#" class="lang-option" data-lang="es">
+      <a href="https://global-toolkit.github.io/en/about" class="lang-option">English</a>
+      <a href="https://global-toolkit.github.io/fr/about" class="lang-option">Français</a>
+      <a href="#" class="lang-option">
         <span>Español</span>
         <span class="coming-soon">(soon)</span>
       </a>
@@ -935,10 +932,7 @@
 <!-- UPDATED: About Us Disclosure Banner -->
 <div class="disclosure-banner">
   <div class="wrap">
-    <div class="muted lang-en">
-      Learn how Global Toolkit selects tools and maintains unbiased comparisons.
-    </div>
-    <div class="muted lang-fr">
+    <div class="muted">
       Découvrez comment Global Toolkit sélectionne les outils et maintient des comparaisons impartiales.
     </div>
   </div>
@@ -962,91 +956,56 @@
       
       <!-- About Header -->
       <div class="about-header">
-        <h1 class="about-title lang-en">About Us</h1>
-        <h1 class="about-title lang-fr">À Propos de Nous</h1>
+        <h1 class="about-title">À Propos de Nous</h1>
       </div>
       
       <!-- About Content Sections -->
       <div class="about-section">
-        <h2 class="lang-en">Who We Are</h2>
-        <h2 class="lang-fr">Qui Nous Sommes</h2>
+        <h2>Qui Nous Sommes</h2>
         
         <div class="team-highlight">
-          <p class="lang-en"><i class="fas fa-users" style="margin-right: 8px; color: var(--electric-blue);"></i> <strong>We are a small team</strong> passionate about helping people make informed decisions about digital tools.</p>
-          <p class="lang-fr"><i class="fas fa-users" style="margin-right: 8px; color: var(--electric-blue);"></i> <strong>Nous sommes une petite équipe</strong> passionnée par l'aide aux personnes pour prendre des décisions éclairées concernant les outils numériques.</p>
+          <p><i class="fas fa-users" style="margin-right: 8px; color: var(--electric-blue);"></i> <strong>Nous sommes une petite équipe</strong> passionnée par l'aide aux personnes pour prendre des décisions éclairées concernant les outils numériques.</p>
         </div>
         
-        <p class="lang-en">
-          Global Toolkit was founded with a simple mission: to provide clear, unbiased comparisons of digital tools and services for users worldwide. We understand how overwhelming it can be to choose the right tools in today's crowded digital marketplace.
-        </p>
-        <p class="lang-fr">
+        <p>
           Global Toolkit a été fondé avec une mission simple : fournir des comparaisons claires et impartiales d'outils et services numériques pour les utilisateurs du monde entier. Nous comprenons à quel point il peut être accablant de choisir les bons outils dans le marché numérique saturé d'aujourd'hui.
         </p>
         
-        <p class="lang-en">
-          Our team consists of digital experts, researchers, and writers who have spent years working with various SaaS platforms, web hosting services, payment processors, and online tools across different industries.
-        </p>
-        <p class="lang-fr">
+        <p>
           Notre équipe est composée d'experts numériques, de chercheurs et de rédacteurs qui ont passé des années à travailler avec diverses plateformes SaaS, services d'hébergement web, processeurs de paiement et outils en ligne dans différents secteurs.
         </p>
       </div>
       
       <div class="about-section">
-        <h2 class="lang-en">Our Mission & Values</h2>
-        <h2 class="lang-fr">Notre Mission & Valeurs</h2>
+        <h2>Notre Mission & Valeurs</h2>
         
-        <h3 class="lang-en">Unbiased Information</h3>
-        <h3 class="lang-fr">Information Impartiale</h3>
+        <h3>Information Impartiale</h3>
         
-        <p class="lang-en">
-          We believe everyone deserves access to clear, honest comparisons without hidden agendas. Our reviews and comparisons are based on thorough research, testing, and real-world usage rather than sponsorship or advertising pressure.
-        </p>
-        <p class="lang-fr">
+        <p>
           Nous croyons que tout le monde mérite d'avoir accès à des comparaisons claires et honnêtes sans agendas cachés. Nos avis et comparaisons sont basés sur des recherches approfondies, des tests et une utilisation réelle plutôt que sur des sponsors ou des pressions publicitaires.
         </p>
         
-        <h3 class="lang-en">Global Perspective</h3>
-        <h3 class="lang-fr">Perspective Mondiale</h3>
+        <h3>Perspective Mondiale</h3>
         
-        <p class="lang-en">
-          We consider tools and services from a global perspective, understanding that needs and availability vary by region. Our multilingual approach ensures we serve users from different linguistic and cultural backgrounds.
-        </p>
-        <p class="lang-fr">
+        <p>
           Nous considérons les outils et services d'une perspective mondiale, comprenant que les besoins et la disponibilité varient selon les régions. Notre approche multilingue garantit que nous servons les utilisateurs de différents horizons linguistiques et culturels.
         </p>
         
-        <h3 class="lang-en">User-First Approach</h3>
-        <h3 class="lang-fr">Approche Centrée sur l'Utilisateur</h3>
+        <h3>Approche Centrée sur l'Utilisateur</h3>
         
-        <p class="lang-en">
-          Every comparison, review, and guide we create starts with one question: "What would be most helpful for someone trying to make this decision?" We prioritize clarity, practicality, and actionable insights.
-        </p>
-        <p class="lang-fr">
+        <p>
           Chaque comparaison, avis et guide que nous créons commence par une question : "Qu'est-ce qui serait le plus utile pour quelqu'un essayant de prendre cette décision ?" Nous priorisons la clarté, la praticité et les conseils actionnables.
         </p>
       </div>
       
       <div class="about-section">
-        <h2 class="lang-en">How We Select & Review Tools</h2>
-        <h2 class="lang-fr">Comment Nous Sélectionnons & Évaluons les Outils</h2>
+        <h2>Comment Nous Sélectionnons & Évaluons les Outils</h2>
         
-        <p class="lang-en">
-          Our selection and review process follows a rigorous methodology to ensure fairness and accuracy:
-        </p>
-        <p class="lang-fr">
+        <p>
           Notre processus de sélection et d'évaluation suit une méthodologie rigoureuse pour garantir l'équité et la précision :
         </p>
         
-        <ul class="lang-en">
-          <li><strong>Comprehensive Research:</strong> We start with extensive market research to identify the most relevant tools in each category</li>
-          <li><strong>Hands-On Testing:</strong> Whenever possible, we personally test tools using real-world scenarios and use cases</li>
-          <li><strong>User Feedback Analysis:</strong> We analyze feedback from actual users across multiple platforms and review sites</li>
-          <li><strong>Feature Comparison:</strong> We compare features, pricing, support, and performance using standardized criteria</li>
-          <li><strong>Regular Updates:</strong> We continuously monitor tools for changes and update our comparisons accordingly</li>
-          <li><strong>Transparent Methodology:</strong> We clearly explain how we evaluate and score different aspects of each tool</li>
-        </ul>
-        
-        <ul class="lang-fr">
+        <ul>
           <li><strong>Recherche Approfondie :</strong> Nous commençons par une recherche de marché approfondie pour identifier les outils les plus pertinents dans chaque catégorie</li>
           <li><strong>Tests Pratiques :</strong> Dans la mesure du possible, nous testons personnellement les outils en utilisant des scénarios et cas d'utilisation réels</li>
           <li><strong>Analyse des Retours Utilisateurs :</strong> Nous analysons les retours d'utilisateurs réels sur plusieurs plateformes et sites d'avis</li>
@@ -1057,26 +1016,13 @@
       </div>
       
       <div class="about-section">
-        <h2 class="lang-en">Maintaining Unbiased Comparisons</h2>
-        <h2 class="lang-fr">Maintenir des Comparaisons Impartiales</h2>
+        <h2>Maintenir des Comparaisons Impartiales</h2>
         
-        <p class="lang-en">
-          We take several measures to ensure our comparisons remain unbiased and trustworthy:
-        </p>
-        <p class="lang-fr">
+        <p>
           Nous prenons plusieurs mesures pour garantir que nos comparaisons restent impartiales et dignes de confiance :
         </p>
         
-        <ul class="lang-en">
-          <li><strong>Clear Disclosure:</strong> We always disclose affiliate relationships and how they might influence our recommendations</li>
-          <li><strong>Multiple Data Sources:</strong> We gather information from various sources, not just vendor-provided materials</li>
-          <li><strong>Independent Evaluation:</strong> Our assessment teams work independently from our business development teams</li>
-          <li><strong>No Pay-for-Placement:</strong> We don't accept payment for favorable reviews or higher placement in comparisons</li>
-          <li><strong>User-Centric Metrics:</strong> Our evaluation criteria prioritize what matters most to end users, not vendors</li>
-          <li><strong>Regular Re-evaluation:</strong> We periodically re-evaluate our entire comparison database to ensure ongoing accuracy</li>
-        </ul>
-        
-        <ul class="lang-fr">
+        <ul>
           <li><strong>Divulgation Claire :</strong> Nous divulguons toujours les relations d'affiliation et comment elles pourraient influencer nos recommandations</li>
           <li><strong>Sources de Données Multiples :</strong> Nous recueillons des informations provenant de diverses sources, pas seulement des matériels fournis par les vendeurs</li>
           <li><strong>Évaluation Indépendante :</strong> Nos équipes d'évaluation travaillent indépendamment de nos équipes de développement commercial</li>
@@ -1087,26 +1033,13 @@
       </div>
       
       <div class="about-section">
-        <h2 class="lang-en">Our Commitment to You</h2>
-        <h2 class="lang-fr">Notre Engagement Envers Vous</h2>
+        <h2>Notre Engagement Envers Vous</h2>
         
-        <p class="lang-en">
-          As a small team, we're deeply committed to our users and the quality of our work. We promise to:
-        </p>
-        <p class="lang-fr">
+        <p>
           En tant que petite équipe, nous sommes profondément engagés envers nos utilisateurs et la qualité de notre travail. Nous promettons de :
         </p>
         
-        <ul class="lang-en">
-          <li>Continuously improve our tools and comparisons based on user feedback</li>
-          <li>Maintain transparency about our methodologies and business relationships</li>
-          <li>Expand our coverage to include more tools and services relevant to our global audience</li>
-          <li>Provide educational resources to help users make better-informed decisions</li>
-          <li>Respond to user questions and feedback in a timely manner</li>
-          <li>Keep our platform accessible and useful for users at all technical levels</li>
-        </ul>
-        
-        <ul class="lang-fr">
+        <ul>
           <li>Améliorer continuellement nos outils et comparaisons basés sur les retours utilisateurs</li>
           <li>Maintenir la transparence concernant nos méthodologies et relations commerciales</li>
           <li>Étendre notre couverture pour inclure plus d'outils et services pertinents pour notre audience mondiale</li>
@@ -1117,27 +1050,17 @@
       </div>
       
       <div class="about-section">
-        <h2 class="lang-en">Contact & Feedback</h2>
-        <h2 class="lang-fr">Contact & Retours</h2>
+        <h2>Contact & Retours</h2>
         
-        <p class="lang-en">
-          We value your input and are always looking to improve. Whether you have suggestions, found an error, or want to recommend a tool we should review, please reach out:
-        </p>
-        <p class="lang-fr">
+        <p>
           Nous valorisons vos contributions et cherchons toujours à nous améliorer. Que vous ayez des suggestions, trouvé une erreur, ou souhaitiez recommander un outil que nous devrions évaluer, n'hésitez pas à nous contacter :
         </p>
         
-        <p class="lang-en">
-          Email: globaltoolkit.contact@gmail.com
-        </p>
-        <p class="lang-fr">
+        <p>
           E-mail : globaltoolkit.contact@gmail.com
         </p>
         
-        <p class="lang-en">
-          Thank you for trusting Global Toolkit as your resource for unbiased tool comparisons. We're honored to help you make better decisions in the digital world.
-        </p>
-        <p class="lang-fr">
+        <p>
           Merci de faire confiance à Global Toolkit comme ressource pour des comparaisons d'outils impartiales. Nous sommes honorés de vous aider à prendre de meilleures décisions dans le monde numérique.
         </p>
       </div>
@@ -1147,38 +1070,25 @@
     <div class="footer">
       <div class="footer-links">
         <div class="footer-column">
-          <h4 class="lang-en">Categories</h4>
-          <h4 class="lang-fr">Catégories</h4>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
+          <h4>Catégories</h4>
+          <a href="https://global-toolkit.github.io/fr/saas-&-web-hosting">Hébergement Web</a>
+          <a href="https://global-toolkit.github.io/fr/online-tools">Outils en Ligne & Constructeurs</a>
+          <a href="https://global-toolkit.github.io/fr/payment-services">Services de Paiement</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Resources</h4>
-          <h4 class="lang-fr">Ressources</h4>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy">Privacy</a>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
-          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
-          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
+          <h4>Ressources</h4>
+          <a href="https://global-toolkit.github.io/fr/privacy">Confidentialité</a>
+          <a href="https://global-toolkit.github.io/fr/how-we-test">Comment Nous Testons</a>
+          <a href="https://global-toolkit.github.io/fr/affiliate-disclosure">Divulgation Affiliation</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Tools</h4>
-          <h4 class="lang-fr">Outils</h4>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Comparison Calculator</a>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Calculateur Comparatif</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Deals Tracker</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Suivi Offres</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Beginner Guides</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Guides Débutants</a>
+          <h4>Outils</h4>
+          <a href="https://global-toolkit.github.io/fr/comparison-calculator" class="coming-soon-link">Calculateur Comparatif</a>
+          <a href="https://global-toolkit.github.io/fr/deals-tracker" class="coming-soon-link">Suivi Offres</a>
+          <a href="https://global-toolkit.github.io/fr/beginner-guides">Guides Débutants</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Connect</h4>
-          <h4 class="lang-fr">Contact</h4>
+          <h4>Contact</h4>
           <div class="connect-links">
             <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
               <i class="fas fa-envelope"></i>
@@ -1188,9 +1098,9 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <a href="https://global-toolkit.github.io/?lang=en#feedback" class="connect-link" id="shareFeedbackLink">
+            <a href="https://global-toolkit.github.io/fr/#feedback" class="connect-link" id="shareFeedbackLink">
               <i class="fas fa-comment-alt"></i>
-              <span>Share Feedback</span>
+              <span>Partager vos Retours</span>
             </a>
           </div>
         </div>
@@ -1198,218 +1108,87 @@
       
       <!-- Footer bottom links in single line -->
       <div class="footer-bottom-links">
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
+        <a href="https://global-toolkit.github.io/fr/privacy">Confidentialité</a>
         <span class="separator">|</span>
-        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en&currency=USD" class="lang-en">Affiliate Disclosure</a>
-        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr&currency=EUR" class="lang-fr">Divulgation Affiliation</a>
+        <a href="https://global-toolkit.github.io/fr/affiliate-disclosure">Divulgation Affiliation</a>
         <span class="separator">|</span>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
+        <a href="https://global-toolkit.github.io/fr/terms">Conditions</a>
       </div>
       
       <div style="height:6px"></div>
-      <div class="muted lang-en"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
-      <div class="muted lang-fr"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
+      <div class="muted"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
       <div style="height:6px"></div>
-      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
-      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils & Offres Exclusives</div>
+      <div class="muted">Global Toolkit © 2026 — Avis Impartiaux Outils & Offres Exclusives</div>
     </div>
   </main>
 </div>
 
 <script>
-// Language switching functionality
-let currentLang = 'en';
-
 // Mobile menu state
 let currentSubmenu = null;
 
-// Subcategories data structure
+// Subcategories data structure (French only)
 const subcategories = {
   'saas': {
-    title: { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    title: 'SaaS & Hébergement Web',
     items: [
       { 
-        en: 'Business SaaS', 
-        fr: 'SaaS Professionnel', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Business-SaaS/index.html' 
+        title: 'SaaS Professionnel', 
+        url: 'https://global-toolkit.github.io/fr/SaaS-&-web-hosting/Business-SaaS/index.html' 
       },
       { 
-        en: 'Performance & Security', 
-        fr: 'Performance & Sécurité', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Performance-&-Security/index.html' 
+        title: 'Performance & Sécurité', 
+        url: 'https://global-toolkit.github.io/fr/SaaS-&-web-hosting/Performance-&-Security/index.html' 
       },
       { 
-        en: 'Web Hosting', 
-        fr: 'Hébergement Web', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Web-Hosting/index.html' 
+        title: 'Hébergement Web', 
+        url: 'https://global-toolkit.github.io/fr/SaaS-&-web-hosting/Web-Hosting/index.html' 
       },
       { 
-        en: 'Website Platforms & CMS', 
-        fr: 'Plateformes Web & CMS', 
-        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
+        title: 'Plateformes Web & CMS', 
+        url: 'https://global-toolkit.github.io/fr/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
       }
     ]
   },
   'tools': {
-    title: { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    title: 'Outils en Ligne & Constructeurs',
     items: [
       { 
-        en: 'Automation Platforms', 
-        fr: 'Plateformes d\'Automatisation', 
-        url: 'https://global-toolkit.github.io/online-tools/Automation-tools/index.html' 
+        title: 'Plateformes d\'Automatisation', 
+        url: 'https://global-toolkit.github.io/fr/online-tools/Automation-tools/index.html' 
       },
       { 
-        en: 'Productivity Tools', 
-        fr: 'Outils de Productivité', 
-        url: 'https://global-toolkit.github.io/online-tools/Productivity-tools/index.html' 
+        title: 'Outils de Productivité', 
+        url: 'https://global-toolkit.github.io/fr/online-tools/Productivity-tools/index.html' 
       },
       { 
-        en: 'VPN Services', 
-        fr: 'Services VPN', 
-        url: 'https://global-toolkit.github.io/online-tools/VPN-services/index.html' 
+        title: 'Services VPN', 
+        url: 'https://global-toolkit.github.io/fr/online-tools/VPN-services/index.html' 
       },
       { 
-        en: 'Website Builders', 
-        fr: 'Constructeurs de Sites', 
-        url: 'https://global-toolkit.github.io/online-tools/Website-Builders/index.html' 
+        title: 'Constructeurs de Sites', 
+        url: 'https://global-toolkit.github.io/fr/online-tools/Website-Builders/index.html' 
       }
     ]
   },
   'payments': {
-    title: { en: 'Payment Services', fr: 'Services de Paiement' },
+    title: 'Services de Paiement',
     items: [
       { 
-        en: 'Digital Wallets & Cards', 
-        fr: 'Portefeuilles & Cartes Numériques', 
-        url: 'https://global-toolkit.github.io/payment-services/Digital-Wallets-&-Cards/index.html' 
+        title: 'Portefeuilles & Cartes Numériques', 
+        url: 'https://global-toolkit.github.io/fr/payment-services/Digital-Wallets-&-Cards/index.html' 
       },
       { 
-        en: 'Merchant Payment Processors', 
-        fr: 'Processeurs de Paiement', 
-        url: 'https://global-toolkit.github.io/payment-services/Merchant-Payment-Processors/index.html' 
+        title: 'Processeurs de Paiement', 
+        url: 'https://global-toolkit.github.io/fr/payment-services/Merchant-Payment-Processors/index.html' 
       },
       { 
-        en: 'Multi-Currency Accounts', 
-        fr: 'Comptes Multi-Devises', 
-        url: 'https://global-toolkit.github.io/payment-services/Multi-Currency-Accounts/index.html' 
+        title: 'Comptes Multi-Devises', 
+        url: 'https://global-toolkit.github.io/fr/payment-services/Multi-Currency-Accounts/index.html' 
       }
     ]
   }
 };
-
-// Function to switch language
-function switchLanguage(lang) {
-  currentLang = lang;
-  
-  const enElements = document.querySelectorAll('.lang-en');
-  const frElements = document.querySelectorAll('.lang-fr');
-  
-  if (lang === 'fr') {
-    enElements.forEach(el => el.style.display = 'none');
-    frElements.forEach(el => el.style.display = 'block');
-    
-    document.documentElement.setAttribute('lang', 'fr');
-    localStorage.setItem('preferredLanguage', 'fr');
-    updateAllLinks('fr');
-    
-    // Update Share Feedback link for French
-    const shareFeedbackLink = document.getElementById('shareFeedbackLink');
-    if (shareFeedbackLink) {
-      shareFeedbackLink.href = "https://global-toolkit.github.io/?lang=fr#feedback";
-    }
-    
-  } else {
-    enElements.forEach(el => el.style.display = 'block');
-    frElements.forEach(el => el.style.display = 'none');
-    
-    document.documentElement.setAttribute('lang', 'en');
-    localStorage.setItem('preferredLanguage', 'en');
-    updateAllLinks('en');
-    
-    // Update Share Feedback link for English
-    const shareFeedbackLink = document.getElementById('shareFeedbackLink');
-    if (shareFeedbackLink) {
-      shareFeedbackLink.href = "https://global-toolkit.github.io/?lang=en#feedback";
-    }
-  }
-  
-  // Update dropdown button text
-  document.getElementById('currentLangText').textContent = lang === 'fr' ? 'Français' : 'English';
-  
-  // Update active state in dropdown
-  document.querySelectorAll('.lang-option').forEach(option => {
-    option.classList.remove('active');
-    if (option.getAttribute('data-lang') === lang) {
-      option.classList.add('active');
-    }
-  });
-  
-  // Update mobile menu content
-  updateMobileMenuContent();
-}
-
-// Updated function to handle all links with language parameters
-function updateAllLinks(lang) {
-  const links = document.querySelectorAll('a[data-base-url]');
-  
-  links.forEach(link => {
-    const baseUrl = link.getAttribute('data-base-url');
-    let cleanUrl = baseUrl.split('?')[0];
-    link.setAttribute('href', `${cleanUrl}?lang=${lang}`);
-  });
-  
-  // Update Affiliate Disclosure links in footer
-  const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
-  affiliateLinks.forEach(link => {
-    if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
-      link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}`;
-    }
-  });
-  
-  // Update Facebook link with language reference
-  const facebookLinks = document.querySelectorAll('a[href*="facebook.com/GlobalToolkit"]');
-  facebookLinks.forEach(link => {
-    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}`);
-  });
-  
-  // Update mobile menu home link
-  const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
-  if (mobileMenuHomeLink) {
-    mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
-  }
-  
-  // Update brand link
-  const brandLink = document.getElementById('brandLink');
-  if (brandLink) {
-    brandLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
-  }
-}
-
-// Function to get language from URL parameter
-function getLangFromUrl() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('lang');
-}
-
-// Function to initialize language
-function initializeLanguage() {
-  const urlLang = getLangFromUrl();
-  const savedLang = localStorage.getItem('preferredLanguage');
-  const browserLang = navigator.language || navigator.userLanguage;
-  const browserLangShort = browserLang.split('-')[0];
-  
-  if (urlLang && (urlLang === 'en' || urlLang === 'fr')) {
-    switchLanguage(urlLang);
-  } else if (savedLang) {
-    switchLanguage(savedLang);
-  } else if (browserLangShort === 'fr') {
-    switchLanguage('fr');
-  } else {
-    switchLanguage('en');
-  }
-}
 
 // Show submenu for a category
 function showSubmenu(category) {
@@ -1442,7 +1221,7 @@ function showSubmenu(category) {
   
   const submenuTitle = document.createElement('div');
   submenuTitle.className = 'mobile-submenu-title';
-  submenuTitle.textContent = currentLang === 'fr' ? subcategoryData.title.fr : subcategoryData.title.en;
+  submenuTitle.textContent = subcategoryData.title;
   
   submenuHeader.appendChild(backButton);
   submenuHeader.appendChild(submenuTitle);
@@ -1455,9 +1234,9 @@ function showSubmenu(category) {
   // Add subcategory items
   subcategoryData.items.forEach(item => {
     const link = document.createElement('a');
-    link.href = `${item.url}?lang=${currentLang}`;
+    link.href = item.url;
     link.className = 'mobile-menu-link';
-    link.textContent = currentLang === 'fr' ? item.fr : item.en;
+    link.textContent = item.title;
     submenuContent.appendChild(link);
   });
   
@@ -1527,7 +1306,7 @@ function updateMobileMenuContent() {
   homeSection.className = 'mobile-menu-section';
   
   const homeLink = document.createElement('a');
-  homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}`;
+  homeLink.href = 'https://global-toolkit.github.io/fr/';
   homeLink.className = 'mobile-menu-link';
   
   const homeIcon = document.createElement('i');
@@ -1535,7 +1314,7 @@ function updateMobileMenuContent() {
   homeIcon.style.marginRight = '8px';
   
   const homeText = document.createElement('span');
-  homeText.textContent = currentLang === 'fr' ? 'Accueil' : 'Home';
+  homeText.textContent = 'Accueil';
   
   homeLink.appendChild(homeIcon);
   homeLink.appendChild(homeText);
@@ -1548,7 +1327,7 @@ function updateMobileMenuContent() {
   categoriesSection.className = 'mobile-menu-section';
   
   const categoriesTitle = document.createElement('h3');
-  categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
+  categoriesTitle.textContent = 'Catégories';
   categoriesTitle.style.color = 'var(--electric-blue)';
   categoriesTitle.style.marginBottom = '10px';
   categoriesTitle.style.fontSize = '19px';
@@ -1558,9 +1337,9 @@ function updateMobileMenuContent() {
   
   // Add category items (expandable, no href)
   const categories = [
-    { key: 'saas', en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
-    { key: 'tools', en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
-    { key: 'payments', en: 'Payment Services', fr: 'Services de Paiement' }
+    { key: 'saas', title: 'SaaS & Hébergement Web' },
+    { key: 'tools', title: 'Outils en Ligne & Constructeurs' },
+    { key: 'payments', title: 'Services de Paiement' }
   ];
   
   categories.forEach(cat => {
@@ -1572,7 +1351,7 @@ function updateMobileMenuContent() {
     categoryItem.style.alignItems = 'baseline';
     
     const categoryText = document.createElement('span');
-    categoryText.textContent = currentLang === 'fr' ? cat.fr : cat.en;
+    categoryText.textContent = cat.title;
     
     const arrowIcon = document.createElement('i');
     arrowIcon.className = 'fas fa-chevron-right';
@@ -1597,7 +1376,7 @@ function updateMobileMenuContent() {
   toolsSection.className = 'mobile-menu-section';
   
   const toolsTitle = document.createElement('h3');
-  toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
+  toolsTitle.textContent = 'Outils';
   toolsTitle.style.color = 'var(--electric-blue)';
   toolsTitle.style.marginBottom = '10px';
   toolsTitle.style.fontSize = '19px';
@@ -1607,19 +1386,19 @@ function updateMobileMenuContent() {
   
   // Add tool links
   const tools = [
-    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
-    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
-    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides' }
+    { title: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/fr/comparison-calculator' },
+    { title: 'Suivi Offres', url: 'https://global-toolkit.github.io/fr/deals-tracker' },
+    { title: 'Guides Débutants', url: 'https://global-toolkit.github.io/fr/beginner-guides' }
   ];
   
   tools.forEach(tool => {
     const link = document.createElement('a');
-    link.href = `${tool.url}?lang=${currentLang}`;
+    link.href = tool.url;
     link.className = 'mobile-menu-link';
-    link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
+    link.textContent = tool.title;
     
     // Add click handler for coming soon tools
-    if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
+    if (tool.title === 'Calculateur Comparatif' || tool.title === 'Suivi Offres') {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -1632,7 +1411,7 @@ function updateMobileMenuContent() {
         // Create and append message
         const msg = document.createElement('span');
         msg.className = 'coming-soon-msg';
-        msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+        msg.textContent = ' (Bientôt disponible)';
         this.appendChild(msg);
         
         // Remove message after animation
@@ -1664,7 +1443,7 @@ function updateMobileMenuContent() {
   contactIcon.style.marginRight = '8px';
   
   const contactText = document.createElement('span');
-  contactText.textContent = currentLang === 'fr' ? 'Contact' : 'Contact';
+  contactText.textContent = 'Contact';
   
   const contactArrow = document.createElement('i');
   contactArrow.className = 'fas fa-chevron-down';
@@ -1687,8 +1466,8 @@ function updateMobileMenuContent() {
     { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' },
     { 
       icon: 'fas fa-comment-alt', 
-      text: 'Share Feedback', 
-      href: currentLang === 'fr' ? 'https://global-toolkit.github.io/?lang=fr#feedback' : 'https://global-toolkit.github.io/?lang=en#feedback'
+      text: 'Partager vos Retours', 
+      href: 'https://global-toolkit.github.io/fr/#feedback'
     }
   ];
   
@@ -1714,7 +1493,7 @@ function updateMobileMenuContent() {
   
   // Add about us link
   const aboutLink = document.createElement('a');
-  aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}`;
+  aboutLink.href = 'https://global-toolkit.github.io/fr/about';
   aboutLink.className = 'mobile-menu-link';
   aboutLink.style.marginTop = '9px';
   aboutLink.style.display = 'block';
@@ -1724,7 +1503,7 @@ function updateMobileMenuContent() {
   aboutIcon.style.marginRight = '8px';
   
   const aboutText = document.createElement('span');
-  aboutText.textContent = currentLang === 'fr' ? 'À Propos' : 'About Us';
+  aboutText.textContent = 'À Propos de Nous';
   
   aboutLink.appendChild(aboutIcon);
   aboutLink.appendChild(aboutText);
@@ -1741,14 +1520,14 @@ function updateMobileMenuContent() {
   legalSection.className = 'mobile-menu-section';
   
   const legalLinks = [
-    { icon: 'fas fa-shield-alt', en: 'Privacy Policy', fr: 'Politique de Confidentialité', url: 'privacy' },
-    { icon: 'fas fa-handshake', en: 'Affiliate Disclosure', fr: 'Divulgation d\'Affiliation', url: 'affiliate-disclosure' },
-    { icon: 'fas fa-file-contract', en: 'Terms of Service', fr: 'Conditions d\'Utilisation', url: 'terms' }
+    { icon: 'fas fa-shield-alt', title: 'Politique de Confidentialité', url: 'https://global-toolkit.github.io/fr/privacy' },
+    { icon: 'fas fa-handshake', title: 'Divulgation d\'Affiliation', url: 'https://global-toolkit.github.io/fr/affiliate-disclosure' },
+    { icon: 'fas fa-file-contract', title: 'Conditions d\'Utilisation', url: 'https://global-toolkit.github.io/fr/terms' }
   ];
   
   legalLinks.forEach(link => {
     const legalLink = document.createElement('a');
-    legalLink.href = `https://global-toolkit.github.io/${link.url}?lang=${currentLang}`;
+    legalLink.href = link.url;
     legalLink.className = 'mobile-menu-link';
     
     const linkIcon = document.createElement('i');
@@ -1756,7 +1535,7 @@ function updateMobileMenuContent() {
     linkIcon.style.marginRight = '8px';
     
     const linkText = document.createElement('span');
-    linkText.textContent = currentLang === 'fr' ? link.fr : link.en;
+    linkText.textContent = link.title;
     
     legalLink.appendChild(linkIcon);
     legalLink.appendChild(linkText);
@@ -1774,15 +1553,10 @@ function updateMobileMenuContent() {
   
   const importantText = document.createElement('div');
   importantText.style.marginBottom = '10px';
-  
-  if (currentLang === 'fr') {
-    importantText.innerHTML = '<strong>Important :</strong> Nous pouvons gagner des commissions d\'affiliation lorsque vous achetez via nos liens.';
-  } else {
-    importantText.innerHTML = '<strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.';
-  }
+  importantText.innerHTML = '<strong>Important :</strong> Nous pouvons gagner des commissions d\'affiliation lorsque vous achetez via nos liens.';
   
   const copyrightText = document.createElement('div');
-  copyrightText.textContent = currentLang === 'fr' ? 'Global Toolkit © 2026' : 'Global Toolkit © 2026';
+  copyrightText.textContent = 'Global Toolkit © 2026';
   
   footerText.appendChild(importantText);
   footerText.appendChild(copyrightText);
@@ -1811,7 +1585,7 @@ function updateMobileMenuContent() {
   }
 }
 
-// Event listeners for language dropdown
+// Event listeners for language dropdown (now just a simple dropdown with links)
 document.getElementById('langDropdownBtn').addEventListener('click', function() {
   document.getElementById('langDropdown').classList.toggle('show');
 });
@@ -1826,22 +1600,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Language option clicks
-document.querySelectorAll('.lang-option').forEach(option => {
-  option.addEventListener('click', function(e) {
-    e.preventDefault();
-    const lang = this.getAttribute('data-lang');
-    
-    // Only switch if language is en or fr
-    if (lang === 'en' || lang === 'fr') {
-      switchLanguage(lang);
-    }
-    // For español, just close dropdown
-    document.getElementById('langDropdown').classList.remove('show');
-  });
-});
-
-// Coming soon links
+// Coming soon links in footer
 document.querySelectorAll('.coming-soon-link').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
@@ -1855,7 +1614,7 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
     // Create and append message
     const msg = document.createElement('span');
     msg.className = 'coming-soon-msg';
-    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+    msg.textContent = ' (Bientôt disponible)';
     this.parentNode.appendChild(msg);
     
     // Remove message after animation
@@ -1867,24 +1626,10 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
-  initializeLanguage();
   setupMobileMenu();
   
-  setTimeout(() => {
-    updateAllLinks(currentLang);
-  }, 100);
-  
-  // Add keyboard shortcuts
-  document.addEventListener('keydown', (e) => {
-    if (e.altKey && e.key === 'e') {
-      e.preventDefault();
-      switchLanguage('en');
-    }
-    if (e.altKey && e.key === 'f') {
-      e.preventDefault();
-      switchLanguage('fr');
-    }
-  });
+  // Set the "active" class on the French language option
+  document.querySelector('.lang-option[href="https://global-toolkit.github.io/fr/about"]').classList.add('active');
 });
 </script>
 </body>
