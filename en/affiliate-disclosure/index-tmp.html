@@ -6,12 +6,17 @@
 <title>Affiliate Disclosure — Global Toolkit</title>
 <meta name="description" content="Learn how Global Toolkit earns commissions and maintains editorial independence in our unbiased reviews and comparisons." />
 
+<!-- SEO Language Tags -->
+<link rel="alternate" hreflang="en" href="https://global-toolkit.github.io/en/affiliate-disclosure" />
+<link rel="alternate" hreflang="fr" href="https://global-toolkit.github.io/fr/affiliate-disclosure" />
+<link rel="canonical" href="https://global-toolkit.github.io/en/affiliate-disclosure" />
+
 <!-- OpenGraph -->
 <meta property="og:title" content="Affiliate Disclosure — Global Toolkit" />
 <meta property="og:description" content="Learn how Global Toolkit earns commissions and maintains editorial independence in our unbiased reviews and comparisons." />
 <meta property="og:image" content="https://global-toolkit.github.io/assets/og-image.png" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://global-toolkit.github.io/affiliate-disclosure" />
+<meta property="og:url" content="https://global-toolkit.github.io/en/affiliate-disclosure" />
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -405,7 +410,7 @@
     transition: all 0.3s ease;
   }
   
-  /* Mobile Menu */
+  /* Mobile Menu - UPDATED to match "how we test" */
   .mobile-menu {
     position: fixed;
     top: 0;
@@ -420,19 +425,27 @@
     padding: 20px;
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
-  
+
+  @media (max-width: 767px) {
+  /* Ensure mobile menu is scrollable */
+  .mobile-menu {
+    height: 80vh;
+  }
+  }
+
   .mobile-menu.active {
     right: 0;
   }
   
+  /* UPDATED: Increased margin-bottom from 10 to 30px to match "how we test" */
   .mobile-menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Changed from 10px to 30px */
     padding-bottom: 20px;
-    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
   .mobile-menu-logo {
@@ -441,7 +454,7 @@
   }
   
   .mobile-menu-brand {
-    font-size: 23px;
+    font-size: 23px; /* Changed from 20px to 23px */
     font-weight: 700;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
@@ -474,7 +487,7 @@
   .mobile-menu-content {
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 0px; /* Changed from 20px to 0px to match "how we test" */
   }
   
   .mobile-menu-overlay {
@@ -493,30 +506,32 @@
     display: block;
   }
   
+  /* UPDATED: Changed margin-top from 30px to 17px to match "how we test" */
   .mobile-menu-footer {
-    margin-top: 17px;
+    margin-top: 17px; /* Changed from 30px to 17px */
     padding-top: 20px;
-    border-top: 2px solid rgba(0, 212, 255, 0.2);
+    border-top: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
+  /* UPDATED: Changed margin-bottom from 20px to 5px to match "how we test" */
   .mobile-menu-section {
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Changed from 20px to 5px */
   }
   
   .mobile-menu-section h3 {
     color: var(--electric-blue);
     margin-bottom: 10px;
-    font-size: 19px;
+    font-size: 19px; /* Changed from 16px to 19px to match "how we test" */
     font-weight: 600;
   }
   
   .mobile-menu-link {
     display: block;
-    padding: 5px 0;
+    padding: 7px 0; /* Changed from 12px 0 to 7px 0 to match "how we test" */
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    font-size: 16px;
+    font-size: 16px; /* Changed from 14px to 16px to match "how we test" */
   }
   
   .mobile-menu-link:hover {
@@ -527,14 +542,77 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 1px 0;
+    padding: 1px 0; /* Changed from 8px 0 to 1px 0 to match "how we test" */
     color: var(--text-light);
     text-decoration: none;
-    font-size: 17px;
+    font-size: 17px; /* Changed from 14px to 17px to match "how we test" */
   }
   
   .mobile-menu-contact-item:hover {
     color: var(--electric-blue);
+  }
+  
+  /* NEW: Mobile submenu styles from "how we test" */
+  .mobile-menu-submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  .mobile-menu-submenu.active {
+    display: block;
+  }
+  
+  .mobile-submenu-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .mobile-submenu-back {
+    background: transparent;
+    border: none;
+    color: var(--electric-blue);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-submenu-back:hover {
+    background: rgba(0, 212, 255, 0.1);
+  }
+  
+  .mobile-submenu-title {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+  
+  .mobile-submenu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
   }
   
   /* Footer */
@@ -641,10 +719,6 @@
     line-height: 1.5;
   }
   
-  /* Language classes */
-  .lang-en { display: block; }
-  .lang-fr { display: none; }
-  
   /* Footer bottom links */
   .footer-bottom-links {
     display: flex;
@@ -706,11 +780,11 @@
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-<!-- Mobile Menu -->
+<!-- Mobile Menu - UPDATED to match "how we test" -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
-    <a href="https://global-toolkit.github.io/" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
+    <a href="https://global-toolkit.github.io/en/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="mobile-menu-logo">
       <div class="mobile-menu-brand">Global Toolkit</div>
     </a>
     <button class="mobile-menu-close" id="mobileMenuClose">
@@ -718,19 +792,19 @@
     </button>
   </div>
   
-  <div class="mobile-menu-content">
-    <!-- Menu content will be populated with JavaScript -->
+  <div class="mobile-menu-content" id="mobileMenuContent">
+    <!-- Menu content will be populated with JavaScript (matching "how we test") -->
   </div>
   
   <div class="mobile-menu-footer">
-    <!-- Footer content will be populated here -->
+    <!-- Footer content will be populated here (matching "how we test") -->
   </div>
 </div>
 
 <!-- Brand Container -->
-<a id="brandLink" style="text-decoration: none;">
+<a href="https://global-toolkit.github.io/en/" style="text-decoration: none;">
   <div class="brand-container" id="brandContainer">
-    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
+    <img src="https://raw.githubusercontent.com/Global-Toolkit/global-toolkit.github.io/main/en/GT-bakground-color-changed-LOGO.JPG" alt="Global Toolkit Logo" class="brand-logo">
     <div class="brand">
       <span class="brand-line-1">Global</span>
       <span class="brand-line-2">Toolkit</span>
@@ -743,14 +817,14 @@
   <div class="lang-selector">
     <button class="lang-dropdown-btn" id="langDropdownBtn">
       <i class="fas fa-globe"></i>
-      <span id="currentLangText">English</span>
+      <span>English</span>
       <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
     </button>
     <div class="lang-dropdown-content" id="langDropdown">
-      <a href="#" class="lang-option active" data-lang="en">
+      <a href="https://global-toolkit.github.io/en/affiliate-disclosure" class="lang-option active">
         <span>English</span>
       </a>
-      <a href="#" class="lang-option" data-lang="fr">
+      <a href="https://global-toolkit.github.io/fr/affiliate-disclosure" class="lang-option">
         <span>Français</span>
       </a>
     </div>
@@ -766,8 +840,7 @@
 <!-- AFFILIATE DISCLOSURE BANNER - UPDATED -->
 <div class="disclosure-banner">
   <div class="wrap">
-    <div class="muted lang-en">This page explains how Global Toolkit earns commissions and maintains editorial independence.</div>
-    <div class="muted lang-fr">Cette page explique comment Global Toolkit gagne des commissions et maintient son indépendance éditoriale.</div>
+    <div class="muted">This page explains how Global Toolkit earns commissions and maintains editorial independence.</div>
   </div>
 </div>
 
@@ -803,51 +876,37 @@
       </div>
       
       <div class="disclosure-content">
-        <h1 class="lang-en">Affiliate Disclosure</h1>
-        <h1 class="lang-fr">Divulgation d'Affiliation</h1>
+        <h1>Affiliate Disclosure</h1>
         
-        <p class="disclosure-subtitle lang-en">Transparency is at the core of our mission. This page explains our business model, how we maintain editorial independence, and how our affiliate relationships work.</p>
-        <p class="disclosure-subtitle lang-fr">La transparence est au cœur de notre mission. Cette page explique notre modèle économique, comment nous maintenons notre indépendance éditoriale et comment fonctionnent nos relations d'affiliation.</p>
+        <p class="disclosure-subtitle">Transparency is at the core of our mission. This page explains our business model, how we maintain editorial independence, and how our affiliate relationships work.</p>
       </div>
     </div>
 
     <!-- How We Make Money Section -->
     <section class="disclosure-section">
-      <h2 class="lang-en">How Global Toolkit Earns Money</h2>
-      <h2 class="lang-fr">Comment Global Toolkit Gagne de l'Argent</h2>
+      <h2>How Global Toolkit Earns Money</h2>
       
-      <p class="lang-en">Global Toolkit operates on an affiliate marketing model. This means:</p>
-      <p class="lang-fr">Global Toolkit fonctionne sur un modèle de marketing d'affiliation. Cela signifie :</p>
+      <p>Global Toolkit operates on an affiliate marketing model. This means:</p>
       
-      <ul class="lang-en">
+      <ul>
         <li>We provide <strong>free educational content</strong>, comparison guides, and tool reviews</li>
         <li>When readers find our recommendations helpful and decide to purchase a product or service through our links, we may earn a <strong>commission</strong> from the company</li>
         <li>These commissions <strong>do not increase the price</strong> you pay - they come from the company's marketing budget</li>
         <li>Our content remains free to access regardless of whether you use our affiliate links</li>
       </ul>
       
-      <ul class="lang-fr">
-        <li>Nous fournissons du <strong>contenu éducatif gratuit</strong>, des guides comparatifs et des avis d'outils</li>
-        <li>Lorsque les lecteurs trouvent nos recommandations utiles et décident d'acheter un produit ou service via nos liens, nous pouvons gagner une <strong>commission</strong> de la part de l'entreprise</li>
-        <li>Ces commissions <strong>n'augmentent pas le prix</strong> que vous payez - elles proviennent du budget marketing de l'entreprise</li>
-        <li>Notre contenu reste gratuit à consulter, que vous utilisiez ou non nos liens d'affiliation</li>
-      </ul>
-      
       <div class="key-point">
-        <p class="lang-en"><strong>Important:</strong> You never pay extra when using our affiliate links. The commission comes from the company's existing marketing budget.</p>
-        <p class="lang-fr"><strong>Important :</strong> Vous ne payez jamais de supplément lorsque vous utilisez nos liens d'affiliation. La commission provient du budget marketing existant de l'entreprise.</p>
+        <p><strong>Important:</strong> You never pay extra when using our affiliate links. The commission comes from the company's existing marketing budget.</p>
       </div>
     </section>
 
     <!-- Editorial Independence Section -->
     <section class="disclosure-section">
-      <h2 class="lang-en">Our Editorial Independence</h2>
-      <h2 class="lang-fr">Notre Indépendance Éditoriale</h2>
+      <h2>Our Editorial Independence</h2>
       
-      <p class="lang-en">Maintaining unbiased, trustworthy recommendations is our top priority. Here's how we ensure editorial independence:</p>
-      <p class="lang-fr">Maintenir des recommandations impartiales et dignes de confiance est notre priorité absolue. Voici comment nous assurons notre indépendance éditoriale :</p>
+      <p>Maintaining unbiased, trustworthy recommendations is our top priority. Here's how we ensure editorial independence:</p>
       
-      <ul class="lang-en">
+      <ul>
         <li><strong>No paid reviews:</strong> We never accept payment for positive reviews or rankings</li>
         <li><strong>Standardized testing:</strong> All tools are evaluated using the same criteria regardless of affiliate relationships</li>
         <li><strong>Transparent methodology:</strong> We clearly explain how we test and compare products</li>
@@ -855,134 +914,83 @@
         <li><strong>Regular updates:</strong> Our content is regularly reviewed and updated to ensure accuracy</li>
       </ul>
       
-      <ul class="lang-fr">
-        <li><strong>Aucun avis payé :</strong> Nous n'acceptons jamais de paiement pour des avis positifs ou des classements</li>
-        <li><strong>Tests standardisés :</strong> Tous les outils sont évalués en utilisant les mêmes critères, indépendamment des relations d'affiliation</li>
-        <li><strong>Méthodologie transparente :</strong> Nous expliquons clairement comment nous testons et comparons les produits</li>
-        <li><strong>Sources de données multiples :</strong> Nous combinons des tests pratiques, des retours utilisateurs et des recherches sectorielles</li>
-        <li><strong>Mises à jour régulières :</strong> Notre contenu est régulièrement revu et mis à jour pour garantir son exactitude</li>
-      </ul>
-      
       <div class="key-point">
-        <p class="lang-en"><strong>Our promise:</strong> Higher commission rates never influence our rankings. We prioritize performance, features, and user experience above all else.</p>
-        <p class="lang-fr"><strong>Notre engagement :</strong> Des taux de commission plus élevés n'influencent jamais nos classements. Nous privilégions les performances, les fonctionnalités et l'expérience utilisateur avant tout.</p>
+        <p><strong>Our promise:</strong> Higher commission rates never influence our rankings. We prioritize performance, features, and user experience above all else.</p>
       </div>
     </section>
 
     <!-- How Affiliate Links Work Section -->
     <section class="disclosure-section">
-      <h2 class="lang-en">How Our Affiliate Links Work</h2>
-      <h2 class="lang-fr">Comment Fonctionnent Nos Liens d'Affiliation</h2>
+      <h2>How Our Affiliate Links Work</h2>
       
-      <p class="lang-en">When you click on an affiliate link on our site:</p>
-      <p class="lang-fr">Lorsque vous cliquez sur un lien d'affiliation sur notre site :</p>
+      <p>When you click on an affiliate link on our site:</p>
       
-      <ul class="lang-en">
+      <ul>
         <li>A tracking cookie is placed in your browser (typically lasting 30-90 days depending on the program)</li>
         <li>If you make a purchase during the cookie period, we earn a commission</li>
         <li>The price you pay remains exactly the same as if you went directly to the company's website</li>
         <li>Sometimes, our links may even provide <strong>exclusive discounts</strong> not available elsewhere</li>
         <li>Your personal information remains protected - we don't receive any of your private data</li>
       </ul>
-      
-      <ul class="lang-fr">
-        <li>Un cookie de suivi est placé dans votre navigateur (généralement valable 30 à 90 jours selon le programme)</li>
-        <li>Si vous effectuez un achat pendant la période du cookie, nous gagnons une commission</li>
-        <li>Le prix que vous payez reste exactement le même que si vous alliez directement sur le site web de l'entreprise</li>
-        <li>Parfois, nos liens peuvent même offrir des <strong>remises exclusives</strong> non disponibles ailleurs</li>
-        <li>Vos informations personnelles restent protégées - nous ne recevons aucune de vos données privées</li>
-      </ul>
     </section>
 
     <!-- Why This Model Works Section -->
     <section class="disclosure-section">
-      <h2 class="lang-en">Why This Model Benefits Everyone</h2>
-      <h2 class="lang-fr">Pourquoi Ce Modèle Avantage Tout le Monde</h2>
+      <h2>Why This Model Benefits Everyone</h2>
       
-      <p class="lang-en">The affiliate model creates a win-win situation:</p>
-      <p class="lang-fr">Le modèle d'affiliation crée une situation gagnant-gagnant :</p>
+      <p>The affiliate model creates a win-win situation:</p>
       
-      <ul class="lang-en">
+      <ul>
         <li><strong>For readers:</strong> Free access to comprehensive, unbiased research and recommendations</li>
         <li><strong>For companies:</strong> Exposure to an engaged audience interested in their products</li>
         <li><strong>For us:</strong> Sustainable funding to continue providing valuable content without paywalls or ads</li>
       </ul>
       
-      <ul class="lang-fr">
-        <li><strong>Pour les lecteurs :</strong> Accès gratuit à des recherches et recommandations complètes et impartiales</li>
-        <li><strong>Pour les entreprises :</strong> Exposition à un public engagé intéressé par leurs produits</li>
-        <li><strong>Pour nous :</strong> Financement durable pour continuer à fournir un contenu précieux sans paywalls ou publicités</li>
-      </ul>
-      
-      <p class="lang-en">This model allows us to remain independent while providing the most current and accurate information available.</p>
-      <p class="lang-fr">Ce modèle nous permet de rester indépendants tout en fournissant les informations les plus actuelles et précises disponibles.</p>
+      <p>This model allows us to remain independent while providing the most current and accurate information available.</p>
     </section>
 
     <!-- Final Notes Section -->
     <section class="disclosure-section">
-      <h2 class="lang-en">Our Commitment to You</h2>
-      <h2 class="lang-fr">Notre Engagement Envers Vous</h2>
+      <h2>Our Commitment to You</h2>
       
-      <p class="lang-en">We're committed to maintaining the highest standards of transparency and integrity. We believe that:</p>
-      <p class="lang-fr">Nous nous engageons à maintenir les plus hauts standards de transparence et d'intégrité. Nous croyons que :</p>
+      <p>We're committed to maintaining the highest standards of transparency and integrity. We believe that:</p>
       
-      <ul class="lang-en">
+      <ul>
         <li>Transparency builds trust, and trust is essential for useful recommendations</li>
         <li>Our success depends on providing genuinely helpful content</li>
         <li>Readers should understand how we operate and why they can trust our guidance</li>
       </ul>
       
-      <ul class="lang-fr">
-        <li>La transparence construit la confiance, et la confiance est essentielle pour des recommandations utiles</li>
-        <li>Notre succès dépend de la fourniture d'un contenu véritablement utile</li>
-        <li>Les lecteurs doivent comprendre comment nous fonctionnons et pourquoi ils peuvent faire confiance à nos conseils</li>
-      </ul>
-      
       <div class="key-point">
-        <p class="lang-en"><strong>Thank you</strong> for trusting Global Toolkit. Your support through using our affiliate links helps us continue providing free, high-quality content to help you make informed decisions.</p>
-        <p class="lang-fr"><strong>Merci</strong> de faire confiance à Global Toolkit. Votre soutien en utilisant nos liens d'affiliation nous aide à continuer à fournir un contenu gratuit et de haute qualité pour vous aider à prendre des décisions éclairées.</p>
+        <p><strong>Thank you</strong> for trusting Global Toolkit. Your support through using our affiliate links helps us continue providing free, high-quality content to help you make informed decisions.</p>
       </div>
       
-      <p class="lang-en">If you have any questions about our affiliate relationships or editorial process, please don't hesitate to <a href="mailto:globaltoolkit.contact@gmail.com" style="color: var(--electric-blue);">contact us</a>.</p>
-      <p class="lang-fr">Si vous avez des questions concernant nos relations d'affiliation ou notre processus éditorial, n'hésitez pas à <a href="mailto:globaltoolkit.contact@gmail.com" style="color: var(--electric-blue);">nous contacter</a>.</p>
+      <p>If you have any questions about our affiliate relationships or editorial process, please don't hesitate to <a href="mailto:globaltoolkit.contact@gmail.com" style="color: var(--electric-blue);">contact us</a>.</p>
     </section>
 
     <!-- UPDATED FOOTER -->
     <div class="footer">
       <div class="footer-links">
         <div class="footer-column">
-          <h4 class="lang-en">Categories</h4>
-          <h4 class="lang-fr">Catégories</h4>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-en" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Web Hosting</a>
-          <a href="https://global-toolkit.github.io/saas-&-web-hosting" class="lang-fr" data-base-url="https://global-toolkit.github.io/saas-&-web-hosting">Hébergement Web</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-en" data-base-url="https://global-toolkit.github.io/online-tools">Online Tools & Builders</a>
-          <a href="https://global-toolkit.github.io/online-tools" class="lang-fr" data-base-url="https://global-toolkit.github.io/online-tools">Outils en Ligne & Constructeurs</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-en" data-base-url="https://global-toolkit.github.io/payments">Payment Services</a>
-          <a href="https://global-toolkit.github.io/payments" class="lang-fr" data-base-url="https://global-toolkit.github.io/payments">Services de Paiement</a>
+          <h4>Categories</h4>
+          <a href="https://global-toolkit.github.io/en/saas-&-web-hosting">Web Hosting</a>
+          <a href="https://global-toolkit.github.io/en/online-tools">Online Tools & Builders</a>
+          <a href="https://global-toolkit.github.io/en/payment-services">Payment Services</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Resources</h4>
-          <h4 class="lang-fr">Ressources</h4>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-en" data-base-url="https://global-toolkit.github.io/privacy">Privacy</a>
-          <a href="https://global-toolkit.github.io/privacy" class="lang-fr" data-base-url="https://global-toolkit.github.io/privacy">Confidentialité</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-en" data-base-url="https://global-toolkit.github.io/how-we-test">How We Test</a>
-          <a href="https://global-toolkit.github.io/how-we-test" class="lang-fr" data-base-url="https://global-toolkit.github.io/how-we-test">Comment Nous Testons</a>
-          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en" class="lang-en">Affiliate Disclosure</a>
-          <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr" class="lang-fr">Divulgation Affiliation</a>
+          <h4>Resources</h4>
+          <a href="https://global-toolkit.github.io/en/privacy">Privacy</a>
+          <a href="https://global-toolkit.github.io/en/how-we-test">How We Test</a>
+          <a href="https://global-toolkit.github.io/en/affiliate-disclosure">Affiliate Disclosure</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Tools</h4>
-          <h4 class="lang-fr">Outils</h4>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Comparison Calculator</a>
-          <a href="https://global-toolkit.github.io/comparison-calculator" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/comparison-calculator">Calculateur Comparatif</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Deals Tracker</a>
-          <a href="https://global-toolkit.github.io/deals-tracker" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/deals-tracker">Suivi Offres</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-en coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Beginner Guides</a>
-          <a href="https://global-toolkit.github.io/beginner-guides" class="lang-fr coming-soon-link" data-base-url="https://global-toolkit.github.io/beginner-guides">Guides Débutants</a>
+          <h4>Tools</h4>
+          <a href="https://global-toolkit.github.io/en/comparison-calculator" class="coming-soon-link">Comparison Calculator</a>
+          <a href="https://global-toolkit.github.io/en/deals-tracker" class="coming-soon-link">Deals Tracker</a>
+          <a href="https://global-toolkit.github.io/en/beginner-guides">Beginner Guides</a>
         </div>
         <div class="footer-column">
-          <h4 class="lang-en">Connect</h4>
-          <h4 class="lang-fr">Contact</h4>
+          <h4>Connect</h4>
           <div class="connect-links">
             <a href="mailto:globaltoolkit.contact@gmail.com" class="connect-link">
               <i class="fas fa-envelope"></i>
@@ -992,12 +1000,7 @@
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
-            <!-- UPDATED: Share Feedback hrefs with language-based URLs -->
-            <a href="https://global-toolkit.github.io/?lang=en#feedback" class="connect-link lang-en">
-              <i class="fas fa-comment-alt"></i>
-              <span>Share Feedback</span>
-            </a>
-            <a href="https://global-toolkit.github.io/?lang=fr#feedback" class="connect-link lang-fr">
+            <a href="https://global-toolkit.github.io/en/#feedback" class="connect-link">
               <i class="fas fa-comment-alt"></i>
               <span>Share Feedback</span>
             </a>
@@ -1006,125 +1009,89 @@
       </div>
       
       <div class="footer-bottom-links">
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-en">Privacy</a>
-        <a href="https://global-toolkit.github.io/privacy" data-base-url="https://global-toolkit.github.io/privacy" class="lang-fr">Confidentialité</a>
+        <a href="https://global-toolkit.github.io/en/privacy">Privacy</a>
         <span class="separator">|</span>
-        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=en" class="lang-en">Affiliate Disclosure</a>
-        <a href="https://global-toolkit.github.io/affiliate-disclosure?lang=fr" class="lang-fr">Divulgation Affiliation</a>
+        <a href="https://global-toolkit.github.io/en/affiliate-disclosure">Affiliate Disclosure</a>
         <span class="separator">|</span>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-en">Terms</a>
-        <a href="https://global-toolkit.github.io/terms" data-base-url="https://global-toolkit.github.io/terms" class="lang-fr">Conditions</a>
+        <a href="https://global-toolkit.github.io/en/terms">Terms</a>
       </div>
       
       <div style="height:6px"></div>
-      <div class="muted lang-en"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
-      <div class="muted lang-fr"><strong>Important :</strong> Nous fournissons du contenu éducatif et des comparatifs d'outils. Nous pouvons gagner des commissions d'affiliation lorsque vous achetez via nos liens.</div>
+      <div class="muted"><strong>Important:</strong> We provide educational content and tool comparisons. We may earn affiliate commissions when you purchase through our links.</div>
       <div style="height:6px"></div>
-      <div class="muted lang-en">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
-      <div class="muted lang-fr">Global Toolkit © 2026 — Avis Impartiaux Outils & Offres Exclusives</div>
+      <div class="muted">Global Toolkit © 2026 — Unbiased Tools Reviews & Exclusive Deals</div>
     </div>
   </main>
 </div>
 
 <script>
-// Language switching functionality
-let currentLang = 'en';
+// Mobile menu state
+let currentSubmenu = null;
 
-// Function to switch language
-function switchLanguage(lang) {
-  currentLang = lang;
-  
-  const enElements = document.querySelectorAll('.lang-en');
-  const frElements = document.querySelectorAll('.lang-fr');
-  
-  if (lang === 'fr') {
-    enElements.forEach(el => el.style.display = 'none');
-    frElements.forEach(el => el.style.display = 'block');
-    
-    document.documentElement.setAttribute('lang', 'fr');
-    localStorage.setItem('preferredLanguage', 'fr');
-    updateAllLinks('fr');
-    
-  } else {
-    enElements.forEach(el => el.style.display = 'block');
-    frElements.forEach(el => el.style.display = 'none');
-    
-    document.documentElement.setAttribute('lang', 'en');
-    localStorage.setItem('preferredLanguage', 'en');
-    updateAllLinks('en');
+// Subcategories data structure (kept original structure but English-only)
+const subcategories = {
+  'saas': {
+    title: 'SaaS & Web Hosting',
+    items: [
+      { 
+        text: 'Web Hosting', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Web-Hosting/index.html' 
+      },
+      { 
+        text: 'Website Platforms & CMS', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
+      },
+      { 
+        text: 'Business SaaS', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Business-SaaS/index.html' 
+      },
+      { 
+        text: 'Performance & Security', 
+        url: 'https://global-toolkit.github.io/en/SaaS-&-web-hosting/Performance-&-Security/index.html' 
+      }
+    ]
+  },
+  'tools': {
+    title: 'Online Tools & Builders',
+    items: [
+      { 
+        text: 'Website Builders', 
+        url: 'https://global-toolkit.github.io/en/online-tools/Website-Builders/index.html' 
+      },
+      { 
+        text: 'VPN Services', 
+        url: 'https://global-toolkit.github.io/en/online-tools/VPN-services/index.html' 
+      },
+      { 
+        text: 'Productivity Tools', 
+        url: 'https://global-toolkit.github.io/en/online-tools/Productivity-tools/index.html' 
+      },
+      { 
+        text: 'Automation Platforms', 
+        url: 'https://global-toolkit.github.io/en/online-tools/Automation-tools/index.html' 
+      }
+    ]
+  },
+  'payments': {
+    title: 'Payment Services',
+    items: [
+      { 
+        text: 'Merchant Payment Processors', 
+        url: 'https://global-toolkit.github.io/en/payment-services/Merchant-Payment-Processors/index.html' 
+      },
+      { 
+        text: 'Multi-Currency Accounts', 
+        url: 'https://global-toolkit.github.io/en/payment-services/Multi-Currency-Accounts/index.html' 
+      },
+      { 
+        text: 'Digital Wallets & Cards', 
+        url: 'https://global-toolkit.github.io/en/payment-services/Digital-Wallets-&-Cards/index.html' 
+      }
+    ]
   }
-  
-  // Update dropdown button text
-  document.getElementById('currentLangText').textContent = lang === 'fr' ? 'Français' : 'English';
-  
-  // Update active state in dropdown
-  document.querySelectorAll('.lang-option').forEach(option => {
-    option.classList.remove('active');
-    if (option.getAttribute('data-lang') === lang) {
-      option.classList.add('active');
-    }
-  });
-  
-  // Update mobile menu content
-  updateMobileMenuContent();
-}
+};
 
-// Function to get language from URL parameter
-function getLangFromUrl() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('lang');
-}
-
-// Function to initialize language
-function initializeLanguage() {
-  const urlLang = getLangFromUrl();
-  const savedLang = localStorage.getItem('preferredLanguage');
-  const browserLang = navigator.language || navigator.userLanguage;
-  const browserLangShort = browserLang.split('-')[0];
-  
-  if (urlLang && (urlLang === 'en' || urlLang === 'fr')) {
-    switchLanguage(urlLang);
-  } else if (savedLang) {
-    switchLanguage(savedLang);
-  } else if (browserLangShort === 'fr') {
-    switchLanguage('fr');
-  } else {
-    switchLanguage('en');
-  }
-}
-
-// Update all links with language parameter
-function updateAllLinks(lang) {
-  const links = document.querySelectorAll('a[data-base-url]');
-  
-  links.forEach(link => {
-    const baseUrl = link.getAttribute('data-base-url');
-    let cleanUrl = baseUrl.split('?')[0];
-    link.setAttribute('href', `${cleanUrl}?lang=${lang}`);
-  });
-  
-  // Update Affiliate Disclosure links
-  const affiliateLinks = document.querySelectorAll('a[href*="affiliate-disclosure"]');
-  affiliateLinks.forEach(link => {
-    if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
-      link.href = `https://global-toolkit.github.io/affiliate-disclosure?lang=${lang}`;
-    }
-  });
-  
-  // Update mobile menu home link
-  const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
-  if (mobileMenuHomeLink) {
-    mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
-  }
-  
-  // Update brand link
-  const brandLink = document.getElementById('brandLink');
-  if (brandLink) {
-    brandLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
-  }
-}
-
-// Mobile menu functionality
+// Mobile menu functionality (kept original structure, simplified for English-only)
 function setupMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1135,6 +1102,7 @@ function setupMobileMenu() {
     mobileMenu.classList.add('active');
     mobileMenuOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    updateMobileMenuContent();
   }
   
   function closeMobileMenu() {
@@ -1153,8 +1121,74 @@ function setupMobileMenu() {
   updateMobileMenuContent();
 }
 
+// Show submenu for a category (kept original)
+function showSubmenu(category) {
+  currentSubmenu = category;
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  
+  if (!mobileMenuContent) return;
+  
+  // Hide the mobile menu footer in submenu
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'none';
+  }
+  
+  // Get subcategory data
+  const subcategoryData = subcategories[category];
+  if (!subcategoryData) return;
+  
+  // Create submenu HTML
+  mobileMenuContent.innerHTML = '';
+  
+  // Create submenu header
+  const submenuHeader = document.createElement('div');
+  submenuHeader.className = 'mobile-submenu-header';
+  
+  const backButton = document.createElement('button');
+  backButton.className = 'mobile-submenu-back';
+  backButton.innerHTML = '<i class="fas fa-arrow-left"></i>';
+  backButton.addEventListener('click', showMainMenu);
+  
+  const submenuTitle = document.createElement('div');
+  submenuTitle.className = 'mobile-submenu-title';
+  submenuTitle.textContent = subcategoryData.title;
+  
+  submenuHeader.appendChild(backButton);
+  submenuHeader.appendChild(submenuTitle);
+  mobileMenuContent.appendChild(submenuHeader);
+  
+  // Create submenu content
+  const submenuContent = document.createElement('div');
+  submenuContent.className = 'mobile-submenu-content';
+  
+  // Add subcategory items
+  subcategoryData.items.forEach(item => {
+    const link = document.createElement('a');
+    link.href = item.url;
+    link.className = 'mobile-menu-link';
+    link.textContent = item.text;
+    submenuContent.appendChild(link);
+  });
+  
+  mobileMenuContent.appendChild(submenuContent);
+}
+
+// Show main menu (kept original)
+function showMainMenu() {
+  currentSubmenu = null;
+  updateMobileMenuContent();
+  
+  // Show the mobile menu footer again when returning to main menu
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'block';
+  }
+}
+
+// Update mobile menu content (simplified for English-only)
 function updateMobileMenuContent() {
-  const mobileMenuContent = document.querySelector('.mobile-menu-content');
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
   const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
   
   if (!mobileMenuContent || !mobileMenuFooter) return;
@@ -1163,12 +1197,18 @@ function updateMobileMenuContent() {
   mobileMenuContent.innerHTML = '';
   mobileMenuFooter.innerHTML = '';
   
+  // If we're in a submenu, show it
+  if (currentSubmenu) {
+    showSubmenu(currentSubmenu);
+    return;
+  }
+  
   // Add Home section
   const homeSection = document.createElement('div');
   homeSection.className = 'mobile-menu-section';
   
   const homeLink = document.createElement('a');
-  homeLink.href = `https://global-toolkit.github.io/?lang=${currentLang}`;
+  homeLink.href = 'https://global-toolkit.github.io/en/';
   homeLink.className = 'mobile-menu-link';
   
   const homeIcon = document.createElement('i');
@@ -1176,7 +1216,7 @@ function updateMobileMenuContent() {
   homeIcon.style.marginRight = '8px';
   
   const homeText = document.createElement('span');
-  homeText.textContent = currentLang === 'fr' ? 'Accueil' : 'Home';
+  homeText.textContent = 'Home';
   
   homeLink.appendChild(homeIcon);
   homeLink.appendChild(homeText);
@@ -1184,12 +1224,12 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(homeSection);
   
-  // Add Categories section
+  // Add Categories section - kept expandable structure
   const categoriesSection = document.createElement('div');
   categoriesSection.className = 'mobile-menu-section';
   
   const categoriesTitle = document.createElement('h3');
-  categoriesTitle.textContent = currentLang === 'fr' ? 'Catégories' : 'Categories';
+  categoriesTitle.textContent = 'Categories';
   categoriesTitle.style.color = 'var(--electric-blue)';
   categoriesTitle.style.marginBottom = '10px';
   categoriesTitle.style.fontSize = '19px';
@@ -1197,57 +1237,96 @@ function updateMobileMenuContent() {
   
   categoriesSection.appendChild(categoriesTitle);
   
-  // Add category links
+  // Add category items (expandable, no href)
   const categories = [
-    { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web', url: 'https://global-toolkit.github.io/saas-&-web-hosting' },
-    { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs', url: 'https://global-toolkit.github.io/online-tools' },
-    { en: 'Payment Services', fr: 'Services de Paiement', url: 'https://global-toolkit.github.io/payments' }
+    { key: 'saas', text: 'SaaS & Web Hosting' },
+    { key: 'tools', text: 'Online Tools & Builders' },
+    { key: 'payments', text: 'Payment Services' }
   ];
   
   categories.forEach(cat => {
-    const link = document.createElement('a');
-    link.href = `${cat.url}?lang=${currentLang}`;
-    link.className = 'mobile-menu-link';
+    const categoryItem = document.createElement('div');
+    categoryItem.className = 'mobile-menu-link';
+    categoryItem.style.cursor = 'pointer';
+    categoryItem.style.display = 'flex';
+    categoryItem.style.justifyContent = 'normal';
+    categoryItem.style.alignItems = 'baseline';
     
-    const linkText = currentLang === 'fr' ? cat.fr : cat.en;
-    link.textContent = linkText + ' >';
+    const categoryText = document.createElement('span');
+    categoryText.textContent = cat.text;
     
-    categoriesSection.appendChild(link);
+    const arrowIcon = document.createElement('i');
+    arrowIcon.className = 'fas fa-chevron-right';
+    arrowIcon.style.fontSize = '12px';
+    arrowIcon.style.color = 'var(--electric-blue)';
+    arrowIcon.style.marginLeft = '8px';
+    
+    categoryItem.appendChild(categoryText);
+    categoryItem.appendChild(arrowIcon);
+    
+    categoryItem.addEventListener('click', () => {
+      showSubmenu(cat.key);
+    });
+    
+    categoriesSection.appendChild(categoryItem);
   });
   
   mobileMenuContent.appendChild(categoriesSection);
   
-  // Add Resources section
-  const resourcesSection = document.createElement('div');
-  resourcesSection.className = 'mobile-menu-section';
+  // Add Tools section
+  const toolsSection = document.createElement('div');
+  toolsSection.className = 'mobile-menu-section';
   
-  const resourcesTitle = document.createElement('h3');
-  resourcesTitle.textContent = currentLang === 'fr' ? 'Ressources' : 'Resources';
-  resourcesTitle.style.color = 'var(--electric-blue)';
-  resourcesTitle.style.marginBottom = '10px';
-  resourcesTitle.style.fontSize = '19px';
-  resourcesTitle.style.fontWeight = '600';
+  const toolsTitle = document.createElement('h3');
+  toolsTitle.textContent = 'Tools';
+  toolsTitle.style.color = 'var(--electric-blue)';
+  toolsTitle.style.marginBottom = '10px';
+  toolsTitle.style.fontSize = '19px';
+  toolsTitle.style.fontWeight = '600';
   
-  resourcesSection.appendChild(resourcesTitle);
+  toolsSection.appendChild(toolsTitle);
   
-  // Add resource links
-  const resources = [
-    { en: 'Privacy Policy', fr: 'Politique de Confidentialité', url: 'privacy' },
-    { en: 'How We Test', fr: 'Comment Nous Testons', url: 'how-we-test' },
-    { en: 'Affiliate Disclosure', fr: 'Divulgation d\'Affiliation', url: 'affiliate-disclosure' },
-    { en: 'Terms of Service', fr: 'Conditions d\'Utilisation', url: 'terms' }
+  // Add tool links
+  const tools = [
+    { text: 'Comparison Calculator', url: 'https://global-toolkit.github.io/en/comparison-calculator' },
+    { text: 'Deals Tracker', url: 'https://global-toolkit.github.io/en/deals-tracker' },
+    { text: 'Beginner Guides', url: 'https://global-toolkit.github.io/en/beginner-guides' }
   ];
   
-  resources.forEach(resource => {
+  tools.forEach(tool => {
     const link = document.createElement('a');
-    link.href = `https://global-toolkit.github.io/${resource.url}?lang=${currentLang}`;
+    link.href = tool.url;
     link.className = 'mobile-menu-link';
-    link.textContent = currentLang === 'fr' ? resource.fr : resource.en;
+    link.textContent = tool.text;
     
-    resourcesSection.appendChild(link);
+    // Add click handler for coming soon tools
+    if (tool.text === 'Comparison Calculator' || tool.text === 'Deals Tracker') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove any existing message
+        const existingMsg = this.querySelector('.coming-soon-msg');
+        if (existingMsg) {
+          existingMsg.remove();
+        }
+        
+        // Create and append message
+        const msg = document.createElement('span');
+        msg.className = 'coming-soon-msg';
+        msg.textContent = ' (Coming soon)';
+        this.appendChild(msg);
+        
+        // Remove message after animation
+        setTimeout(() => {
+          msg.remove();
+        }, 2000);
+      });
+    }
+    
+    toolsSection.appendChild(link);
   });
   
-  mobileMenuContent.appendChild(resourcesSection);
+  mobileMenuContent.appendChild(toolsSection);
   
   // Add footer content
   const footerContent = document.createElement('div');
@@ -1266,7 +1345,7 @@ function updateMobileMenuContent() {
   contactIcon.style.marginRight = '8px';
   
   const contactText = document.createElement('span');
-  contactText.textContent = currentLang === 'fr' ? 'Contact' : 'Contact';
+  contactText.textContent = 'Contact';
   
   const contactArrow = document.createElement('i');
   contactArrow.className = 'fas fa-chevron-down';
@@ -1286,7 +1365,8 @@ function updateMobileMenuContent() {
   // Contact items
   const contactItems = [
     { icon: 'fas fa-envelope', text: 'Email', href: 'mailto:globaltoolkit.contact@gmail.com' },
-    { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' }
+    { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' },
+    { icon: 'fas fa-comment-alt', text: 'Share Feedback', href: 'https://global-toolkit.github.io/en/#feedback', onclick: "document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';" }
   ];
   
   contactItems.forEach(item => {
@@ -1303,100 +1383,113 @@ function updateMobileMenuContent() {
     contactItem.appendChild(itemIcon);
     contactItem.appendChild(itemText);
     
+    if (item.onclick) {
+      contactItem.setAttribute('onclick', item.onclick);
+    }
+    
     contactContent.appendChild(contactItem);
   });
   
-  // Add Share Feedback link
-  const feedbackItem = document.createElement('a');
-  feedbackItem.href = currentLang === 'fr' ? 'https://global-toolkit.github.io/?lang=fr#feedback' : 'https://global-toolkit.github.io/?lang=en#feedback';
-  feedbackItem.className = 'mobile-menu-contact-item';
-  feedbackItem.onclick = function() {
-    document.getElementById('mobileMenu').classList.remove('active');
-    document.getElementById('mobileMenuOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-  };
-  
-  const feedbackIcon = document.createElement('i');
-  feedbackIcon.className = 'fas fa-comment-alt';
-  
-  const feedbackText = document.createElement('span');
-  feedbackText.textContent = 'Share Feedback';
-  
-  feedbackItem.appendChild(feedbackIcon);
-  feedbackItem.appendChild(feedbackText);
-  contactContent.appendChild(feedbackItem);
-  
   contactSection.appendChild(contactToggle);
   contactSection.appendChild(contactContent);
+  
+  // Add about us link
+  const aboutLink = document.createElement('a');
+  aboutLink.href = 'https://global-toolkit.github.io/en/about';
+  aboutLink.className = 'mobile-menu-link';
+  aboutLink.style.marginTop = '9px';
+  aboutLink.style.display = 'block';
+  
+  const aboutIcon = document.createElement('i');
+  aboutIcon.className = 'fas fa-info-circle';
+  aboutIcon.style.marginRight = '8px';
+  
+  const aboutText = document.createElement('span');
+  aboutText.textContent = 'About Us';
+  
+  aboutLink.appendChild(aboutIcon);
+  aboutLink.appendChild(aboutText);
+  
+  contactSection.appendChild(aboutLink);
   
   // Add space
   const space = document.createElement('div');
   space.style.margin = '20px 0';
   space.style.borderTop = '1px solid rgba(0, 212, 255, 0.1)';
   
-  // Add copyright
-  const copyrightSection = document.createElement('div');
-  copyrightSection.className = 'mobile-menu-section';
+  // Add legal links
+  const legalSection = document.createElement('div');
+  legalSection.className = 'mobile-menu-section';
   
-  const copyrightText = document.createElement('div');
-  copyrightText.className = 'muted';
-  copyrightText.style.fontSize = '12px';
-  copyrightText.style.textAlign = 'center';
-  copyrightText.style.lineHeight = '1.5';
+  const legalLinks = [
+    { icon: 'fas fa-shield-alt', text: 'Privacy Policy', url: 'privacy' },
+    { icon: 'fas fa-handshake', text: 'Affiliate Disclosure', url: 'affiliate-disclosure' },
+    { icon: 'fas fa-file-contract', text: 'Terms of Service', url: 'terms' }
+  ];
+  
+  legalLinks.forEach(link => {
+    const legalLink = document.createElement('a');
+    legalLink.href = `https://global-toolkit.github.io/en/${link.url}`;
+    legalLink.className = 'mobile-menu-link';
+    
+    const linkIcon = document.createElement('i');
+    linkIcon.className = link.icon;
+    linkIcon.style.marginRight = '8px';
+    
+    const linkText = document.createElement('span');
+    linkText.textContent = link.text;
+    
+    legalLink.appendChild(linkIcon);
+    legalLink.appendChild(linkText);
+    
+    legalSection.appendChild(legalLink);
+  });
+  
+  // Add footer text
+  const footerText = document.createElement('div');
+  footerText.className = 'muted';
+  footerText.style.fontSize = '12px';
+  footerText.style.marginTop = '20px';
+  footerText.style.textAlign = 'center';
+  footerText.style.lineHeight = '1.5';
   
   const importantText = document.createElement('div');
   importantText.style.marginBottom = '10px';
+  importantText.innerHTML = '<strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.';
   
-  if (currentLang === 'fr') {
-    importantText.innerHTML = '<strong>Important :</strong> Nous pouvons gagner des commissions d\'affiliation lorsque vous achetez via nos liens.';
-  } else {
-    importantText.innerHTML = '<strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.';
-  }
+  const copyrightText = document.createElement('div');
+  copyrightText.textContent = 'Global Toolkit © 2026';
   
-  const finalCopyrightText = document.createElement('div');
-  finalCopyrightText.textContent = currentLang === 'fr' ? 'Global Toolkit © 2026' : 'Global Toolkit © 2026';
-  
-  copyrightText.appendChild(importantText);
-  copyrightText.appendChild(finalCopyrightText);
-  
-  copyrightSection.appendChild(copyrightText);
+  footerText.appendChild(importantText);
+  footerText.appendChild(copyrightText);
   
   // Assemble footer
   footerContent.appendChild(contactSection);
   footerContent.appendChild(space);
-  footerContent.appendChild(copyrightSection);
+  footerContent.appendChild(legalSection);
+  footerContent.appendChild(footerText);
   
   mobileMenuFooter.appendChild(footerContent);
   
-  // FIXED: Contact toggle functionality - attach event listener immediately
-  // Wait a tiny moment for DOM to be fully updated
+  // Add contact toggle functionality
   setTimeout(() => {
-    const contactToggleEl = document.getElementById('mobileMenuContactToggle');
-    const contactContentEl = document.getElementById('mobileMenuContactContent');
+    const contactToggle = document.getElementById('mobileMenuContactToggle');
+    const contactContent = document.getElementById('mobileMenuContactContent');
     
-    if (contactToggleEl && contactContentEl) {
-      // Remove any existing event listeners to avoid duplicates
-      const newContactToggleEl = contactToggleEl.cloneNode(true);
-      contactToggleEl.parentNode.replaceChild(newContactToggleEl, contactToggleEl);
-      
-      // Re-get the element after cloning
-      const refreshedContactToggleEl = document.getElementById('mobileMenuContactToggle');
-      
-      if (refreshedContactToggleEl) {
-        refreshedContactToggleEl.addEventListener('click', function() {
-          const isExpanded = contactContentEl.style.display === 'block';
-          contactContentEl.style.display = isExpanded ? 'none' : 'block';
-          const icon = this.querySelector('.fa-chevron-down');
-          if (icon) {
-            icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-          }
-        });
-      }
+    if (contactToggle && contactContent) {
+      contactToggle.addEventListener('click', function() {
+        const isExpanded = contactContent.style.display === 'block';
+        contactContent.style.display = isExpanded ? 'none' : 'block';
+        const icon = this.querySelector('.fa-chevron-down');
+        if (icon) {
+          icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      });
     }
-  }, 10);
+  }, 100);
 }
 
-// Event listeners for language dropdown
+// Language dropdown toggle (simple open/close)
 document.getElementById('langDropdownBtn').addEventListener('click', function() {
   document.getElementById('langDropdown').classList.toggle('show');
 });
@@ -1409,19 +1502,6 @@ document.addEventListener('click', function(event) {
   if (!button.contains(event.target) && !dropdown.contains(event.target)) {
     dropdown.classList.remove('show');
   }
-});
-
-// Language option clicks
-document.querySelectorAll('.lang-option').forEach(option => {
-  option.addEventListener('click', function(e) {
-    e.preventDefault();
-    const lang = this.getAttribute('data-lang');
-    
-    if (lang === 'en' || lang === 'fr') {
-      switchLanguage(lang);
-    }
-    document.getElementById('langDropdown').classList.remove('show');
-  });
 });
 
 // Coming soon links
@@ -1438,7 +1518,7 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
     // Create and append message
     const msg = document.createElement('span');
     msg.className = 'coming-soon-msg';
-    msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+    msg.textContent = ' (Coming soon)';
     this.parentNode.appendChild(msg);
     
     // Remove message after animation
@@ -1450,23 +1530,7 @@ document.querySelectorAll('.coming-soon-link').forEach(link => {
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
-  initializeLanguage();
   setupMobileMenu();
-  
-  // Update all links
-  updateAllLinks(currentLang);
-  
-  // Add keyboard shortcuts
-  document.addEventListener('keydown', (e) => {
-    if (e.altKey && e.key === 'e') {
-      e.preventDefault();
-      switchLanguage('en');
-    }
-    if (e.altKey && e.key === 'f') {
-      e.preventDefault();
-      switchLanguage('fr');
-    }
-  });
 });
 </script>
 </body>
