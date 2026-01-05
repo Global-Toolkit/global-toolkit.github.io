@@ -405,7 +405,7 @@
     transition: all 0.3s ease;
   }
   
-  /* Mobile Menu */
+  /* Mobile Menu - UPDATED to match "how we test" */
   .mobile-menu {
     position: fixed;
     top: 0;
@@ -420,19 +420,27 @@
     padding: 20px;
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
-  
+
+  @media (max-width: 767px) {
+  /* Ensure mobile menu is scrollable */
+  .mobile-menu {
+    height: 80vh;
+  }
+  }
+
   .mobile-menu.active {
     right: 0;
   }
   
+  /* UPDATED: Increased margin-bottom from 10 to 30px to match "how we test" */
   .mobile-menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Changed from 10px to 30px */
     padding-bottom: 20px;
-    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
   .mobile-menu-logo {
@@ -441,7 +449,7 @@
   }
   
   .mobile-menu-brand {
-    font-size: 23px;
+    font-size: 23px; /* Changed from 20px to 23px */
     font-weight: 700;
     background: linear-gradient(135deg, white, var(--electric-blue));
     -webkit-background-clip: text;
@@ -474,7 +482,7 @@
   .mobile-menu-content {
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 0px; /* Changed from 20px to 0px to match "how we test" */
   }
   
   .mobile-menu-overlay {
@@ -493,30 +501,32 @@
     display: block;
   }
   
+  /* UPDATED: Changed margin-top from 30px to 17px to match "how we test" */
   .mobile-menu-footer {
-    margin-top: 17px;
+    margin-top: 17px; /* Changed from 30px to 17px */
     padding-top: 20px;
-    border-top: 2px solid rgba(0, 212, 255, 0.2);
+    border-top: 2px solid rgba(0, 212, 255, 0.2); /* Changed from 1px to 2px */
   }
   
+  /* UPDATED: Changed margin-bottom from 20px to 5px to match "how we test" */
   .mobile-menu-section {
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Changed from 20px to 5px */
   }
   
   .mobile-menu-section h3 {
     color: var(--electric-blue);
     margin-bottom: 10px;
-    font-size: 19px;
+    font-size: 19px; /* Changed from 16px to 19px to match "how we test" */
     font-weight: 600;
   }
   
   .mobile-menu-link {
     display: block;
-    padding: 5px 0;
+    padding: 7px 0; /* Changed from 12px 0 to 7px 0 to match "how we test" */
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    font-size: 16px;
+    font-size: 16px; /* Changed from 14px to 16px to match "how we test" */
   }
   
   .mobile-menu-link:hover {
@@ -527,14 +537,77 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 1px 0;
+    padding: 1px 0; /* Changed from 8px 0 to 1px 0 to match "how we test" */
     color: var(--text-light);
     text-decoration: none;
-    font-size: 17px;
+    font-size: 17px; /* Changed from 14px to 17px to match "how we test" */
   }
   
   .mobile-menu-contact-item:hover {
     color: var(--electric-blue);
+  }
+  
+  /* NEW: Mobile submenu styles from "how we test" */
+  .mobile-menu-submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  .mobile-menu-submenu.active {
+    display: block;
+  }
+  
+  .mobile-submenu-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .mobile-submenu-back {
+    background: transparent;
+    border: none;
+    color: var(--electric-blue);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-submenu-back:hover {
+    background: rgba(0, 212, 255, 0.1);
+  }
+  
+  .mobile-submenu-title {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+  
+  .mobile-submenu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
   }
   
   /* Footer */
@@ -706,7 +779,7 @@
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-<!-- Mobile Menu -->
+<!-- Mobile Menu - UPDATED to match "how we test" -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
     <a href="https://global-toolkit.github.io/" id="mobileMenuHomeLink" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
@@ -718,12 +791,12 @@
     </button>
   </div>
   
-  <div class="mobile-menu-content">
-    <!-- Menu content will be populated with JavaScript -->
+  <div class="mobile-menu-content" id="mobileMenuContent">
+    <!-- Menu content will be populated with JavaScript (matching "how we test") -->
   </div>
   
   <div class="mobile-menu-footer">
-    <!-- Footer content will be populated here -->
+    <!-- Footer content will be populated here (matching "how we test") -->
   </div>
 </div>
 
@@ -1030,7 +1103,84 @@
 // Language switching functionality
 let currentLang = 'en';
 
-// Function to switch language
+// Mobile menu state (from "how we test")
+let currentSubmenu = null;
+
+// Subcategories data structure (from "how we test")
+const subcategories = {
+  'saas': {
+    title: { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    items: [
+      { 
+        en: 'Web Hosting', 
+        fr: 'Hébergement Web', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Web-Hosting/index.html' 
+      },
+      { 
+        en: 'Website Platforms & CMS', 
+        fr: 'Plateformes Web & CMS', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
+      },
+      { 
+        en: 'Business SaaS', 
+        fr: 'SaaS Professionnel', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Business-SaaS/index.html' 
+      },
+      { 
+        en: 'Performance & Security', 
+        fr: 'Performance & Sécurité', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Performance-&-Security/index.html' 
+      }
+    ]
+  },
+  'tools': {
+    title: { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    items: [
+      { 
+        en: 'Website Builders', 
+        fr: 'Constructeurs de Sites', 
+        url: 'https://global-toolkit.github.io/online-tools/Website-Builders/index.html' 
+      },
+      { 
+        en: 'VPN Services', 
+        fr: 'Services VPN', 
+        url: 'https://global-toolkit.github.io/online-tools/VPN-services/index.html' 
+      },
+      { 
+        en: 'Productivity Tools', 
+        fr: 'Outils de Productivité', 
+        url: 'https://global-toolkit.github.io/online-tools/Productivity-tools/index.html' 
+      },
+      { 
+        en: 'Automation Platforms', 
+        fr: 'Plateformes d\'Automatisation', 
+        url: 'https://global-toolkit.github.io/online-tools/Automation-tools/index.html' 
+      }
+    ]
+  },
+  'payments': {
+    title: { en: 'Payment Services', fr: 'Services de Paiement' },
+    items: [
+      { 
+        en: 'Merchant Payment Processors', 
+        fr: 'Processeurs de Paiement', 
+        url: 'https://global-toolkit.github.io/payment-services/Merchant-Payment-Processors/index.html' 
+      },
+      { 
+        en: 'Multi-Currency Accounts', 
+        fr: 'Comptes Multi-Devises', 
+        url: 'https://global-toolkit.github.io/payment-services/Multi-Currency-Accounts/index.html' 
+      },
+      { 
+        en: 'Digital Wallets & Cards', 
+        fr: 'Portefeuilles & Cartes Numériques', 
+        url: 'https://global-toolkit.github.io/payment-services/Digital-Wallets-&-Cards/index.html' 
+      }
+    ]
+  }
+};
+
+// Function to switch language (updated to include mobile menu updates from "how we test")
 function switchLanguage(lang) {
   currentLang = lang;
   
@@ -1065,7 +1215,7 @@ function switchLanguage(lang) {
     }
   });
   
-  // Update mobile menu content
+  // Update mobile menu content (from "how we test")
   updateMobileMenuContent();
 }
 
@@ -1093,7 +1243,7 @@ function initializeLanguage() {
   }
 }
 
-// Update all links with language parameter
+// Update all links with language parameter (updated from "how we test")
 function updateAllLinks(lang) {
   const links = document.querySelectorAll('a[data-base-url]');
   
@@ -1111,20 +1261,26 @@ function updateAllLinks(lang) {
     }
   });
   
-  // Update mobile menu home link
+  // Update Facebook link with language reference (from "how we test")
+  const facebookLinks = document.querySelectorAll('a[href*="facebook.com/GlobalToolkit"]');
+  facebookLinks.forEach(link => {
+    link.setAttribute('href', `https://www.facebook.com/GlobalToolkit?ref=globaltoolkit_${lang}`);
+  });
+  
+  // Update mobile menu home link (from "how we test")
   const mobileMenuHomeLink = document.getElementById('mobileMenuHomeLink');
   if (mobileMenuHomeLink) {
     mobileMenuHomeLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
   }
   
-  // Update brand link
+  // Update brand link (from "how we test")
   const brandLink = document.getElementById('brandLink');
   if (brandLink) {
     brandLink.href = `https://global-toolkit.github.io/?lang=${lang}`;
   }
 }
 
-// Mobile menu functionality
+// Mobile menu functionality (updated from "how we test")
 function setupMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1135,6 +1291,7 @@ function setupMobileMenu() {
     mobileMenu.classList.add('active');
     mobileMenuOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    updateMobileMenuContent();
   }
   
   function closeMobileMenu() {
@@ -1153,8 +1310,74 @@ function setupMobileMenu() {
   updateMobileMenuContent();
 }
 
+// Show submenu for a category (from "how we test")
+function showSubmenu(category) {
+  currentSubmenu = category;
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  
+  if (!mobileMenuContent) return;
+  
+  // Hide the mobile menu footer in submenu
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'none';
+  }
+  
+  // Get subcategory data
+  const subcategoryData = subcategories[category];
+  if (!subcategoryData) return;
+  
+  // Create submenu HTML
+  mobileMenuContent.innerHTML = '';
+  
+  // Create submenu header
+  const submenuHeader = document.createElement('div');
+  submenuHeader.className = 'mobile-submenu-header';
+  
+  const backButton = document.createElement('button');
+  backButton.className = 'mobile-submenu-back';
+  backButton.innerHTML = '<i class="fas fa-arrow-left"></i>';
+  backButton.addEventListener('click', showMainMenu);
+  
+  const submenuTitle = document.createElement('div');
+  submenuTitle.className = 'mobile-submenu-title';
+  submenuTitle.textContent = currentLang === 'fr' ? subcategoryData.title.fr : subcategoryData.title.en;
+  
+  submenuHeader.appendChild(backButton);
+  submenuHeader.appendChild(submenuTitle);
+  mobileMenuContent.appendChild(submenuHeader);
+  
+  // Create submenu content
+  const submenuContent = document.createElement('div');
+  submenuContent.className = 'mobile-submenu-content';
+  
+  // Add subcategory items
+  subcategoryData.items.forEach(item => {
+    const link = document.createElement('a');
+    link.href = `${item.url}?lang=${currentLang}`;
+    link.className = 'mobile-menu-link';
+    link.textContent = currentLang === 'fr' ? item.fr : item.en;
+    submenuContent.appendChild(link);
+  });
+  
+  mobileMenuContent.appendChild(submenuContent);
+}
+
+// Show main menu (from "how we test")
+function showMainMenu() {
+  currentSubmenu = null;
+  updateMobileMenuContent();
+  
+  // Show the mobile menu footer again when returning to main menu
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'block';
+  }
+}
+
+// Update mobile menu content (from "how we test")
 function updateMobileMenuContent() {
-  const mobileMenuContent = document.querySelector('.mobile-menu-content');
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
   const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
   
   if (!mobileMenuContent || !mobileMenuFooter) return;
@@ -1162,6 +1385,12 @@ function updateMobileMenuContent() {
   // Clear existing content
   mobileMenuContent.innerHTML = '';
   mobileMenuFooter.innerHTML = '';
+  
+  // If we're in a submenu, show it
+  if (currentSubmenu) {
+    showSubmenu(currentSubmenu);
+    return;
+  }
   
   // Add Home section
   const homeSection = document.createElement('div');
@@ -1184,7 +1413,7 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(homeSection);
   
-  // Add Categories section
+  // Add Categories section - UPDATED: Categories are now expandable (from "how we test")
   const categoriesSection = document.createElement('div');
   categoriesSection.className = 'mobile-menu-section';
   
@@ -1197,62 +1426,101 @@ function updateMobileMenuContent() {
   
   categoriesSection.appendChild(categoriesTitle);
   
-  // Add category links
+  // Add category items (expandable, no href) (from "how we test")
   const categories = [
-    { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web', url: 'https://global-toolkit.github.io/saas-&-web-hosting' },
-    { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs', url: 'https://global-toolkit.github.io/online-tools' },
-    { en: 'Payment Services', fr: 'Services de Paiement', url: 'https://global-toolkit.github.io/payments' }
+    { key: 'saas', en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    { key: 'tools', en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    { key: 'payments', en: 'Payment Services', fr: 'Services de Paiement' }
   ];
   
   categories.forEach(cat => {
-    const link = document.createElement('a');
-    link.href = `${cat.url}?lang=${currentLang}`;
-    link.className = 'mobile-menu-link';
+    const categoryItem = document.createElement('div');
+    categoryItem.className = 'mobile-menu-link';
+    categoryItem.style.cursor = 'pointer';
+    categoryItem.style.display = 'flex';
+    categoryItem.style.justifyContent = 'normal';
+    categoryItem.style.alignItems = 'baseline';
     
-    const linkText = currentLang === 'fr' ? cat.fr : cat.en;
-    link.textContent = linkText + ' >';
+    const categoryText = document.createElement('span');
+    categoryText.textContent = currentLang === 'fr' ? cat.fr : cat.en;
     
-    categoriesSection.appendChild(link);
+    const arrowIcon = document.createElement('i');
+    arrowIcon.className = 'fas fa-chevron-right';
+    arrowIcon.style.fontSize = '12px';
+    arrowIcon.style.color = 'var(--electric-blue)';
+    arrowIcon.style.marginLeft = '8px';
+    
+    categoryItem.appendChild(categoryText);
+    categoryItem.appendChild(arrowIcon);
+    
+    categoryItem.addEventListener('click', () => {
+      showSubmenu(cat.key);
+    });
+    
+    categoriesSection.appendChild(categoryItem);
   });
   
   mobileMenuContent.appendChild(categoriesSection);
   
-  // Add Resources section
-  const resourcesSection = document.createElement('div');
-  resourcesSection.className = 'mobile-menu-section';
+  // Add Tools section (from "how we test")
+  const toolsSection = document.createElement('div');
+  toolsSection.className = 'mobile-menu-section';
   
-  const resourcesTitle = document.createElement('h3');
-  resourcesTitle.textContent = currentLang === 'fr' ? 'Ressources' : 'Resources';
-  resourcesTitle.style.color = 'var(--electric-blue)';
-  resourcesTitle.style.marginBottom = '10px';
-  resourcesTitle.style.fontSize = '19px';
-  resourcesTitle.style.fontWeight = '600';
+  const toolsTitle = document.createElement('h3');
+  toolsTitle.textContent = currentLang === 'fr' ? 'Outils' : 'Tools';
+  toolsTitle.style.color = 'var(--electric-blue)';
+  toolsTitle.style.marginBottom = '10px';
+  toolsTitle.style.fontSize = '19px';
+  toolsTitle.style.fontWeight = '600';
   
-  resourcesSection.appendChild(resourcesTitle);
+  toolsSection.appendChild(toolsTitle);
   
-  // Add resource links
-  const resources = [
-    { en: 'Privacy Policy', fr: 'Politique de Confidentialité', url: 'privacy' },
-    { en: 'How We Test', fr: 'Comment Nous Testons', url: 'how-we-test' },
-    { en: 'Affiliate Disclosure', fr: 'Divulgation d\'Affiliation', url: 'affiliate-disclosure' },
-    { en: 'Terms of Service', fr: 'Conditions d\'Utilisation', url: 'terms' }
+  // Add tool links (from "how we test")
+  const tools = [
+    { en: 'Comparison Calculator', fr: 'Calculateur Comparatif', url: 'https://global-toolkit.github.io/comparison-calculator' },
+    { en: 'Deals Tracker', fr: 'Suivi Offres', url: 'https://global-toolkit.github.io/deals-tracker' },
+    { en: 'Beginner Guides', fr: 'Guides Débutants', url: 'https://global-toolkit.github.io/beginner-guides' }
   ];
   
-  resources.forEach(resource => {
+  tools.forEach(tool => {
     const link = document.createElement('a');
-    link.href = `https://global-toolkit.github.io/${resource.url}?lang=${currentLang}`;
+    link.href = `${tool.url}?lang=${currentLang}`;
     link.className = 'mobile-menu-link';
-    link.textContent = currentLang === 'fr' ? resource.fr : resource.en;
+    link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
     
-    resourcesSection.appendChild(link);
+    // Add click handler for coming soon tools (from "how we test")
+    if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove any existing message
+        const existingMsg = this.querySelector('.coming-soon-msg');
+        if (existingMsg) {
+          existingMsg.remove();
+        }
+        
+        // Create and append message
+        const msg = document.createElement('span');
+        msg.className = 'coming-soon-msg';
+        msg.textContent = currentLang === 'en' ? ' (Coming soon)' : ' (Bientôt disponible)';
+        this.appendChild(msg);
+        
+        // Remove message after animation
+        setTimeout(() => {
+          msg.remove();
+        }, 2000);
+      });
+    }
+    
+    toolsSection.appendChild(link);
   });
   
-  mobileMenuContent.appendChild(resourcesSection);
+  mobileMenuContent.appendChild(toolsSection);
   
-  // Add footer content
+  // Add footer content (from "how we test")
   const footerContent = document.createElement('div');
   
-  // Create contact section
+  // Create contact section (from "how we test")
   const contactSection = document.createElement('div');
   contactSection.className = 'mobile-menu-section';
   
@@ -1283,10 +1551,11 @@ function updateMobileMenuContent() {
   contactContent.style.paddingLeft = '20px';
   contactContent.style.marginTop = '10px';
   
-  // Contact items
+  // Contact items (from "how we test")
   const contactItems = [
     { icon: 'fas fa-envelope', text: 'Email', href: 'mailto:globaltoolkit.contact@gmail.com' },
-    { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' }
+    { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' },
+    { icon: 'fas fa-comment-alt', text: 'Share Feedback', href: currentLang === 'fr' ? 'https://global-toolkit.github.io/?lang=fr#feedback' : 'https://global-toolkit.github.io/?lang=en#feedback', onclick: "document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';" }
   ];
   
   contactItems.forEach(item => {
@@ -1303,46 +1572,75 @@ function updateMobileMenuContent() {
     contactItem.appendChild(itemIcon);
     contactItem.appendChild(itemText);
     
+    if (item.onclick) {
+      contactItem.setAttribute('onclick', item.onclick);
+    }
+    
     contactContent.appendChild(contactItem);
   });
-  
-  // Add Share Feedback link
-  const feedbackItem = document.createElement('a');
-  feedbackItem.href = currentLang === 'fr' ? 'https://global-toolkit.github.io/?lang=fr#feedback' : 'https://global-toolkit.github.io/?lang=en#feedback';
-  feedbackItem.className = 'mobile-menu-contact-item';
-  feedbackItem.onclick = function() {
-    document.getElementById('mobileMenu').classList.remove('active');
-    document.getElementById('mobileMenuOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-  };
-  
-  const feedbackIcon = document.createElement('i');
-  feedbackIcon.className = 'fas fa-comment-alt';
-  
-  const feedbackText = document.createElement('span');
-  feedbackText.textContent = 'Share Feedback';
-  
-  feedbackItem.appendChild(feedbackIcon);
-  feedbackItem.appendChild(feedbackText);
-  contactContent.appendChild(feedbackItem);
   
   contactSection.appendChild(contactToggle);
   contactSection.appendChild(contactContent);
   
-  // Add space
+  // Add about us link (from "how we test")
+  const aboutLink = document.createElement('a');
+  aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}`;
+  aboutLink.className = 'mobile-menu-link';
+  aboutLink.style.marginTop = '9px';
+  aboutLink.style.display = 'block';
+  
+  const aboutIcon = document.createElement('i');
+  aboutIcon.className = 'fas fa-info-circle';
+  aboutIcon.style.marginRight = '8px';
+  
+  const aboutText = document.createElement('span');
+  aboutText.textContent = currentLang === 'fr' ? 'À Propos' : 'About Us';
+  
+  aboutLink.appendChild(aboutIcon);
+  aboutLink.appendChild(aboutText);
+  
+  contactSection.appendChild(aboutLink);
+  
+  // Add space (from "how we test")
   const space = document.createElement('div');
   space.style.margin = '20px 0';
   space.style.borderTop = '1px solid rgba(0, 212, 255, 0.1)';
   
-  // Add copyright
-  const copyrightSection = document.createElement('div');
-  copyrightSection.className = 'mobile-menu-section';
+  // Add legal links (from "how we test")
+  const legalSection = document.createElement('div');
+  legalSection.className = 'mobile-menu-section';
   
-  const copyrightText = document.createElement('div');
-  copyrightText.className = 'muted';
-  copyrightText.style.fontSize = '12px';
-  copyrightText.style.textAlign = 'center';
-  copyrightText.style.lineHeight = '1.5';
+  const legalLinks = [
+    { icon: 'fas fa-shield-alt', en: 'Privacy Policy', fr: 'Politique de Confidentialité', url: 'privacy' },
+    { icon: 'fas fa-handshake', en: 'Affiliate Disclosure', fr: 'Divulgation d\'Affiliation', url: 'affiliate-disclosure' },
+    { icon: 'fas fa-file-contract', en: 'Terms of Service', fr: 'Conditions d\'Utilisation', url: 'terms' }
+  ];
+  
+  legalLinks.forEach(link => {
+    const legalLink = document.createElement('a');
+    legalLink.href = `https://global-toolkit.github.io/${link.url}?lang=${currentLang}`;
+    legalLink.className = 'mobile-menu-link';
+    
+    const linkIcon = document.createElement('i');
+    linkIcon.className = link.icon;
+    linkIcon.style.marginRight = '8px';
+    
+    const linkText = document.createElement('span');
+    linkText.textContent = currentLang === 'fr' ? link.fr : link.en;
+    
+    legalLink.appendChild(linkIcon);
+    legalLink.appendChild(linkText);
+    
+    legalSection.appendChild(legalLink);
+  });
+  
+  // Add footer text (from "how we test")
+  const footerText = document.createElement('div');
+  footerText.className = 'muted';
+  footerText.style.fontSize = '12px';
+  footerText.style.marginTop = '20px';
+  footerText.style.textAlign = 'center';
+  footerText.style.lineHeight = '1.5';
   
   const importantText = document.createElement('div');
   importantText.style.marginBottom = '10px';
@@ -1353,47 +1651,36 @@ function updateMobileMenuContent() {
     importantText.innerHTML = '<strong>Important:</strong> We may earn affiliate commissions when you purchase through our links.';
   }
   
-  const finalCopyrightText = document.createElement('div');
-  finalCopyrightText.textContent = currentLang === 'fr' ? 'Global Toolkit © 2026' : 'Global Toolkit © 2026';
+  const copyrightText = document.createElement('div');
+  copyrightText.textContent = currentLang === 'fr' ? 'Global Toolkit © 2026' : 'Global Toolkit © 2026';
   
-  copyrightText.appendChild(importantText);
-  copyrightText.appendChild(finalCopyrightText);
+  footerText.appendChild(importantText);
+  footerText.appendChild(copyrightText);
   
-  copyrightSection.appendChild(copyrightText);
-  
-  // Assemble footer
+  // Assemble footer (from "how we test")
   footerContent.appendChild(contactSection);
   footerContent.appendChild(space);
-  footerContent.appendChild(copyrightSection);
+  footerContent.appendChild(legalSection);
+  footerContent.appendChild(footerText);
   
   mobileMenuFooter.appendChild(footerContent);
   
-  // FIXED: Contact toggle functionality - attach event listener immediately
-  // Wait a tiny moment for DOM to be fully updated
+  // Add contact toggle functionality (from "how we test")
   setTimeout(() => {
-    const contactToggleEl = document.getElementById('mobileMenuContactToggle');
-    const contactContentEl = document.getElementById('mobileMenuContactContent');
+    const contactToggle = document.getElementById('mobileMenuContactToggle');
+    const contactContent = document.getElementById('mobileMenuContactContent');
     
-    if (contactToggleEl && contactContentEl) {
-      // Remove any existing event listeners to avoid duplicates
-      const newContactToggleEl = contactToggleEl.cloneNode(true);
-      contactToggleEl.parentNode.replaceChild(newContactToggleEl, contactToggleEl);
-      
-      // Re-get the element after cloning
-      const refreshedContactToggleEl = document.getElementById('mobileMenuContactToggle');
-      
-      if (refreshedContactToggleEl) {
-        refreshedContactToggleEl.addEventListener('click', function() {
-          const isExpanded = contactContentEl.style.display === 'block';
-          contactContentEl.style.display = isExpanded ? 'none' : 'block';
-          const icon = this.querySelector('.fa-chevron-down');
-          if (icon) {
-            icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-          }
-        });
-      }
+    if (contactToggle && contactContent) {
+      contactToggle.addEventListener('click', function() {
+        const isExpanded = contactContent.style.display === 'block';
+        contactContent.style.display = isExpanded ? 'none' : 'block';
+        const icon = this.querySelector('.fa-chevron-down');
+        if (icon) {
+          icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      });
     }
-  }, 10);
+  }, 100);
 }
 
 // Event listeners for language dropdown
