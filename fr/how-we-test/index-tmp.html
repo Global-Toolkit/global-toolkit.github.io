@@ -460,8 +460,7 @@
     margin-top: 35px;
   }
   
-  /* CHANGED: Desktop header margin-top from 35 to 52
-  px */
+  /* CHANGED: Desktop header margin-top from 35 to 52px */
   @media (min-width: 768px) {
     header {
       margin-top: 52px;
@@ -694,13 +693,7 @@
     padding: 20px;
     border-left: 1px solid rgba(0, 212, 255, 0.2);
   }
-  
-  /* CHANGED: Ensure mobile menu is scrollable */
-  .mobile-menu {
-    overflow-y: auto;
-  }
 
-  /* Ensure mobile menu is scrollable on smaller devices */
   @media (max-width: 767px) {
   /* Ensure mobile menu is scrollable */
   .mobile-menu {
@@ -800,7 +793,7 @@
   
   .mobile-menu-link {
     display: block;
-    padding: 5px 0; /* Changed from 12px 0 to 5px 0 */
+    padding: 7px 0; /* Changed from 12px 0 to 7px 0 */
     color: var(--text-light);
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
@@ -942,6 +935,69 @@
     text-decoration: underline;
   }
   
+  /* NEW: Mobile submenu styles */
+  .mobile-menu-submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  .mobile-menu-submenu.active {
+    display: block;
+  }
+  
+  .mobile-submenu-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .mobile-submenu-back {
+    background: transparent;
+    border: none;
+    color: var(--electric-blue);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-submenu-back:hover {
+    background: rgba(0, 212, 255, 0.1);
+  }
+  
+  .mobile-submenu-title {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, white, var(--electric-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+  
+  .mobile-submenu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  
   @keyframes fadeInOut {
     0% { opacity: 0; }
     20% { opacity: 1; }
@@ -1033,7 +1089,7 @@
     </button>
   </div>
   
-  <div class="mobile-menu-content">
+  <div class="mobile-menu-content" id="mobileMenuContent">
     <!-- Menu content will be populated with JavaScript -->
   </div>
   
@@ -1160,7 +1216,7 @@
       
       <p class="muted" style="margin-bottom: 25px;">
         <span class="lang-en">We use a multi-faceted approach to ensure our reviews are comprehensive, accurate, and useful. Here's how we evaluate each tool:</span>
-        <span class="lang-fr">Nous utilisons une approche multidimensionnelle pour garantir que nos évaluations sont complètes, précises et utiles. Voici comment nous évaluons chaque outil :</span>
+        <span class="lang-fr">Nous utilisons une approche multidimensionnelle pour garantir que nos évaluations soient complètes, précises et utiles. Voici comment nous évaluons chaque outil :</span>
       </p>
       
       <div class="methodology-grid">
@@ -1431,6 +1487,83 @@ let hideControlsTimer;
 
 // FIXED: Declare initFAQItemListeners in global scope to avoid ReferenceError
 let initFAQItemListeners;
+
+// Mobile menu state
+let currentSubmenu = null;
+
+// Subcategories data structure (from home page)
+const subcategories = {
+  'saas': {
+    title: { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    items: [
+      { 
+        en: 'Web Hosting', 
+        fr: 'Hébergement Web', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Web-Hosting/index.html' 
+      },
+      { 
+        en: 'Website Platforms & CMS', 
+        fr: 'Plateformes Web & CMS', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Website-Platforms-&-CMS/index.html' 
+      },
+      { 
+        en: 'Business SaaS', 
+        fr: 'SaaS Professionnel', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Business-SaaS/index.html' 
+      },
+      { 
+        en: 'Performance & Security', 
+        fr: 'Performance & Sécurité', 
+        url: 'https://global-toolkit.github.io/SaaS-&-web-hosting/Performance-&-Security/index.html' 
+      }
+    ]
+  },
+  'tools': {
+    title: { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    items: [
+      { 
+        en: 'Website Builders', 
+        fr: 'Constructeurs de Sites', 
+        url: 'https://global-toolkit.github.io/online-tools/Website-Builders/index.html' 
+      },
+      { 
+        en: 'VPN Services', 
+        fr: 'Services VPN', 
+        url: 'https://global-toolkit.github.io/online-tools/VPN-services/index.html' 
+      },
+      { 
+        en: 'Productivity Tools', 
+        fr: 'Outils de Productivité', 
+        url: 'https://global-toolkit.github.io/online-tools/Productivity-tools/index.html' 
+      },
+      { 
+        en: 'Automation Platforms', 
+        fr: 'Plateformes d\'Automatisation', 
+        url: 'https://global-toolkit.github.io/online-tools/Automation-tools/index.html' 
+      }
+    ]
+  },
+  'payments': {
+    title: { en: 'Payment Services', fr: 'Services de Paiement' },
+    items: [
+      { 
+        en: 'Merchant Payment Processors', 
+        fr: 'Processeurs de Paiement', 
+        url: 'https://global-toolkit.github.io/payment-services/Merchant-Payment-Processors/index.html' 
+      },
+      { 
+        en: 'Multi-Currency Accounts', 
+        fr: 'Comptes Multi-Devises', 
+        url: 'https://global-toolkit.github.io/payment-services/Multi-Currency-Accounts/index.html' 
+      },
+      { 
+        en: 'Digital Wallets & Cards', 
+        fr: 'Portefeuilles & Cartes Numériques', 
+        url: 'https://global-toolkit.github.io/payment-services/Digital-Wallets-&-Cards/index.html' 
+      }
+    ]
+  }
+};
 
 // Function to switch language
 function switchLanguage(lang) {
@@ -1756,7 +1889,7 @@ function setupMobileScrollHiding() {
   });
 }
 
-// Mobile menu functionality
+// Mobile menu functionality (updated to match home page)
 function setupMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1767,6 +1900,7 @@ function setupMobileMenu() {
     mobileMenu.classList.add('active');
     mobileMenuOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    updateMobileMenuContent();
   }
   
   function closeMobileMenu() {
@@ -1785,8 +1919,74 @@ function setupMobileMenu() {
   updateMobileMenuContent();
 }
 
+// Show submenu for a category
+function showSubmenu(category) {
+  currentSubmenu = category;
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  
+  if (!mobileMenuContent) return;
+  
+  // Hide the mobile menu footer in submenu
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'none';
+  }
+  
+  // Get subcategory data
+  const subcategoryData = subcategories[category];
+  if (!subcategoryData) return;
+  
+  // Create submenu HTML
+  mobileMenuContent.innerHTML = '';
+  
+  // Create submenu header
+  const submenuHeader = document.createElement('div');
+  submenuHeader.className = 'mobile-submenu-header';
+  
+  const backButton = document.createElement('button');
+  backButton.className = 'mobile-submenu-back';
+  backButton.innerHTML = '<i class="fas fa-arrow-left"></i>';
+  backButton.addEventListener('click', showMainMenu);
+  
+  const submenuTitle = document.createElement('div');
+  submenuTitle.className = 'mobile-submenu-title';
+  submenuTitle.textContent = currentLang === 'fr' ? subcategoryData.title.fr : subcategoryData.title.en;
+  
+  submenuHeader.appendChild(backButton);
+  submenuHeader.appendChild(submenuTitle);
+  mobileMenuContent.appendChild(submenuHeader);
+  
+  // Create submenu content
+  const submenuContent = document.createElement('div');
+  submenuContent.className = 'mobile-submenu-content';
+  
+  // Add subcategory items
+  subcategoryData.items.forEach(item => {
+    const link = document.createElement('a');
+    link.href = `${item.url}?lang=${currentLang}&currency=${currentCurrency}`;
+    link.className = 'mobile-menu-link';
+    link.textContent = currentLang === 'fr' ? item.fr : item.en;
+    submenuContent.appendChild(link);
+  });
+  
+  mobileMenuContent.appendChild(submenuContent);
+}
+
+// Show main menu
+function showMainMenu() {
+  currentSubmenu = null;
+  updateMobileMenuContent();
+  
+  // Show the mobile menu footer again when returning to main menu
+  const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
+  if (mobileMenuFooter) {
+    mobileMenuFooter.style.display = 'block';
+  }
+}
+
+// Update mobile menu content (from home page)
 function updateMobileMenuContent() {
-  const mobileMenuContent = document.querySelector('.mobile-menu-content');
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
   const mobileMenuFooter = document.querySelector('.mobile-menu-footer');
   
   if (!mobileMenuContent || !mobileMenuFooter) return;
@@ -1795,7 +1995,13 @@ function updateMobileMenuContent() {
   mobileMenuContent.innerHTML = '';
   mobileMenuFooter.innerHTML = '';
   
-  // Add Home section - FIXED: Add text next to icon
+  // If we're in a submenu, show it
+  if (currentSubmenu) {
+    showSubmenu(currentSubmenu);
+    return;
+  }
+  
+  // Add Home section
   const homeSection = document.createElement('div');
   homeSection.className = 'mobile-menu-section';
   
@@ -1816,7 +2022,7 @@ function updateMobileMenuContent() {
   
   mobileMenuContent.appendChild(homeSection);
   
-  // Add Categories section - FIXED: Add French title
+  // Add Categories section - UPDATED: Categories are now expandable
   const categoriesSection = document.createElement('div');
   categoriesSection.className = 'mobile-menu-section';
   
@@ -1829,28 +2035,43 @@ function updateMobileMenuContent() {
   
   categoriesSection.appendChild(categoriesTitle);
   
-  // Add category links with ">" as requested
+  // Add category items (expandable, no href)
   const categories = [
-    { en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web', url: 'https://global-toolkit.github.io/saas-&-web-hosting' },
-    { en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs', url: 'https://global-toolkit.github.io/online-tools' },
-    { en: 'Payment Services', fr: 'Services de Paiement', url: 'https://global-toolkit.github.io/payments' }
+    { key: 'saas', en: 'SaaS & Web Hosting', fr: 'SaaS & Hébergement Web' },
+    { key: 'tools', en: 'Online Tools & Builders', fr: 'Outils en Ligne & Constructeurs' },
+    { key: 'payments', en: 'Payment Services', fr: 'Services de Paiement' }
   ];
   
   categories.forEach(cat => {
-    const link = document.createElement('a');
-    link.href = `${cat.url}?lang=${currentLang}&currency=${currentCurrency}`;
-    link.className = 'mobile-menu-link';
+    const categoryItem = document.createElement('div');
+    categoryItem.className = 'mobile-menu-link';
+    categoryItem.style.cursor = 'pointer';
+    categoryItem.style.display = 'flex';
+    categoryItem.style.justifyContent = 'normal';
+    categoryItem.style.alignItems = 'baseline';
     
-    const linkText = currentLang === 'fr' ? cat.fr : cat.en;
-    // CHANGED: Add ">" to the end of each category name as requested
-    link.textContent = linkText + ' >';
+    const categoryText = document.createElement('span');
+    categoryText.textContent = currentLang === 'fr' ? cat.fr : cat.en;
     
-    categoriesSection.appendChild(link);
+    const arrowIcon = document.createElement('i');
+    arrowIcon.className = 'fas fa-chevron-right';
+    arrowIcon.style.fontSize = '12px';
+    arrowIcon.style.color = 'var(--electric-blue)';
+    arrowIcon.style.marginLeft = '8px';
+    
+    categoryItem.appendChild(categoryText);
+    categoryItem.appendChild(arrowIcon);
+    
+    categoryItem.addEventListener('click', () => {
+      showSubmenu(cat.key);
+    });
+    
+    categoriesSection.appendChild(categoryItem);
   });
   
   mobileMenuContent.appendChild(categoriesSection);
   
-  // Add Tools section - FIXED: Add French title
+  // Add Tools section
   const toolsSection = document.createElement('div');
   toolsSection.className = 'mobile-menu-section';
   
@@ -1876,7 +2097,7 @@ function updateMobileMenuContent() {
     link.className = 'mobile-menu-link';
     link.textContent = currentLang === 'fr' ? tool.fr : tool.en;
     
-    // Add click handler for comparison calculator and deals tracker
+    // Add click handler for coming soon tools
     if (tool.en === 'Comparison Calculator' || tool.en === 'Deals Tracker') {
       link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1943,7 +2164,7 @@ function updateMobileMenuContent() {
   const contactItems = [
     { icon: 'fas fa-envelope', text: 'Email', href: 'mailto:globaltoolkit.contact@gmail.com' },
     { icon: 'fab fa-facebook', text: 'Facebook', href: 'https://www.facebook.com/GlobalToolkit' },
-    { icon: 'fas fa-comment-alt', text: 'Share Feedback', href: '#feedback', onclick: "document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';" }
+    { icon: 'fas fa-comment-alt', text: 'Share Feedback', href: 'https://global-toolkit.github.io/#feedback', onclick: "document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); document.body.style.overflow = '';" }
   ];
   
   contactItems.forEach(item => {
@@ -1974,7 +2195,6 @@ function updateMobileMenuContent() {
   const aboutLink = document.createElement('a');
   aboutLink.href = `https://global-toolkit.github.io/about?lang=${currentLang}&currency=${currentCurrency}`;
   aboutLink.className = 'mobile-menu-link';
-  // CHANGED: Increased margin-top from 3 to 9px
   aboutLink.style.marginTop = '9px';
   aboutLink.style.display = 'block';
   
